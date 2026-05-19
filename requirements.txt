@@ -1,0 +1,6 @@
+pandas>=1.5
+numpy>=1.23
+matplotlib>=3.6
+scipy>=1.9
+copulae>=0.7
+openpyxl>=3.0
