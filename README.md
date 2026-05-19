@@ -55,7 +55,7 @@ Tide-gauge records were originally collected on different vertical datums. Befor
 
 ## 2. Data pairing and coverage
 
-Each figure shows one panel per tide gauge. **Blue** bars mark contiguous tide-observation periods; **green** bars mark rainfall records paired with that gauge; **red hatching** marks the dates that rainfall actually contributes after priority merging and tide–rainfall inner join. The percentage after each rainfall station name is its share of the analysable sample. The analysis uses only dates where both tide and merged rainfall are available.
+Each figure covers **one region**. Within a figure, **each subplot corresponds to one tide gauge used in the analysis** and shows (i) the tide record span, (ii) the observation spans of rainfall gauges paired with that tide gauge, and (iii) the matched period used after priority merging and tide–rainfall inner join. **Blue** bars mark contiguous tide-observation periods; **green** bars mark rainfall records paired with that gauge; **red hatching** marks the dates that a rainfall gauge actually contributes to the merged series. The percentage after each rainfall station name is its share of the analysable sample at that tide gauge.
 
 ### 2.1 GBA
 
@@ -71,7 +71,7 @@ Five tide gauges; each is matched to the six nearest rainfall gauges, keeping so
 
 ### 2.3 Tokyo Bay
 
-Tide levels are converted to Tokyo Peil via station-specific piecewise offset series (§1.1).
+![Tokyo Bay tide–rainfall coverage](docs/figures/coverage_Tokyo.png)
 
 Six tide gauges with manually assigned rainfall priority lists. Most stations yield 15,000–20,000 analysis days from the 1960s–2010s; Yokosuka and Aburatsubo are shorter from 1976 onward because rainfall records start later. Kawasaki ends in 1996 (8,771 days).
 
@@ -79,12 +79,12 @@ Six tide gauges with manually assigned rainfall priority lists. Most stations yi
 
 | Region | Tide data | Rainfall data |
 |---|---|---|
-| GBA_Pearl River Estuary | _[TODO: provider URL]_ | _[TODO: provider URL]_ |
-| GBA_HongKong | _[TODO: HKO / CEDD URL]_ | _[TODO: HKO rainfall URL]_ |
-| San Francisco | [NOAA CO-OPS](https://tidesandcurrents.noaa.gov/) | [NOAA/NCEI](https://www.ncei.noaa.gov/) |
-| Tokyo | _[TODO: JMA / MLIT URL]_ | _[TODO: JMA AMeDAS URL]_ |
+| GBA_Pearl River Estuary | Pearl River Basin Hydrological Yearbook (珠江流域水文年鉴) | Pearl River Basin Hydrological Yearbook (珠江流域水文年鉴) |
+| GBA_HongKong | [Hong Kong Observatory — Climatological Information Services](https://my.weather.gov.hk/en/cis/climat.htm) | [Hong Kong Observatory — Climatological Information Services](https://my.weather.gov.hk/en/cis/climat.htm) |
+| San Francisco | [GESLA-4](https://gesla787883612.wordpress.com/downloads/) | [NOAA NCEI — Daily Observational Data](https://www.ncei.noaa.gov/maps/daily/) |
+| Tokyo | [GESLA-4](https://gesla787883612.wordpress.com/downloads/) | [JMA — Past Weather Data Search](https://www.data.jma.go.jp/stats/etrn/index.php) |
 
-Bundled `data/` folders contain the inputs used in the published analysis.
+Bundled `data/` folders contain the station files used in the published analysis.
 
 ---
 
@@ -97,7 +97,7 @@ Bundled `data/` folders contain the inputs used in the published analysis.
 
 ### 3.2 Principles
 
-1. Run each script from its region folder; inputs live in `./data/`.
+1. **Run the script for the target bay area only** — Do not mix regions: input formats and vertical-datum conversion all differ (§1.1).
 2. Outputs (CSV, figures) are written to the working directory.
 3. Results depend on data and AIC-based model selection.
 
