@@ -26,6 +26,7 @@ T(R>r,\ S>s)=\frac{1}{1-F_R(r)-F_S(s)+C(F_R(r),F_S(s))}
 $$
 
 where $F_R$, $F_S$ are marginal CDFs and $C$ is the fitted copula.
+
 8. **Output** — Return-period contour plots; CSV tables of contour axis intersections and maximum-density points.
 
 ### 1.1 Vertical datum conversion
