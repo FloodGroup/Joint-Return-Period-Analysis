@@ -2,7 +2,8 @@
 
 Open-source scripts for estimating **bivariate rainfall–sea level return periods** in three megacity bay areas:
 
-- **GBA** — Greater Bay Area Bay
+- **GBA_Pearl River Estuary** — Pearl River estuary (mainland China)
+- **GBA_HongKong** — Hong Kong
 - **San Francisco** — San Francisco Bay
 - **Tokyo** — Tokyo Bay
 
@@ -12,37 +13,51 @@ Open-source scripts for estimating **bivariate rainfall–sea level return perio
 
 Each regional script follows the same steps:
 
-1. **Pair stations** — Assign one or more rainfall gauges to each tide gauge (fixed pairs on the mainland; priority-ordered lists elsewhere; San Francisco uses the six nearest gauges by distance).
+1. **Pair stations** — Assign one or more rainfall gauges to each tide gauge (fixed pairs in GBA_Pearl River Estuary; priority-ordered lists in GBA_HongKong and Tokyo; San Francisco uses the six nearest gauges by distance).
 2. **Merge and align** — Build a single daily rainfall series from paired gauges (first available date wins by priority); inner-join with daily maximum sea level on calendar date.
-3. **Datum correction** — Apply piecewise vertical offsets where tide records use different reference datums (mainland GBA, Tokyo) or a uniform shift (Hong Kong: −0.868 m to 1985 Chinese Height Datum; San Francisco: per-station `datum_offset`).
+3. **Datum correction** — Convert daily maximum sea level to each region's unified vertical reference (see §1.1).
 4. **Define compound events** — Flag days when 24-hour cumulative rainfall and daily maximum sea level both exceed their **95th-percentile** thresholds in the merged series.
 5. **De-cluster** — Treat events within **3 days** of each other as one event.
 6. **Fit models** — Select marginal distributions (AIC among Gamma, GEV, GP, logistic, normal, Gumbel, Nakagami) and copulas (AIC among Gaussian, Student-t, Clayton, Gumbel, Frank, Joe); estimate by MLE; assess marginals with the Kolmogorov–Smirnov test.
 7. **Return periods** — For joint exceedance at levels (r, s):
 
-   \[
-   T(R>r,\ S>s)=\frac{1}{1-F_R(r)-F_S(s)+C(F_R(r),F_S(s))}
-   \]
+$$
+T(R>r,\ S>s)=\frac{1}{1-F_R(r)-F_S(s)+C(F_R(r),F_S(s))}
+$$
 
-   where \(F_R\), \(F_S\) are marginal CDFs and \(C\) is the fitted copula.
+where $F_R$, $F_S$ are marginal CDFs and $C$ is the fitted copula.
 8. **Output** — Return-period contour plots; CSV tables of contour axis intersections and maximum-density points.
+
+### 1.1 Vertical datum conversion
+
+Tide-gauge sea levels are converted to a **regional unified vertical reference** before copula fitting. Rainfall is not transformed.
+
+| Region | Unified reference |
+|---|---|
+| GBA_Pearl River Estuary | 1985 Chinese Height Datum (1985 中国国家高程基准) |
+| GBA_HongKong | 1985 Chinese Height Datum (1985 中国国家高程基准) |
+| San Francisco | North American Vertical Datum of 1988 (NAVD88) |
+| Tokyo | Tokyo Peil (TP) |
+
+**GBA_Pearl River Estuary** — two steps:
+
+1. **Piecewise offset (Pearl River Datum)** — Original tide records are referenced to the Pearl River Datum (珠江基准面). Where a station’s vertical reference changed over time, a time-varying offset is applied to each daily maximum sea level. 
+
+2. **Shift to 1985 datum** — After the piecewise step, all stations receive a uniform **+0.744 m** shift, equal to the height difference between the Pearl River Datum and the 1985 Chinese Height Datum.
+
+**GBA_HongKong** — tide records are on Hong Kong Chart Datum (香港海图基准面, HKCD). All stations receive a uniform **−0.868 m** shift to the 1985 Chinese Height Datum (1985 datum is 0.868 m above HKCD).
+
+**San Francisco Bay** — each tide gauge originally uses a different local datum. A station-specific constant offset converts all records to NAVD88. Negative offsets mean the station datum lies below NAVD88.
+
+**Tokyo Bay** — same piecewise approach as GBA_Pearl River Estuary, with a station-specific offset series for each tide gauge. Corrected levels are on Tokyo Peil.
 
 ---
 
 ## 2. Data pairing and coverage
 
-Coverage timelines are in [docs/figures/coverage_GBA.png](docs/figures/coverage_GBA.png), [docs/figures/coverage_San_Francisco.png](docs/figures/coverage_San_Francisco.png), and [docs/figures/coverage_Tokyo.png](docs/figures/coverage_Tokyo.png). Blue = tide observations; green = rainfall; red hatching = dates that rainfall actually supplies after priority merge and tide inner join. Percentages are each rainfall gauge's share of the analysable sample.
+Coverage timelines are in [docs/figures/coverage_GBA.png](docs/figures/coverage_GBA.png), [docs/figures/coverage_San_Francisco.png](docs/figures/coverage_San_Francisco.png), and [docs/figures/coverage_Tokyo.png](docs/figures/coverage_Tokyo.png). Blue = tide observations; green = rainfall observations; red hatching = dates that rainfall actually supplies after priority merge and tide inner join. Percentage are the proportion of rainfall days at this station out of the total number of days selected for subsequent analysis.
 
-**Table columns (all regions):**
-
-| Column | Meaning |
-|---|---|
-| Tide gauge | Tide observation station |
-| Rainfall pairing | Gauges used, in priority order (share of analysis sample in parentheses) |
-| Tide observations | Span and day count of tide record |
-| Analysis sample | Span and day count after tide–rainfall inner join (used in copula fitting) |
-
-### 2.1 GBA estuary — mainland
+### 2.1 GBA_Pearl River Estuary
 
 | Tide gauge | Rainfall pairing | Tide observations | Analysis sample |
 |---|---|---|---|
@@ -50,9 +65,11 @@ Coverage timelines are in [docs/figures/coverage_GBA.png](docs/figures/coverage_
 | Sanzao | Sanzao (100%) | 1965–2022 · 15,552 d | 1965–2022 · 15,552 d |
 | Nei Lingding | Changjiang (100%) | 2010–2022 · 4,016 d | 2010–2022 · 4,016 d |
 
-Mainland rainfall workbooks treat blank cells as 0 mm daily rainfall.
+Pearl River Estuary rainfall workbooks treat blank cells as 0 mm daily rainfall. Tide levels are converted from Pearl River Datum to the 1985 Chinese Height Datum (§1.1).
 
-### 2.2 GBA estuary — Hong Kong
+### 2.2 GBA_HongKong
+
+Tide levels are converted from Hong Kong Chart Datum (香港海图基准面) to the 1985 Chinese Height Datum (−0.868 m; §1.1).
 
 | Tide gauge | Rainfall pairing | Tide observations | Analysis sample |
 |---|---|---|---|
@@ -65,7 +82,7 @@ Mainland rainfall workbooks treat blank cells as 0 mm daily rainfall.
 
 ### 2.3 San Francisco Bay
 
-Six nearest rainfall gauges are assigned per tide station; gauges contributing less than 2% of the merged sample are omitted from analysis. All tide records use a common vertical datum via station-specific offsets.
+Six nearest rainfall gauges are assigned per tide station; gauges contributing less than 2% of the merged sample are omitted from analysis. Tide levels are converted to NAVD88 via station-specific offsets (§1.1).
 
 | Tide gauge | Rainfall pairing | Tide observations | Analysis sample |
 |---|---|---|---|
@@ -76,6 +93,8 @@ Six nearest rainfall gauges are assigned per tide station; gauges contributing l
 | Port Chicago | Concord Buchanan Field (53.5%) → Martinez Water Plant (46.3%) | 1979–2021 · 15,038 d | 1979–2021 · 15,038 d |
 
 ### 2.4 Tokyo Bay
+
+Tide levels are converted to Tokyo Peil via station-specific piecewise offset series (§1.1).
 
 | Tide gauge | Rainfall pairing | Tide observations | Analysis sample |
 |---|---|---|---|
@@ -90,8 +109,8 @@ Six nearest rainfall gauges are assigned per tide station; gauges contributing l
 
 | Region | Tide data | Rainfall data |
 |---|---|---|
-| GBA mainland | _[TODO: provider URL]_ | _[TODO: provider URL]_ |
-| Hong Kong | _[TODO: HKO / CEDD URL]_ | _[TODO: HKO rainfall URL]_ |
+| GBA_Pearl River Estuary | _[TODO: provider URL]_ | _[TODO: provider URL]_ |
+| GBA_HongKong | _[TODO: HKO / CEDD URL]_ | _[TODO: HKO rainfall URL]_ |
 | San Francisco | [NOAA CO-OPS](https://tidesandcurrents.noaa.gov/) | [NOAA/NCEI](https://www.ncei.noaa.gov/) |
 | Tokyo | _[TODO: JMA / MLIT URL]_ | _[TODO: JMA AMeDAS URL]_ |
 
@@ -109,52 +128,21 @@ Bundled `data/` folders contain the inputs used in the published analysis.
 ### 3.2 Principles
 
 1. Run each script from its region folder; inputs live in `./data/`.
-2. Do not mix regions — workflows are independent.
-3. Outputs (CSV, figures) are written to the working directory.
-4. No random seeds; results depend on data and AIC-based model selection.
+2. Outputs (CSV, figures) are written to the working directory.
+3. Results depend on data and AIC-based model selection.
 
-### 3.3 Run
-
-**GBA mainland**
-
-```bash
-cd GBA
-python contour_Estuary.py
-```
-
-**Hong Kong**
-
-```bash
-cd GBA/HongKong
-python contour_HongKong.py
-```
-
-**San Francisco**
-
-```bash
-cd San_Francisco
-python contour_SF.py
-```
-
-**Tokyo**
-
-```bash
-cd Tokyo
-python contour_Tokyo.py
-```
-
-### 3.4 Customisation
+### 3.3 Customisation
 
 | Parameter | Location | Purpose |
 |---|---|---|
 | `station_configs` | end of each script | Station pairs, plot limits |
 | `enabled_distributions` | per station | Marginal candidates |
-| `enabled_copulas` | per station (Estuary) | Copula candidates |
-| `datum_offset` | SF configs | Vertical datum (m) |
-| `offset_file` | Estuary / Tokyo | Datum correction series |
+| `enabled_copulas` | per station (Pearl River Estuary) | Copula candidates |
+| `datum_offset` | SF configs | Station datum → NAVD88 shift (m) |
+| `offset_file` | Pearl River Estuary / Tokyo | Piecewise datum correction series |
 | `VERBOSE` | `contour_Estuary.py` | Verbose logging |
 
-### 3.5 Outputs
+### 3.4 Outputs
 
 Per tide station:
 
@@ -162,36 +150,7 @@ Per tide station:
 - `contour_axis_intersections_<STATION>.csv`
 - Matplotlib figure (display or save manually)
 
-### 3.6 Troubleshooting
-
-| Issue | Check |
-|---|---|
-| `FileNotFoundError` | Input files present in `data/` |
-| Empty compound events | Tide–rain overlap (see coverage figures) |
-| GBA xlsx errors | Install `openpyxl` |
-| SF missing rainfall | Rain gauge CSV files in `data/` |
-
 ---
-
-## Repository layout
-
-```
-├── README.md
-├── requirements.txt
-├── docs/figures/
-├── GBA/
-│   ├── contour_Estuary.py
-│   ├── data/
-│   └── HongKong/
-│       ├── contour_HongKong.py
-│       └── data/
-├── San_Francisco/
-│   ├── contour_SF.py
-│   └── data/
-└── Tokyo/
-    ├── contour_Tokyo.py
-    └── data/
-```
 
 ## License
 
