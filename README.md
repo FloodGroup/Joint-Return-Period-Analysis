@@ -125,4 +125,4 @@ Per tide station:
 
 ## License
 
-Add your license file before public release (e.g. MIT).
+This project is licensed under the [MIT License](LICENSE).
