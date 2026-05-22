@@ -1,4 +1,4 @@
-# Compound Flood Return-Period Analysis
+# Flood Compound Return Period Analysis
 
 Open-source scripts for estimating **bivariate rainfall–sea level return periods** in three megacity bay areas:
 
@@ -26,6 +26,7 @@ T(R>r,\ S>s)=\frac{1}{1-F_R(r)-F_S(s)+C(F_R(r),F_S(s))}
 $$
 
 where $F_R$, $F_S$ are marginal CDFs and $C$ is the fitted copula.
+
 8. **Output** — Return-period contour plots; CSV tables of contour axis intersections and maximum-density points.
 
 ### 1.1 Vertical datum conversion
@@ -110,7 +111,6 @@ Bundled `data/` folders contain the station files used in the published analysis
 | `enabled_copulas` | per station (Pearl River Estuary) | Copula candidates |
 | `datum_offset` | SF configs | Station datum → NAVD88 shift (m) |
 | `offset_file` | Pearl River Estuary / Tokyo | Piecewise datum correction series |
-| `VERBOSE` | `contour_Estuary.py` | Verbose logging |
 
 ### 3.4 Outputs
 
@@ -124,4 +124,4 @@ Per tide station:
 
 ## License
 
-Add your license file before public release (e.g. MIT).
+This project is licensed under the [MIT License](LICENSE).
