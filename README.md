@@ -1,4 +1,4 @@
-# Compound Flood Return-Period Analysis
+# Flood Compound Return Period Analysis
 
 Open-source scripts for estimating **bivariate rainfall–sea level return periods** in three megacity bay areas:
 
