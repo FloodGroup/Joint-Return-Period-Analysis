@@ -111,7 +111,6 @@ Bundled `data/` folders contain the station files used in the published analysis
 | `enabled_copulas` | per station (Pearl River Estuary) | Copula candidates |
 | `datum_offset` | SF configs | Station datum → NAVD88 shift (m) |
 | `offset_file` | Pearl River Estuary / Tokyo | Piecewise datum correction series |
-| `VERBOSE` | `contour_Estuary.py` | Verbose logging |
 
 ### 3.4 Outputs
 
