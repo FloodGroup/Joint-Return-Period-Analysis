@@ -23,44 +23,19 @@ DATA_DIR = Path(__file__).resolve().parent / "data"
 # Set the default font to Arial for all plots
 plt.rcParams['font.family'] = 'Arial'
 
-# Log-Logistic distribution
-def loglogistic_pdf(x, alpha, beta):
-    """Log-Logistic probability density function"""
-    z = (x / alpha) ** beta
-    return (beta / alpha) * z / (x * (1 + z) ** 2)
 
-def loglogistic_cdf(x, alpha, beta):
-    """Log-Logistic cumulative distribution function"""
-    z = (x / alpha) ** beta
-    return z / (1 + z)
+# Marginal candidates: paper set (Gamma, GEV, GP, logistic, normal, Gumbel, Nakagami)
+# plus inverse Gaussian retained from Hong Kong station fits.
+MARGINAL_DISTRIBUTIONS = (
+    'gamma', 'genextreme', 'genpareto', 'logistic', 'norm', 'gumbel_r', 'nakagami', 'invgauss',
+)
 
-def fit_loglogistic(data):
-    """Fit Log-Logistic distribution using MLE"""
-    def neg_log_likelihood(params):
-        alpha, beta = params
-        if alpha <= 0 or beta <= 0:
-            return 1e10  # Invalid parameters
-        
-        try:
-            pdf_values = loglogistic_pdf(data, alpha, beta)
-            pdf_values = np.maximum(pdf_values, 1e-10)
-            return -np.sum(np.log(pdf_values))
-        except:
-            return 1e10
-    
-    # Initial guess: alpha near median, beta = 1
-    initial_guess = [np.median(data), 1.0]
-    
-    result = optimize.minimize(
-        neg_log_likelihood, 
-        initial_guess, 
-        bounds=[(1e-10, None), (1e-10, None)]
-    )
-    
-    if result.success:
-        return result.x
-    else:
-        raise RuntimeError("Log-Logistic fitting did not converge")
+def resolve_marginal_candidates(excluded_distributions=None):
+    """Return standard marginal candidates, optionally omitting excluded forms."""
+    if not excluded_distributions:
+        return MARGINAL_DISTRIBUTIONS
+    excluded = set(excluded_distributions)
+    return tuple(d for d in MARGINAL_DISTRIBUTIONS if d not in excluded)
 
 class SimpleJoeCopula:
     """Internal helper."""
@@ -358,10 +333,10 @@ def process_multiple_rainfall_files(rainfall_data_paths):
                             processed_df = parse_rain_suffix_file(file_path)
                         else:
                             # print(f"    Warning: Unrecognized format based on sniffing (avg commas ~ {avg_commas:.1f}). Skipping file.")
-                            # continue # Skip this file # OLD
+                            pass
                 except Exception as sniff_err:
                     # print(f"    Error during content sniffing for '{file_path}': {sniff_err}. Skipping file.")
-                    # continue # Skip this file # OLD
+                    pass
 
             # 3. Validate processed data
             if processed_df is not None and not processed_df.empty:
@@ -1066,400 +1041,24 @@ def cluster_compound_events(compound_data, min_interval=3):
 
     return data.drop(columns=['Cluster_ID']) # Remove temporary cluster ID column
 
-# Fit marginal distributions
-def fit_marginal_distributions(compound_data, column, min_samples=20, extreme_threshold=None):
-    """Internal helper."""
-    extreme_data_series = compound_data[compound_data['Is_Rep_Compound_Extreme'] == True][column].dropna()
-    
-    if len(extreme_data_series) < min_samples:
-        if column == 'Rainfall':
-            extra_data = compound_data[(compound_data['Is_Extreme_Rainfall'] == True) & 
-                                     (compound_data['Is_Rep_Compound_Extreme'] == False)][column].dropna()
-            extreme_data_series = pd.concat([extreme_data_series, extra_data.sample(min(len(extra_data), min_samples - len(extreme_data_series)), random_state=1)])
-        else:  # Sea_Level
-            extra_data = compound_data[(compound_data['Is_Extreme_Sea_Level'] == True) & 
-                                     (compound_data['Is_Rep_Compound_Extreme'] == False)][column].dropna()
-            extreme_data_series = pd.concat([extreme_data_series, extra_data.sample(min(len(extra_data), min_samples - len(extreme_data_series)), random_state=1)])
-        extreme_data_series = extreme_data_series.dropna()
-
-    if len(extreme_data_series) < 10:
-        loc, scale = np.mean(extreme_data_series) if len(extreme_data_series) > 0 else 0, np.std(extreme_data_series) if len(extreme_data_series) > 1 else 1.0
-        return {
-            'distribution': 'norm', 'params': (loc, scale), 'bic': float('inf'),
-            'ks_stat': float('inf'), 'ks_pvalue': 0.0,
-            'num_samples_for_pot_calc_prob': len(extreme_data_series),
-            'exceedance_values_for_calc_prob': np.array([])
-        }
-
-    extreme_data_np_array = extreme_data_series.values
-    n_samples = len(extreme_data_np_array)
-
-    gpd_actual_threshold = extreme_threshold
-    if gpd_actual_threshold is None:
-        if column == 'Rainfall':
-            gpd_actual_threshold = np.percentile(extreme_data_np_array, 10) if len(extreme_data_np_array) > 0 else 0
-        else: 
-            gpd_actual_threshold = np.min(extreme_data_np_array) if len(extreme_data_np_array) > 0 else 0
-    
-    fit_results = []
-    
-    def calculate_bic(k, loglik, n):
-        return k * np.log(n) - 2 * loglik
-
-    # Common properties for probability calculation
-    common_props_for_prob_calc = {
-        'num_samples_for_pot_calc_prob': n_samples
-    }
-
-    if np.all(extreme_data_np_array >= 0) and np.all(extreme_data_np_array <= 1):
-        try:
-            params = stats.beta.fit(extreme_data_np_array)
-            loglik = np.sum(stats.beta.logpdf(extreme_data_np_array, *params))
-            bic = calculate_bic(len(params), loglik, n_samples)
-            ks_stat, ks_pvalue = stats.kstest(extreme_data_np_array, lambda x: stats.beta.cdf(x, *params))
-            cm_res = stats.cramervonmises(extreme_data_np_array, 'beta', args=params)
-            fit_results.append({**{'distribution': 'beta', 'params': params, 'loglik': loglik, 'bic': bic,
-                'ks_stat': ks_stat, 'ks_pvalue': ks_pvalue, 
-                'cm_stat': cm_res.statistic, 'cm_pvalue': cm_res.pvalue}, 
-                **common_props_for_prob_calc})
-        except Exception as e:
-            # logging omitted
-            pass
-
-    if np.all(extreme_data_np_array > 0):
-        try:
-            params = stats.fisk.fit(extreme_data_np_array)
-            loglik = np.sum(stats.fisk.logpdf(extreme_data_np_array, *params))
-            bic = calculate_bic(len(params), loglik, n_samples)
-            ks_stat, ks_pvalue = stats.kstest(extreme_data_np_array, lambda x: stats.fisk.cdf(x, *params))
-            cm_res = stats.cramervonmises(extreme_data_np_array, 'fisk', args=params)
-            fit_results.append({**{'distribution': 'fisk', 'params': params, 'loglik': loglik, 'bic': bic,
-                'ks_stat': ks_stat, 'ks_pvalue': ks_pvalue, 
-                'cm_stat': cm_res.statistic, 'cm_pvalue': cm_res.pvalue}, 
-                **common_props_for_prob_calc})
-        except Exception as e:
-            # logging omitted
-            pass
-    
-    if np.all(extreme_data_np_array > 0):
-        try:
-            params = stats.expon.fit(extreme_data_np_array)
-            loglik = np.sum(stats.expon.logpdf(extreme_data_np_array, *params))
-            bic = calculate_bic(len(params), loglik, n_samples)
-            ks_stat, ks_pvalue = stats.kstest(extreme_data_np_array, lambda x: stats.expon.cdf(x, *params))
-            cm_res = stats.cramervonmises(extreme_data_np_array, 'expon', args=params)
-            fit_results.append({**{'distribution': 'expon', 'params': params, 'loglik': loglik, 'bic': bic,
-                'ks_stat': ks_stat, 'ks_pvalue': ks_pvalue, 
-                'cm_stat': cm_res.statistic, 'cm_pvalue': cm_res.pvalue}, 
-                **common_props_for_prob_calc})
-        except Exception as e:
-            # logging omitted
-            pass
-    
-    try:
-        params = stats.gumbel_r.fit(extreme_data_np_array)
-        loglik = np.sum(stats.gumbel_r.logpdf(extreme_data_np_array, *params))
-        bic = calculate_bic(len(params), loglik, n_samples)
-        ks_stat, ks_pvalue = stats.kstest(extreme_data_np_array, lambda x: stats.gumbel_r.cdf(x, *params))
-        cm_res = stats.cramervonmises(extreme_data_np_array, 'gumbel_r', args=params)
-        fit_results.append({**{'distribution': 'gumbel_r', 'params': params, 'loglik': loglik, 'bic': bic,
-            'ks_stat': ks_stat, 'ks_pvalue': ks_pvalue, 
-            'cm_stat': cm_res.statistic, 'cm_pvalue': cm_res.pvalue}, 
-            **common_props_for_prob_calc})
-    except Exception as e:
-        # logging omitted
-        pass
-    
-    if np.all(extreme_data_np_array > 0):
-        try:
-            params = stats.gamma.fit(extreme_data_np_array)
-            loglik = np.sum(stats.gamma.logpdf(extreme_data_np_array, *params))
-            bic = calculate_bic(len(params), loglik, n_samples)
-            ks_stat, ks_pvalue = stats.kstest(extreme_data_np_array, lambda x: stats.gamma.cdf(x, *params))
-            cm_res = stats.cramervonmises(extreme_data_np_array, 'gamma', args=params)
-            fit_results.append({**{'distribution': 'gamma', 'params': params, 'loglik': loglik, 'bic': bic,
-                'ks_stat': ks_stat, 'ks_pvalue': ks_pvalue, 
-                'cm_stat': cm_res.statistic, 'cm_pvalue': cm_res.pvalue}, 
-                **common_props_for_prob_calc})
-        except Exception as e:
-            # logging omitted
-            pass
-    
-    try:
-        params = stats.genextreme.fit(extreme_data_np_array)
-        loglik = np.sum(stats.genextreme.logpdf(extreme_data_np_array, *params))
-        bic = calculate_bic(len(params), loglik, n_samples)
-        ks_stat, ks_pvalue = stats.kstest(extreme_data_np_array, lambda x: stats.genextreme.cdf(x, *params))
-        cm_res = stats.cramervonmises(extreme_data_np_array, 'genextreme', args=params)
-        fit_results.append({**{'distribution': 'genextreme', 'params': params, 'loglik': loglik, 'bic': bic,
-            'ks_stat': ks_stat, 'ks_pvalue': ks_pvalue, 
-            'cm_stat': cm_res.statistic, 'cm_pvalue': cm_res.pvalue}, 
-            **common_props_for_prob_calc})
-    except Exception as e:
-        # logging omitted
-        pass
-
-    exceedances = extreme_data_np_array[extreme_data_np_array > gpd_actual_threshold] - gpd_actual_threshold
-    exceedances_for_fit = exceedances[exceedances > 1e-9]
-    if len(exceedances_for_fit) >= 5:
-        try:
-            gpd_params_fitted = stats.genpareto.fit(exceedances_for_fit, floc=0)
-            loglik_gpd = np.sum(stats.genpareto.logpdf(exceedances_for_fit, *gpd_params_fitted))
-            bic_gpd = calculate_bic(len(gpd_params_fitted)-1 if len(gpd_params_fitted)>1 else 1, loglik_gpd, len(exceedances_for_fit))
-            ks_stat, ks_pvalue = stats.kstest(exceedances_for_fit, lambda x: stats.genpareto.cdf(x, *gpd_params_fitted))
-            cm_res_gpd = stats.cramervonmises(exceedances_for_fit, 'genpareto', args=gpd_params_fitted)
-            fit_results.append({
-                'distribution': 'genpareto', 'params': gpd_params_fitted, 'loglik': loglik_gpd, 'bic': bic_gpd,
-                'ks_stat': ks_stat, 'ks_pvalue': ks_pvalue,
-                'cm_stat': cm_res_gpd.statistic, 'cm_pvalue': cm_res_gpd.pvalue,
-                'threshold': gpd_actual_threshold,
-                'exceedance_values_for_calc_prob': exceedances_for_fit, 
-                **common_props_for_prob_calc
-            })
-        except Exception as e:
-            # logging omitted
-            pass
-
-    if np.all(extreme_data_np_array > 0):
-        try:
-            params = stats.invgauss.fit(extreme_data_np_array)
-            loglik = np.sum(stats.invgauss.logpdf(extreme_data_np_array, *params))
-            bic = calculate_bic(len(params), loglik, n_samples)
-            ks_stat, ks_pvalue = stats.kstest(extreme_data_np_array, lambda x: stats.invgauss.cdf(x, *params))
-            cm_res = stats.cramervonmises(extreme_data_np_array, 'invgauss', args=params)
-            fit_results.append({**{'distribution': 'invgauss', 'params': params, 'loglik': loglik, 'bic': bic,
-                'ks_stat': ks_stat, 'ks_pvalue': ks_pvalue, 
-                'cm_stat': cm_res.statistic, 'cm_pvalue': cm_res.pvalue}, 
-                **common_props_for_prob_calc})
-        except Exception as e:
-            # logging omitted
-            pass
-
-    try:
-        params = stats.logistic.fit(extreme_data_np_array)
-        loglik = np.sum(stats.logistic.logpdf(extreme_data_np_array, *params))
-        bic = calculate_bic(len(params), loglik, n_samples)
-        ks_stat, ks_pvalue = stats.kstest(extreme_data_np_array, lambda x: stats.logistic.cdf(x, *params))
-        cm_res = stats.cramervonmises(extreme_data_np_array, 'logistic', args=params)
-        fit_results.append({**{'distribution': 'logistic', 'params': params, 'loglik': loglik, 'bic': bic,
-            'ks_stat': ks_stat, 'ks_pvalue': ks_pvalue, 
-            'cm_stat': cm_res.statistic, 'cm_pvalue': cm_res.pvalue}, 
-            **common_props_for_prob_calc})
-    except Exception as e:
-        # logging omitted
-        pass
-
-    if np.all(extreme_data_np_array > 0):
-        try:
-            alpha, beta = fit_loglogistic(extreme_data_np_array)
-            pdf_values = loglogistic_pdf(extreme_data_np_array, alpha, beta)
-            pdf_values = np.maximum(pdf_values, 1e-10)
-            loglik = np.sum(np.log(pdf_values))
-            bic = calculate_bic(2, loglik, n_samples)
-            ks_stat, ks_pvalue = stats.kstest(extreme_data_np_array, lambda x_val: loglogistic_cdf(x_val, alpha, beta))
-            loglogistic_cdf_callable = lambda x_val: loglogistic_cdf(x_val, alpha, beta)
-            cm_res_ll = stats.cramervonmises(extreme_data_np_array, loglogistic_cdf_callable)
-            fit_results.append({**{'distribution': 'loglogistic', 'params': (alpha, beta), 'loglik': loglik, 'bic': bic,
-                'ks_stat': ks_stat, 'ks_pvalue': ks_pvalue, 
-                'cm_stat': cm_res_ll.statistic, 'cm_pvalue': cm_res_ll.pvalue}, 
-                **common_props_for_prob_calc})
-        except Exception as e:
-            # logging omitted
-            pass 
-
-    if np.all(extreme_data_np_array > 0):
-        try:
-            params = stats.lognorm.fit(extreme_data_np_array)
-            loglik = np.sum(stats.lognorm.logpdf(extreme_data_np_array, *params))
-            bic = calculate_bic(len(params), loglik, n_samples)
-            ks_stat, ks_pvalue = stats.kstest(extreme_data_np_array, lambda x: stats.lognorm.cdf(x, *params))
-            cm_res = stats.cramervonmises(extreme_data_np_array, 'lognorm', args=params)
-            fit_results.append({**{'distribution': 'lognorm', 'params': params, 'loglik': loglik, 'bic': bic,
-                'ks_stat': ks_stat, 'ks_pvalue': ks_pvalue, 
-                'cm_stat': cm_res.statistic, 'cm_pvalue': cm_res.pvalue}, 
-                **common_props_for_prob_calc})
-        except Exception as e:
-            # logging omitted
-            pass
-
-    if np.all(extreme_data_np_array > 0):
-        try:
-            params = stats.nakagami.fit(extreme_data_np_array)
-            loglik = np.sum(stats.nakagami.logpdf(extreme_data_np_array, *params))
-            bic = calculate_bic(len(params), loglik, n_samples)
-            ks_stat, ks_pvalue = stats.kstest(extreme_data_np_array, lambda x: stats.nakagami.cdf(x, *params))
-            cm_res = stats.cramervonmises(extreme_data_np_array, 'nakagami', args=params)
-            fit_results.append({**{'distribution': 'nakagami', 'params': params, 'loglik': loglik, 'bic': bic,
-                'ks_stat': ks_stat, 'ks_pvalue': ks_pvalue, 
-                'cm_stat': cm_res.statistic, 'cm_pvalue': cm_res.pvalue}, 
-                **common_props_for_prob_calc})
-        except Exception as e:
-            # logging omitted
-            pass
-
-    try:
-        params = stats.norm.fit(extreme_data_np_array)
-        loglik = np.sum(stats.norm.logpdf(extreme_data_np_array, *params))
-        bic = calculate_bic(len(params), loglik, n_samples)
-        ks_stat, ks_pvalue = stats.kstest(extreme_data_np_array, lambda x: stats.norm.cdf(x, *params))
-        cm_res = stats.cramervonmises(extreme_data_np_array, 'norm', args=(params[0], params[1]))
-        fit_results.append({**{'distribution': 'norm', 'params': params, 'loglik': loglik, 'bic': bic,
-            'ks_stat': ks_stat, 'ks_pvalue': ks_pvalue, 
-            'cm_stat': cm_res.statistic, 'cm_pvalue': cm_res.pvalue}, 
-            **common_props_for_prob_calc})
-    except Exception as e:
-        # logging omitted
-        pass
-
-    if np.all(extreme_data_np_array > 0):
-        try:
-            params = stats.rayleigh.fit(extreme_data_np_array)
-            loglik = np.sum(stats.rayleigh.logpdf(extreme_data_np_array, *params))
-            bic = calculate_bic(len(params), loglik, n_samples)
-            ks_stat, ks_pvalue = stats.kstest(extreme_data_np_array, lambda x: stats.rayleigh.cdf(x, *params))
-            cm_res = stats.cramervonmises(extreme_data_np_array, 'rayleigh', args=params)
-            fit_results.append({**{'distribution': 'rayleigh', 'params': params, 'loglik': loglik, 'bic': bic,
-                'ks_stat': ks_stat, 'ks_pvalue': ks_pvalue, 
-                'cm_stat': cm_res.statistic, 'cm_pvalue': cm_res.pvalue}, 
-                **common_props_for_prob_calc})
-        except Exception as e:
-            # logging omitted
-            pass
-
-    if np.all(extreme_data_np_array > 0):
-        try:
-            params = stats.rice.fit(extreme_data_np_array)
-            loglik = np.sum(stats.rice.logpdf(extreme_data_np_array, *params))
-            bic = calculate_bic(len(params), loglik, n_samples)
-            ks_stat, ks_pvalue = stats.kstest(extreme_data_np_array, lambda x: stats.rice.cdf(x, *params))
-            cm_res = stats.cramervonmises(extreme_data_np_array, 'rice', args=params)
-            fit_results.append({**{'distribution': 'rice', 'params': params, 'loglik': loglik, 'bic': bic,
-                'ks_stat': ks_stat, 'ks_pvalue': ks_pvalue, 
-                'cm_stat': cm_res.statistic, 'cm_pvalue': cm_res.pvalue}, 
-                **common_props_for_prob_calc})
-        except Exception as e:
-            # logging omitted
-            pass
-
-    try:
-        params = stats.t.fit(extreme_data_np_array)
-        loglik = np.sum(stats.t.logpdf(extreme_data_np_array, *params))
-        bic = calculate_bic(len(params), loglik, n_samples)
-        ks_stat, ks_pvalue = stats.kstest(extreme_data_np_array, lambda x: stats.t.cdf(x, *params))
-        cm_res = stats.cramervonmises(extreme_data_np_array, 't', args=params)
-        fit_results.append({**{'distribution': 't', 'params': params, 'loglik': loglik, 'bic': bic,
-            'ks_stat': ks_stat, 'ks_pvalue': ks_pvalue, 
-            'cm_stat': cm_res.statistic, 'cm_pvalue': cm_res.pvalue}, 
-            **common_props_for_prob_calc})
-    except Exception as e:
-        # logging omitted
-        pass
-    
-    if np.all(extreme_data_np_array > 0):
-        try:
-            params = stats.weibull_min.fit(extreme_data_np_array)
-            loglik = np.sum(stats.weibull_min.logpdf(extreme_data_np_array, *params))
-            bic = calculate_bic(len(params), loglik, n_samples)
-            ks_stat, ks_pvalue = stats.kstest(extreme_data_np_array, lambda x: stats.weibull_min.cdf(x, *params))
-            cm_res = stats.cramervonmises(extreme_data_np_array, 'weibull_min', args=params)
-            fit_results.append({**{'distribution': 'weibull_min', 'params': params, 'loglik': loglik, 'bic': bic,
-                'ks_stat': ks_stat, 'ks_pvalue': ks_pvalue, 
-                'cm_stat': cm_res.statistic, 'cm_pvalue': cm_res.pvalue}, 
-                **common_props_for_prob_calc})
-        except Exception as e:
-            # logging omitted
-            pass
-    
-    if not fit_results:
-        loc, scale = np.mean(extreme_data_np_array) if len(extreme_data_np_array) > 0 else 0, np.std(extreme_data_np_array) if len(extreme_data_np_array) > 1 else 1.0
-        return {
-            'distribution': 'norm', 'params': (loc, scale), 'bic': float('inf'),
-            'ks_stat': float('inf'), 'ks_pvalue': 0.0, 
-            **common_props_for_prob_calc,
-            'exceedance_values_for_calc_prob': np.array([])
-        }
-
-    ks_significance_level = 0.05
-    valid_fits_by_ks = [fit for fit in fit_results if fit.get('ks_pvalue', 0) > ks_significance_level]
-    
-    selected_fits_for_bic = valid_fits_by_ks if valid_fits_by_ks else fit_results
-    
-    best_fit = min(selected_fits_for_bic, key=lambda x: x['bic'])
-    return best_fit
-
 # Calculate probability based on distribution
 def calculate_probability(value, dist_info):
     """Internal helper."""
     dist_name = dist_info['distribution']
     params = dist_info['params']
-    
+
     try:
-        if dist_name == 'norm':
-            return stats.norm.cdf(value, *params)
-        
-        elif dist_name == 'expon':
-            return stats.expon.cdf(value, *params)
-        
-        elif dist_name == 'gamma':
-            return stats.gamma.cdf(value, *params)
-        
-        elif dist_name == 'genextreme':
-            return stats.genextreme.cdf(value, *params)
-        
-        elif dist_name == 'genpareto':
+        if dist_name == 'genpareto':
             threshold = dist_info.get('threshold', 0)
             if value <= threshold:
                 return 0.0
-            else:
-                exceedance = value - threshold
-                # GPD CDF for exceedance
-                p_excess = stats.genpareto.cdf(exceedance, *params)
-                p_exceed_threshold = len(dist_info.get('exceedance_values_for_calc_prob', [])) / dist_info.get('num_samples_for_pot_calc_prob', 1000)
-                return 1.0 - p_exceed_threshold * (1.0 - p_excess)
-        
-        elif dist_name == 'logistic':
-            return stats.logistic.cdf(value, *params)
-        
-        elif dist_name == 'lognorm':
-            return stats.lognorm.cdf(value, *params)
-        
-        elif dist_name == 'gumbel_r':
-            return stats.gumbel_r.cdf(value, *params)
-        
-        elif dist_name == 'weibull_min':
-            return stats.weibull_min.cdf(value, *params)
-        
-        elif dist_name == 'loglogistic':
-            alpha, beta = params
-            return loglogistic_cdf(value, alpha, beta)
-            
-        elif dist_name == 'beta':
-            return stats.beta.cdf(value, *params)
-            
-        elif dist_name == 'fisk':  # Birnbaum-Saunders
-            return stats.fisk.cdf(value, *params)
-            
-        elif dist_name == 'invgauss':
-            return stats.invgauss.cdf(value, *params)
-            
-        elif dist_name == 'nakagami':
-            return stats.nakagami.cdf(value, *params)
-            
-        elif dist_name == 'rayleigh':
-            return stats.rayleigh.cdf(value, *params)
-            
-        elif dist_name == 'rice':  # Rician
-            return stats.rice.cdf(value, *params)
-            
-        elif dist_name == 't':
-            return stats.t.cdf(value, *params)
-        
-        else:
-            # logging omitted
-            return 0.5
-            
-    except Exception as e:
-        # logging omitted
+            exceedance = value - threshold
+            p_excess = stats.genpareto.cdf(exceedance, *params)
+            p_exceed_threshold = len(dist_info.get('exceedance_values_for_calc_prob', [])) / dist_info.get('num_samples_for_pot_calc_prob', 1000)
+            return 1.0 - p_exceed_threshold * (1.0 - p_excess)
+
+        return getattr(stats, dist_name).cdf(value, *params)
+    except Exception:
         return 0.5
 
 # Probability integral transform
@@ -1567,453 +1166,6 @@ def perform_cramer_von_mises_test(data, copula_model):
     p_value = np.nan # Placeholder, as robust p-value calculation is non-trivial
     
     return p_value, cm_stat
-
-# Fit Copula models
-def fit_copula_models(compound_data, rainfall_col, sea_level_col, rainfall_threshold=None, sea_level_threshold=None):
-    """
-    Fit Copula models using marginal distribution fitting (Modified for stricter error handling and detailed output)
-    """
-    # Calculate 95th percentile if thresholds not provided
-    if rainfall_threshold is None:
-        rainfall_threshold = np.percentile(compound_data[rainfall_col], 95)
-    if sea_level_threshold is None:
-        sea_level_threshold = np.percentile(compound_data[sea_level_col], 95)
-        
-    print(f"Rainfall threshold: {rainfall_threshold:.2f} mm")
-    print(f"Sea level threshold: {sea_level_threshold:.2f} m")
-    
-    # Select compound extreme events
-    extreme_events = compound_data[compound_data['Is_Rep_Compound_Extreme'] == True].copy()
-    
-    print(f"Compound extreme events: {len(extreme_events)}")
-    
-    # Check if enough extreme events
-    if len(extreme_events) < 20:
-        print(f"Warning: Few compound extreme events ({len(extreme_events)}), will use enhanced fitting strategy")
-    
-    print(f"Using {len(extreme_events)} compound extreme events to fit Copula models")
-    
-    # Fit marginal distributions with extreme event thresholds
-    fits = {
-        rainfall_col: fit_marginal_distributions(compound_data, rainfall_col, extreme_threshold=rainfall_threshold),
-        sea_level_col: fit_marginal_distributions(compound_data, sea_level_col, extreme_threshold=sea_level_threshold)
-    }
-    
-    print("\nMarginal distribution fitting results (Best by K-S & BIC):")
-    for col, fit in fits.items():
-        dist_name = fit['distribution']
-        params = fit['params']
-        bic_val = fit['bic']
-        
-        param_str_parts = []
-        if dist_name == 'genpareto':
-            shape, _, scale = params
-            threshold = fit['threshold']
-            param_str_parts.extend([f"shape={shape:.4f}", f"scale={scale:.4f}", f"threshold={threshold:.4f}"])
-        elif dist_name == 'norm':
-            loc, scale = params
-            param_str_parts.extend([f"loc={loc:.4f}", f"scale={scale:.4f}"])
-        elif dist_name == 'genextreme':
-            shape, loc, scale = params
-            param_str_parts.extend([f"shape={shape:.4f}", f"loc={loc:.4f}", f"scale={scale:.4f}"])
-        elif dist_name == 'gamma':
-            shape, loc, scale = params
-            param_str_parts.extend([f"shape={shape:.4f}", f"loc={loc:.4f}", f"scale={scale:.4f}"])
-        elif dist_name == 'lognorm':
-            shape, loc, scale = params
-            param_str_parts.extend([f"shape={shape:.4f}", f"loc={loc:.4f}", f"scale={scale:.4f}"])
-        elif dist_name == 'logistic':
-            loc, scale = params
-            param_str_parts.extend([f"loc={loc:.4f}", f"scale={scale:.4f}"])
-        elif dist_name == 'gumbel_r':
-            loc, scale = params
-            param_str_parts.extend([f"loc={loc:.4f}", f"scale={scale:.4f}"])
-        elif dist_name == 'weibull_min':
-            shape, loc, scale = params
-            param_str_parts.extend([f"shape={shape:.4f}", f"loc={loc:.4f}", f"scale={scale:.4f}"])
-        elif dist_name == 'loglogistic':
-            alpha, beta = params
-            param_str_parts.extend([f"alpha={alpha:.4f}", f"beta={beta:.4f}"])
-        else:
-            param_str_parts.append(f"params={params}")
-        
-        # cm_p_val_str = f"{fit.get('cm_pvalue', -1):.4f}" if 'cm_pvalue' in fit else "N/A" # CM Test related code removed
-        ks_p_val_str = f"{fit.get('ks_pvalue', -1):.4f}" if 'ks_pvalue' in fit else "N/A"
-        cm_p_val_str = f"{fit.get('cm_pvalue', -1):.4f}" if 'cm_pvalue' in fit else "N/A"
-        print(f"  {col}: {dist_name.capitalize()}, BIC={bic_val:.2f}, K-S p-val={ks_p_val_str}, CM p-val={cm_p_val_str}, Params: {', '.join(param_str_parts)}")
-
-    # Transform data using theoretical CDFs from fitted marginal distributions
-    print("\nTransforming data to [0,1] using theoretical CDFs...")
-    u_values = extreme_events[rainfall_col].apply(lambda x: calculate_probability(x, fits[rainfall_col]))
-    v_values = extreme_events[sea_level_col].apply(lambda x: calculate_probability(x, fits[sea_level_col]))
-    
-    # Prepare data - ensure strictly in (0,1) interval
-    u = np.clip(u_values.values, 0.001, 0.999)
-    v = np.clip(v_values.values, 0.001, 0.999)
-    data = np.column_stack((u, v))
-
-    # Diagnostic output for transformed data
-    print(f"Transformed Rainfall (u) range: [{u.min():.6f}, {u.max():.6f}]")
-    print(f"Transformed Sea Level (v) range: [{v.min():.6f}, {v.max():.6f}]")
-
-    # Fit copula models
-    results = {}
-    
-    # Helper function to calculate NLL using PDF
-    def calculate_nll_from_pdf(copula_model, data, model_name):
-        log_lik = 0
-        pdf_values = np.zeros(len(data))
-        if not hasattr(copula_model, 'pdf'):
-             # This is a programming error or an issue with the copula library/class
-             raise AttributeError(f"Critical Error: pdf method not found for {model_name} Copula. Program will terminate.")
-
-        for i in range(len(data)):
-             try:
-                  pdf_val = copula_model.pdf(data[i])
-                  if not np.isfinite(pdf_val) or pdf_val <= 0:
-                      raise ValueError(f"Critical Error: PDF for {model_name} at point {i} is invalid (value: {pdf_val}). Program will terminate.")
-                  pdf_values[i] = pdf_val # No clipping, use as is
-             except Exception as pdf_err:
-                  # Re-raise as a critical error
-                  raise RuntimeError(f"Critical Error during PDF calculation for {model_name} at point {i}: {pdf_err}. Program will terminate.") from pdf_err
-        
-        # Calculate log-likelihood
-        try:
-            # Ensure no zero or negative values before log
-            if np.any(pdf_values <= 0):
-                 raise ValueError(f"Critical Error: PDF values for {model_name} include non-positive numbers before log. Program will terminate.")
-            log_pdf_values = np.log(pdf_values)
-            if np.any(np.isinf(log_pdf_values)) or np.any(np.isnan(log_pdf_values)):
-                raise ValueError(f"Critical Error: Log of PDF for {model_name} resulted in Inf or NaN. Program will terminate.")
-            log_lik = np.sum(log_pdf_values)
-        except ValueError as ve: # Catch specific ValueError from checks
-            raise ve
-        except Exception as log_err:
-            raise RuntimeError(f"Critical Error during log-likelihood sum for {model_name}: {log_err}. Program will terminate.") from log_err
-        
-        nll = -log_lik
-        if not np.isfinite(nll):
-            raise ValueError(f"Critical Error: NLL for {model_name} is not finite (value: {nll}). Program will terminate.")
-        return nll
-
-    # 1. Gaussian Copula
-    try:
-        # print("Fitting Gaussian Copula...") # Process print removed
-        cop_gaussian = GaussianCopula(dim=2)
-        cop_gaussian.fit(data)
-        
-        nll = calculate_nll_from_pdf(cop_gaussian, data, "Gaussian")
-            
-        k = len(np.ravel(cop_gaussian.params))  # Number of parameters
-        n = len(data)  # Sample size
-        bic = k * np.log(n) + 2 * nll  # BIC = k*ln(n) - 2*loglik (nll = -loglik, so use +)
-        
-        cm_p_value, cm_stat = perform_cramer_von_mises_test(data, cop_gaussian)
-        ks_p_value, ks_stat = perform_kolmogorov_smirnov_test(data, cop_gaussian)
-        
-        results['gaussian'] = {
-            'params': cop_gaussian.params,
-            'bic': bic,
-            'nll': nll,
-            'model': cop_gaussian,
-            'cm_p_value': cm_p_value,
-            'cm_stat': cm_stat,
-            'ks_p_value': ks_p_value,
-            'ks_stat': ks_stat
-        }
-    except Exception as e:
-        print(f"  CRITICAL ERROR fitting Gaussian Copula or calculating its metrics: {str(e)}. Program will terminate.")
-        raise RuntimeError(f"Failed on Gaussian Copula: {str(e)}") from e
-    
-    # 2. Student-t Copula
-    try:
-        # print("Fitting Student-t Copula...") # Process print removed
-        cop_student = StudentCopula(dim=2)
-        cop_student.fit(data)
-
-        # Version compatibility parameter parsing
-        if isinstance(cop_student.params, tuple):  # copulae>=0.6.0
-            rho_matrix, df = cop_student.params
-            rho = rho_matrix[0, 1] if rho_matrix.ndim == 2 else rho_matrix
-        else:  # copulae<0.6.0
-            rho = cop_student.params[0, 1]
-            df = getattr(cop_student, 'df', 3.0) # Default df if not present
-
-        # Parameter validation (can be made stricter if needed)
-        rho = np.clip(float(rho), -0.999, 0.999) # Allow closer to 1/-1
-        df = max(float(df), 2.01) # df > 2 for variance
-
-        nll = calculate_nll_from_pdf(cop_student, data, "Student-t")
-            
-        k = 2  # Number of parameters: rho + df
-        n = len(data)  # Sample size
-        bic = k * np.log(n) + 2 * nll  # BIC = k*ln(n) - 2*loglik (nll = -loglik, so use +)
-
-        cm_p_value, cm_stat = perform_cramer_von_mises_test(data, cop_student)
-        ks_p_value, ks_stat = perform_kolmogorov_smirnov_test(data, cop_student)
-
-        results['t'] = {
-            'params': (rho, df),
-            'bic': bic,
-            'nll': nll,
-            'model': cop_student,
-            'cm_p_value': cm_p_value,
-            'cm_stat': cm_stat,
-            'ks_p_value': ks_p_value,
-            'ks_stat': ks_stat
-        }
-    except Exception as e:
-        print(f"  CRITICAL ERROR fitting Student-t Copula or calculating its metrics: {str(e)}. Program will terminate.")
-        raise RuntimeError(f"Failed on Student-t Copula: {str(e)}") from e
-    
-    # 3. Clayton Copula
-    try:
-        # print("Fitting Clayton Copula...") # Process print removed
-        cop_clayton = ClaytonCopula(dim=2)
-        cop_clayton.fit(data)
-        
-        nll = calculate_nll_from_pdf(cop_clayton, data, "Clayton")
-            
-        k = 1  # Number of parameters
-        n = len(data)  # Sample size
-        bic = k * np.log(n) + 2 * nll  # BIC = k*ln(n) - 2*loglik (nll = -loglik, so use +)
-        
-        cm_p_value, cm_stat = perform_cramer_von_mises_test(data, cop_clayton)
-        ks_p_value, ks_stat = perform_kolmogorov_smirnov_test(data, cop_clayton)
-        
-        results['clayton'] = {
-            'params': cop_clayton.params,
-            'bic': bic,
-            'nll': nll,
-            'model': cop_clayton,
-            'cm_p_value': cm_p_value,
-            'cm_stat': cm_stat,
-            'ks_p_value': ks_p_value,
-            'ks_stat': ks_stat
-        }
-    except Exception as e:
-        print(f"  CRITICAL ERROR fitting Clayton Copula or calculating its metrics: {str(e)}. Program will terminate.")
-        raise RuntimeError(f"Failed on Clayton Copula: {str(e)}") from e
-    
-    # 4. Gumbel Copula
-    try:
-        # print("Fitting Gumbel Copula...") # Process print removed
-        cop_gumbel = GumbelCopula(dim=2)
-        cop_gumbel.fit(data)
-        
-        nll = calculate_nll_from_pdf(cop_gumbel, data, "Gumbel")
-             
-        k = 1  # Number of parameters
-        n = len(data)  # Sample size
-        bic = k * np.log(n) + 2 * nll  # BIC = k*ln(n) - 2*loglik (nll = -loglik, so use +)
-        
-        cm_p_value, cm_stat = perform_cramer_von_mises_test(data, cop_gumbel)
-        ks_p_value, ks_stat = perform_kolmogorov_smirnov_test(data, cop_gumbel)
-        
-        results['gumbel'] = {
-            'params': cop_gumbel.params,
-            'bic': bic,
-            'nll': nll,
-            'model': cop_gumbel,
-            'cm_p_value': cm_p_value,
-            'cm_stat': cm_stat,
-            'ks_p_value': ks_p_value,
-            'ks_stat': ks_stat
-        }
-    except Exception as e:
-        print(f"  CRITICAL ERROR fitting Gumbel Copula or calculating its metrics: {str(e)}. Program will terminate.")
-        raise RuntimeError(f"Failed on Gumbel Copula: {str(e)}") from e
-    
-    # 5. Frank Copula
-    try:
-        # print("Fitting Frank Copula...") # Process print removed
-        cop_frank = FrankCopula(dim=2)
-        cop_frank.fit(data)
-        
-        nll = calculate_nll_from_pdf(cop_frank, data, "Frank")
-            
-        k = 1  # Number of parameters
-        n = len(data)  # Sample size
-        bic = k * np.log(n) + 2 * nll  # BIC = k*ln(n) - 2*loglik (nll = -loglik, so use +)
-        
-        cm_p_value, cm_stat = perform_cramer_von_mises_test(data, cop_frank)
-        ks_p_value, ks_stat = perform_kolmogorov_smirnov_test(data, cop_frank)
-        
-        results['frank'] = {
-            'params': cop_frank.params,
-            'bic': bic,
-            'nll': nll,
-            'model': cop_frank,
-            'cm_p_value': cm_p_value,
-            'cm_stat': cm_stat,
-            'ks_p_value': ks_p_value,
-            'ks_stat': ks_stat
-        }
-    except Exception as e:
-        print(f"  CRITICAL ERROR fitting Frank Copula or calculating its metrics: {str(e)}. Program will terminate.")
-        raise RuntimeError(f"Failed on Frank Copula: {str(e)}") from e
-    
-    # 6. Joe Copula
-    try:
-        # print("Fitting Joe Copula (simplified implementation)...") # Process print removed
-        cop_joe = SimpleJoeCopula(dim=2)
-        cop_joe.fit(data) # This fit includes its own NLL calculation logic, check SimpleJoeCopula.fit
-        
-        # Recalculate NLL using the common, stricter function for consistency in BIC
-        nll = calculate_nll_from_pdf(cop_joe, data, "Joe")
-            
-        k = 1  # Number of parameters (theta)
-        n = len(data)  # Sample size
-        bic = k * np.log(n) + 2 * nll  # BIC = k*ln(n) - 2*loglik (nll = -loglik, so use +)
-        
-        cm_p_value, cm_stat = perform_cramer_von_mises_test(data, cop_joe)
-        ks_p_value, ks_stat = perform_kolmogorov_smirnov_test(data, cop_joe)
-        
-        results['joe'] = {
-            'params': cop_joe.params, # This is theta
-            'bic': bic,
-            'nll': nll,
-            'model': cop_joe,
-            'cm_p_value': cm_p_value,
-            'cm_stat': cm_stat,
-            'ks_p_value': ks_p_value,
-            'ks_stat': ks_stat
-        }
-    except Exception as e:
-        print(f"  CRITICAL ERROR fitting Joe Copula or calculating its metrics: {str(e)}. Program will terminate.")
-        raise RuntimeError(f"Failed on Joe Copula: {str(e)}") from e
-    
-    # 7. Survival Clayton Copula
-    try:
-        u_orig = data[:, 0]
-        v_orig = data[:, 1]
-        # Ensure data is within (0,1) strictly for 1-x transformations to also be in (0,1)
-        # This was already handled by np.clip in the data preparation for copula fitting.
-        u_survival_transform = 1 - u_orig
-        v_survival_transform = 1 - v_orig
-        data_for_survival_fit = np.column_stack((u_survival_transform, v_survival_transform))
-
-        # Fit a standard Clayton copula on the transformed data (1-u, 1-v)
-        cop_clayton_std_for_survival = ClaytonCopula(dim=2)
-        cop_clayton_std_for_survival.fit(data_for_survival_fit)
-        theta_sc = cop_clayton_std_for_survival.params
-
-        # NLL for Survival Clayton C_sc(u,v) is NLL of C_std(1-u, 1-v)
-        # So, use the standard Clayton PDF with (1-u, 1-v) data
-        nll = calculate_nll_from_pdf(cop_clayton_std_for_survival, data_for_survival_fit, "Survival Clayton (manual)")
-            
-        k = 1  # Number of parameters (theta for Clayton)
-        n = len(data)  # Sample size
-        bic = k * np.log(n) + 2 * nll  # BIC = k*ln(n) - 2*loglik (nll = -loglik, so use +)
-        
-        # Goodness-of-fit tests for C_sc(u,v) are equivalent to tests for C_std(1-u, 1-v)
-        # Thus, use the standard Clayton model with the transformed data
-        cm_p_value, cm_stat = perform_cramer_von_mises_test(data_for_survival_fit, cop_clayton_std_for_survival)
-        ks_p_value, ks_stat = perform_kolmogorov_smirnov_test(data_for_survival_fit, cop_clayton_std_for_survival)
-        
-        results['survival_clayton'] = {
-            'params': theta_sc, # This is theta for the survival Clayton
-            'bic': bic,
-            'nll': nll,
-            # Store the standard Clayton model fitted on (1-u,1-v) data.
-            # We will need to remember this when using it later for P(U>u,V>v) or C_sc(u,v)
-            'model': cop_clayton_std_for_survival, 
-            'cm_p_value': cm_p_value,
-            'cm_stat': cm_stat,
-            'ks_p_value': ks_p_value,
-            'ks_stat': ks_stat,
-            'method': 'manual_transform' # Add a flag to know how it was fitted
-        }
-    except Exception as e:
-        print(f"  CRITICAL ERROR fitting Survival Clayton Copula (manual method) or calculating its metrics: {str(e)}. Program will terminate.")
-        raise RuntimeError(f"Failed on Survival Clayton Copula (manual method): {str(e)}") from e
-    
-    # --- Output evaluation for ALL fitted Copulas ---
-    print("\n--- Copula Model Evaluation Summary ---")
-    if not results:
-        print("No Copula models were successfully fitted. This should not happen if error handling forces termination.")
-        results['independence'] = {
-            'params': [0], 'bic': float('inf'), 'nll': float('inf'), 'model': None,
-            'cm_p_value': 1.0, 'cm_stat': 0.0, 'ks_p_value': 1.0, 'ks_stat': 0.0
-        }
-    else:
-        for name, res_dict in results.items():
-            param_str = f"{res_dict['params']}"
-            if name == 't': # Student-t has tuple (rho, df)
-                 param_str = f"rho={res_dict['params'][0]:.3f}, df={res_dict['params'][1]:.1f}"
-            elif name == 'gaussian':
-                 if isinstance(res_dict['params'], np.ndarray) and res_dict['params'].ndim == 2:
-                     param_str = f"corr={res_dict['params'][0,1]:.4f}" 
-                 else:
-                     param_str = f"{res_dict['params']}" 
-            elif name == 'survival_clayton':
-                param_str = f"theta={res_dict['params']:.4f}"
-            else: # For single param copulas like Clayton, Gumbel, Frank, Joe
-                 param_str = f"{res_dict['params']:.4f}"
-
-
-            print(f"  {name.capitalize()} Copula: BIC={res_dict['bic']:.2f}, K-S p-val={res_dict.get('ks_p_value', float('nan')):.4f}, Params: {param_str}")
-
-    # Check if at least one model was successfully fitted (results should not be empty if program reaches here)
-    if not results: # Should be redundant due to earlier checks and termination logic
-        print("CRITICAL: All Copula model fittings failed, but program did not terminate as expected. Returning independent Copula as fallback.")
-        # This indicates a flaw in the termination logic if reached.
-        results['independence'] = {
-            'params': [0], 
-            'bic': float('inf'), 
-            'nll': float('inf'),
-            'model': None,
-            'cm_p_value': 1.0, # Using 1.0 for p-value to indicate no dependence by default
-            'cm_stat': 0.0,
-            'ks_p_value': 1.0, # Using 1.0 for p-value to indicate perfect fit by default
-            'ks_stat': 0.0
-        }
-        # It's safer to still raise an error here if this state is reached.
-        # raise RuntimeError("All Copula fittings failed but program continued. This indicates a logic error.")
-        return results, 'independence', fits # Fallback, but ideally program terminates before this
-    
-    # --- Model Selection: Prioritize K-S test, then BIC ---
-    ks_significance_level = 0.05
-    
-    # Ensure results are not empty and BICs are valid before proceeding
-    if not results:
-        # This check is somewhat redundant given the individual try-except blocks for each copula
-        # and the check immediately above, but it's a final safeguard.
-        raise RuntimeError("CRITICAL: No Copula models were fitted. Program will terminate.")
-
-    # Filter for models with valid BIC and K-S p-value for selection process
-    analyzable_models = {
-        name: res for name, res in results.items()
-        if pd.notna(res.get('bic')) and pd.notna(res.get('ks_p_value'))
-    }
-
-    if not analyzable_models:
-        # This implies that even if models were "fitted", their BIC or K-S p-value couldn't be determined,
-        # which should have been caught by the calculate_nll_from_pdf or test functions.
-        raise RuntimeError("CRITICAL: No Copula models have valid BIC and K-S p-value for selection. Program will terminate.")
-
-    # Filter models that pass the K-S test
-    passed_ks_test_models = {
-        name: res for name, res in analyzable_models.items()
-        if res['ks_p_value'] > ks_significance_level
-    }
-
-    if passed_ks_test_models:
-        print(f"\nModels passing K-S test (p > {ks_significance_level}): {list(passed_ks_test_models.keys())}")
-        # Select the best model from those that passed K-S test based on lowest BIC
-        best_copula_name = min(passed_ks_test_models.items(), key=lambda x: x[1]['bic'])[0]
-        print(f"Selected best model (passes K-S test & lowest BIC): {best_copula_name.capitalize()}")
-    else:
-        print(f"\nWarning: No Copula model passed the K-S test (p > {ks_significance_level}).")
-        # Fallback: Select the model with the lowest BIC from all analyzable models
-        best_copula_name = min(analyzable_models.items(), key=lambda x: x[1]['bic'])[0]
-        print(f"Selected best model based on lowest BIC (as fallback, K-S test not passed): {best_copula_name.capitalize()}")
-    # --- End of new model selection logic ---
-    
-    # Print comprehensive model evaluation metrics for the BEST model
-    print("\nBest Copula Model Evaluation:")
-
-    return results, best_copula_name, fits
 
 # Calculate return period
 def calculate_return_period(compound_data, rainfall_col, sea_level_col, copula_results, best_copula, fits):
@@ -2185,709 +1337,6 @@ def find_maximum_density_points(R, S, Z, copula_results, best_copula, fits, rain
     import pandas as pd
     from scipy import interpolate
     from scipy import stats
-    
-    copula_model = copula_results[best_copula]['model']
-    
-    contour_func = interpolate.LinearNDInterpolator(
-        points=(S.flatten(), R.flatten()),
-        values=Z.flatten()
-    )
-    
-    max_density_points = []
-    
-    def calculate_marginal_pdf(value, dist_info):
-        """Internal helper."""
-        dist_name = dist_info['distribution']
-        params = dist_info['params']
-        
-        try:
-            if dist_name == 'norm':
-                return stats.norm.pdf(value, *params)
-            elif dist_name == 'expon':
-                return stats.expon.pdf(value, *params)
-            elif dist_name == 'gamma':
-                return stats.gamma.pdf(value, *params)
-            elif dist_name == 'genextreme':
-                return stats.genextreme.pdf(value, *params)
-            elif dist_name == 'genpareto':
-                threshold = dist_info.get('threshold', 0)
-                if value <= threshold:
-                    return 0.0
-                return stats.genpareto.pdf(value - threshold, *params)
-            elif dist_name == 'logistic':
-                return stats.logistic.pdf(value, *params)
-            elif dist_name == 'lognorm':
-                return stats.lognorm.pdf(value, *params)
-            elif dist_name == 'gumbel_r':
-                return stats.gumbel_r.pdf(value, *params)
-            elif dist_name == 'weibull_min':
-                return stats.weibull_min.pdf(value, *params)
-            elif dist_name == 'loglogistic':
-                alpha, beta = params
-                return loglogistic_pdf(value, alpha, beta)
-            else:
-                return stats.norm.pdf(value, loc=np.mean(value), scale=np.std(value) or 1.0)
-        except Exception as e:
-            # logging omitted
-            return 1.0
-    
-    for T in return_periods:
-        # logging omitted
-        
-        import matplotlib.pyplot as plt
-        fig, ax = plt.subplots(figsize=(10, 8))
-        
-        Z_numeric = np.array(Z, dtype=float)
-        
-        cs = ax.contour(S, R, Z_numeric, levels=[T])
-        plt.close(fig)
-        
-        contour_paths = cs.collections[0].get_paths()
-        if not contour_paths:
-            # logging omitted
-            continue
-            
-        all_vertices = []
-        for path in contour_paths:
-            vertices = path.vertices
-            sea_levels = vertices[:, 0]
-            rainfalls = vertices[:, 1]
-            points = np.column_stack((sea_levels, rainfalls))
-            all_vertices.append(points)
-        
-        if not all_vertices:
-            # logging omitted
-            continue
-            
-        all_points = np.vstack(all_vertices)
-        
-        pdf_values = np.zeros(len(all_points))
-        
-        for i, (s_val, r_val) in enumerate(all_points):
-            rainfall_cdf = calculate_probability(r_val, fits[rainfall_col])
-            sea_level_cdf = calculate_probability(s_val, fits[sea_level_col])
-            
-            u = np.clip(rainfall_cdf, 0.001, 0.999)
-            v = np.clip(sea_level_cdf, 0.001, 0.999)
-            
-            if copula_model is None:
-                rainfall_pdf = calculate_marginal_pdf(r_val, fits[rainfall_col])
-                sea_level_pdf = calculate_marginal_pdf(s_val, fits[sea_level_col])
-                pdf_values[i] = rainfall_pdf * sea_level_pdf
-            else:
-                try:
-                    is_survival_clayton = (best_copula == 'survival_clayton' and 
-                                           copula_results[best_copula].get('method') == 'manual_transform')
-                    
-                    if is_survival_clayton:
-                        u_transformed = 1 - u
-                        v_transformed = 1 - v
-                        copula_pdf = copula_model.pdf([u_transformed, v_transformed])
-                    else:
-                        copula_pdf = copula_model.pdf([u, v])
-                        
-                    rainfall_pdf = calculate_marginal_pdf(r_val, fits[rainfall_col])
-                    sea_level_pdf = calculate_marginal_pdf(s_val, fits[sea_level_col])
-                    
-                    pdf_values[i] = copula_pdf * rainfall_pdf * sea_level_pdf
-                except Exception as e:
-                    # logging omitted
-                    pdf_values[i] = 0
-        
-        if np.all(pdf_values == 0):
-            # logging omitted
-            continue
-            
-        max_idx = np.argmax(pdf_values)
-        max_point = all_points[max_idx]
-        max_density_sea_level, max_density_rainfall = max_point
-        
-        point_return_period = contour_func(max_density_sea_level, max_density_rainfall)
-        
-        max_density_points.append({
-            'ReturnPeriod': T,
-            'SeaLevel_m': max_density_sea_level,
-            'Rainfall_mm': max_density_rainfall,
-            'PDF_Value': pdf_values[max_idx],
-            'Verified_ReturnPeriod': float(point_return_period)
-        })
-        
-        # logging omitted
-    
-    if max_density_points:
-        results_df = pd.DataFrame(max_density_points)
-        results_df.to_csv('maximum_density_points.csv', index=False, encoding='utf-8-sig')
-        # logging omitted
-        return results_df
-    else:
-        # logging omitted
-        return pd.DataFrame()
-
-def get_storm_names():
-    """Return mapping of dates to storm names"""
-    return {
-        '1962-09-01': 'Wanda', 
-        '2018-09-16': 'Mangkhut',
-        '1989-05-20': 'Brenda',
-        '2017-08-23': 'Hato',
-        '1976-08-24': 'Ellen',
-        '2001-07-06': 'Utor',
-        '1960-06-09': 'Mary',
-        '2008-09-24': 'Hagupit',
-        '1995-08-12': 'Helen',
-        '2009-09-15': 'Koppu',
-        '1979-08-02': 'Hope'
-    }
-
-def plot_return_periods(ax, R, S, Z, compound_data, return_periods, 
-                        rainfall_threshold, sea_level_threshold, 
-                        rainfall_col='Rainfall', sea_level_col='Sea_Level'):
-    """
-    Modified return periods contour visualization function with a simple legend in the top left corner
-    """
-    # Define uniform color for points and background
-    uniform_color = (80/255, 29/255, 138/255)  # Deep purple
-    contour_color = '#46717C'  # Blue-green color for contours
-    
-    # Add background color matching the points but with high transparency
-    ax.add_patch(plt.Rectangle((sea_level_threshold, rainfall_threshold), 
-                              5.0-sea_level_threshold, 600-rainfall_threshold, 
-                              facecolor=uniform_color, alpha=0.15, zorder=0))
-    
-    # Set contour levels - as requested by user
-    levels = [5, 10, 20, 50, 100, 200, 500, 1000]
-    
-    # Draw contours - with swapped axes and modified colors/thickness
-    cs = ax.contour(S, R, Z, levels=levels, colors=contour_color, linewidths=1.8, 
-                   corner_mask=True, antialiased=True)
-    
-    # Add contour labels with adjusted positions
-    labels = ax.clabel(cs, inline=False, fontsize=16, fmt='%d', colors=contour_color)
-    
-    # Adjust the position of all labels, offset upward
-    for label in labels:
-        pos = label.get_position()
-        label_text = label.get_text()
-        
-        # Special handling for labels with specific values
-        if label_text == '5':
-            # For label 5, set larger offset and move slightly to the right
-            label.set_position((pos[0] + 0.01, pos[1] + 10))
-        elif label_text == '3':
-            label.set_position((pos[0] + 0.10, pos[1] - 5))
-        elif label_text == '20':
-            label.set_position((pos[0] - 0.01, pos[1] + 15))
-        elif label_text == '100':
-            label.set_position((pos[0] + 0.02, pos[1] + 10)) 
-        elif label_text == '20':
-            label.set_position((pos[0] + 0.02, pos[1] + 10))     
-        else:
-            # Normal offset for other labels
-            label.set_position((pos[0], pos[1] + 10))
-    
-    # Draw background points and extreme event points
-    background_points = compound_data[~compound_data['Is_Compound_Extreme']]
-    ax.scatter(
-        background_points[sea_level_col],
-        background_points[rainfall_col],
-        c='lightgray',
-        s=20,
-        alpha=0.6,              # Reduced opacity
-        edgecolors='gray',      # Add border
-        linewidths=0.5,         # Border width
-    )
-    
-    # Select compound extreme events
-    compound_extreme = compound_data[compound_data['Is_Rep_Compound_Extreme'] == True]
-    
-    # Plot compound extreme events with uniform color and border
-    scatter = ax.scatter(
-        compound_extreme[sea_level_col],
-        compound_extreme[rainfall_col],
-        c=[uniform_color],
-        s=50,
-        alpha=0.6,              # Slight transparency
-        edgecolors=None,        # No border
-        linewidths=1.0,         # Border width
-        zorder=10,
-    )
-    
-    # Create a simple legend for return period contours only
-    import matplotlib.lines as mlines
-    
-    # Single line for the legend
-    contour_line = mlines.Line2D([], [], color=contour_color, linewidth=1.8, 
-                              label='Return Period')
-    
-    # Add the simple legend to the top left corner
-    #ax.legend(handles=[contour_line], loc='upper right', 
-    #          fontsize=16, framealpha=0.8)
-    
-    # Get storm names
-    storm_names = get_storm_names()
-    
-    # Label specific storms of interest with improved visibility
-    custom_offsets = {
-        'Wanda': (-40, 20),
-        'Mangkhut': (-45, 18),
-        'Brenda': (25, -25),
-        'Hato': (10, 10),
-        'Ellen': (15, 5),
-        'Utor': (15, 10),
-        'Mary': (15, 0),
-        'Hagupit': (10, 5),
-        'Helen': (10, 40),
-        'Koppu': (29, -25),
-        'Hope': (25,-10)
-    }
-    
-    # Light pink color for storm labels
-    storm_label_color = (238/255, 140/255, 125/255)
-    
-    for date_str, name in storm_names.items():
-        date = pd.to_datetime(date_str)
-        matching_data = compound_data[compound_data['DATE'] == date]
-        
-        if len(matching_data) > 0:
-            row = matching_data.iloc[0]
-            if row['Is_Compound_Extreme']:  # Check if it's a compound extreme event
-                # Get custom offset for this storm or use default
-                x_offset, y_offset = custom_offsets.get(name, (15, 5))
-                
-                ax.annotate(
-                    name,
-                    (row[sea_level_col], row[rainfall_col]),
-                    xytext=(x_offset, y_offset),
-                    textcoords='offset points',
-                    fontsize=13,              # Increase font size
-                    color=storm_label_color,  # Light pink color
-                    fontweight='bold',        # Bold font
-                    bbox=dict(boxstyle="round,pad=0.3", fc="white", ec=storm_label_color, alpha=0.7),
-                    arrowprops=dict(
-                        arrowstyle='-',       # Simple line, no arrow
-                        color=storm_label_color,  # Use same color as label
-                        lw=1.5,               # Line width
-                        connectionstyle='arc3,rad=0'  # Straight line connection
-                    ),
-                    zorder=12  # Ensure labels are drawn on top
-                )
-    
-    # Set axis ranges
-    ax.set_xlim(sea_level_threshold, 5.0)
-    ax.set_ylim(rainfall_threshold, 500)
-       
-    # Set x-axis ticks to one decimal place
-    import matplotlib.ticker as ticker
-    ax.xaxis.set_major_formatter(ticker.FormatStrFormatter('%.1f'))
-    
-    # Set axis labels and title with bold font
-    ax.set_xlabel('Maximum Water Level $($m$)$', fontsize=20, family='Arial')
-    ax.set_ylabel('24 Hours of Cumulative Rainfall $($mm$)$', fontsize=20, family='Arial')
-    
-    # Add grid
-    ax.grid(True, linestyle='--', alpha=0.2, color='gray')
-    
-    # Add subplot label (b) to top right corner
-    #ax.text(0.98, 0.98, '(b)', transform=ax.transAxes, 
-    #        fontsize=24, fontweight='bold', ha='right', va='top')
-    
-    # Make the borders (spines) thicker
-    for spine in ax.spines.values():
-        spine.set_linewidth(1.8)
-    
-    # Adjust tick width, length, and label size
-    ax.tick_params(axis='both', which='major', width=1.8, length=6, labelsize=20)
-
-def plot_maximum_density_points(ax, max_density_df, color='red', marker='*', size=150):
-    """Internal helper."""
-    if max_density_df.empty:
-        # logging omitted
-        return
-        
-    scatter = ax.scatter(
-        max_density_df['SeaLevel_m'],
-        max_density_df['Rainfall_mm'],
-        c=color,
-        marker=marker,
-        s=size,
-        alpha=0.8,
-        edgecolors='black',
-        linewidths=1.0,
-        zorder=20
-    )
-    
-    ax.legend(loc='upper right', fontsize=12)
-
-def export_specific_contours(R, S, Z, return_periods=[5, 10, 20, 50, 100, 200, 500, 1000], filename="specific_contours.csv"):
-    """
-    Extract and export contour lines for specific return periods.
-    
-    Parameters:
-    R: 2D array - Rainfall values from meshgrid
-    S: 2D array - Sea level values from meshgrid
-    Z: 2D array - Return period values
-    return_periods: list - List of specific return period values to extract
-    filename: str - Name of the output file
-    
-    Returns:
-    str - Path to the saved file
-    """
-    import pandas as pd
-    import numpy as np
-    import matplotlib.pyplot as plt
-    from matplotlib.contour import QuadContourSet
-    from matplotlib import cm
-    
-    # Create a figure (but don't display it)
-    fig, ax = plt.subplots(figsize=(10, 8))
-    
-    # Generate contours for specified levels
-    contour_set = ax.contour(S, R, Z.T, levels=return_periods)
-    
-    # Close the figure since we only need the contour data
-    plt.close(fig)
-    
-    # Extract contour data
-    all_contour_data = []
-    
-    for i, return_period in enumerate(return_periods):
-        # Get contour paths for this level
-        paths = contour_set.collections[i].get_paths()
-        
-        for path in paths:
-            vertices = path.vertices
-            # Extract x (sea level) and y (rainfall) coordinates
-            sea_levels = vertices[:, 0]
-            rainfalls = vertices[:, 1]
-            
-            # Create data for this contour
-            contour_points = pd.DataFrame({
-                'Rainfall_mm': rainfalls,
-                'SeaLevel_m': sea_levels,
-                'ReturnPeriod_years': return_period
-            })
-            
-            all_contour_data.append(contour_points)
-    
-    # Combine all contour data
-    if all_contour_data:
-        contour_df = pd.concat(all_contour_data, ignore_index=True)
-        
-        # Round values for better readability
-        contour_df = contour_df.round({
-            'Rainfall_mm': 2,
-            'SeaLevel_m': 3,
-            'ReturnPeriod_years': 0
-        })
-        
-        # Export to CSV
-        contour_df.to_csv(filename, index=False, encoding='utf-8-sig')
-        print(f"Specific contour lines exported to {filename} ({len(contour_df)} points across {len(return_periods)} contour lines)")
-        return filename
-    else:
-        print("No contour data found for the specified return periods.")
-        return None
-
-def calculate_contour_axis_intersections(R, S, Z, return_periods=[5, 10, 20, 50, 100, 200, 500, 1000]):
-    """Internal helper."""
-    import numpy as np
-    import pandas as pd
-    import matplotlib.pyplot as plt
-    from scipy import interpolate
-    
-    intersections_data = []
-    
-    # logging omitted
-    
-    for T in return_periods:
-        # logging omitted
-        
-        fig, ax = plt.subplots(figsize=(8, 6))
-        
-        try:
-            cs = ax.contour(S, R, Z, levels=[T])
-            
-            x_axis_intersections = []
-            y_axis_intersections = []
-            
-            all_vertices = []
-            
-            try:
-                if hasattr(cs, 'collections') and len(cs.collections) > 0:
-                    contour_paths = cs.collections[0].get_paths()
-                    for path in contour_paths:
-                        vertices = path.vertices
-                        if len(vertices) > 0:
-                            all_vertices.append(vertices)
-                else:
-                    raise AttributeError("collections not available")
-            except (AttributeError, IndexError):
-                try:
-                    if hasattr(cs, 'allsegs') and len(cs.allsegs) > 0:
-                        level_segments = cs.allsegs[0]
-                        for segment in level_segments:
-                            if len(segment) > 0:
-                                vertices = np.array(segment)
-                                all_vertices.append(vertices)
-                    else:
-                        raise AttributeError("allsegs not available")
-                except (AttributeError, IndexError):
-                    try:
-                        for collection in cs.collections:
-                            for path in collection.get_paths():
-                                vertices = path.vertices
-                                if len(vertices) > 0:
-                                    all_vertices.append(vertices)
-                    except Exception as e3:
-                        # logging omitted
-                        plt.close(fig)
-                        continue
-            
-            plt.close(fig)
-            
-            if not all_vertices:
-                # logging omitted
-                continue
-            
-            for vertices in all_vertices:
-                sea_levels = vertices[:, 0]
-                rainfalls = vertices[:, 1]
-                
-                min_rainfall_idx = np.argmin(rainfalls)
-                min_rainfall = rainfalls[min_rainfall_idx]
-                
-                if len(rainfalls) > 1:
-                    rainfall_range = np.max(rainfalls) - np.min(rainfalls)
-                    if rainfall_range > 5:
-                        if min_rainfall < (np.min(rainfalls) + rainfall_range * 0.25):
-                            x_intersection = sea_levels[min_rainfall_idx]
-                            if x_intersection > 0:
-                                x_axis_intersections.append(x_intersection)
-                
-                min_sealevel_idx = np.argmin(sea_levels)
-                min_sealevel = sea_levels[min_sealevel_idx]
-                
-                if len(sea_levels) > 1:
-                    sealevel_range = np.max(sea_levels) - np.min(sea_levels)
-                    if sealevel_range > 0.05:
-                        if min_sealevel < (np.min(sea_levels) + sealevel_range * 0.30):
-                            y_intersection = rainfalls[min_sealevel_idx]
-                            if y_intersection > 0:
-                                y_axis_intersections.append(y_intersection)
-            
-            x_intersection_final = min(x_axis_intersections) if x_axis_intersections else None
-            y_intersection_final = min(y_axis_intersections) if y_axis_intersections else None
-            
-            if x_intersection_final is None or y_intersection_final is None:
-                for vertices in all_vertices:
-                    sea_levels = vertices[:, 0]
-                    rainfalls = vertices[:, 1]
-                    
-                    if x_intersection_final is None and len(rainfalls) > 0:
-                        min_rainfall_idx = np.argmin(rainfalls)
-                        x_backup = sea_levels[min_rainfall_idx]
-                        if x_backup > 0:
-                            x_intersection_final = x_backup
-                    
-                    if y_intersection_final is None and len(sea_levels) > 0:
-                        min_sealevel_idx = np.argmin(sea_levels)
-                        y_backup = rainfalls[min_sealevel_idx]
-                        if y_backup > 0:
-                            y_intersection_final = y_backup
-            
-            notes = []
-            if x_intersection_final is None:
-                notes.append("No X-axis intersection found")
-            elif len(x_axis_intersections) == 0:
-                notes.append("X-axis intersection found using backup method")
-            
-            if y_intersection_final is None:
-                notes.append("No Y-axis intersection found")
-            elif len(y_axis_intersections) == 0:
-                notes.append("Y-axis intersection found using backup method")
-            
-            intersections_data.append({
-                'ReturnPeriod_years': T,
-                'SeaLevel_at_zero_rainfall_m': x_intersection_final,
-                'Rainfall_at_zero_sealevel_mm': y_intersection_final,
-                'Notes': '; '.join(notes) if notes else 'Both intersections found'
-            })
-            
-            # logging omitted
-            
-        except Exception as e:
-            # logging omitted
-            plt.close(fig)
-            continue
-    
-    if intersections_data:
-        results_df = pd.DataFrame(intersections_data)
-        # logging omitted
-        return results_df
-    else:
-        # logging omitted
-        return pd.DataFrame()
-
-# Export event results
-def export_events_table(return_periods):
-    """
-    Export all compound event calculation results to CSV file
-    """
-    # Sort results by return period in descending order
-    sorted_results = return_periods.sort_values('Return_Period', ascending=False)
-    
-    # Select relevant columns for output
-    output_columns = ['Date', 'Year', 'Month', 'Rainfall', 'Sea_Level', 'Exceedance_Prob', 'Return_Period']
-    output_df = sorted_results[output_columns]
-    
-    # Format date column for better readability
-    output_df['Date'] = output_df['Date'].dt.strftime('%Y-%m-%d')
-    
-    # Round numeric columns for better readability
-    output_df['Exceedance_Prob'] = output_df['Exceedance_Prob'].round(6)
-    output_df['Return_Period'] = output_df['Return_Period'].round(2)
-    
-    # Export to CSV
-    output_df.to_csv('compound_events_results.csv', index=False)
-    print(f"Exported {len(output_df)} compound events to 'compound_events_results.csv'")
-    
-    # Return the formatted dataframe for display
-    return output_df
-
-def create_multi_station_figure(station_configs, figsize=(18, 12)):
-    """Internal helper."""
-    # Set the default font to Arial
-    plt.rcParams['font.family'] = 'Arial'
-    
-    fig, axes = plt.subplots(2, 3, figsize=figsize, dpi=600)
-    axes = axes.flatten()
-    
-    for idx, config in enumerate(station_configs):
-        if idx >= 6:
-            break
-            
-        ax = axes[idx]
-        station_name = config['name']
-        tide_file = config['tide_file']
-        rainfall_files = config['rainfall_files']
-        title = config.get('title', f'Station {station_name}')
-        
-        x_max = config.get('x_max', 5.0)
-        y_max = config.get('y_max', 600)
-        
-        # logging omitted
-        # logging omitted
-        
-        try:
-            tide_data, rainfall_data = load_data(tide_file, rainfall_files, export_rainfall=False)
-            
-            if tide_data is None or rainfall_data is None:
-                # logging omitted
-                ax.text(0.5, 0.5, f'Station {station_name}\nData Loading Failed', 
-                       ha='center', va='center', transform=ax.transAxes, fontsize=16)
-                ax.set_title(title, fontsize=18, fontweight='bold')
-                continue
-            
-            compound_data, rainfall_threshold, sea_level_threshold = create_compound_events(
-                tide_data, rainfall_data, 
-                rainy_day_def=0.1,
-                rainfall_threshold_method='all_days'
-            )
-            
-            if compound_data is None:
-                # logging omitted
-                ax.text(0.5, 0.5, f'Station {station_name}\nCompound Events Creation Failed', 
-                       ha='center', va='center', transform=ax.transAxes, fontsize=16)
-                ax.set_title(title, fontsize=18, fontweight='bold')
-                continue
-            
-            enabled_dists = config.get('enabled_distributions', None)
-            copula_results, best_copula, fits = fit_copula_models_selective(
-                compound_data, 'Rainfall', 'Sea_Level', 
-                rainfall_threshold=rainfall_threshold, 
-                sea_level_threshold=sea_level_threshold,
-                enabled_distributions=enabled_dists
-            )
-            
-            R, S, Z = calculate_contours(
-                compound_data, 'Rainfall', 'Sea_Level',
-                copula_results, best_copula, fits,
-                rainfall_threshold=rainfall_threshold,
-                sea_level_threshold=sea_level_threshold,
-                x_min=sea_level_threshold, x_max=x_max,
-                y_min=rainfall_threshold, y_max=y_max,
-                npoints=200
-            )
-            
-            max_density_df = find_maximum_density_points(
-                R, S, Z, copula_results, best_copula, fits,
-                'Rainfall', 'Sea_Level'
-            )
-            
-            if max_density_df is not None and not max_density_df.empty:
-                csv_filename = f'maximum_density_points_{station_name}.csv'
-                max_density_df.to_csv(csv_filename, index=False, encoding='utf-8-sig')
-                # logging omitted
-            else:
-                # logging omitted
-            
-            try:
-                intersections_df = calculate_contour_axis_intersections(
-                    R, S, Z, 
-                    return_periods=[5, 10, 20, 50, 100, 200, 500, 1000]
-                )
-                
-                if intersections_df is not None and not intersections_df.empty:
-                    intersections_df['Station'] = station_name
-                    intersections_df = intersections_df[['Station', 'ReturnPeriod_years', 'SeaLevel_at_zero_rainfall_m', 'Rainfall_at_zero_sealevel_mm', 'Notes']]
-                    
-                    intersections_filename = f'contour_axis_intersections_{station_name}.csv'
-                    intersections_df.to_csv(intersections_filename, index=False, encoding='utf-8-sig')
-                    # logging omitted
-                else:
-                    # logging omitted
-                    
-            except Exception as intersection_error:
-                # logging omitted
-            
-            plot_return_periods_single_station(
-                ax, R, S, Z, compound_data, max_density_df,
-                rainfall_threshold, sea_level_threshold,
-                station_name, title,
-                x_max=x_max, y_max=y_max
-            )
-            
-        except Exception as e:
-            # logging omitted
-            ax.text(0.5, 0.5, f'Station {station_name}\nProcessing Error', 
-                   ha='center', va='center', transform=ax.transAxes, fontsize=16)
-            ax.set_title(title, fontsize=18, fontweight='bold')
-    
-    for idx in range(len(station_configs), 6):
-        axes[idx].set_visible(False)
-    
-    plt.subplots_adjust(
-        left=0.08,
-        right=0.95,
-        top=0.92,
-        bottom=0.08,
-        wspace=0.35,
-        hspace=0.45
-    )
-    
-    fig.savefig('multi_station_return_periods.tiff', format='tiff', dpi=600, bbox_inches='tight')
-    fig.savefig('multi_station_return_periods.png', dpi=600, bbox_inches='tight')
-    # logging omitted
-    
-    return fig
-
-def find_maximum_density_points(R, S, Z, copula_results, best_copula, fits, rainfall_col, sea_level_col, 
-                                return_periods=[5, 20, 100, 500]):
-    """Internal helper."""
-    import numpy as np
-    import pandas as pd
-    from scipy import interpolate
-    from scipy import stats
     import matplotlib.pyplot as plt
     
     copula_model = copula_results[best_copula]['model']
@@ -2903,36 +1352,15 @@ def find_maximum_density_points(R, S, Z, copula_results, best_copula, fits, rain
         """Internal helper."""
         dist_name = dist_info['distribution']
         params = dist_info['params']
-        
+
         try:
-            if dist_name == 'norm':
-                return stats.norm.pdf(value, *params)
-            elif dist_name == 'expon':
-                return stats.expon.pdf(value, *params)
-            elif dist_name == 'gamma':
-                return stats.gamma.pdf(value, *params)
-            elif dist_name == 'genextreme':
-                return stats.genextreme.pdf(value, *params)
-            elif dist_name == 'genpareto':
+            if dist_name == 'genpareto':
                 threshold = dist_info.get('threshold', 0)
                 if value <= threshold:
                     return 0.0
                 return stats.genpareto.pdf(value - threshold, *params)
-            elif dist_name == 'logistic':
-                return stats.logistic.pdf(value, *params)
-            elif dist_name == 'lognorm':
-                return stats.lognorm.pdf(value, *params)
-            elif dist_name == 'gumbel_r':
-                return stats.gumbel_r.pdf(value, *params)
-            elif dist_name == 'weibull_min':
-                return stats.weibull_min.pdf(value, *params)
-            elif dist_name == 'loglogistic':
-                alpha, beta = params
-                return loglogistic_pdf(value, alpha, beta)
-            else:
-                return stats.norm.pdf(value, loc=np.mean([value]), scale=np.std([value]) or 1.0)
-        except Exception as e:
-            # logging omitted
+            return getattr(stats, dist_name).pdf(value, *params)
+        except Exception:
             return 1.0
     
     for T in return_periods:
@@ -3160,8 +1588,8 @@ def plot_return_periods_single_station(ax, R, S, Z, compound_data, max_density_d
     for tick in ax.get_yticklabels():
         tick.set_fontweight('bold')
 
-def fit_marginal_distributions_selective(compound_data, column, min_samples=20, extreme_threshold=None, 
-                                        enabled_distributions=None):
+def fit_marginal_distributions_selective(compound_data, column, min_samples=20, extreme_threshold=None,
+                                        excluded_distributions=None):
     """Internal helper."""
     extreme_data_series = compound_data[compound_data['Is_Rep_Compound_Extreme'] == True][column].dropna()
     
@@ -3204,32 +1632,14 @@ def fit_marginal_distributions_selective(compound_data, column, min_samples=20, 
         'num_samples_for_pot_calc_prob': n_samples
     }
 
-    if enabled_distributions is None:
-        enabled_distributions = [
-            'beta', 'fisk', 'expon', 'gumbel_r', 'gamma', 'genextreme', 
-            'invgauss', 'logistic', 'loglogistic', 'lognorm', 'nakagami', 
-            'norm', 'rayleigh', 'rice', 't', 'weibull_min', 'genpareto'
-        ]
-    
-    # logging omitted
-    
-    for dist_name in enabled_distributions:
+    candidate_distributions = resolve_marginal_candidates(excluded_distributions)
+
+    for dist_name in candidate_distributions:
         try:
-            if dist_name == 'beta' and (np.any(extreme_data_np_array < 0) or np.any(extreme_data_np_array > 1)):
-                # logging omitted
-                continue
-            if dist_name in ['fisk', 'expon', 'gamma', 'invgauss', 'lognorm', 'nakagami', 'rayleigh', 'rice', 'weibull_min'] and np.any(extreme_data_np_array <= 0):
-                # logging omitted
-                continue
-            if dist_name == 'loglogistic' and np.any(extreme_data_np_array <= 0):
-                # logging omitted
-                continue
-                
             if dist_name == 'genpareto':
                 exceedances = extreme_data_np_array[extreme_data_np_array > gpd_actual_threshold] - gpd_actual_threshold
                 exceedances_for_fit = exceedances[exceedances > 1e-9]
                 if len(exceedances_for_fit) < 5:
-                    # logging omitted
                     continue
                 params = stats.genpareto.fit(exceedances_for_fit, floc=0)
                 loglik = np.sum(stats.genpareto.logpdf(exceedances_for_fit, *params))
@@ -3241,24 +1651,9 @@ def fit_marginal_distributions_selective(compound_data, column, min_samples=20, 
                     'ks_stat': ks_stat, 'ks_pvalue': ks_pvalue,
                     'cm_stat': cm_res.statistic, 'cm_pvalue': cm_res.pvalue,
                     'threshold': gpd_actual_threshold,
-                    'exceedance_values_for_calc_prob': exceedances_for_fit, 
+                    'exceedance_values_for_calc_prob': exceedances_for_fit,
                     **common_props_for_prob_calc
                 })
-                # logging omitted
-            elif dist_name == 'loglogistic':
-                alpha, beta = fit_loglogistic(extreme_data_np_array)
-                pdf_values = loglogistic_pdf(extreme_data_np_array, alpha, beta)
-                pdf_values = np.maximum(pdf_values, 1e-10)
-                loglik = np.sum(np.log(pdf_values))
-                bic = calculate_bic(2, loglik, n_samples)
-                ks_stat, ks_pvalue = stats.kstest(extreme_data_np_array, lambda x_val: loglogistic_cdf(x_val, alpha, beta))
-                loglogistic_cdf_callable = lambda x_val: loglogistic_cdf(x_val, alpha, beta)
-                cm_res = stats.cramervonmises(extreme_data_np_array, loglogistic_cdf_callable)
-                fit_results.append({**{'distribution': 'loglogistic', 'params': (alpha, beta), 'loglik': loglik, 'bic': bic,
-                    'ks_stat': ks_stat, 'ks_pvalue': ks_pvalue, 
-                    'cm_stat': cm_res.statistic, 'cm_pvalue': cm_res.pvalue}, 
-                    **common_props_for_prob_calc})
-                # logging omitted
             else:
                 dist_obj = getattr(stats, dist_name)
                 params = dist_obj.fit(extreme_data_np_array)
@@ -3267,13 +1662,10 @@ def fit_marginal_distributions_selective(compound_data, column, min_samples=20, 
                 ks_stat, ks_pvalue = stats.kstest(extreme_data_np_array, lambda x: dist_obj.cdf(x, *params))
                 cm_res = stats.cramervonmises(extreme_data_np_array, dist_name, args=params)
                 fit_results.append({**{'distribution': dist_name, 'params': params, 'loglik': loglik, 'bic': bic,
-                    'ks_stat': ks_stat, 'ks_pvalue': ks_pvalue, 
-                    'cm_stat': cm_res.statistic, 'cm_pvalue': cm_res.pvalue}, 
+                    'ks_stat': ks_stat, 'ks_pvalue': ks_pvalue,
+                    'cm_stat': cm_res.statistic, 'cm_pvalue': cm_res.pvalue},
                     **common_props_for_prob_calc})
-                # logging omitted
-                    
-        except Exception as e:
-            # logging omitted
+        except Exception:
             continue
 
     if not fit_results:
@@ -3294,7 +1686,8 @@ def fit_marginal_distributions_selective(compound_data, column, min_samples=20, 
     # logging omitted
     return best_fit
 
-def fit_copula_models_selective(compound_data, rainfall_col, sea_level_col, rainfall_threshold=None, sea_level_threshold=None, enabled_distributions=None):
+def fit_copula_models_selective(compound_data, rainfall_col, sea_level_col, rainfall_threshold=None, sea_level_threshold=None,
+                               excluded_distributions=None):
     """Internal helper."""
     # Calculate 95th percentile if thresholds not provided
     if rainfall_threshold is None:
@@ -3317,8 +1710,8 @@ def fit_copula_models_selective(compound_data, rainfall_col, sea_level_col, rain
     print(f"Using {len(extreme_events)} compound extreme events to fit Copula models")
     
     fits = {
-        rainfall_col: fit_marginal_distributions_selective(compound_data, rainfall_col, extreme_threshold=rainfall_threshold, enabled_distributions=enabled_distributions),
-        sea_level_col: fit_marginal_distributions_selective(compound_data, sea_level_col, extreme_threshold=sea_level_threshold, enabled_distributions=enabled_distributions)
+        rainfall_col: fit_marginal_distributions_selective(compound_data, rainfall_col, extreme_threshold=rainfall_threshold, excluded_distributions=excluded_distributions),
+        sea_level_col: fit_marginal_distributions_selective(compound_data, sea_level_col, extreme_threshold=sea_level_threshold, excluded_distributions=excluded_distributions)
     }
     
     print("\nMarginal distribution fitting results (Best by K-S & BIC):")
@@ -3341,21 +1734,12 @@ def fit_copula_models_selective(compound_data, rainfall_col, sea_level_col, rain
         elif dist_name == 'gamma':
             shape, loc, scale = params
             param_str_parts.extend([f"shape={shape:.4f}", f"loc={loc:.4f}", f"scale={scale:.4f}"])
-        elif dist_name == 'lognorm':
-            shape, loc, scale = params
-            param_str_parts.extend([f"shape={shape:.4f}", f"loc={loc:.4f}", f"scale={scale:.4f}"])
         elif dist_name == 'logistic':
             loc, scale = params
             param_str_parts.extend([f"loc={loc:.4f}", f"scale={scale:.4f}"])
         elif dist_name == 'gumbel_r':
             loc, scale = params
             param_str_parts.extend([f"loc={loc:.4f}", f"scale={scale:.4f}"])
-        elif dist_name == 'weibull_min':
-            shape, loc, scale = params
-            param_str_parts.extend([f"shape={shape:.4f}", f"loc={loc:.4f}", f"scale={scale:.4f}"])
-        elif dist_name == 'loglogistic':
-            alpha, beta = params
-            param_str_parts.extend([f"alpha={alpha:.4f}", f"beta={beta:.4f}"])
         else:
             param_str_parts.append(f"params={params}")
         
@@ -3382,18 +1766,18 @@ def fit_copula_models_selective(compound_data, rainfall_col, sea_level_col, rain
     # Helper function to calculate NLL using PDF
     def calculate_nll_from_pdf(copula_model, data, model_name):
         log_lik = 0
-        pdf_values = np.zeros(len(data))
         if not hasattr(copula_model, 'pdf'):
              raise AttributeError(f"Critical Error: pdf method not found for {model_name} Copula. Program will terminate.")
 
-        for i in range(len(data)):
-             try:
-                  pdf_val = copula_model.pdf(data[i])
-                  if not np.isfinite(pdf_val) or pdf_val <= 0:
-                      raise ValueError(f"Critical Error: PDF for {model_name} at point {i} is invalid (value: {pdf_val}). Program will terminate.")
-                  pdf_values[i] = pdf_val
-             except Exception as pdf_err:
-                  raise RuntimeError(f"Critical Error during PDF calculation for {model_name} at point {i}: {pdf_err}. Program will terminate.") from pdf_err
+        try:
+            pdf_values = np.asarray(copula_model.pdf(data), dtype=float).reshape(-1)
+        except Exception as pdf_err:
+            raise RuntimeError(f"Critical Error during PDF calculation for {model_name}: {pdf_err}. Program will terminate.") from pdf_err
+        if len(pdf_values) != len(data):
+            raise ValueError(f"Critical Error: PDF for {model_name} returned unexpected length {len(pdf_values)} (expected {len(data)}). Program will terminate.")
+        if np.any(~np.isfinite(pdf_values)) or np.any(pdf_values <= 0):
+            bad_idx = int(np.where(~np.isfinite(pdf_values) | (pdf_values <= 0))[0][0])
+            raise ValueError(f"Critical Error: PDF for {model_name} at point {bad_idx} is invalid (value: {pdf_values[bad_idx]}). Program will terminate.")
         
         try:
             if np.any(pdf_values <= 0):
@@ -3571,6 +1955,101 @@ def fit_copula_models_selective(compound_data, rainfall_col, sea_level_col, rain
 
     return results, best_copula_name, fits
 
+def create_multi_station_figure(station_configs, figsize=(18, 12)):
+    """Internal helper."""
+    plt.rcParams['font.family'] = 'Arial'
+
+    fig, axes = plt.subplots(2, 3, figsize=figsize, dpi=600)
+    axes = axes.flatten()
+
+    for idx, config in enumerate(station_configs):
+        if idx >= 6:
+            break
+
+        ax = axes[idx]
+        station_name = config['name']
+        tide_file = config['tide_file']
+        rainfall_files = config['rainfall_files']
+        title = config.get('title', f'Station {station_name}')
+        x_max = config.get('x_max', 5.0)
+        y_max = config.get('y_max', 600)
+
+        print(f"\nProcessing station {station_name}...")
+        print(f"Display range: Sea level 0 - {x_max} m, Rainfall 0 - {y_max} mm")
+
+        try:
+            tide_data, rainfall_data = load_data(tide_file, rainfall_files, export_rainfall=False)
+
+            if tide_data is None or rainfall_data is None:
+                ax.text(0.5, 0.5, f'Station {station_name}\nData Loading Failed',
+                       ha='center', va='center', transform=ax.transAxes, fontsize=16)
+                ax.set_title(title, fontsize=18, fontweight='bold')
+                continue
+
+            compound_data, rainfall_threshold, sea_level_threshold = create_compound_events(
+                tide_data, rainfall_data,
+                rainy_day_def=0.1,
+                rainfall_threshold_method='all_days'
+            )
+
+            if compound_data is None:
+                ax.text(0.5, 0.5, f'Station {station_name}\nCompound Events Creation Failed',
+                       ha='center', va='center', transform=ax.transAxes, fontsize=16)
+                ax.set_title(title, fontsize=18, fontweight='bold')
+                continue
+
+            copula_results, best_copula, fits = fit_copula_models_selective(
+                compound_data, 'Rainfall', 'Sea_Level',
+                rainfall_threshold=rainfall_threshold,
+                sea_level_threshold=sea_level_threshold,
+                excluded_distributions=config.get('excluded_distributions'),
+            )
+
+            R, S, Z = calculate_contours(
+                compound_data, 'Rainfall', 'Sea_Level',
+                copula_results, best_copula, fits,
+                rainfall_threshold=rainfall_threshold,
+                sea_level_threshold=sea_level_threshold,
+                x_min=sea_level_threshold, x_max=x_max,
+                y_min=rainfall_threshold, y_max=y_max,
+                npoints=200
+            )
+
+            max_density_df = find_maximum_density_points(
+                R, S, Z, copula_results, best_copula, fits,
+                'Rainfall', 'Sea_Level'
+            )
+
+            plot_return_periods_single_station(
+                ax, R, S, Z, compound_data, max_density_df,
+                rainfall_threshold, sea_level_threshold,
+                station_name, title,
+                x_max=x_max, y_max=y_max
+            )
+
+        except Exception as e:
+            print(f"Station {station_name} processing error: {e}")
+            ax.text(0.5, 0.5, f'Station {station_name}\nProcessing Error',
+                   ha='center', va='center', transform=ax.transAxes, fontsize=16)
+            ax.set_title(title, fontsize=18, fontweight='bold')
+
+    for idx in range(len(station_configs), 6):
+        axes[idx].set_visible(False)
+
+    plt.subplots_adjust(
+        left=0.08,
+        right=0.95,
+        top=0.92,
+        bottom=0.08,
+        wspace=0.35,
+        hspace=0.45
+    )
+
+    fig.savefig('multi_station_return_periods.tiff', format='tiff', dpi=600, bbox_inches='tight')
+    fig.savefig('multi_station_return_periods.png', dpi=600, bbox_inches='tight')
+
+    return fig
+
 def print_elevation_conversion_info():
     """Internal helper."""
     print("=" * 60)
@@ -3585,15 +2064,8 @@ def print_elevation_conversion_info():
     print("=" * 60)
     print()
 
-def main_multi_station():    
-    """Internal helper."""
-    """
-    [
-        'beta', 'fisk', 'expon', 'gumbel_r', 'gamma', 'genextreme', 
-        'invgauss', 'logistic', 'loglogistic', 'lognorm', 'nakagami', 
-        'norm', 'rayleigh', 't', 'weibull_min', 'genpareto'
-    ]
-    """
+def main_multi_station():
+    """Run return-period contour analysis for all Hong Kong tide stations."""
     
     # Note: Sea level values have been converted from Hong Kong Chart Datum to 1985 Chinese Height Datum
     # by subtracting 0.868m. Display ranges are adjusted accordingly.
@@ -3605,9 +2077,7 @@ def main_multi_station():
             'title': 'QUB',
             'x_max': 5.0,  # Plot x-axis limit (m) - adjusted for datum conversion (-0.868m)
             'y_max': 550,  # Plot y-axis limit (mm)
-            'enabled_distributions': ['fisk', 'gumbel_r', 'genextreme', 
-                      'invgauss', 'logistic', 'loglogistic', 'lognorm', 'nakagami', 
-                      'norm', 'rayleigh', 't', 'genpareto']
+            'excluded_distributions': ['gamma'],
         },
         {
             'name': 'TBT', 
@@ -3616,9 +2086,6 @@ def main_multi_station():
             'title': 'TBT',
             'x_max': 5.0,  # Plot x-axis limit (m) - adjusted for datum conversion (-0.868m)
             'y_max': 400,  # Plot y-axis limit (mm)
-            'enabled_distributions': ['fisk', 'gamma', 'gumbel_r', 'genextreme', 
-                      'invgauss', 'logistic', 'loglogistic', 'lognorm', 'nakagami', 
-                      'norm', 'rayleigh', 't', 'genpareto']
         },
         {
             'name': 'SHP',
@@ -3627,7 +2094,6 @@ def main_multi_station():
             'title': 'SHP',
             'x_max': 5.0,  # Plot x-axis limit (m) - adjusted for datum conversion (-0.868m)
             'y_max': 550,  # Plot y-axis limit (mm)
-            'enabled_distributions': None
         },
         {
             'name': 'TMW',
@@ -3636,11 +2102,7 @@ def main_multi_station():
             'title': 'TMW',
             'x_max': 6.5,  # Plot x-axis limit (m) - adjusted for datum conversion (-0.868m)
             'y_max': 550,  # Plot y-axis limit (mm)
-            'enabled_distributions': [
-                'gumbel_r', 'genextreme', 
-                'logistic', 'loglogistic','nakagami', 
-                'norm', 'rayleigh', 't'
-            ]
+            'excluded_distributions': ['gamma', 'genpareto', 'invgauss'],
         },
         {
             'name': 'TPK',
@@ -3649,9 +2111,7 @@ def main_multi_station():
             'title': 'TPK',
             'x_max': 5.0,  # Plot x-axis limit (m) - adjusted for datum conversion (-0.868m)
             'y_max': 450,  # Plot y-axis limit (mm)
-            'enabled_distributions': ['fisk', 'gumbel_r', 'genextreme', 
-                      'invgauss', 'logistic', 'loglogistic', 'lognorm', 'nakagami', 
-                      'norm', 'rayleigh', 't', 'genpareto']
+            'excluded_distributions': ['gamma'],
         },
         {
             'name': 'WAG',
@@ -3660,11 +2120,6 @@ def main_multi_station():
             'title': 'WAG',
             'x_max': 3.7,  # Plot x-axis limit (m) - adjusted for datum conversion (-0.868m)
             'y_max': 400,  # Plot y-axis limit (mm)
-            'enabled_distributions': [
-                'fisk', 'expon', 'gumbel_r', 'gamma', 'genextreme', 
-                'invgauss', 'logistic', 'loglogistic', 'lognorm', 'nakagami', 
-                'norm', 'rayleigh', 't', 'genpareto'
-            ]
         }
     ]
     

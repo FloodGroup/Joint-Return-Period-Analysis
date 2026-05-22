@@ -26,44 +26,31 @@ VERBOSE = False
 # Set the default font to Arial for all plots
 plt.rcParams['font.family'] = 'Arial'
 
-# Log-Logistic distribution
-def loglogistic_pdf(x, alpha, beta):
-    """Log-Logistic probability density function"""
-    z = (x / alpha) ** beta
-    return (beta / alpha) * z / (x * (1 + z) ** 2)
+# Marginal candidates: paper set (Gamma, GEV, GP, logistic, normal, Gumbel, Nakagami)
+# plus inverse Gaussian retained from station fits.
+MARGINAL_DISTRIBUTIONS = (
+    'gamma', 'genextreme', 'genpareto', 'logistic', 'norm', 'gumbel_r', 'nakagami', 'invgauss',
+)
 
-def loglogistic_cdf(x, alpha, beta):
-    """Log-Logistic cumulative distribution function"""
-    z = (x / alpha) ** beta
-    return z / (1 + z)
+def resolve_marginal_candidates(excluded_distributions=None):
+    """Return standard marginal candidates, optionally omitting excluded forms."""
+    if not excluded_distributions:
+        return MARGINAL_DISTRIBUTIONS
+    excluded = set(excluded_distributions)
+    return tuple(d for d in MARGINAL_DISTRIBUTIONS if d not in excluded)
 
-def fit_loglogistic(data):
-    """Fit Log-Logistic distribution using MLE"""
-    def neg_log_likelihood(params):
-        alpha, beta = params
-        if alpha <= 0 or beta <= 0:
-            return 1e10  # Invalid parameters
-        
-        try:
-            pdf_values = loglogistic_pdf(data, alpha, beta)
-            pdf_values = np.maximum(pdf_values, 1e-10)
-            return -np.sum(np.log(pdf_values))
-        except:
-            return 1e10
-    
-    # Initial guess: alpha near median, beta = 1
-    initial_guess = [np.median(data), 1.0]
-    
-    result = optimize.minimize(
-        neg_log_likelihood, 
-        initial_guess, 
-        bounds=[(1e-10, None), (1e-10, None)]
-    )
-    
-    if result.success:
-        return result.x
-    else:
-        raise RuntimeError("Log-Logistic fitting did not converge")
+COPULA_MODELS = (
+    'gaussian', 't', 'clayton', 'gumbel', 'frank', 'joe', 'survival_clayton',
+)
+
+def resolve_copula_candidates(excluded_copulas=None):
+    """Return standard copula candidates, optionally omitting excluded forms."""
+    if not excluded_copulas:
+        return set(COPULA_MODELS)
+    excluded = {c.lower() for c in excluded_copulas}
+    candidates = {c for c in COPULA_MODELS if c not in excluded}
+    return candidates if candidates else set(COPULA_MODELS)
+
 
 class SimpleJoeCopula:
     """Internal helper."""
@@ -181,6 +168,7 @@ def load_datum_correction_file(offset_file_path):
         if len(offset_data) < original_rows:
             # logging omitted
         
+            pass
         offset_data = create_date_column(offset_data, "offset data")
         if offset_data is None or offset_data.empty:
             # logging omitted
@@ -222,6 +210,7 @@ def apply_datum_correction(tide_data, offset_data, sea_level_col='Sea_Level'):
     for i, row in offset_data_sorted.iterrows():
         # logging omitted
     
+        pass
     earliest_offset_row = offset_data_sorted.iloc[0]
     earliest_offset_date = earliest_offset_row['DATE']
     earliest_offset_value = earliest_offset_row['offset']
@@ -274,6 +263,7 @@ def apply_datum_correction(tide_data, offset_data, sea_level_col='Sea_Level'):
     if early_data_count > 0:
         # logging omitted
     
+        pass
     if correction_count > 0:
         original_mean = corrected_tide_data[f'{sea_level_col}_Original'].mean()
         corrected_mean = corrected_tide_data[sea_level_col].mean()
@@ -289,11 +279,13 @@ def apply_datum_correction(tide_data, offset_data, sea_level_col='Sea_Level'):
         for offset_val, count in offset_usage.items():
             # logging omitted
         
+            pass
         period_usage = corrected_tide_data['Offset_Period'].value_counts()
         # logging omitted
         for period, count in period_usage.items():
                 # logging omitted
     
+            pass
     return corrected_tide_data
 
 def export_corrected_tide_data(corrected_tide_data, station_name, sea_level_col='Sea_Level'):
@@ -333,6 +325,7 @@ def export_corrected_tide_data(corrected_tide_data, station_name, sea_level_col=
             # logging omitted
             # logging omitted
         
+            pass
         return output_filename
         
     except Exception as e:
@@ -350,6 +343,7 @@ def load_water_level_xlsx(file_path):
         if VERBOSE:
             # logging omitted
         
+            pass
         columns = df.columns.tolist()
         year_data_pairs = []
         
@@ -357,13 +351,8 @@ def load_water_level_xlsx(file_path):
         while i < len(columns) - 1:
             col1 = str(columns[i]).strip()
             col2 = str(columns[i + 1]).strip()
-            
-                year_data_pairs.append((i, i + 1, col1, col2))
-                if VERBOSE:
-                    # logging omitted
-                i += 2
-            else:
-                i += 1
+            year_data_pairs.append((i, i + 1, col1, col2))
+            i += 2
         
         if not year_data_pairs:
             # logging omitted
@@ -372,9 +361,6 @@ def load_water_level_xlsx(file_path):
         all_data = []
         
         for year_col_idx, data_col_idx, year_col_name, data_col_name in year_data_pairs:
-            if VERBOSE:
-                # logging omitted
-            
             year_data = df.iloc[:, [year_col_idx, data_col_idx]].copy()
             year_data.columns = ['Date', 'Value']
             
@@ -404,9 +390,6 @@ def load_water_level_xlsx(file_path):
                 except (ValueError, TypeError):
                     continue
             
-            if VERBOSE:
-                # logging omitted
-            
             for date_obj, value in zip(valid_dates, valid_values):
                 all_data.append({'DATE': date_obj, 'Sea_Level': value})
         
@@ -425,6 +408,7 @@ def load_water_level_xlsx(file_path):
             # logging omitted
             # logging omitted
         
+            pass
         return result_df
         
     except Exception as e:
@@ -443,6 +427,7 @@ def load_rainfall_xlsx(file_path):
         if VERBOSE:
             # logging omitted
         
+            pass
         columns = df.columns.tolist()
         year_data_pairs = []
         
@@ -450,13 +435,8 @@ def load_rainfall_xlsx(file_path):
         while i < len(columns) - 1:
             col1 = str(columns[i]).strip()
             col2 = str(columns[i + 1]).strip()
-            
-                year_data_pairs.append((i, i + 1, col1, col2))
-                if VERBOSE:
-                    # logging omitted
-                i += 2
-            else:
-                i += 1
+            year_data_pairs.append((i, i + 1, col1, col2))
+            i += 2
         
         if not year_data_pairs:
             # logging omitted
@@ -465,9 +445,6 @@ def load_rainfall_xlsx(file_path):
         all_data = []
         
         for year_col_idx, data_col_idx, year_col_name, data_col_name in year_data_pairs:
-            if VERBOSE:
-                # logging omitted
-            
             year_match = None
             for char in year_col_name:
                 if char.isdigit():
@@ -556,8 +533,10 @@ def load_data_xlsx(water_level_path, rainfall_path, offset_file_path=None):
     if VERBOSE:
         # logging omitted
     
+        pass
     if VERBOSE:
         # logging omitted
+        pass
     tide_data = load_water_level_xlsx(water_level_path)
     if tide_data is None:
         # logging omitted
@@ -565,6 +544,7 @@ def load_data_xlsx(water_level_path, rainfall_path, offset_file_path=None):
     
     if VERBOSE:
         # logging omitted
+        pass
     rainfall_data = load_rainfall_xlsx(rainfall_path)
     if rainfall_data is None:
         # logging omitted
@@ -574,18 +554,22 @@ def load_data_xlsx(water_level_path, rainfall_path, offset_file_path=None):
         if VERBOSE:
             # logging omitted
             # logging omitted
+            pass
         offset_data = load_datum_correction_file(offset_file_path)
         if offset_data is not None:
             tide_data = apply_datum_correction(tide_data, offset_data, 'Sea_Level')
             if VERBOSE:
                 # logging omitted
+                pass
         else:
             if VERBOSE:
                 # logging omitted
+                pass
     else:
         if VERBOSE:
             # logging omitted
 
+            pass
     if 'Sea_Level' in tide_data.columns:
         if 'Sea_Level_Zhujiang' not in tide_data.columns:
             tide_data['Sea_Level_Zhujiang'] = tide_data['Sea_Level']
@@ -603,6 +587,7 @@ def load_data_xlsx(water_level_path, rainfall_path, offset_file_path=None):
             # logging omitted
             # logging omitted
     
+            pass
     if 'Year' not in tide_data.columns:
         tide_data['Year'] = tide_data['DATE'].dt.year
     if 'Month' not in tide_data.columns:
@@ -723,9 +708,11 @@ def load_data(tide_data_path="WAG_tide.csv", rainfall_data_paths=None, export_ra
                 # logging omitted
             else:
                 # logging omitted
+                pass
         else:
             # logging omitted
 
+            pass
         # Load and combine multiple rainfall files
         combined_rainfall = process_multiple_rainfall_files(rainfall_data_paths)
         if combined_rainfall is None or combined_rainfall.empty:
@@ -829,10 +816,12 @@ def process_multiple_rainfall_files(rainfall_data_paths):
                         else:
                             # print(f"    Warning: Unrecognized format based on sniffing (avg commas ~ {avg_commas:.1f}). Skipping file.")
                             # continue # Skip this file # OLD
+                            pass
                 except Exception as sniff_err:
                     # print(f"    Error during content sniffing for '{file_path}': {sniff_err}. Skipping file.")
                     # continue # Skip this file # OLD
 
+                    pass
             # 3. Validate processed data
             if processed_df is not None and not processed_df.empty:
                 # Basic validation: Check for DATE and Rainfall columns
@@ -1490,381 +1479,24 @@ def cluster_compound_events(compound_data, min_interval=3):
     return data.drop(columns=['Cluster_ID']) # Remove temporary cluster ID column
 
 # Fit marginal distributions
-def fit_marginal_distributions(compound_data, column, min_samples=20, extreme_threshold=None):
-    """Internal helper."""
-    extreme_data_series = compound_data[compound_data['Is_Rep_Compound_Extreme'] == True][column].dropna()
-    
-    if len(extreme_data_series) < min_samples:
-        if column == 'Rainfall':
-            extra_data = compound_data[(compound_data['Is_Extreme_Rainfall'] == True) & 
-                                     (compound_data['Is_Rep_Compound_Extreme'] == False)][column].dropna()
-            extreme_data_series = pd.concat([extreme_data_series, extra_data.sample(min(len(extra_data), min_samples - len(extreme_data_series)), random_state=1)])
-        else:  # Sea_Level
-            extra_data = compound_data[(compound_data['Is_Extreme_Sea_Level'] == True) & 
-                                     (compound_data['Is_Rep_Compound_Extreme'] == False)][column].dropna()
-            extreme_data_series = pd.concat([extreme_data_series, extra_data.sample(min(len(extra_data), min_samples - len(extreme_data_series)), random_state=1)])
-        extreme_data_series = extreme_data_series.dropna()
-
-    if len(extreme_data_series) < 10:
-        loc, scale = np.mean(extreme_data_series) if len(extreme_data_series) > 0 else 0, np.std(extreme_data_series) if len(extreme_data_series) > 1 else 1.0
-        return {
-            'distribution': 'norm', 'params': (loc, scale), 'bic': float('inf'),
-            'ks_stat': float('inf'), 'ks_pvalue': 0.0,
-            'num_samples_for_pot_calc_prob': len(extreme_data_series),
-            'exceedance_values_for_calc_prob': np.array([])
-        }
-
-    extreme_data_np_array = extreme_data_series.values
-    n_samples = len(extreme_data_np_array)
-
-    gpd_actual_threshold = extreme_threshold
-    if gpd_actual_threshold is None:
-        if column == 'Rainfall':
-            gpd_actual_threshold = np.percentile(extreme_data_np_array, 10) if len(extreme_data_np_array) > 0 else 0
-        else: 
-            gpd_actual_threshold = np.min(extreme_data_np_array) if len(extreme_data_np_array) > 0 else 0
-    
-    fit_results = []
-    
-    def calculate_bic(k, loglik, n):
-        return k * np.log(n) - 2 * loglik
-
-    # Common properties for probability calculation
-    common_props_for_prob_calc = {
-        'num_samples_for_pot_calc_prob': n_samples
-    }
-
-    if np.all(extreme_data_np_array >= 0) and np.all(extreme_data_np_array <= 1):
-        try:
-            params = stats.beta.fit(extreme_data_np_array)
-            loglik = np.sum(stats.beta.logpdf(extreme_data_np_array, *params))
-            bic = calculate_bic(len(params), loglik, n_samples)
-            ks_stat, ks_pvalue = stats.kstest(extreme_data_np_array, lambda x: stats.beta.cdf(x, *params))
-            cm_res = stats.cramervonmises(extreme_data_np_array, 'beta', args=params)
-            fit_results.append({**{'distribution': 'beta', 'params': params, 'loglik': loglik, 'bic': bic,
-                'ks_stat': ks_stat, 'ks_pvalue': ks_pvalue, 
-                'cm_stat': cm_res.statistic, 'cm_pvalue': cm_res.pvalue}, 
-                **common_props_for_prob_calc})
-        except Exception as e:
-            # logging omitted
-            pass
-
-    if np.all(extreme_data_np_array > 0):
-        try:
-            params = stats.fisk.fit(extreme_data_np_array)
-            loglik = np.sum(stats.fisk.logpdf(extreme_data_np_array, *params))
-            bic = calculate_bic(len(params), loglik, n_samples)
-            ks_stat, ks_pvalue = stats.kstest(extreme_data_np_array, lambda x: stats.fisk.cdf(x, *params))
-            cm_res = stats.cramervonmises(extreme_data_np_array, 'fisk', args=params)
-            fit_results.append({**{'distribution': 'fisk', 'params': params, 'loglik': loglik, 'bic': bic,
-                'ks_stat': ks_stat, 'ks_pvalue': ks_pvalue, 
-                'cm_stat': cm_res.statistic, 'cm_pvalue': cm_res.pvalue}, 
-                **common_props_for_prob_calc})
-        except Exception as e:
-            # logging omitted
-            pass
-    
-    if np.all(extreme_data_np_array > 0):
-        try:
-            params = stats.expon.fit(extreme_data_np_array)
-            loglik = np.sum(stats.expon.logpdf(extreme_data_np_array, *params))
-            bic = calculate_bic(len(params), loglik, n_samples)
-            ks_stat, ks_pvalue = stats.kstest(extreme_data_np_array, lambda x: stats.expon.cdf(x, *params))
-            cm_res = stats.cramervonmises(extreme_data_np_array, 'expon', args=params)
-            fit_results.append({**{'distribution': 'expon', 'params': params, 'loglik': loglik, 'bic': bic,
-                'ks_stat': ks_stat, 'ks_pvalue': ks_pvalue, 
-                'cm_stat': cm_res.statistic, 'cm_pvalue': cm_res.pvalue}, 
-                **common_props_for_prob_calc})
-        except Exception as e:
-            # logging omitted
-            pass
-    
-    try:
-        params = stats.gumbel_r.fit(extreme_data_np_array)
-        loglik = np.sum(stats.gumbel_r.logpdf(extreme_data_np_array, *params))
-        bic = calculate_bic(len(params), loglik, n_samples)
-        ks_stat, ks_pvalue = stats.kstest(extreme_data_np_array, lambda x: stats.gumbel_r.cdf(x, *params))
-        cm_res = stats.cramervonmises(extreme_data_np_array, 'gumbel_r', args=params)
-        fit_results.append({**{'distribution': 'gumbel_r', 'params': params, 'loglik': loglik, 'bic': bic,
-            'ks_stat': ks_stat, 'ks_pvalue': ks_pvalue, 
-            'cm_stat': cm_res.statistic, 'cm_pvalue': cm_res.pvalue}, 
-            **common_props_for_prob_calc})
-    except Exception as e:
-        # logging omitted
-        pass
-    
-    if np.all(extreme_data_np_array > 0):
-        try:
-            params = stats.gamma.fit(extreme_data_np_array)
-            loglik = np.sum(stats.gamma.logpdf(extreme_data_np_array, *params))
-            bic = calculate_bic(len(params), loglik, n_samples)
-            ks_stat, ks_pvalue = stats.kstest(extreme_data_np_array, lambda x: stats.gamma.cdf(x, *params))
-            cm_res = stats.cramervonmises(extreme_data_np_array, 'gamma', args=params)
-            fit_results.append({**{'distribution': 'gamma', 'params': params, 'loglik': loglik, 'bic': bic,
-                'ks_stat': ks_stat, 'ks_pvalue': ks_pvalue, 
-                'cm_stat': cm_res.statistic, 'cm_pvalue': cm_res.pvalue}, 
-                **common_props_for_prob_calc})
-        except Exception as e:
-            # logging omitted
-            pass
-    
-    try:
-        params = stats.genextreme.fit(extreme_data_np_array)
-        loglik = np.sum(stats.genextreme.logpdf(extreme_data_np_array, *params))
-        bic = calculate_bic(len(params), loglik, n_samples)
-        ks_stat, ks_pvalue = stats.kstest(extreme_data_np_array, lambda x: stats.genextreme.cdf(x, *params))
-        cm_res = stats.cramervonmises(extreme_data_np_array, 'genextreme', args=params)
-        fit_results.append({**{'distribution': 'genextreme', 'params': params, 'loglik': loglik, 'bic': bic,
-            'ks_stat': ks_stat, 'ks_pvalue': ks_pvalue, 
-            'cm_stat': cm_res.statistic, 'cm_pvalue': cm_res.pvalue}, 
-            **common_props_for_prob_calc})
-    except Exception as e:
-        # logging omitted
-        pass
-
-    exceedances = extreme_data_np_array[extreme_data_np_array > gpd_actual_threshold] - gpd_actual_threshold
-    exceedances_for_fit = exceedances[exceedances > 1e-9]
-    if len(exceedances_for_fit) >= 5:
-        try:
-            gpd_params_fitted = stats.genpareto.fit(exceedances_for_fit, floc=0)
-            loglik_gpd = np.sum(stats.genpareto.logpdf(exceedances_for_fit, *gpd_params_fitted))
-            bic_gpd = calculate_bic(len(gpd_params_fitted)-1 if len(gpd_params_fitted)>1 else 1, loglik_gpd, len(exceedances_for_fit))
-            ks_stat, ks_pvalue = stats.kstest(exceedances_for_fit, lambda x: stats.genpareto.cdf(x, *gpd_params_fitted))
-            cm_res_gpd = stats.cramervonmises(exceedances_for_fit, 'genpareto', args=gpd_params_fitted)
-            fit_results.append({
-                'distribution': 'genpareto', 'params': gpd_params_fitted, 'loglik': loglik_gpd, 'bic': bic_gpd,
-                'ks_stat': ks_stat, 'ks_pvalue': ks_pvalue,
-                'cm_stat': cm_res_gpd.statistic, 'cm_pvalue': cm_res_gpd.pvalue,
-                'threshold': gpd_actual_threshold,
-                'exceedance_values_for_calc_prob': exceedances_for_fit, 
-                **common_props_for_prob_calc
-            })
-        except Exception as e:
-            # logging omitted
-            pass
-
-    if np.all(extreme_data_np_array > 0):
-        try:
-            params = stats.invgauss.fit(extreme_data_np_array)
-            loglik = np.sum(stats.invgauss.logpdf(extreme_data_np_array, *params))
-            bic = calculate_bic(len(params), loglik, n_samples)
-            ks_stat, ks_pvalue = stats.kstest(extreme_data_np_array, lambda x: stats.invgauss.cdf(x, *params))
-            cm_res = stats.cramervonmises(extreme_data_np_array, 'invgauss', args=params)
-            fit_results.append({**{'distribution': 'invgauss', 'params': params, 'loglik': loglik, 'bic': bic,
-                'ks_stat': ks_stat, 'ks_pvalue': ks_pvalue, 
-                'cm_stat': cm_res.statistic, 'cm_pvalue': cm_res.pvalue}, 
-                **common_props_for_prob_calc})
-        except Exception as e:
-            # logging omitted
-            pass
-
-    try:
-        params = stats.logistic.fit(extreme_data_np_array)
-        loglik = np.sum(stats.logistic.logpdf(extreme_data_np_array, *params))
-        bic = calculate_bic(len(params), loglik, n_samples)
-        ks_stat, ks_pvalue = stats.kstest(extreme_data_np_array, lambda x: stats.logistic.cdf(x, *params))
-        cm_res = stats.cramervonmises(extreme_data_np_array, 'logistic', args=params)
-        fit_results.append({**{'distribution': 'logistic', 'params': params, 'loglik': loglik, 'bic': bic,
-            'ks_stat': ks_stat, 'ks_pvalue': ks_pvalue, 
-            'cm_stat': cm_res.statistic, 'cm_pvalue': cm_res.pvalue}, 
-            **common_props_for_prob_calc})
-    except Exception as e:
-        # logging omitted
-        pass
-
-    if np.all(extreme_data_np_array > 0):
-        try:
-            alpha, beta = fit_loglogistic(extreme_data_np_array)
-            pdf_values = loglogistic_pdf(extreme_data_np_array, alpha, beta)
-            pdf_values = np.maximum(pdf_values, 1e-10)
-            loglik = np.sum(np.log(pdf_values))
-            bic = calculate_bic(2, loglik, n_samples)
-            ks_stat, ks_pvalue = stats.kstest(extreme_data_np_array, lambda x_val: loglogistic_cdf(x_val, alpha, beta))
-            loglogistic_cdf_callable = lambda x_val: loglogistic_cdf(x_val, alpha, beta)
-            cm_res_ll = stats.cramervonmises(extreme_data_np_array, loglogistic_cdf_callable)
-            fit_results.append({**{'distribution': 'loglogistic', 'params': (alpha, beta), 'loglik': loglik, 'bic': bic,
-                'ks_stat': ks_stat, 'ks_pvalue': ks_pvalue, 
-                'cm_stat': cm_res_ll.statistic, 'cm_pvalue': cm_res_ll.pvalue}, 
-                **common_props_for_prob_calc})
-        except Exception as e:
-            # logging omitted
-            pass 
-
-    if np.all(extreme_data_np_array > 0):
-        try:
-            params = stats.lognorm.fit(extreme_data_np_array)
-            loglik = np.sum(stats.lognorm.logpdf(extreme_data_np_array, *params))
-            bic = calculate_bic(len(params), loglik, n_samples)
-            ks_stat, ks_pvalue = stats.kstest(extreme_data_np_array, lambda x: stats.lognorm.cdf(x, *params))
-            cm_res = stats.cramervonmises(extreme_data_np_array, 'lognorm', args=params)
-            fit_results.append({**{'distribution': 'lognorm', 'params': params, 'loglik': loglik, 'bic': bic,
-                'ks_stat': ks_stat, 'ks_pvalue': ks_pvalue, 
-                'cm_stat': cm_res.statistic, 'cm_pvalue': cm_res.pvalue}, 
-                **common_props_for_prob_calc})
-        except Exception as e:
-            # logging omitted
-            pass
-
-    if np.all(extreme_data_np_array > 0):
-        try:
-            params = stats.nakagami.fit(extreme_data_np_array)
-            loglik = np.sum(stats.nakagami.logpdf(extreme_data_np_array, *params))
-            bic = calculate_bic(len(params), loglik, n_samples)
-            ks_stat, ks_pvalue = stats.kstest(extreme_data_np_array, lambda x: stats.nakagami.cdf(x, *params))
-            cm_res = stats.cramervonmises(extreme_data_np_array, 'nakagami', args=params)
-            fit_results.append({**{'distribution': 'nakagami', 'params': params, 'loglik': loglik, 'bic': bic,
-                'ks_stat': ks_stat, 'ks_pvalue': ks_pvalue, 
-                'cm_stat': cm_res.statistic, 'cm_pvalue': cm_res.pvalue}, 
-                **common_props_for_prob_calc})
-        except Exception as e:
-            # logging omitted
-            pass
-
-    try:
-        params = stats.norm.fit(extreme_data_np_array)
-        loglik = np.sum(stats.norm.logpdf(extreme_data_np_array, *params))
-        bic = calculate_bic(len(params), loglik, n_samples)
-        ks_stat, ks_pvalue = stats.kstest(extreme_data_np_array, lambda x: stats.norm.cdf(x, *params))
-        cm_res = stats.cramervonmises(extreme_data_np_array, 'norm', args=(params[0], params[1]))
-        fit_results.append({**{'distribution': 'norm', 'params': params, 'loglik': loglik, 'bic': bic,
-            'ks_stat': ks_stat, 'ks_pvalue': ks_pvalue, 
-            'cm_stat': cm_res.statistic, 'cm_pvalue': cm_res.pvalue}, 
-            **common_props_for_prob_calc})
-    except Exception as e:
-        # logging omitted
-        pass
-
-    if np.all(extreme_data_np_array > 0):
-        try:
-            params = stats.rayleigh.fit(extreme_data_np_array)
-            loglik = np.sum(stats.rayleigh.logpdf(extreme_data_np_array, *params))
-            bic = calculate_bic(len(params), loglik, n_samples)
-            ks_stat, ks_pvalue = stats.kstest(extreme_data_np_array, lambda x: stats.rayleigh.cdf(x, *params))
-            cm_res = stats.cramervonmises(extreme_data_np_array, 'rayleigh', args=params)
-            fit_results.append({**{'distribution': 'rayleigh', 'params': params, 'loglik': loglik, 'bic': bic,
-                'ks_stat': ks_stat, 'ks_pvalue': ks_pvalue, 
-                'cm_stat': cm_res.statistic, 'cm_pvalue': cm_res.pvalue}, 
-                **common_props_for_prob_calc})
-        except Exception as e:
-            # logging omitted
-            pass
-
-    if np.all(extreme_data_np_array > 0):
-        try:
-            params = stats.rice.fit(extreme_data_np_array)
-            loglik = np.sum(stats.rice.logpdf(extreme_data_np_array, *params))
-            bic = calculate_bic(len(params), loglik, n_samples)
-            ks_stat, ks_pvalue = stats.kstest(extreme_data_np_array, lambda x: stats.rice.cdf(x, *params))
-            cm_res = stats.cramervonmises(extreme_data_np_array, 'rice', args=params)
-            fit_results.append({**{'distribution': 'rice', 'params': params, 'loglik': loglik, 'bic': bic,
-                'ks_stat': ks_stat, 'ks_pvalue': ks_pvalue, 
-                'cm_stat': cm_res.statistic, 'cm_pvalue': cm_res.pvalue}, 
-                **common_props_for_prob_calc})
-        except Exception as e:
-            # logging omitted
-            pass
-
-    try:
-        params = stats.t.fit(extreme_data_np_array)
-        loglik = np.sum(stats.t.logpdf(extreme_data_np_array, *params))
-        bic = calculate_bic(len(params), loglik, n_samples)
-        ks_stat, ks_pvalue = stats.kstest(extreme_data_np_array, lambda x: stats.t.cdf(x, *params))
-        cm_res = stats.cramervonmises(extreme_data_np_array, 't', args=params)
-        fit_results.append({**{'distribution': 't', 'params': params, 'loglik': loglik, 'bic': bic,
-            'ks_stat': ks_stat, 'ks_pvalue': ks_pvalue, 
-            'cm_stat': cm_res.statistic, 'cm_pvalue': cm_res.pvalue}, 
-            **common_props_for_prob_calc})
-    except Exception as e:
-        # logging omitted
-        pass
-    """Internal helper."""
-    if not fit_results:
-        loc, scale = np.mean(extreme_data_np_array) if len(extreme_data_np_array) > 0 else 0, np.std(extreme_data_np_array) if len(extreme_data_np_array) > 1 else 1.0
-        return {
-            'distribution': 'norm', 'params': (loc, scale), 'bic': float('inf'),
-            'ks_stat': float('inf'), 'ks_pvalue': 0.0, 
-            **common_props_for_prob_calc,
-            'exceedance_values_for_calc_prob': np.array([])
-        }
-
-    ks_significance_level = 0.05
-    valid_fits_by_ks = [fit for fit in fit_results if fit.get('ks_pvalue', 0) > ks_significance_level]
-    
-    selected_fits_for_bic = valid_fits_by_ks if valid_fits_by_ks else fit_results
-    
-    best_fit = min(selected_fits_for_bic, key=lambda x: x['bic'])
-    return best_fit
-
-# Calculate probability based on distribution
 def calculate_probability(value, dist_info):
     """Internal helper."""
     dist_name = dist_info['distribution']
     params = dist_info['params']
-    
+
     try:
-        if dist_name == 'norm':
-            return stats.norm.cdf(value, *params)
-        
-        elif dist_name == 'expon':
-            return stats.expon.cdf(value, *params)
-        
-        elif dist_name == 'gamma':
-            return stats.gamma.cdf(value, *params)
-        
-        elif dist_name == 'genextreme':
-            return stats.genextreme.cdf(value, *params)
-        
-        elif dist_name == 'genpareto':
+        if dist_name == 'genpareto':
             threshold = dist_info.get('threshold', 0)
             if value <= threshold:
                 return 0.0
-            else:
-                exceedance = value - threshold
-                # GPD CDF for exceedance
-                p_excess = stats.genpareto.cdf(exceedance, *params)
-                p_exceed_threshold = len(dist_info.get('exceedance_values_for_calc_prob', [])) / dist_info.get('num_samples_for_pot_calc_prob', 1000)
-                return 1.0 - p_exceed_threshold * (1.0 - p_excess)
-        
-        elif dist_name == 'logistic':
-            return stats.logistic.cdf(value, *params)
-        
-        elif dist_name == 'lognorm':
-            return stats.lognorm.cdf(value, *params)
-        
-        elif dist_name == 'gumbel_r':
-            return stats.gumbel_r.cdf(value, *params)
-        
-        elif dist_name == 'weibull_min':
-            return stats.weibull_min.cdf(value, *params)
-        
-        elif dist_name == 'loglogistic':
-            alpha, beta = params
-            return loglogistic_cdf(value, alpha, beta)
-            
-        elif dist_name == 'beta':
-            return stats.beta.cdf(value, *params)
-            
-        elif dist_name == 'fisk':  # Birnbaum-Saunders
-            return stats.fisk.cdf(value, *params)
-            
-        elif dist_name == 'invgauss':
-            return stats.invgauss.cdf(value, *params)
-            
-        elif dist_name == 'nakagami':
-            return stats.nakagami.cdf(value, *params)
-            
-        elif dist_name == 'rayleigh':
-            return stats.rayleigh.cdf(value, *params)
-            
-        elif dist_name == 'rice':  # Rician
-            return stats.rice.cdf(value, *params)
-            
-        elif dist_name == 't':
-            return stats.t.cdf(value, *params)
-        
-        else:
-            # logging omitted
-            return 0.5
+            exceedance = value - threshold
+            p_excess = stats.genpareto.cdf(exceedance, *params)
+            p_exceed_threshold = len(dist_info.get('exceedance_values_for_calc_prob', [])) / dist_info.get('num_samples_for_pot_calc_prob', 1000)
+            return 1.0 - p_exceed_threshold * (1.0 - p_excess)
+
+        return getattr(stats, dist_name).cdf(value, *params)
+    except Exception:
+        return 0.5
             
     except Exception as e:
         # logging omitted
@@ -1977,453 +1609,6 @@ def perform_cramer_von_mises_test(data, copula_model):
     return p_value, cm_stat
 
 # Fit Copula models
-def fit_copula_models(compound_data, rainfall_col, sea_level_col, rainfall_threshold=None, sea_level_threshold=None):
-    """
-    Fit Copula models using marginal distribution fitting (Modified for stricter error handling and detailed output)
-    """
-    # Calculate 90th percentile if thresholds not provided
-    if rainfall_threshold is None:
-        rainfall_threshold = np.percentile(compound_data[rainfall_col], 90)
-    if sea_level_threshold is None:
-        sea_level_threshold = np.percentile(compound_data[sea_level_col], 90)
-        
-    print(f"Rainfall threshold: {rainfall_threshold:.2f} mm")
-    print(f"Sea level threshold: {sea_level_threshold:.2f} m")
-    
-    # Select compound extreme events
-    extreme_events = compound_data[compound_data['Is_Rep_Compound_Extreme'] == True].copy()
-    
-    print(f"Compound extreme events: {len(extreme_events)}")
-    
-    # Check if enough extreme events
-    if len(extreme_events) < 20:
-        print(f"Warning: Few compound extreme events ({len(extreme_events)}), will use enhanced fitting strategy")
-    
-    print(f"Using {len(extreme_events)} compound extreme events to fit Copula models")
-    
-    # Fit marginal distributions with extreme event thresholds
-    fits = {
-        rainfall_col: fit_marginal_distributions(compound_data, rainfall_col, extreme_threshold=rainfall_threshold),
-        sea_level_col: fit_marginal_distributions(compound_data, sea_level_col, extreme_threshold=sea_level_threshold)
-    }
-    
-    print("\nMarginal distribution fitting results (Best by K-S & BIC):")
-    for col, fit in fits.items():
-        dist_name = fit['distribution']
-        params = fit['params']
-        bic_val = fit['bic']
-        
-        param_str_parts = []
-        if dist_name == 'genpareto':
-            shape, _, scale = params
-            threshold = fit['threshold']
-            param_str_parts.extend([f"shape={shape:.4f}", f"scale={scale:.4f}", f"threshold={threshold:.4f}"])
-        elif dist_name == 'norm':
-            loc, scale = params
-            param_str_parts.extend([f"loc={loc:.4f}", f"scale={scale:.4f}"])
-        elif dist_name == 'genextreme':
-            shape, loc, scale = params
-            param_str_parts.extend([f"shape={shape:.4f}", f"loc={loc:.4f}", f"scale={scale:.4f}"])
-        elif dist_name == 'gamma':
-            shape, loc, scale = params
-            param_str_parts.extend([f"shape={shape:.4f}", f"loc={loc:.4f}", f"scale={scale:.4f}"])
-        elif dist_name == 'lognorm':
-            shape, loc, scale = params
-            param_str_parts.extend([f"shape={shape:.4f}", f"loc={loc:.4f}", f"scale={scale:.4f}"])
-        elif dist_name == 'logistic':
-            loc, scale = params
-            param_str_parts.extend([f"loc={loc:.4f}", f"scale={scale:.4f}"])
-        elif dist_name == 'gumbel_r':
-            loc, scale = params
-            param_str_parts.extend([f"loc={loc:.4f}", f"scale={scale:.4f}"])
-        elif dist_name == 'weibull_min':
-            shape, loc, scale = params
-            param_str_parts.extend([f"shape={shape:.4f}", f"loc={loc:.4f}", f"scale={scale:.4f}"])
-        elif dist_name == 'loglogistic':
-            alpha, beta = params
-            param_str_parts.extend([f"alpha={alpha:.4f}", f"beta={beta:.4f}"])
-        else:
-            param_str_parts.append(f"params={params}")
-        
-        # cm_p_val_str = f"{fit.get('cm_pvalue', -1):.4f}" if 'cm_pvalue' in fit else "N/A" # CM Test related code removed
-        ks_p_val_str = f"{fit.get('ks_pvalue', -1):.4f}" if 'ks_pvalue' in fit else "N/A"
-        cm_p_val_str = f"{fit.get('cm_pvalue', -1):.4f}" if 'cm_pvalue' in fit else "N/A"
-        print(f"  {col}: {dist_name.capitalize()}, BIC={bic_val:.2f}, K-S p-val={ks_p_val_str}, CM p-val={cm_p_val_str}, Params: {', '.join(param_str_parts)}")
-
-    # Transform data using theoretical CDFs from fitted marginal distributions
-    print("\nTransforming data to [0,1] using theoretical CDFs...")
-    u_values = extreme_events[rainfall_col].apply(lambda x: calculate_probability(x, fits[rainfall_col]))
-    v_values = extreme_events[sea_level_col].apply(lambda x: calculate_probability(x, fits[sea_level_col]))
-    
-    # Prepare data - ensure strictly in (0,1) interval
-    u = np.clip(u_values.values, 1e-6, 1 - 1e-6)
-    v = np.clip(v_values.values, 1e-6, 1 - 1e-6)
-    data = np.column_stack((u, v))
-
-    # Diagnostic output for transformed data
-    print(f"Transformed Rainfall (u) range: [{u.min():.6f}, {u.max():.6f}]")
-    print(f"Transformed Sea Level (v) range: [{v.min():.6f}, {v.max():.6f}]")
-
-    # Fit copula models
-    results = {}
-    
-    # Helper function to calculate NLL using PDF
-    def calculate_nll_from_pdf(copula_model, data, model_name):
-        log_lik = 0
-        pdf_values = np.zeros(len(data))
-        if not hasattr(copula_model, 'pdf'):
-             # This is a programming error or an issue with the copula library/class
-             raise AttributeError(f"Critical Error: pdf method not found for {model_name} Copula. Program will terminate.")
-
-        for i in range(len(data)):
-             try:
-                  pdf_val = copula_model.pdf(data[i])
-                  if not np.isfinite(pdf_val) or pdf_val <= 0:
-                      raise ValueError(f"Critical Error: PDF for {model_name} at point {i} is invalid (value: {pdf_val}). Program will terminate.")
-                  pdf_values[i] = pdf_val # No clipping, use as is
-             except Exception as pdf_err:
-                  # Re-raise as a critical error
-                  raise RuntimeError(f"Critical Error during PDF calculation for {model_name} at point {i}: {pdf_err}. Program will terminate.") from pdf_err
-        
-        # Calculate log-likelihood
-        try:
-            # Ensure no zero or negative values before log
-            if np.any(pdf_values <= 0):
-                 raise ValueError(f"Critical Error: PDF values for {model_name} include non-positive numbers before log. Program will terminate.")
-            log_pdf_values = np.log(pdf_values)
-            if np.any(np.isinf(log_pdf_values)) or np.any(np.isnan(log_pdf_values)):
-                raise ValueError(f"Critical Error: Log of PDF for {model_name} resulted in Inf or NaN. Program will terminate.")
-            log_lik = np.sum(log_pdf_values)
-        except ValueError as ve: # Catch specific ValueError from checks
-            raise ve
-        except Exception as log_err:
-            raise RuntimeError(f"Critical Error during log-likelihood sum for {model_name}: {log_err}. Program will terminate.") from log_err
-        
-        nll = -log_lik
-        if not np.isfinite(nll):
-            raise ValueError(f"Critical Error: NLL for {model_name} is not finite (value: {nll}). Program will terminate.")
-        return nll
-
-    # 1. Gaussian Copula
-    try:
-        # print("Fitting Gaussian Copula...") # Process print removed
-        cop_gaussian = GaussianCopula(dim=2)
-        cop_gaussian.fit(data)
-        
-        nll = calculate_nll_from_pdf(cop_gaussian, data, "Gaussian")
-            
-        k = len(np.ravel(cop_gaussian.params))  # Number of parameters
-        n = len(data)  # Sample size
-        bic = k * np.log(n) + 2 * nll  # BIC = k*ln(n) - 2*loglik (nll = -loglik, so use +)
-        
-        cm_p_value, cm_stat = perform_cramer_von_mises_test(data, cop_gaussian)
-        ks_p_value, ks_stat = perform_kolmogorov_smirnov_test(data, cop_gaussian)
-        
-        results['gaussian'] = {
-            'params': cop_gaussian.params,
-            'bic': bic,
-            'nll': nll,
-            'model': cop_gaussian,
-            'cm_p_value': cm_p_value,
-            'cm_stat': cm_stat,
-            'ks_p_value': ks_p_value,
-            'ks_stat': ks_stat
-        }
-    except Exception as e:
-        print(f"  CRITICAL ERROR fitting Gaussian Copula or calculating its metrics: {str(e)}. Program will terminate.")
-        raise RuntimeError(f"Failed on Gaussian Copula: {str(e)}") from e
-    
-    # 2. Student-t Copula
-    try:
-        # print("Fitting Student-t Copula...") # Process print removed
-        cop_student = StudentCopula(dim=2)
-        cop_student.fit(data)
-
-        # Version compatibility parameter parsing
-        if isinstance(cop_student.params, tuple):  # copulae>=0.6.0
-            rho_matrix, df = cop_student.params
-            rho = rho_matrix[0, 1] if rho_matrix.ndim == 2 else rho_matrix
-        else:  # copulae<0.6.0
-            rho = cop_student.params[0, 1]
-            df = getattr(cop_student, 'df', 3.0) # Default df if not present
-
-        # Parameter validation (can be made stricter if needed)
-        rho = np.clip(float(rho), -0.999, 0.999) # Allow closer to 1/-1
-        df = max(float(df), 2.01) # df > 2 for variance
-
-        nll = calculate_nll_from_pdf(cop_student, data, "Student-t")
-            
-        k = 2  # Number of parameters: rho + df
-        n = len(data)  # Sample size
-        bic = k * np.log(n) + 2 * nll  # BIC = k*ln(n) - 2*loglik (nll = -loglik, so use +)
-
-        cm_p_value, cm_stat = perform_cramer_von_mises_test(data, cop_student)
-        ks_p_value, ks_stat = perform_kolmogorov_smirnov_test(data, cop_student)
-
-        results['t'] = {
-            'params': (rho, df),
-            'bic': bic,
-            'nll': nll,
-            'model': cop_student,
-            'cm_p_value': cm_p_value,
-            'cm_stat': cm_stat,
-            'ks_p_value': ks_p_value,
-            'ks_stat': ks_stat
-        }
-    except Exception as e:
-        print(f"  CRITICAL ERROR fitting Student-t Copula or calculating its metrics: {str(e)}. Program will terminate.")
-        raise RuntimeError(f"Failed on Student-t Copula: {str(e)}") from e
-    
-    # 3. Clayton Copula
-    try:
-        # print("Fitting Clayton Copula...") # Process print removed
-        cop_clayton = ClaytonCopula(dim=2)
-        cop_clayton.fit(data)
-        
-        nll = calculate_nll_from_pdf(cop_clayton, data, "Clayton")
-            
-        k = 1  # Number of parameters
-        n = len(data)  # Sample size
-        bic = k * np.log(n) + 2 * nll  # BIC = k*ln(n) - 2*loglik (nll = -loglik, so use +)
-        
-        cm_p_value, cm_stat = perform_cramer_von_mises_test(data, cop_clayton)
-        ks_p_value, ks_stat = perform_kolmogorov_smirnov_test(data, cop_clayton)
-        
-        results['clayton'] = {
-            'params': cop_clayton.params,
-            'bic': bic,
-            'nll': nll,
-            'model': cop_clayton,
-            'cm_p_value': cm_p_value,
-            'cm_stat': cm_stat,
-            'ks_p_value': ks_p_value,
-            'ks_stat': ks_stat
-        }
-    except Exception as e:
-        print(f"  CRITICAL ERROR fitting Clayton Copula or calculating its metrics: {str(e)}. Program will terminate.")
-        raise RuntimeError(f"Failed on Clayton Copula: {str(e)}") from e
-    
-    # 4. Gumbel Copula
-    try:
-        # print("Fitting Gumbel Copula...") # Process print removed
-        cop_gumbel = GumbelCopula(dim=2)
-        cop_gumbel.fit(data)
-        
-        nll = calculate_nll_from_pdf(cop_gumbel, data, "Gumbel")
-             
-        k = 1  # Number of parameters
-        n = len(data)  # Sample size
-        bic = k * np.log(n) + 2 * nll  # BIC = k*ln(n) - 2*loglik (nll = -loglik, so use +)
-        
-        cm_p_value, cm_stat = perform_cramer_von_mises_test(data, cop_gumbel)
-        ks_p_value, ks_stat = perform_kolmogorov_smirnov_test(data, cop_gumbel)
-        
-        results['gumbel'] = {
-            'params': cop_gumbel.params,
-            'bic': bic,
-            'nll': nll,
-            'model': cop_gumbel,
-            'cm_p_value': cm_p_value,
-            'cm_stat': cm_stat,
-            'ks_p_value': ks_p_value,
-            'ks_stat': ks_stat
-        }
-    except Exception as e:
-        print(f"  CRITICAL ERROR fitting Gumbel Copula or calculating its metrics: {str(e)}. Program will terminate.")
-        raise RuntimeError(f"Failed on Gumbel Copula: {str(e)}") from e
-    
-    # 5. Frank Copula
-    try:
-        # print("Fitting Frank Copula...") # Process print removed
-        cop_frank = FrankCopula(dim=2)
-        cop_frank.fit(data)
-        
-        nll = calculate_nll_from_pdf(cop_frank, data, "Frank")
-            
-        k = 1  # Number of parameters
-        n = len(data)  # Sample size
-        bic = k * np.log(n) + 2 * nll  # BIC = k*ln(n) - 2*loglik (nll = -loglik, so use +)
-        
-        cm_p_value, cm_stat = perform_cramer_von_mises_test(data, cop_frank)
-        ks_p_value, ks_stat = perform_kolmogorov_smirnov_test(data, cop_frank)
-        
-        results['frank'] = {
-            'params': cop_frank.params,
-            'bic': bic,
-            'nll': nll,
-            'model': cop_frank,
-            'cm_p_value': cm_p_value,
-            'cm_stat': cm_stat,
-            'ks_p_value': ks_p_value,
-            'ks_stat': ks_stat
-        }
-    except Exception as e:
-        print(f"  CRITICAL ERROR fitting Frank Copula or calculating its metrics: {str(e)}. Program will terminate.")
-        raise RuntimeError(f"Failed on Frank Copula: {str(e)}") from e
-    
-    # 6. Joe Copula
-    try:
-        # print("Fitting Joe Copula (simplified implementation)...") # Process print removed
-        cop_joe = SimpleJoeCopula(dim=2)
-        cop_joe.fit(data) # This fit includes its own NLL calculation logic, check SimpleJoeCopula.fit
-        
-        # Recalculate NLL using the common, stricter function for consistency in BIC
-        nll = calculate_nll_from_pdf(cop_joe, data, "Joe")
-            
-        k = 1  # Number of parameters (theta)
-        n = len(data)  # Sample size
-        bic = k * np.log(n) + 2 * nll  # BIC = k*ln(n) - 2*loglik (nll = -loglik, so use +)
-        
-        cm_p_value, cm_stat = perform_cramer_von_mises_test(data, cop_joe)
-        ks_p_value, ks_stat = perform_kolmogorov_smirnov_test(data, cop_joe)
-        
-        results['joe'] = {
-            'params': cop_joe.params, # This is theta
-            'bic': bic,
-            'nll': nll,
-            'model': cop_joe,
-            'cm_p_value': cm_p_value,
-            'cm_stat': cm_stat,
-            'ks_p_value': ks_p_value,
-            'ks_stat': ks_stat
-        }
-    except Exception as e:
-        print(f"  CRITICAL ERROR fitting Joe Copula or calculating its metrics: {str(e)}. Program will terminate.")
-        raise RuntimeError(f"Failed on Joe Copula: {str(e)}") from e
-    
-    # 7. Survival Clayton Copula
-    try:
-        u_orig = data[:, 0]
-        v_orig = data[:, 1]
-        # Ensure data is within (0,1) strictly for 1-x transformations to also be in (0,1)
-        # This was already handled by np.clip in the data preparation for copula fitting.
-        u_survival_transform = 1 - u_orig
-        v_survival_transform = 1 - v_orig
-        data_for_survival_fit = np.column_stack((u_survival_transform, v_survival_transform))
-
-        # Fit a standard Clayton copula on the transformed data (1-u, 1-v)
-        cop_clayton_std_for_survival = ClaytonCopula(dim=2)
-        cop_clayton_std_for_survival.fit(data_for_survival_fit)
-        theta_sc = cop_clayton_std_for_survival.params
-
-        # NLL for Survival Clayton C_sc(u,v) is NLL of C_std(1-u, 1-v)
-        # So, use the standard Clayton PDF with (1-u, 1-v) data
-        nll = calculate_nll_from_pdf(cop_clayton_std_for_survival, data_for_survival_fit, "Survival Clayton (manual)")
-            
-        k = 1  # Number of parameters (theta for Clayton)
-        n = len(data)  # Sample size
-        bic = k * np.log(n) + 2 * nll  # BIC = k*ln(n) - 2*loglik (nll = -loglik, so use +)
-        
-        # Goodness-of-fit tests for C_sc(u,v) are equivalent to tests for C_std(1-u, 1-v)
-        # Thus, use the standard Clayton model with the transformed data
-        cm_p_value, cm_stat = perform_cramer_von_mises_test(data_for_survival_fit, cop_clayton_std_for_survival)
-        ks_p_value, ks_stat = perform_kolmogorov_smirnov_test(data_for_survival_fit, cop_clayton_std_for_survival)
-        
-        results['survival_clayton'] = {
-            'params': theta_sc, # This is theta for the survival Clayton
-            'bic': bic,
-            'nll': nll,
-            # Store the standard Clayton model fitted on (1-u,1-v) data.
-            # We will need to remember this when using it later for P(U>u,V>v) or C_sc(u,v)
-            'model': cop_clayton_std_for_survival, 
-            'cm_p_value': cm_p_value,
-            'cm_stat': cm_stat,
-            'ks_p_value': ks_p_value,
-            'ks_stat': ks_stat,
-            'method': 'manual_transform' # Add a flag to know how it was fitted
-        }
-    except Exception as e:
-        print(f"  CRITICAL ERROR fitting Survival Clayton Copula (manual method) or calculating its metrics: {str(e)}. Program will terminate.")
-        raise RuntimeError(f"Failed on Survival Clayton Copula (manual method): {str(e)}") from e
-    
-    # --- Output evaluation for ALL fitted Copulas ---
-    print("\n--- Copula Model Evaluation Summary ---")
-    if not results:
-        print("No Copula models were successfully fitted. This should not happen if error handling forces termination.")
-        results['independence'] = {
-            'params': [0], 'bic': float('inf'), 'nll': float('inf'), 'model': None,
-            'cm_p_value': 1.0, 'cm_stat': 0.0, 'ks_p_value': 1.0, 'ks_stat': 0.0
-        }
-    else:
-        for name, res_dict in results.items():
-            param_str = f"{res_dict['params']}"
-            if name == 't': # Student-t has tuple (rho, df)
-                 param_str = f"rho={res_dict['params'][0]:.3f}, df={res_dict['params'][1]:.1f}"
-            elif name == 'gaussian':
-                 if isinstance(res_dict['params'], np.ndarray) and res_dict['params'].ndim == 2:
-                     param_str = f"corr={res_dict['params'][0,1]:.4f}" 
-                 else:
-                     param_str = f"{res_dict['params']}" 
-            elif name == 'survival_clayton':
-                param_str = f"theta={res_dict['params']:.4f}"
-            else: # For single param copulas like Clayton, Gumbel, Frank, Joe
-                 param_str = f"{res_dict['params']:.4f}"
-
-
-            print(f"  {name.capitalize()} Copula: BIC={res_dict['bic']:.2f}, K-S p-val={res_dict.get('ks_p_value', float('nan')):.4f}, Params: {param_str}")
-
-    # Check if at least one model was successfully fitted (results should not be empty if program reaches here)
-    if not results: # Should be redundant due to earlier checks and termination logic
-        print("CRITICAL: All Copula model fittings failed, but program did not terminate as expected. Returning independent Copula as fallback.")
-        # This indicates a flaw in the termination logic if reached.
-        results['independence'] = {
-            'params': [0], 
-            'bic': float('inf'), 
-            'nll': float('inf'),
-            'model': None,
-            'cm_p_value': 1.0, # Using 1.0 for p-value to indicate no dependence by default
-            'cm_stat': 0.0,
-            'ks_p_value': 1.0, # Using 1.0 for p-value to indicate perfect fit by default
-            'ks_stat': 0.0
-        }
-        # It's safer to still raise an error here if this state is reached.
-        # raise RuntimeError("All Copula fittings failed but program continued. This indicates a logic error.")
-        return results, 'independence', fits # Fallback, but ideally program terminates before this
-    
-    # --- Model Selection: Prioritize K-S test, then BIC ---
-    ks_significance_level = 0.05
-    
-    # Ensure results are not empty and BICs are valid before proceeding
-    if not results:
-        # This check is somewhat redundant given the individual try-except blocks for each copula
-        # and the check immediately above, but it's a final safeguard.
-        raise RuntimeError("CRITICAL: No Copula models were fitted. Program will terminate.")
-
-    # Filter for models with valid BIC and K-S p-value for selection process
-    analyzable_models = {
-        name: res for name, res in results.items()
-        if pd.notna(res.get('bic')) and pd.notna(res.get('ks_p_value'))
-    }
-
-    if not analyzable_models:
-        # This implies that even if models were "fitted", their BIC or K-S p-value couldn't be determined,
-        # which should have been caught by the calculate_nll_from_pdf or test functions.
-        raise RuntimeError("CRITICAL: No Copula models have valid BIC and K-S p-value for selection. Program will terminate.")
-
-    # Filter models that pass the K-S test
-    passed_ks_test_models = {
-        name: res for name, res in analyzable_models.items()
-        if res['ks_p_value'] > ks_significance_level
-    }
-
-    if passed_ks_test_models:
-        print(f"\nModels passing K-S test (p > {ks_significance_level}): {list(passed_ks_test_models.keys())}")
-        # Select the best model from those that passed K-S test based on lowest BIC
-        best_copula_name = min(passed_ks_test_models.items(), key=lambda x: x[1]['bic'])[0]
-        print(f"Selected best model (passes K-S test & lowest BIC): {best_copula_name.capitalize()}")
-    else:
-        print(f"\nWarning: No Copula model passed the K-S test (p > {ks_significance_level}).")
-        # Fallback: Select the model with the lowest BIC from all analyzable models
-        best_copula_name = min(analyzable_models.items(), key=lambda x: x[1]['bic'])[0]
-        print(f"Selected best model based on lowest BIC (as fallback, K-S test not passed): {best_copula_name.capitalize()}")
-    # --- End of new model selection logic ---
-    
-    # Print comprehensive model evaluation metrics for the BEST model
-    print("\nBest Copula Model Evaluation:")
-
-    return results, best_copula_name, fits
-
-# Calculate return period
 def calculate_return_period(compound_data, rainfall_col, sea_level_col, copula_results, best_copula, fits):
     """
     Calculate compound extreme event return periods using theoretical method
@@ -2585,151 +1770,6 @@ def calculate_contours(compound_data, rainfall_col, sea_level_col, copula_result
     print(f"Z matrix range: {Z_smooth.min():.2f} to {Z_smooth.max():.2f}")
     
     return R, S, Z_smooth
-
-def find_maximum_density_points(R, S, Z, copula_results, best_copula, fits, rainfall_col, sea_level_col, 
-                                return_periods=[5, 10, 20, 50, 100, 200, 500, 1000]):
-    """Internal helper."""
-    import numpy as np
-    import pandas as pd
-    from scipy import interpolate
-    from scipy import stats
-    
-    copula_model = copula_results[best_copula]['model']
-    
-    contour_func = interpolate.LinearNDInterpolator(
-        points=(S.flatten(), R.flatten()),
-        values=Z.flatten()
-    )
-    
-    max_density_points = []
-    
-    def calculate_marginal_pdf(value, dist_info):
-        """Internal helper."""
-        dist_name = dist_info['distribution']
-        params = dist_info['params']
-        
-        try:
-            if dist_name == 'norm':
-                return stats.norm.pdf(value, *params)
-            elif dist_name == 'expon':
-                return stats.expon.pdf(value, *params)
-            elif dist_name == 'gamma':
-                return stats.gamma.pdf(value, *params)
-            elif dist_name == 'genextreme':
-                return stats.genextreme.pdf(value, *params)
-            elif dist_name == 'genpareto':
-                threshold = dist_info.get('threshold', 0)
-                if value <= threshold:
-                    return 0.0
-                return stats.genpareto.pdf(value - threshold, *params)
-            elif dist_name == 'logistic':
-                return stats.logistic.pdf(value, *params)
-            elif dist_name == 'lognorm':
-                return stats.lognorm.pdf(value, *params)
-            elif dist_name == 'gumbel_r':
-                return stats.gumbel_r.pdf(value, *params)
-            elif dist_name == 'weibull_min':
-                return stats.weibull_min.pdf(value, *params)
-            elif dist_name == 'loglogistic':
-                alpha, beta = params
-                return loglogistic_pdf(value, alpha, beta)
-            else:
-                return stats.norm.pdf(value, loc=np.mean(value), scale=np.std(value) or 1.0)
-        except Exception as e:
-            # logging omitted
-            return 1.0
-    
-    for T in return_periods:
-        # logging omitted
-        
-        import matplotlib.pyplot as plt
-        fig, ax = plt.subplots(figsize=(10, 8))
-        
-        Z_numeric = np.array(Z, dtype=float)
-        
-        cs = ax.contour(S, R, Z_numeric, levels=[T])
-        plt.close(fig)
-        
-        contour_paths = cs.collections[0].get_paths()
-        if not contour_paths:
-            # logging omitted
-            continue
-            
-        all_vertices = []
-        for path in contour_paths:
-            vertices = path.vertices
-            sea_levels = vertices[:, 0]
-            rainfalls = vertices[:, 1]
-            points = np.column_stack((sea_levels, rainfalls))
-            all_vertices.append(points)
-        
-        if not all_vertices:
-            # logging omitted
-            continue
-            
-        all_points = np.vstack(all_vertices)
-        
-        pdf_values = np.zeros(len(all_points))
-        
-        for i, (s_val, r_val) in enumerate(all_points):
-            rainfall_cdf = calculate_probability(r_val, fits[rainfall_col])
-            sea_level_cdf = calculate_probability(s_val, fits[sea_level_col])
-            
-            u = np.clip(rainfall_cdf, 0.001, 0.999)
-            v = np.clip(sea_level_cdf, 0.001, 0.999)
-            
-            if copula_model is None:
-                rainfall_pdf = calculate_marginal_pdf(r_val, fits[rainfall_col])
-                sea_level_pdf = calculate_marginal_pdf(s_val, fits[sea_level_col])
-                pdf_values[i] = rainfall_pdf * sea_level_pdf
-            else:
-                try:
-                    is_survival_clayton = (best_copula == 'survival_clayton' and 
-                                           copula_results[best_copula].get('method') == 'manual_transform')
-                    
-                    if is_survival_clayton:
-                        u_transformed = 1 - u
-                        v_transformed = 1 - v
-                        copula_pdf = copula_model.pdf([u_transformed, v_transformed])
-                    else:
-                        copula_pdf = copula_model.pdf([u, v])
-                        
-                    rainfall_pdf = calculate_marginal_pdf(r_val, fits[rainfall_col])
-                    sea_level_pdf = calculate_marginal_pdf(s_val, fits[sea_level_col])
-                    
-                    pdf_values[i] = copula_pdf * rainfall_pdf * sea_level_pdf
-                except Exception as e:
-                    # logging omitted
-                    pdf_values[i] = 0
-        
-        if np.all(pdf_values == 0):
-            # logging omitted
-            continue
-            
-        max_idx = np.argmax(pdf_values)
-        max_point = all_points[max_idx]
-        max_density_sea_level, max_density_rainfall = max_point
-        
-        point_return_period = contour_func(max_density_sea_level, max_density_rainfall)
-        
-        max_density_points.append({
-            'ReturnPeriod': T,
-            'SeaLevel_m': max_density_sea_level,
-            'Rainfall_mm': max_density_rainfall,
-            'PDF_Value': pdf_values[max_idx],
-            'Verified_ReturnPeriod': float(point_return_period)
-        })
-        
-        # logging omitted
-    
-    if max_density_points:
-        results_df = pd.DataFrame(max_density_points)
-        results_df.to_csv('maximum_density_points.csv', index=False, encoding='utf-8-sig')
-        # logging omitted
-        return results_df
-    else:
-        # logging omitted
-        return pd.DataFrame()
 
 def get_storm_names():
     """Return mapping of dates to storm names"""
@@ -3195,9 +2235,11 @@ def create_multi_station_figure(station_configs, figsize=(18, 12)):
             offset_file = config.get('offset_file', None)
             if offset_file:
                 # logging omitted
+                pass
             else:
                 # logging omitted
             
+                pass
             tide_data, rainfall_data = load_data_xlsx(water_level_file, rainfall_file, 
                                                offset_file_path=offset_file)
             
@@ -3234,16 +2276,13 @@ def create_multi_station_figure(station_configs, figsize=(18, 12)):
                 ax.set_title(title, fontsize=18, fontweight='bold')
                 continue
             
-            enabled_dists = config.get('enabled_distributions', None)
-            enabled_copulas = config.get('enabled_copulas', None)
-            force_copula = config.get('force_copula', None)
             copula_results, best_copula, fits = fit_copula_models_selective(
                 compound_data, 'Rainfall', 'Sea_Level', 
                 rainfall_threshold=rainfall_threshold, 
                 sea_level_threshold=sea_level_threshold,
-                enabled_distributions=enabled_dists,
-                enabled_copulas=enabled_copulas,
-                force_copula=force_copula
+                excluded_distributions=config.get('excluded_distributions'),
+                excluded_copulas=config.get('excluded_copulas'),
+                force_copula=config.get('force_copula'),
             )
             
             R, S, Z = calculate_contours(
@@ -3268,6 +2307,7 @@ def create_multi_station_figure(station_configs, figsize=(18, 12)):
             else:
                 # logging omitted
             
+                pass
             try:
                 intersections_df = calculate_contour_axis_intersections(
                     R, S, Z, 
@@ -3284,9 +2324,11 @@ def create_multi_station_figure(station_configs, figsize=(18, 12)):
                 else:
                     # logging omitted
                     
+                    pass
             except Exception as intersection_error:
                 # logging omitted
             
+                pass
             plot_return_periods_single_station(
                 ax, R, S, Z, compound_data, max_density_df,
                 rainfall_threshold, sea_level_threshold,
@@ -3340,36 +2382,15 @@ def find_maximum_density_points(R, S, Z, copula_results, best_copula, fits, rain
         """Internal helper."""
         dist_name = dist_info['distribution']
         params = dist_info['params']
-        
+
         try:
-            if dist_name == 'norm':
-                return stats.norm.pdf(value, *params)
-            elif dist_name == 'expon':
-                return stats.expon.pdf(value, *params)
-            elif dist_name == 'gamma':
-                return stats.gamma.pdf(value, *params)
-            elif dist_name == 'genextreme':
-                return stats.genextreme.pdf(value, *params)
-            elif dist_name == 'genpareto':
+            if dist_name == 'genpareto':
                 threshold = dist_info.get('threshold', 0)
                 if value <= threshold:
                     return 0.0
                 return stats.genpareto.pdf(value - threshold, *params)
-            elif dist_name == 'logistic':
-                return stats.logistic.pdf(value, *params)
-            elif dist_name == 'lognorm':
-                return stats.lognorm.pdf(value, *params)
-            elif dist_name == 'gumbel_r':
-                return stats.gumbel_r.pdf(value, *params)
-            elif dist_name == 'weibull_min':
-                return stats.weibull_min.pdf(value, *params)
-            elif dist_name == 'loglogistic':
-                alpha, beta = params
-                return loglogistic_pdf(value, alpha, beta)
-            else:
-                return stats.norm.pdf(value, loc=np.mean([value]), scale=np.std([value]) or 1.0)
-        except Exception as e:
-            # logging omitted
+            return getattr(stats, dist_name).pdf(value, *params)
+        except Exception:
             return 1.0
     
     for T in return_periods:
@@ -3597,8 +2618,8 @@ def plot_return_periods_single_station(ax, R, S, Z, compound_data, max_density_d
     for tick in ax.get_yticklabels():
         tick.set_fontweight('bold')
 
-def fit_marginal_distributions_selective(compound_data, column, min_samples=20, extreme_threshold=None, 
-                                        enabled_distributions=None):
+def fit_marginal_distributions_selective(compound_data, column, min_samples=20, extreme_threshold=None,
+                                        excluded_distributions=None):
     """Internal helper."""
     extreme_data_series = compound_data[compound_data['Is_Rep_Compound_Extreme'] == True][column].dropna()
     
@@ -3641,32 +2662,14 @@ def fit_marginal_distributions_selective(compound_data, column, min_samples=20, 
         'num_samples_for_pot_calc_prob': n_samples
     }
 
-    if enabled_distributions is None:
-        enabled_distributions = [
-            'beta', 'fisk', 'expon', 'gumbel_r', 'gamma', 'genextreme', 
-            'invgauss', 'logistic', 'loglogistic', 'lognorm', 'nakagami', 
-            'norm', 'rayleigh', 'rice', 't', 'weibull_min', 'genpareto'
-        ]
-    
-    # logging omitted
-    
-    for dist_name in enabled_distributions:
+    candidate_distributions = resolve_marginal_candidates(excluded_distributions)
+
+    for dist_name in candidate_distributions:
         try:
-            if dist_name == 'beta' and (np.any(extreme_data_np_array < 0) or np.any(extreme_data_np_array > 1)):
-                # logging omitted
-                continue
-            if dist_name in ['fisk', 'expon', 'gamma', 'invgauss', 'lognorm', 'nakagami', 'rayleigh', 'rice', 'weibull_min'] and np.any(extreme_data_np_array <= 0):
-                # logging omitted
-                continue
-            if dist_name == 'loglogistic' and np.any(extreme_data_np_array <= 0):
-                # logging omitted
-                continue
-                
             if dist_name == 'genpareto':
                 exceedances = extreme_data_np_array[extreme_data_np_array > gpd_actual_threshold] - gpd_actual_threshold
                 exceedances_for_fit = exceedances[exceedances > 1e-9]
                 if len(exceedances_for_fit) < 5:
-                    # logging omitted
                     continue
                 params = stats.genpareto.fit(exceedances_for_fit, floc=0)
                 loglik = np.sum(stats.genpareto.logpdf(exceedances_for_fit, *params))
@@ -3678,24 +2681,9 @@ def fit_marginal_distributions_selective(compound_data, column, min_samples=20, 
                     'ks_stat': ks_stat, 'ks_pvalue': ks_pvalue,
                     'cm_stat': cm_res.statistic, 'cm_pvalue': cm_res.pvalue,
                     'threshold': gpd_actual_threshold,
-                    'exceedance_values_for_calc_prob': exceedances_for_fit, 
+                    'exceedance_values_for_calc_prob': exceedances_for_fit,
                     **common_props_for_prob_calc
                 })
-                # logging omitted
-            elif dist_name == 'loglogistic':
-                alpha, beta = fit_loglogistic(extreme_data_np_array)
-                pdf_values = loglogistic_pdf(extreme_data_np_array, alpha, beta)
-                pdf_values = np.maximum(pdf_values, 1e-10)
-                loglik = np.sum(np.log(pdf_values))
-                bic = calculate_bic(2, loglik, n_samples)
-                ks_stat, ks_pvalue = stats.kstest(extreme_data_np_array, lambda x_val: loglogistic_cdf(x_val, alpha, beta))
-                loglogistic_cdf_callable = lambda x_val: loglogistic_cdf(x_val, alpha, beta)
-                cm_res = stats.cramervonmises(extreme_data_np_array, loglogistic_cdf_callable)
-                fit_results.append({**{'distribution': 'loglogistic', 'params': (alpha, beta), 'loglik': loglik, 'bic': bic,
-                    'ks_stat': ks_stat, 'ks_pvalue': ks_pvalue, 
-                    'cm_stat': cm_res.statistic, 'cm_pvalue': cm_res.pvalue}, 
-                    **common_props_for_prob_calc})
-                # logging omitted
             else:
                 dist_obj = getattr(stats, dist_name)
                 params = dist_obj.fit(extreme_data_np_array)
@@ -3704,13 +2692,10 @@ def fit_marginal_distributions_selective(compound_data, column, min_samples=20, 
                 ks_stat, ks_pvalue = stats.kstest(extreme_data_np_array, lambda x: dist_obj.cdf(x, *params))
                 cm_res = stats.cramervonmises(extreme_data_np_array, dist_name, args=params)
                 fit_results.append({**{'distribution': dist_name, 'params': params, 'loglik': loglik, 'bic': bic,
-                    'ks_stat': ks_stat, 'ks_pvalue': ks_pvalue, 
-                    'cm_stat': cm_res.statistic, 'cm_pvalue': cm_res.pvalue}, 
+                    'ks_stat': ks_stat, 'ks_pvalue': ks_pvalue,
+                    'cm_stat': cm_res.statistic, 'cm_pvalue': cm_res.pvalue},
                     **common_props_for_prob_calc})
-                # logging omitted
-                    
-        except Exception as e:
-            # logging omitted
+        except Exception:
             continue
 
     if not fit_results:
@@ -3731,7 +2716,8 @@ def fit_marginal_distributions_selective(compound_data, column, min_samples=20, 
     # logging omitted
     return best_fit
 
-def fit_copula_models_selective(compound_data, rainfall_col, sea_level_col, rainfall_threshold=None, sea_level_threshold=None, enabled_distributions=None, enabled_copulas=None, force_copula=None):
+def fit_copula_models_selective(compound_data, rainfall_col, sea_level_col, rainfall_threshold=None, sea_level_threshold=None,
+                               excluded_distributions=None, excluded_copulas=None, force_copula=None):
     """Internal helper."""
     # Calculate 90th percentile if thresholds not provided
     if rainfall_threshold is None:
@@ -3754,8 +2740,8 @@ def fit_copula_models_selective(compound_data, rainfall_col, sea_level_col, rain
     print(f"Using {len(extreme_events)} compound extreme events to fit Copula models")
     
     fits = {
-        rainfall_col: fit_marginal_distributions_selective(compound_data, rainfall_col, extreme_threshold=rainfall_threshold, enabled_distributions=enabled_distributions),
-        sea_level_col: fit_marginal_distributions_selective(compound_data, sea_level_col, extreme_threshold=sea_level_threshold, enabled_distributions=enabled_distributions)
+        rainfall_col: fit_marginal_distributions_selective(compound_data, rainfall_col, extreme_threshold=rainfall_threshold, excluded_distributions=excluded_distributions),
+        sea_level_col: fit_marginal_distributions_selective(compound_data, sea_level_col, extreme_threshold=sea_level_threshold, excluded_distributions=excluded_distributions)
     }
     
     for col, fit in fits.items():
@@ -3786,35 +2772,26 @@ def fit_copula_models_selective(compound_data, rainfall_col, sea_level_col, rain
     print(f"Transformed Sea Level (v) range: [{v.min():.6f}, {v.max():.6f}]")
 
     results = {}
-    all_copulas = {'gaussian','t','clayton','gumbel','frank','joe','survival_clayton'}
-    if enabled_copulas is None:
-        enabled_copulas = all_copulas
-    else:
-        enabled_copulas = {c.lower() for c in enabled_copulas} & all_copulas
-        if not enabled_copulas:
-            enabled_copulas = all_copulas
 
+    enabled_copulas = resolve_copula_candidates(excluded_copulas)
     if force_copula is not None:
         force_copula = str(force_copula).lower()
-        if force_copula not in all_copulas:
-            # logging omitted
+        if force_copula not in COPULA_MODELS:
             force_copula = None
     
     # Helper function to calculate NLL using PDF
     def calculate_nll_from_pdf(copula_model, data, model_name):
-        log_lik = 0.0
-        pdf_values = np.zeros(len(data))
         if not hasattr(copula_model, 'pdf'):
              return np.inf
 
-        for i in range(len(data)):
-            try:
-                pdf_val = copula_model.pdf(data[i])
-            except Exception:
-                return np.inf
-            if (not np.isfinite(pdf_val)) or (pdf_val <= 0):
-                return np.inf
-            pdf_values[i] = pdf_val
+        try:
+            pdf_values = np.asarray(copula_model.pdf(data), dtype=float).reshape(-1)
+        except Exception:
+            return np.inf
+        if len(pdf_values) != len(data):
+            return np.inf
+        if np.any(~np.isfinite(pdf_values)) or np.any(pdf_values <= 0):
+            return np.inf
 
         log_pdf_values = np.log(pdf_values)
         if np.any(~np.isfinite(log_pdf_values)):
@@ -3919,6 +2896,7 @@ def fit_copula_models_selective(compound_data, rainfall_col, sea_level_col, rain
                 'cm_p_value': cm_p_value, 'cm_stat': cm_stat, 'ks_p_value': ks_p_value, 'ks_stat': ks_stat
             }
         
+        # Survival Clayton Copula
         if ('survival_clayton' in enabled_copulas) and (force_copula in (None, 'survival_clayton')):
             u_orig = data[:, 0]
             v_orig = data[:, 1]
@@ -4055,14 +3033,6 @@ def test_datum_correction(tide_file_path, offset_file_path):
 
 def main_multi_station():    
     """Internal helper."""
-    """
-    [
-        'beta', 'fisk', 'expon', 'gumbel_r', 'gamma', 'genextreme', 
-        'invgauss', 'logistic', 'loglogistic', 'lognorm', 'nakagami', 
-        'norm', 'rayleigh', 't', 'weibull_min', 'genpareto'
-    ]
-    """
-    
     station_configs = [
         {
             'name': 'CW',
@@ -4072,12 +3042,7 @@ def main_multi_station():
             'title': 'CW',
             'x_max': 4.5,
             'y_max': 350,
-            'enabled_distributions': [
-                'beta', 'fisk', 'expon', 'gumbel_r', 'gamma', 'genextreme',
-                'invgauss', 'logistic', 'loglogistic', 'lognorm', 'nakagami',
-                'norm', 'rayleigh', 't', 'weibull_min', 'genpareto'
-            ],
-            'enabled_copulas': ['t', 'clayton', 'frank', 'joe', 'survival_clayton']
+            'excluded_copulas': ['gaussian', 'gumbel'],
         },
         {
             'name': 'SZ',
@@ -4087,12 +3052,7 @@ def main_multi_station():
             'title': 'SZ',
             'x_max': 5.0,
             'y_max': 350,
-            'enabled_distributions': [
-                'beta', 'fisk', 'expon', 'gumbel_r', 'gamma', 'genextreme',
-                'invgauss', 'logistic', 'loglogistic', 'lognorm', 'nakagami',
-                'norm', 'rayleigh', 't', 'weibull_min', 'genpareto'
-            ],
-            'enabled_copulas': ['gaussian', 't', 'clayton', 'frank', 'joe', 'survival_clayton']
+            'excluded_copulas': ['gumbel'],
         },
         {
             'name': 'NLT',
@@ -4102,11 +3062,6 @@ def main_multi_station():
             'title': 'NLT',
             'x_max': 4.0,
             'y_max': 450,
-            'enabled_distributions': [
-                'beta', 'fisk', 'expon', 'gumbel_r', 'gamma', 'genextreme',
-                'invgauss', 'logistic', 'loglogistic', 'lognorm', 'nakagami',
-                'norm', 'rayleigh', 't', 'genpareto'
-            ]
         }
     ]
 
