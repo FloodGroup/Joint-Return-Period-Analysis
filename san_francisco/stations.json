@@ -1,0 +1,632 @@
+{
+  "region": "san_francisco",
+  "units": [
+    {
+      "unit": "M01",
+      "gauge": "M01_9415218+MRZ",
+      "tide_station_ids": [
+        "NOAA_9415218",
+        "GESLA_CDWR_MRZ"
+      ],
+      "rainfall_stations": [
+        {
+          "station_id": "CDEC_CMG",
+          "priority": 1,
+          "resolution_h": 1,
+          "distance_km": 4.96,
+          "longitude": -122.197,
+          "latitude": 38.028,
+          "name": "CUMMINGS PEAK",
+          "selected_start": "2004-04-08",
+          "selected_end": "2025-05-24"
+        },
+        {
+          "station_id": "CDEC_ROF",
+          "priority": 2,
+          "resolution_h": 1,
+          "distance_km": 11.4,
+          "longitude": -122.27,
+          "latitude": 38.035,
+          "name": "RODEO FIRE DEPARTMENT",
+          "selected_start": "2005-12-23",
+          "selected_end": "2024-07-01"
+        },
+        {
+          "station_id": "GHCNH_USW00093227",
+          "priority": 3,
+          "resolution_h": 1,
+          "distance_km": 23.42,
+          "longitude": -122.2803,
+          "latitude": 38.2075,
+          "name": "NAPA CO AP",
+          "selected_start": "2001-02-10",
+          "selected_end": "2023-11-14"
+        },
+        {
+          "station_id": "NCEI_USC00047646",
+          "priority": 4,
+          "resolution_h": 1,
+          "distance_km": 62.27,
+          "longitude": -122.5383,
+          "latitude": 38.493,
+          "name": "SAINT HELENA 4 WSW",
+          "selected_start": "1994-07-08",
+          "selected_end": "2022-06-01"
+        },
+        {
+          "station_id": "CDEC_SH4",
+          "priority": 5,
+          "resolution_h": 1,
+          "distance_km": 62.35,
+          "longitude": -122.5397,
+          "latitude": 38.4931,
+          "name": "ST. HELENA 4WSW",
+          "selected_start": "1995-02-01",
+          "selected_end": "2004-04-02"
+        },
+        {
+          "station_id": "CDEC_ANG",
+          "priority": 6,
+          "resolution_h": 1,
+          "distance_km": 65.52,
+          "longitude": -122.4332,
+          "latitude": 38.5712,
+          "name": "ANGWIN",
+          "selected_start": "1995-02-01",
+          "selected_end": "2004-03-27"
+        },
+        {
+          "station_id": "NCEI_USC00040212",
+          "priority": 7,
+          "resolution_h": 1,
+          "distance_km": 65.96,
+          "longitude": -122.4405,
+          "latitude": 38.573,
+          "name": "ANGWIN PACIFIC UNION COLLEGE",
+          "selected_start": "1994-07-02",
+          "selected_end": "2004-03-25"
+        }
+      ],
+      "geometry_id": "M01",
+      "gauge_name": "Mare Island / Martinez",
+      "tide_locations": [
+        {
+          "station_id": "NOAA_9415218",
+          "latitude": 38.07,
+          "longitude": -122.25,
+          "role": "primary"
+        },
+        {
+          "station_id": "GESLA_CDWR_MRZ",
+          "latitude": 38.02759999999999,
+          "longitude": -122.1405,
+          "role": "gap fill"
+        }
+      ]
+    },
+    {
+      "unit": "M02",
+      "gauge": "NOAA_9414863",
+      "tide_station_ids": [
+        "NOAA_9414863"
+      ],
+      "rainfall_stations": [
+        {
+          "station_id": "CDEC_PTB",
+          "priority": 1,
+          "resolution_h": 1,
+          "distance_km": 39.6,
+          "longitude": -122.635,
+          "latitude": 38.233,
+          "name": "PETALUMA RIVER AT D STREET BRIDGE",
+          "selected_start": "2003-09-17",
+          "selected_end": "2026-08-31"
+        },
+        {
+          "station_id": "NCEI_USC00046826",
+          "priority": 2,
+          "resolution_h": 1,
+          "distance_km": 40.84,
+          "longitude": -122.6077,
+          "latitude": 38.2577,
+          "name": "PETALUMA AIRPORT",
+          "selected_start": "1996-01-01",
+          "selected_end": "2026-05-29"
+        },
+        {
+          "station_id": "CDEC_CRD",
+          "priority": 3,
+          "resolution_h": 1,
+          "distance_km": 44.28,
+          "longitude": -122.667,
+          "latitude": 38.267,
+          "name": "PETALUMA RIVER NR CORONA ROAD",
+          "selected_start": "1998-02-28",
+          "selected_end": "2020-08-04"
+        },
+        {
+          "station_id": "CDEC_LIC",
+          "priority": 4,
+          "resolution_h": 1,
+          "distance_km": 47.72,
+          "longitude": -122.633,
+          "latitude": 38.317,
+          "name": "LICHAU CREEK",
+          "selected_start": "1997-10-31",
+          "selected_end": "2020-08-20"
+        }
+      ],
+      "geometry_id": "M02",
+      "gauge_name": "Richmond",
+      "tide_locations": [
+        {
+          "station_id": "NOAA_9414863",
+          "latitude": 37.92829999999999,
+          "longitude": -122.40000000000002
+        }
+      ]
+    },
+    {
+      "unit": "M03",
+      "gauge": "NOAA_9414290",
+      "tide_station_ids": [
+        "NOAA_9414290"
+      ],
+      "rainfall_stations": [
+        {
+          "station_id": "CDEC_ACM",
+          "priority": 1,
+          "resolution_h": 1,
+          "distance_km": 11.85,
+          "longitude": -122.535,
+          "latitude": 37.898,
+          "name": "ARROYO CORTE MADERA DEL PRESIDIO",
+          "selected_start": "2000-01-10",
+          "selected_end": "2026-08-25"
+        }
+      ],
+      "geometry_id": "M03",
+      "gauge_name": "San Francisco",
+      "tide_locations": [
+        {
+          "station_id": "NOAA_9414290",
+          "latitude": 37.80631,
+          "longitude": -122.46589
+        }
+      ]
+    },
+    {
+      "unit": "M04",
+      "gauge": "NOAA_9414523",
+      "tide_station_ids": [
+        "NOAA_9414523"
+      ],
+      "rainfall_stations": [
+        {
+          "station_id": "CDEC_PUL",
+          "priority": 1,
+          "resolution_h": 1,
+          "distance_km": 8.39,
+          "longitude": -122.298,
+          "latitude": 37.475,
+          "name": "PULGAS",
+          "selected_start": "2014-06-19",
+          "selected_end": "2026-08-31"
+        },
+        {
+          "station_id": "CDEC_CSC",
+          "priority": 2,
+          "resolution_h": 1,
+          "distance_km": 10.42,
+          "longitude": -122.329,
+          "latitude": 37.496,
+          "name": "CRYSTAL SPRINGS COTTAGE",
+          "selected_start": "1999-04-20",
+          "selected_end": "2026-07-01"
+        },
+        {
+          "station_id": "GHCNH_USW00023234",
+          "priority": 3,
+          "resolution_h": 1,
+          "distance_km": 18.47,
+          "longitude": -122.3656,
+          "latitude": 37.6197,
+          "name": "SAN FRANCISCO INTL AP",
+          "selected_start": "1975-01-04",
+          "selected_end": "2026-06-23"
+        }
+      ],
+      "geometry_id": "M04",
+      "gauge_name": "Redwood City",
+      "tide_locations": [
+        {
+          "station_id": "NOAA_9414523",
+          "latitude": 37.50681,
+          "longitude": -122.21191
+        }
+      ]
+    },
+    {
+      "unit": "M05",
+      "gauge": "NOAA_9414523",
+      "tide_station_ids": [
+        "NOAA_9414523"
+      ],
+      "rainfall_stations": [
+        {
+          "station_id": "CDEC_PUL",
+          "priority": 1,
+          "resolution_h": 1,
+          "distance_km": 8.39,
+          "longitude": -122.298,
+          "latitude": 37.475,
+          "name": "PULGAS",
+          "selected_start": "2014-06-19",
+          "selected_end": "2026-08-31"
+        },
+        {
+          "station_id": "CDEC_CSC",
+          "priority": 2,
+          "resolution_h": 1,
+          "distance_km": 10.42,
+          "longitude": -122.329,
+          "latitude": 37.496,
+          "name": "CRYSTAL SPRINGS COTTAGE",
+          "selected_start": "1999-04-20",
+          "selected_end": "2026-07-01"
+        }
+      ],
+      "geometry_id": "M05",
+      "gauge_name": "Redwood City",
+      "tide_locations": [
+        {
+          "station_id": "NOAA_9414523",
+          "latitude": 37.50681,
+          "longitude": -122.21191
+        }
+      ]
+    },
+    {
+      "unit": "M06",
+      "gauge": "Alviso_9414575+USGS",
+      "tide_station_ids": [
+        "NOAA_9414575",
+        "USGS_372750122012701"
+      ],
+      "rainfall_stations": [
+        {
+          "station_id": "GHCNH_USW00023244",
+          "priority": 1,
+          "resolution_h": 1,
+          "distance_km": 6.78,
+          "longitude": -122.0481,
+          "latitude": 37.4058,
+          "name": "MOFFETT FED AIRFIELD",
+          "selected_start": "2004-09-19",
+          "selected_end": "2026-09-04"
+        },
+        {
+          "station_id": "CDEC_PAA",
+          "priority": 2,
+          "resolution_h": 1,
+          "distance_km": 7.83,
+          "longitude": -122.107,
+          "latitude": 37.439,
+          "name": "PALO ALTO 3E",
+          "selected_start": "2000-01-06",
+          "selected_end": "2024-07-18"
+        }
+      ],
+      "geometry_id": "M06",
+      "gauge_name": "Alviso",
+      "tide_locations": [
+        {
+          "station_id": "NOAA_9414575",
+          "latitude": 37.46385278,
+          "longitude": -122.0241556
+        }
+      ]
+    },
+    {
+      "unit": "M07",
+      "gauge": "Alviso_9414575+USGS",
+      "tide_station_ids": [
+        "NOAA_9414575",
+        "USGS_372750122012701"
+      ],
+      "rainfall_stations": [
+        {
+          "station_id": "CDEC_MSP",
+          "priority": 1,
+          "resolution_h": 1,
+          "distance_km": 13.8,
+          "longitude": -121.883,
+          "latitude": 37.517,
+          "name": "MISSION PEAK",
+          "selected_start": "1996-10-01",
+          "selected_end": "2026-09-15"
+        },
+        {
+          "station_id": "CDEC_SJE",
+          "priority": 2,
+          "resolution_h": 1,
+          "distance_km": 14.2,
+          "longitude": -121.927,
+          "latitude": 37.362,
+          "name": "SAN JOSE (ALERT)",
+          "selected_start": "2002-01-24",
+          "selected_end": "2022-12-16"
+        },
+        {
+          "station_id": "GHCNH_USW00023293",
+          "priority": 3,
+          "resolution_h": 1,
+          "distance_km": 14.57,
+          "longitude": -121.9244,
+          "latitude": 37.3594,
+          "name": "SAN JOSE",
+          "selected_start": "2001-11-25",
+          "selected_end": "2026-06-08"
+        },
+        {
+          "station_id": "CDEC_LSG",
+          "priority": 4,
+          "resolution_h": 1,
+          "distance_km": 29.42,
+          "longitude": -121.9428,
+          "latitude": 37.2068,
+          "name": "LOS GATOS",
+          "selected_start": "1994-07-01",
+          "selected_end": "2026-04-22"
+        },
+        {
+          "station_id": "CDEC_UMN",
+          "priority": 5,
+          "resolution_h": 1,
+          "distance_km": 35.57,
+          "longitude": -121.904,
+          "latitude": 37.158,
+          "name": "MT. UMUNHUM #2",
+          "selected_start": "2000-05-04",
+          "selected_end": "2013-02-20"
+        },
+        {
+          "station_id": "NCEI_USC00043419",
+          "priority": 6,
+          "resolution_h": 1,
+          "distance_km": 71.07,
+          "longitude": -121.4316,
+          "latitude": 37.0327,
+          "name": "GILROY 8 NE",
+          "selected_start": "1983-11-03",
+          "selected_end": "2025-11-20"
+        }
+      ],
+      "geometry_id": "M07",
+      "gauge_name": "Alviso",
+      "tide_locations": [
+        {
+          "station_id": "NOAA_9414575",
+          "latitude": 37.46385278,
+          "longitude": -122.0241556
+        }
+      ]
+    },
+    {
+      "unit": "M08",
+      "gauge": "NOAA_9414523",
+      "tide_station_ids": [
+        "NOAA_9414523"
+      ],
+      "rainfall_stations": [
+        {
+          "station_id": "GHCNH_USW00093228",
+          "priority": 1,
+          "resolution_h": 1,
+          "distance_km": 18.68,
+          "longitude": -122.1211,
+          "latitude": 37.6589,
+          "name": "HAYWARD AIR TERMINAL",
+          "selected_start": "2001-02-22",
+          "selected_end": "2026-08-31"
+        },
+        {
+          "station_id": "CDEC_CAD",
+          "priority": 2,
+          "resolution_h": 1,
+          "distance_km": 32.92,
+          "longitude": -121.8439,
+          "latitude": 37.5531,
+          "name": "CALAVERAS ROAD",
+          "selected_start": "2004-11-12",
+          "selected_end": "2026-03-12"
+        },
+        {
+          "station_id": "CDEC_DBF",
+          "priority": 3,
+          "resolution_h": 1,
+          "distance_km": 35.45,
+          "longitude": -121.927,
+          "latitude": 37.732,
+          "name": "DUBLIN-SAN RAMON FIRE HOUSE",
+          "selected_start": "2004-04-08",
+          "selected_end": "2025-11-20"
+        },
+        {
+          "station_id": "CDEC_POV",
+          "priority": 4,
+          "resolution_h": 1,
+          "distance_km": 39.66,
+          "longitude": -121.7706,
+          "latitude": 37.4431,
+          "name": "POVERTY",
+          "selected_start": "2025-01-01",
+          "selected_end": "2025-01-01"
+        },
+        {
+          "station_id": "GHCNH_USW00023285",
+          "priority": 5,
+          "resolution_h": 1,
+          "distance_km": 40.68,
+          "longitude": -121.815,
+          "latitude": 37.6931,
+          "name": "LIVERMORE MUNI AP",
+          "selected_start": "2001-02-10",
+          "selected_end": "2004-03-30"
+        },
+        {
+          "station_id": "CDEC_RSP",
+          "priority": 6,
+          "resolution_h": 1,
+          "distance_km": 42.07,
+          "longitude": -121.736,
+          "latitude": 37.502,
+          "name": "ROSE PEAK",
+          "selected_start": "1997-04-28",
+          "selected_end": "2004-09-20"
+        },
+        {
+          "station_id": "CDEC_SWW",
+          "priority": 9,
+          "resolution_h": 1,
+          "distance_km": 65.45,
+          "longitude": -121.485,
+          "latitude": 37.397,
+          "name": "SWEETWATER (CDF)",
+          "selected_start": "1991-09-01",
+          "selected_end": "2000-09-26"
+        }
+      ],
+      "geometry_id": "M08",
+      "gauge_name": "Redwood City",
+      "tide_locations": [
+        {
+          "station_id": "NOAA_9414523",
+          "latitude": 37.50681,
+          "longitude": -122.21191
+        }
+      ]
+    },
+    {
+      "unit": "M09",
+      "gauge": "NOAA_9414750",
+      "tide_station_ids": [
+        "NOAA_9414750"
+      ],
+      "rainfall_stations": [
+        {
+          "station_id": "CDEC_OSO",
+          "priority": 1,
+          "resolution_h": 1,
+          "distance_km": 13.91,
+          "longitude": -122.1436,
+          "latitude": 37.7881,
+          "name": "OAKLAND SOUTH",
+          "selected_start": "1992-11-01",
+          "selected_end": "2026-08-31"
+        }
+      ],
+      "geometry_id": "M09",
+      "gauge_name": "Alameda",
+      "tide_locations": [
+        {
+          "station_id": "NOAA_9414750",
+          "latitude": 37.77194999999999,
+          "longitude": -122.30025999999998
+        }
+      ]
+    },
+    {
+      "unit": "M10",
+      "gauge": "NOAA_9414523",
+      "tide_station_ids": [
+        "NOAA_9414523"
+      ],
+      "rainfall_stations": [
+        {
+          "station_id": "CDEC_SLE",
+          "priority": 1,
+          "resolution_h": 1,
+          "distance_km": 21.44,
+          "longitude": -122.217,
+          "latitude": 37.7,
+          "name": "SAN LEANDRO BAY",
+          "selected_start": "1996-11-07",
+          "selected_end": "2023-04-30"
+        },
+        {
+          "station_id": "GHCNH_USW00023230",
+          "priority": 2,
+          "resolution_h": 1,
+          "distance_km": 23.48,
+          "longitude": -122.2331,
+          "latitude": 37.7178,
+          "name": "OAKLAND INTL AP",
+          "selected_start": "1974-10-28",
+          "selected_end": "2026-08-31"
+        }
+      ],
+      "geometry_id": "M10",
+      "gauge_name": "Redwood City",
+      "tide_locations": [
+        {
+          "station_id": "NOAA_9414523",
+          "latitude": 37.50681,
+          "longitude": -122.21191
+        }
+      ]
+    },
+    {
+      "unit": "M11",
+      "gauge": "NOAA_9414863",
+      "tide_station_ids": [
+        "NOAA_9414863"
+      ],
+      "rainfall_stations": [
+        {
+          "station_id": "CDEC_RHL",
+          "priority": 1,
+          "resolution_h": 1,
+          "distance_km": 5.13,
+          "longitude": -122.3427,
+          "latitude": 37.9369,
+          "name": "RICHMOND CITY HALL",
+          "selected_start": "2005-01-22",
+          "selected_end": "2026-08-31"
+        },
+        {
+          "station_id": "CDEC_TLD",
+          "priority": 2,
+          "resolution_h": 1,
+          "distance_km": 16.42,
+          "longitude": -122.2219,
+          "latitude": 37.8836,
+          "name": "TILDEN PARK",
+          "selected_start": "2004-04-08",
+          "selected_end": "2026-07-01"
+        },
+        {
+          "station_id": "CDEC_ONO",
+          "priority": 3,
+          "resolution_h": 1,
+          "distance_km": 17.47,
+          "longitude": -122.217,
+          "latitude": 37.867,
+          "name": "OAKLAND NORTH",
+          "selected_start": "1996-01-01",
+          "selected_end": "2025-12-29"
+        }
+      ],
+      "geometry_id": "M11",
+      "gauge_name": "Richmond",
+      "tide_locations": [
+        {
+          "station_id": "NOAA_9414863",
+          "latitude": 37.92829999999999,
+          "longitude": -122.40000000000002
+        }
+      ]
+    }
+  ],
+  "title": "San Francisco Bay"
+}

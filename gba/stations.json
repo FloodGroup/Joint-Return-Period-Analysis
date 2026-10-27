@@ -1,0 +1,1351 @@
+{
+  "region": "gba",
+  "units": [
+    {
+      "unit": "01",
+      "gauge": "SZ",
+      "tide_station_ids": [
+        "SZ"
+      ],
+      "rainfall_stations": [
+        {
+          "station_id": "G1205",
+          "priority": 1,
+          "distance_km": 1.8006890672232225,
+          "resolution_h": 24,
+          "longitude": 113.385,
+          "latitude": 22.0217,
+          "name": "G1205",
+          "selected_start": "2008-11-20",
+          "selected_end": "2022-04-30"
+        }
+      ],
+      "gauge_name": "Sanzao",
+      "geometry_id": "1",
+      "tide_locations": [
+        {
+          "station_id": "SZ",
+          "longitude": 113.4,
+          "latitude": 22.03
+        }
+      ]
+    },
+    {
+      "unit": "02",
+      "gauge": "SZ",
+      "tide_station_ids": [
+        "SZ"
+      ],
+      "rainfall_stations": [
+        {
+          "station_id": "G1210",
+          "priority": 1,
+          "distance_km": 12.690578682933468,
+          "resolution_h": 24,
+          "longitude": 113.3525,
+          "latitude": 22.1353,
+          "name": "G1210",
+          "selected_start": "2009-04-01",
+          "selected_end": "2022-04-30"
+        },
+        {
+          "station_id": "G1217",
+          "priority": 2,
+          "distance_km": 14.41931767162978,
+          "resolution_h": 24,
+          "longitude": 113.4833,
+          "latitude": 22.1342,
+          "name": "G1217",
+          "selected_start": "2011-04-02",
+          "selected_end": "2021-12-31"
+        },
+        {
+          "station_id": "G1256",
+          "priority": 3,
+          "distance_km": 15.338536449210167,
+          "resolution_h": 24,
+          "longitude": 113.3617,
+          "latitude": 22.1633,
+          "name": "G1256",
+          "selected_start": "2019-12-09",
+          "selected_end": "2021-03-08"
+        },
+        {
+          "station_id": "G1230",
+          "priority": 4,
+          "distance_km": 18.999973887137635,
+          "resolution_h": 24,
+          "longitude": 113.4942,
+          "latitude": 22.1769,
+          "name": "G1230",
+          "selected_start": "2017-08-24",
+          "selected_end": "2020-12-28"
+        },
+        {
+          "station_id": "G1206",
+          "priority": 5,
+          "distance_km": 19.47845401145659,
+          "resolution_h": 24,
+          "longitude": 113.4139,
+          "latitude": 22.2047,
+          "name": "G1206",
+          "selected_start": "2008-11-20",
+          "selected_end": "2016-05-20"
+        },
+        {
+          "station_id": "G2037",
+          "priority": 6,
+          "distance_km": 20.898155696815,
+          "resolution_h": 24,
+          "longitude": 113.4139,
+          "latitude": 22.2175,
+          "name": "G2037",
+          "selected_start": "2012-11-29",
+          "selected_end": "2018-02-06"
+        },
+        {
+          "station_id": "59487",
+          "priority": 7,
+          "distance_km": 24.841946041371592,
+          "resolution_h": 24,
+          "longitude": 113.3,
+          "latitude": 22.2333,
+          "name": "59487",
+          "selected_start": "2008-01-01",
+          "selected_end": "2014-12-25"
+        },
+        {
+          "station_id": "G1212",
+          "priority": 8,
+          "distance_km": 26.148818259374092,
+          "resolution_h": 24,
+          "longitude": 113.5406,
+          "latitude": 22.2258,
+          "name": "G1212",
+          "selected_start": "2010-02-05",
+          "selected_end": "2015-03-10"
+        },
+        {
+          "station_id": "G2036",
+          "priority": 10,
+          "distance_km": 29.323442403705624,
+          "resolution_h": 24,
+          "longitude": 113.3917,
+          "latitude": 22.2936,
+          "name": "G2036",
+          "selected_start": "2015-06-18",
+          "selected_end": "2017-03-14"
+        },
+        {
+          "station_id": "G2010",
+          "priority": 12,
+          "distance_km": 35.623895381449316,
+          "resolution_h": 24,
+          "longitude": 113.4167,
+          "latitude": 22.35,
+          "name": "G2010",
+          "selected_start": "2010-04-13",
+          "selected_end": "2017-08-23"
+        },
+        {
+          "station_id": "G2038",
+          "priority": 14,
+          "distance_km": 41.73021576263277,
+          "resolution_h": 24,
+          "longitude": 113.4697,
+          "latitude": 22.3997,
+          "name": "G2038",
+          "selected_start": "2010-02-10",
+          "selected_end": "2010-02-10"
+        },
+        {
+          "station_id": "G2004",
+          "priority": 17,
+          "distance_km": 46.70186919071447,
+          "resolution_h": 24,
+          "longitude": 113.4,
+          "latitude": 22.45,
+          "name": "G2004",
+          "selected_start": "2010-05-05",
+          "selected_end": "2016-03-10"
+        },
+        {
+          "station_id": "G2102",
+          "priority": 23,
+          "distance_km": 56.168009583359584,
+          "resolution_h": 24,
+          "longitude": 113.2,
+          "latitude": 22.5,
+          "name": "G2102",
+          "selected_start": "2010-05-04",
+          "selected_end": "2010-05-04"
+        },
+        {
+          "station_id": "G2021",
+          "priority": 27,
+          "distance_km": 68.94088436702214,
+          "resolution_h": 24,
+          "longitude": 113.1833,
+          "latitude": 22.6167,
+          "name": "G2021",
+          "selected_start": "2010-06-19",
+          "selected_end": "2010-06-19"
+        },
+        {
+          "station_id": "G2128",
+          "priority": 31,
+          "distance_km": 73.13900054469397,
+          "resolution_h": 24,
+          "longitude": 113.1167,
+          "latitude": 22.6333,
+          "name": "G2128",
+          "selected_start": "2010-06-13",
+          "selected_end": "2010-06-29"
+        }
+      ],
+      "gauge_name": "Sanzao",
+      "geometry_id": "2",
+      "tide_locations": [
+        {
+          "station_id": "SZ",
+          "longitude": 113.4,
+          "latitude": 22.03
+        }
+      ]
+    },
+    {
+      "unit": "03a",
+      "gauge": "DJZ",
+      "tide_station_ids": [
+        "DJZ"
+      ],
+      "rainfall_stations": [
+        {
+          "station_id": "G1209",
+          "priority": 1,
+          "distance_km": 0.6445101349615088,
+          "resolution_h": 24,
+          "longitude": 113.5886,
+          "latitude": 22.2419,
+          "name": "G1209",
+          "selected_start": "2010-06-01",
+          "selected_end": "2022-04-30"
+        }
+      ],
+      "gauge_name": "Dajiu Zhou",
+      "geometry_id": "3",
+      "tide_locations": [
+        {
+          "station_id": "DJZ",
+          "longitude": 113.58889,
+          "latitude": 22.23611
+        }
+      ]
+    },
+    {
+      "unit": "03b",
+      "gauge": "NLT",
+      "tide_station_ids": [
+        "NLT"
+      ],
+      "rainfall_stations": [
+        {
+          "station_id": "G1211",
+          "priority": 1,
+          "distance_km": 17.618649396620544,
+          "resolution_h": 24,
+          "longitude": 113.6303,
+          "latitude": 22.3978,
+          "name": "G1211",
+          "selected_start": "2010-01-01",
+          "selected_end": "2022-04-30"
+        }
+      ],
+      "gauge_name": "Nei Lingding",
+      "geometry_id": "3",
+      "tide_locations": [
+        {
+          "station_id": "NLT",
+          "longitude": 113.8,
+          "latitude": 22.42
+        }
+      ]
+    },
+    {
+      "unit": "04",
+      "gauge": "NS",
+      "tide_station_ids": [
+        "NS"
+      ],
+      "rainfall_stations": [
+        {
+          "station_id": "G3202",
+          "priority": 1,
+          "distance_km": 9.717532282615064,
+          "resolution_h": 24,
+          "longitude": 113.6144,
+          "latitude": 22.6728,
+          "name": "G3202",
+          "selected_start": "2009-04-01",
+          "selected_end": "2022-04-30"
+        },
+        {
+          "station_id": "G3205",
+          "priority": 2,
+          "distance_km": 10.455122377016579,
+          "resolution_h": 24,
+          "longitude": 113.5536,
+          "latitude": 22.6572,
+          "name": "G3205",
+          "selected_start": "2008-11-20",
+          "selected_end": "2018-12-10"
+        },
+        {
+          "station_id": "G2045",
+          "priority": 4,
+          "distance_km": 15.323334085845485,
+          "resolution_h": 24,
+          "longitude": 113.5714,
+          "latitude": 22.6122,
+          "name": "G2045",
+          "selected_start": "2009-12-03",
+          "selected_end": "2010-06-26"
+        },
+        {
+          "station_id": "G2006",
+          "priority": 5,
+          "distance_km": 17.286390957564244,
+          "resolution_h": 24,
+          "longitude": 113.4833,
+          "latitude": 22.6167,
+          "name": "G2006",
+          "selected_start": "2009-01-01",
+          "selected_end": "2010-03-29"
+        },
+        {
+          "station_id": "G2022",
+          "priority": 6,
+          "distance_km": 17.385239331225122,
+          "resolution_h": 24,
+          "longitude": 113.4167,
+          "latitude": 22.6833,
+          "name": "G2022",
+          "selected_start": "2009-11-24",
+          "selected_end": "2009-12-25"
+        },
+        {
+          "station_id": "G2008",
+          "priority": 8,
+          "distance_km": 22.973566410444416,
+          "resolution_h": 24,
+          "longitude": 113.4667,
+          "latitude": 22.5667,
+          "name": "G2008",
+          "selected_start": "2010-01-29",
+          "selected_end": "2010-01-29"
+        },
+        {
+          "station_id": "G2052",
+          "priority": 10,
+          "distance_km": 25.210164866112553,
+          "resolution_h": 24,
+          "longitude": 113.5667,
+          "latitude": 22.5233,
+          "name": "G2052",
+          "selected_start": "2013-10-19",
+          "selected_end": "2013-10-19"
+        },
+        {
+          "station_id": "G2017",
+          "priority": 13,
+          "distance_km": 26.6564583204638,
+          "resolution_h": 24,
+          "longitude": 113.3833,
+          "latitude": 22.5833,
+          "name": "G2017",
+          "selected_start": "2010-01-25",
+          "selected_end": "2015-03-10"
+        },
+        {
+          "station_id": "G2005",
+          "priority": 14,
+          "distance_km": 28.3319028905678,
+          "resolution_h": 24,
+          "longitude": 113.5167,
+          "latitude": 22.5,
+          "name": "G2005",
+          "selected_start": "2010-02-12",
+          "selected_end": "2016-03-10"
+        },
+        {
+          "station_id": "G2011",
+          "priority": 16,
+          "distance_km": 31.92305866185967,
+          "resolution_h": 24,
+          "longitude": 113.3167,
+          "latitude": 22.5833,
+          "name": "G2011",
+          "selected_start": "2010-06-09",
+          "selected_end": "2010-06-09"
+        },
+        {
+          "station_id": "G2026",
+          "priority": 17,
+          "distance_km": 32.08644709462007,
+          "resolution_h": 24,
+          "longitude": 113.4597,
+          "latitude": 22.48,
+          "name": "G2026",
+          "selected_start": "2010-02-08",
+          "selected_end": "2010-02-08"
+        },
+        {
+          "station_id": "G2009",
+          "priority": 18,
+          "distance_km": 32.25104185500537,
+          "resolution_h": 24,
+          "longitude": 113.3833,
+          "latitude": 22.5167,
+          "name": "G2009",
+          "selected_start": "2010-01-26",
+          "selected_end": "2010-01-26"
+        },
+        {
+          "station_id": "59485",
+          "priority": 19,
+          "distance_km": 32.82095853777848,
+          "resolution_h": 24,
+          "longitude": 113.4,
+          "latitude": 22.5,
+          "name": "59485",
+          "selected_start": "2008-01-01",
+          "selected_end": "2016-04-01"
+        }
+      ],
+      "gauge_name": "Nansha",
+      "geometry_id": "4",
+      "tide_locations": [
+        {
+          "station_id": "NS",
+          "longitude": 113.57,
+          "latitude": 22.75
+        }
+      ]
+    },
+    {
+      "unit": "05",
+      "gauge": "NS",
+      "tide_station_ids": [
+        "NS"
+      ],
+      "rainfall_stations": [
+        {
+          "station_id": "G3239",
+          "priority": 1,
+          "distance_km": 5.064943419356469,
+          "resolution_h": 24,
+          "longitude": 113.5531,
+          "latitude": 22.7072,
+          "name": "G3239",
+          "selected_start": "2009-04-01",
+          "selected_end": "2022-04-30"
+        },
+        {
+          "station_id": "G3204",
+          "priority": 2,
+          "distance_km": 5.588388930503233,
+          "resolution_h": 24,
+          "longitude": 113.52,
+          "latitude": 22.77,
+          "name": "G3204",
+          "selected_start": "2008-11-20",
+          "selected_end": "2020-12-31"
+        },
+        {
+          "station_id": "G3213",
+          "priority": 3,
+          "distance_km": 8.872687374835904,
+          "resolution_h": 24,
+          "longitude": 113.5358,
+          "latitude": 22.8233,
+          "name": "G3213",
+          "selected_start": "2009-01-01",
+          "selected_end": "2018-06-07"
+        },
+        {
+          "station_id": "G3212",
+          "priority": 4,
+          "distance_km": 10.136501035764532,
+          "resolution_h": 24,
+          "longitude": 113.6514,
+          "latitude": 22.6983,
+          "name": "G3212",
+          "selected_start": "2015-03-10",
+          "selected_end": "2019-01-27"
+        },
+        {
+          "station_id": "G3111",
+          "priority": 11,
+          "distance_km": 19.49747204448924,
+          "resolution_h": 24,
+          "longitude": 113.3833,
+          "latitude": 22.7833,
+          "name": "G3111",
+          "selected_start": "2009-12-05",
+          "selected_end": "2013-10-19"
+        },
+        {
+          "station_id": "G3137",
+          "priority": 12,
+          "distance_km": 21.311875756927787,
+          "resolution_h": 24,
+          "longitude": 113.3792,
+          "latitude": 22.8261,
+          "name": "G3137",
+          "selected_start": "2009-11-24",
+          "selected_end": "2010-04-03"
+        },
+        {
+          "station_id": "G2238",
+          "priority": 25,
+          "distance_km": 42.39601894448134,
+          "resolution_h": 24,
+          "longitude": 113.2064,
+          "latitude": 22.9319,
+          "name": "G2238",
+          "selected_start": "2016-03-10",
+          "selected_end": "2016-03-10"
+        }
+      ],
+      "gauge_name": "Nansha",
+      "geometry_id": "5",
+      "tide_locations": [
+        {
+          "station_id": "NS",
+          "longitude": 113.57,
+          "latitude": 22.75
+        }
+      ]
+    },
+    {
+      "unit": "06",
+      "gauge": "DS",
+      "tide_station_ids": [
+        "DS"
+      ],
+      "rainfall_stations": [
+        {
+          "station_id": "G3136",
+          "priority": 1,
+          "distance_km": 9.057432089562356,
+          "resolution_h": 24,
+          "longitude": 113.445,
+          "latitude": 23.0558,
+          "name": "G3136",
+          "selected_start": "2008-11-20",
+          "selected_end": "2022-04-30"
+        },
+        {
+          "station_id": "G1032",
+          "priority": 2,
+          "distance_km": 9.59264591314995,
+          "resolution_h": 24,
+          "longitude": 113.4531,
+          "latitude": 23.0947,
+          "name": "G1032",
+          "selected_start": "2008-12-31",
+          "selected_end": "2011-04-13"
+        },
+        {
+          "station_id": "G1018",
+          "priority": 3,
+          "distance_km": 10.39951921236031,
+          "resolution_h": 24,
+          "longitude": 113.4333,
+          "latitude": 23.0333,
+          "name": "G1018",
+          "selected_start": "2009-12-07",
+          "selected_end": "2015-07-09"
+        },
+        {
+          "station_id": "G3448",
+          "priority": 6,
+          "distance_km": 13.9036189020848,
+          "resolution_h": 24,
+          "longitude": 113.4114,
+          "latitude": 23.1053,
+          "name": "G3448",
+          "selected_start": "2009-11-08",
+          "selected_end": "2010-06-30"
+        },
+        {
+          "station_id": "G3238",
+          "priority": 9,
+          "distance_km": 16.311271760737494,
+          "resolution_h": 24,
+          "longitude": 113.4067,
+          "latitude": 23.1392,
+          "name": "G3238",
+          "selected_start": "2015-03-10",
+          "selected_end": "2015-03-10"
+        },
+        {
+          "station_id": "G1039",
+          "priority": 12,
+          "distance_km": 20.086828855877364,
+          "resolution_h": 24,
+          "longitude": 113.3392,
+          "latitude": 23.0772,
+          "name": "G1039",
+          "selected_start": "2009-12-08",
+          "selected_end": "2010-05-23"
+        },
+        {
+          "station_id": "G1099",
+          "priority": 15,
+          "distance_km": 23.293939997397082,
+          "resolution_h": 24,
+          "longitude": 113.3625,
+          "latitude": 23.1886,
+          "name": "G1099",
+          "selected_start": "2009-12-16",
+          "selected_end": "2009-12-30"
+        },
+        {
+          "station_id": "G1001",
+          "priority": 19,
+          "distance_km": 24.446925600834863,
+          "resolution_h": 24,
+          "longitude": 113.3147,
+          "latitude": 23.1389,
+          "name": "G1001",
+          "selected_start": "2010-02-06",
+          "selected_end": "2010-02-06"
+        },
+        {
+          "station_id": "G1087",
+          "priority": 21,
+          "distance_km": 25.183388047960282,
+          "resolution_h": 24,
+          "longitude": 113.3194,
+          "latitude": 22.9381,
+          "name": "G1087",
+          "selected_start": "2015-02-09",
+          "selected_end": "2015-07-05"
+        },
+        {
+          "station_id": "G3156",
+          "priority": 28,
+          "distance_km": 29.362258507646345,
+          "resolution_h": 24,
+          "longitude": 113.26,
+          "latitude": 22.9697,
+          "name": "G3156",
+          "selected_start": "2016-03-10",
+          "selected_end": "2016-03-10"
+        },
+        {
+          "station_id": "G6816",
+          "priority": 29,
+          "distance_km": 30.041982619177727,
+          "resolution_h": 24,
+          "longitude": 113.2397,
+          "latitude": 23.0475,
+          "name": "G6816",
+          "selected_start": "2009-12-28",
+          "selected_end": "2009-12-28"
+        }
+      ],
+      "gauge_name": "Dasheng",
+      "geometry_id": "6",
+      "tide_locations": [
+        {
+          "station_id": "DS",
+          "longitude": 113.5333,
+          "latitude": 23.05
+        }
+      ]
+    },
+    {
+      "unit": "07",
+      "gauge": "SSW",
+      "tide_station_ids": [
+        "SSW"
+      ],
+      "rainfall_stations": [
+        {
+          "station_id": "G1947",
+          "priority": 1,
+          "distance_km": 8.528380378538088,
+          "resolution_h": 24,
+          "longitude": 113.6042,
+          "latitude": 22.9933,
+          "name": "G1947",
+          "selected_start": "2008-11-20",
+          "selected_end": "2022-04-30"
+        },
+        {
+          "station_id": "G1935",
+          "priority": 2,
+          "distance_km": 10.773474351440388,
+          "resolution_h": 24,
+          "longitude": 113.7042,
+          "latitude": 22.93,
+          "name": "G1935",
+          "selected_start": "2015-01-28",
+          "selected_end": "2021-03-16"
+        },
+        {
+          "station_id": "G1964",
+          "priority": 3,
+          "distance_km": 10.898260118023664,
+          "resolution_h": 24,
+          "longitude": 113.7061,
+          "latitude": 22.9242,
+          "name": "G1964",
+          "selected_start": "2009-11-12",
+          "selected_end": "2020-12-31"
+        },
+        {
+          "station_id": "G1915",
+          "priority": 4,
+          "distance_km": 11.114574175107899,
+          "resolution_h": 24,
+          "longitude": 113.66,
+          "latitude": 23.0,
+          "name": "G1915",
+          "selected_start": "2010-06-14",
+          "selected_end": "2010-09-07"
+        },
+        {
+          "station_id": "G1929",
+          "priority": 5,
+          "distance_km": 12.27286391413774,
+          "resolution_h": 24,
+          "longitude": 113.6067,
+          "latitude": 23.0269,
+          "name": "G1929",
+          "selected_start": "2010-01-22",
+          "selected_end": "2016-06-28"
+        },
+        {
+          "station_id": "G1956",
+          "priority": 6,
+          "distance_km": 12.773339161518999,
+          "resolution_h": 24,
+          "longitude": 113.6486,
+          "latitude": 23.0225,
+          "name": "G1956",
+          "selected_start": "2010-05-01",
+          "selected_end": "2016-06-05"
+        },
+        {
+          "station_id": "G1989",
+          "priority": 7,
+          "distance_km": 13.209064998672728,
+          "resolution_h": 24,
+          "longitude": 113.6414,
+          "latitude": 22.8042,
+          "name": "G1989",
+          "selected_start": "2009-12-09",
+          "selected_end": "2009-12-09"
+        },
+        {
+          "station_id": "G3201",
+          "priority": 8,
+          "distance_km": 13.336866378048743,
+          "resolution_h": 24,
+          "longitude": 113.5792,
+          "latitude": 22.7983,
+          "name": "G3201",
+          "selected_start": "2009-12-11",
+          "selected_end": "2010-06-27"
+        },
+        {
+          "station_id": "G1971",
+          "priority": 9,
+          "distance_km": 13.548498749529669,
+          "resolution_h": 24,
+          "longitude": 113.7036,
+          "latitude": 22.9925,
+          "name": "G1971",
+          "selected_start": "2015-03-10",
+          "selected_end": "2015-03-10"
+        },
+        {
+          "station_id": "G1945",
+          "priority": 10,
+          "distance_km": 13.743750293592626,
+          "resolution_h": 24,
+          "longitude": 113.6378,
+          "latitude": 23.0353,
+          "name": "G1945",
+          "selected_start": "2010-02-10",
+          "selected_end": "2010-02-26"
+        },
+        {
+          "station_id": "G1907",
+          "priority": 12,
+          "distance_km": 15.459060536332073,
+          "resolution_h": 24,
+          "longitude": 113.5756,
+          "latitude": 23.0539,
+          "name": "G1907",
+          "selected_start": "2010-01-17",
+          "selected_end": "2010-05-29"
+        },
+        {
+          "station_id": "59289",
+          "priority": 13,
+          "distance_km": 15.878154871487162,
+          "resolution_h": 24,
+          "longitude": 113.7431,
+          "latitude": 22.9717,
+          "name": "59289",
+          "selected_start": "2010-01-01",
+          "selected_end": "2013-11-17"
+        },
+        {
+          "station_id": "G1072",
+          "priority": 14,
+          "distance_km": 15.916269695949245,
+          "resolution_h": 24,
+          "longitude": 113.6036,
+          "latitude": 22.7736,
+          "name": "G1072",
+          "selected_start": "2009-12-10",
+          "selected_end": "2009-12-30"
+        },
+        {
+          "station_id": "G3329",
+          "priority": 23,
+          "distance_km": 21.47899143701635,
+          "resolution_h": 24,
+          "longitude": 113.5375,
+          "latitude": 23.1011,
+          "name": "G3329",
+          "selected_start": "2009-11-18",
+          "selected_end": "2009-11-18"
+        },
+        {
+          "station_id": "G1961",
+          "priority": 31,
+          "distance_km": 27.40395938367449,
+          "resolution_h": 24,
+          "longitude": 113.7606,
+          "latitude": 23.1139,
+          "name": "G1961",
+          "selected_start": "2009-12-18",
+          "selected_end": "2009-12-18"
+        },
+        {
+          "station_id": "59287",
+          "priority": 40,
+          "distance_km": 35.430588660534944,
+          "resolution_h": 24,
+          "longitude": 113.4833,
+          "latitude": 23.2167,
+          "name": "59287",
+          "selected_start": "2014-04-01",
+          "selected_end": "2014-12-25"
+        }
+      ],
+      "gauge_name": "Sishengwei",
+      "geometry_id": "7",
+      "tide_locations": [
+        {
+          "station_id": "SSW",
+          "longitude": 113.6,
+          "latitude": 22.9167
+        }
+      ]
+    },
+    {
+      "unit": "08",
+      "gauge": "CW",
+      "tide_station_ids": [
+        "CW"
+      ],
+      "rainfall_stations": [
+        {
+          "station_id": "G3521",
+          "priority": 1,
+          "distance_km": 0.6267931973358407,
+          "resolution_h": 24,
+          "longitude": 113.8861,
+          "latitude": 22.47,
+          "name": "G3521",
+          "selected_start": "2008-11-20",
+          "selected_end": "2022-04-30"
+        },
+        {
+          "station_id": "G3556",
+          "priority": 3,
+          "distance_km": 3.016552270448464,
+          "resolution_h": 24,
+          "longitude": 113.8686,
+          "latitude": 22.495,
+          "name": "G3556",
+          "selected_start": "2009-02-16",
+          "selected_end": "2010-06-30"
+        },
+        {
+          "station_id": "GEO_N28",
+          "priority": 7,
+          "distance_km": 7.355770833059255,
+          "resolution_h": 24,
+          "longitude": 113.93149,
+          "latitude": 22.42405,
+          "name": "GEO_N28",
+          "selected_start": "2000-01-28",
+          "selected_end": "2022-12-30"
+        }
+      ],
+      "gauge_name": "Chiwan",
+      "geometry_id": "8",
+      "tide_locations": [
+        {
+          "station_id": "CW",
+          "longitude": 113.88,
+          "latitude": 22.47
+        }
+      ]
+    },
+    {
+      "unit": "09",
+      "gauge": "TBT",
+      "tide_station_ids": [
+        "TBT"
+      ],
+      "rainfall_stations": [
+        {
+          "station_id": "HKO_WLP",
+          "priority": 1,
+          "distance_km": 2.325001681061348,
+          "resolution_h": 24,
+          "longitude": 114.00889,
+          "latitude": 22.46667,
+          "name": "HKO_WLP",
+          "selected_start": "2005-12-01",
+          "selected_end": "2026-07-31"
+        },
+        {
+          "station_id": "G3645",
+          "priority": 2,
+          "distance_km": 3.6339691466191555,
+          "resolution_h": 24,
+          "longitude": 114.0306,
+          "latitude": 22.5156,
+          "name": "G3645",
+          "selected_start": "2017-05-23",
+          "selected_end": "2019-08-15"
+        },
+        {
+          "station_id": "HKO_LFS",
+          "priority": 3,
+          "distance_km": 3.6480318043827937,
+          "resolution_h": 24,
+          "longitude": 113.98361,
+          "latitude": 22.46889,
+          "name": "HKO_LFS",
+          "selected_start": "1985-10-01",
+          "selected_end": "2023-07-19"
+        },
+        {
+          "station_id": "GHCNH_CHM00045035",
+          "priority": 4,
+          "distance_km": 3.8149845904490025,
+          "resolution_h": 24,
+          "longitude": 113.9833,
+          "latitude": 22.4667,
+          "name": "GHCNH_CHM00045035",
+          "selected_start": "2004-06-06",
+          "selected_end": "2014-07-07"
+        },
+        {
+          "station_id": "GEO_N33",
+          "priority": 5,
+          "distance_km": 4.022037291528106,
+          "resolution_h": 24,
+          "longitude": 114.05018,
+          "latitude": 22.47575,
+          "name": "GEO_N33",
+          "selected_start": "2000-01-21",
+          "selected_end": "2005-07-22"
+        },
+        {
+          "station_id": "GEO_N12",
+          "priority": 7,
+          "distance_km": 4.638851472228944,
+          "resolution_h": 24,
+          "longitude": 114.02097,
+          "latitude": 22.44615,
+          "name": "GEO_N12",
+          "selected_start": "1984-01-01",
+          "selected_end": "1999-05-31"
+        },
+        {
+          "station_id": "GEO_N05",
+          "priority": 49,
+          "distance_km": 13.187982984319872,
+          "resolution_h": 24,
+          "longitude": 114.14119,
+          "latitude": 22.49433,
+          "name": "GEO_N05",
+          "selected_start": "1989-01-12",
+          "selected_end": "1996-05-01"
+        },
+        {
+          "station_id": "HKO_TKL",
+          "priority": 59,
+          "distance_km": 15.453981321319574,
+          "resolution_h": 24,
+          "longitude": 114.15667,
+          "latitude": 22.52861,
+          "name": "HKO_TKL",
+          "selected_start": "1988-07-27",
+          "selected_end": "1988-11-26"
+        }
+      ],
+      "gauge_name": "Tsim Bei Tsui",
+      "geometry_id": "9",
+      "tide_locations": [
+        {
+          "station_id": "TBT",
+          "longitude": 114.013055,
+          "latitude": 22.487222
+        }
+      ]
+    },
+    {
+      "unit": "10a",
+      "gauge": "QUB",
+      "tide_station_ids": [
+        "QUB"
+      ],
+      "rainfall_stations": [
+        {
+          "station_id": "GEO_H18",
+          "priority": 1,
+          "distance_km": 1.063203770180748,
+          "resolution_h": 24,
+          "longitude": 114.21554,
+          "latitude": 22.28177,
+          "name": "GEO_H18",
+          "selected_start": "1984-01-01",
+          "selected_end": "2026-06-30"
+        },
+        {
+          "station_id": "GEO_H09",
+          "priority": 2,
+          "distance_km": 1.353040030148773,
+          "resolution_h": 24,
+          "longitude": 114.20088,
+          "latitude": 22.2872,
+          "name": "GEO_H09",
+          "selected_start": "1987-07-03",
+          "selected_end": "2018-01-03"
+        },
+        {
+          "station_id": "HKO_SE",
+          "priority": 3,
+          "distance_km": 2.069226412945544,
+          "resolution_h": 24,
+          "longitude": 114.21333,
+          "latitude": 22.30972,
+          "name": "HKO_SE",
+          "selected_start": "2011-12-25",
+          "selected_end": "2026-07-31"
+        },
+        {
+          "station_id": "GEO_H19",
+          "priority": 4,
+          "distance_km": 2.3464750986913785,
+          "resolution_h": 24,
+          "longitude": 114.22914,
+          "latitude": 22.2759,
+          "name": "GEO_H19",
+          "selected_start": "1984-04-21",
+          "selected_end": "1996-06-18"
+        },
+        {
+          "station_id": "HKO_SKW",
+          "priority": 5,
+          "distance_km": 2.5678841729697477,
+          "resolution_h": 24,
+          "longitude": 114.23611,
+          "latitude": 22.28167,
+          "name": "HKO_SKW",
+          "selected_start": "2008-02-29",
+          "selected_end": "2008-02-29"
+        },
+        {
+          "station_id": "GEO_K08",
+          "priority": 6,
+          "distance_km": 2.7997409424873574,
+          "resolution_h": 24,
+          "longitude": 114.23498,
+          "latitude": 22.30637,
+          "name": "GEO_K08",
+          "selected_start": "1986-12-04",
+          "selected_end": "2000-09-27"
+        },
+        {
+          "station_id": "GEO_K05",
+          "priority": 7,
+          "distance_km": 2.9624538640544467,
+          "resolution_h": 24,
+          "longitude": 114.24135,
+          "latitude": 22.29726,
+          "name": "GEO_K05",
+          "selected_start": "1988-05-19",
+          "selected_end": "1989-01-11"
+        },
+        {
+          "station_id": "GEO_H07",
+          "priority": 8,
+          "distance_km": 3.211845189302462,
+          "resolution_h": 24,
+          "longitude": 114.18687,
+          "latitude": 22.27579,
+          "name": "GEO_H07",
+          "selected_start": "1988-02-13",
+          "selected_end": "1988-09-25"
+        },
+        {
+          "station_id": "HKO_HKO",
+          "priority": 13,
+          "distance_km": 4.21423555374964,
+          "resolution_h": 24,
+          "longitude": 114.17417,
+          "latitude": 22.30222,
+          "name": "HKO_HKO",
+          "selected_start": "1954-08-29",
+          "selected_end": "2004-12-13"
+        }
+      ],
+      "gauge_name": "Quarry Bay",
+      "geometry_id": "10",
+      "tide_locations": [
+        {
+          "station_id": "QUB",
+          "longitude": 114.213333,
+          "latitude": 22.291111
+        }
+      ]
+    },
+    {
+      "unit": "10b",
+      "gauge": "SPW",
+      "tide_station_ids": [
+        "SPW"
+      ],
+      "rainfall_stations": [
+        {
+          "station_id": "GEO_N19",
+          "priority": 1,
+          "distance_km": 2.7743452633102255,
+          "resolution_h": 24,
+          "longitude": 113.87899,
+          "latitude": 22.24072,
+          "name": "GEO_N19",
+          "selected_start": "1999-11-01",
+          "selected_end": "2026-06-30"
+        },
+        {
+          "station_id": "GEO_N53",
+          "priority": 2,
+          "distance_km": 4.540309645481255,
+          "resolution_h": 24,
+          "longitude": 113.86651,
+          "latitude": 22.25188,
+          "name": "GEO_N53",
+          "selected_start": "2012-03-12",
+          "selected_end": "2026-06-12"
+        },
+        {
+          "station_id": "GEO_N22",
+          "priority": 3,
+          "distance_km": 4.964289271522515,
+          "resolution_h": 24,
+          "longitude": 113.94135,
+          "latitude": 22.23066,
+          "name": "GEO_N22",
+          "selected_start": "1999-11-19",
+          "selected_end": "2015-01-14"
+        },
+        {
+          "station_id": "GEO_N21",
+          "priority": 4,
+          "distance_km": 6.39935601395211,
+          "resolution_h": 24,
+          "longitude": 113.9359,
+          "latitude": 22.26317,
+          "name": "GEO_N21",
+          "selected_start": "2001-09-01",
+          "selected_end": "2005-04-30"
+        },
+        {
+          "station_id": "GEO_N17",
+          "priority": 5,
+          "distance_km": 7.737373411126992,
+          "resolution_h": 24,
+          "longitude": 113.93555,
+          "latitude": 22.27854,
+          "name": "GEO_N17",
+          "selected_start": "1998-01-01",
+          "selected_end": "2005-10-18"
+        },
+        {
+          "station_id": "HKO_HKA",
+          "priority": 7,
+          "distance_km": 10.310209801616903,
+          "resolution_h": 24,
+          "longitude": 113.92194,
+          "latitude": 22.30944,
+          "name": "HKO_HKA",
+          "selected_start": "1998-01-26",
+          "selected_end": "2026-07-31"
+        }
+      ],
+      "gauge_name": "Shek Pik",
+      "geometry_id": "10",
+      "tide_locations": [
+        {
+          "station_id": "SPW",
+          "longitude": 113.894444,
+          "latitude": 22.220278
+        }
+      ]
+    },
+    {
+      "unit": "11",
+      "gauge": "TPK",
+      "tide_station_ids": [
+        "TPK"
+      ],
+      "rainfall_stations": [
+        {
+          "station_id": "GEO_N41",
+          "priority": 1,
+          "distance_km": 1.482045842169764,
+          "resolution_h": 24,
+          "longitude": 114.18085,
+          "latitude": 22.42947,
+          "name": "GEO_N41",
+          "selected_start": "1999-11-01",
+          "selected_end": "2026-06-30"
+        },
+        {
+          "station_id": "GEO_N45",
+          "priority": 2,
+          "distance_km": 2.805570960870911,
+          "resolution_h": 24,
+          "longitude": 114.20584,
+          "latitude": 22.4575,
+          "name": "GEO_N45",
+          "selected_start": "2000-10-17",
+          "selected_end": "2025-06-24"
+        },
+        {
+          "station_id": "GEO_N35",
+          "priority": 3,
+          "distance_km": 4.133505371359044,
+          "resolution_h": 24,
+          "longitude": 114.14834,
+          "latitude": 22.45989,
+          "name": "GEO_N35",
+          "selected_start": "2005-10-18",
+          "selected_end": "2006-10-26"
+        },
+        {
+          "station_id": "GEO_N09",
+          "priority": 4,
+          "distance_km": 4.202542442243489,
+          "resolution_h": 24,
+          "longitude": 114.21239,
+          "latitude": 22.4154,
+          "name": "GEO_N09",
+          "selected_start": "1984-01-01",
+          "selected_end": "2000-01-16"
+        },
+        {
+          "station_id": "GHCNH_CHM00045039",
+          "priority": 5,
+          "distance_km": 5.007438443606886,
+          "resolution_h": 24,
+          "longitude": 114.2,
+          "latitude": 22.4,
+          "name": "GHCNH_CHM00045039",
+          "selected_start": "2004-12-11",
+          "selected_end": "2026-07-31"
+        },
+        {
+          "station_id": "HKO_SHA",
+          "priority": 6,
+          "distance_km": 5.194731959109057,
+          "resolution_h": 24,
+          "longitude": 114.21,
+          "latitude": 22.4025,
+          "name": "HKO_SHA",
+          "selected_start": "1985-03-26",
+          "selected_end": "2026-07-30"
+        },
+        {
+          "station_id": "GEO_N02",
+          "priority": 8,
+          "distance_km": 6.236338761308805,
+          "resolution_h": 24,
+          "longitude": 114.19388,
+          "latitude": 22.38718,
+          "name": "GEO_N02",
+          "selected_start": "1984-09-01",
+          "selected_end": "1996-06-18"
+        },
+        {
+          "station_id": "GEO_N14",
+          "priority": 10,
+          "distance_km": 7.044688437835336,
+          "resolution_h": 24,
+          "longitude": 114.12441,
+          "latitude": 22.41102,
+          "name": "GEO_N14",
+          "selected_start": "1984-04-05",
+          "selected_end": "1984-04-05"
+        },
+        {
+          "station_id": "GEO_N01",
+          "priority": 15,
+          "distance_km": 9.050662383569557,
+          "resolution_h": 24,
+          "longitude": 114.16783,
+          "latitude": 22.36247,
+          "name": "GEO_N01",
+          "selected_start": "1988-09-25",
+          "selected_end": "1988-09-25"
+        },
+        {
+          "station_id": "GEO_N13",
+          "priority": 30,
+          "distance_km": 17.446055407909437,
+          "resolution_h": 24,
+          "longitude": 114.33853,
+          "latitude": 22.37786,
+          "name": "GEO_N13",
+          "selected_start": "1984-05-16",
+          "selected_end": "1984-05-16"
+        }
+      ],
+      "gauge_name": "Tai Po Kau",
+      "geometry_id": "11",
+      "tide_locations": [
+        {
+          "station_id": "TPK",
+          "longitude": 114.183889,
+          "latitude": 22.442499
+        }
+      ]
+    }
+  ],
+  "title": "Greater Bay Area"
+}

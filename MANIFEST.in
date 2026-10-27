@@ -1,0 +1,13 @@
+include LICENSE NOTICE CITATION.cff mkdocs.yml build_docs.py
+recursive-include shared *.py *.md *.css *.js *.json *.woff2 *.woff *.ttf LICENSE
+recursive-include gba *.py *.md *.json *.png *.svg
+recursive-include san_francisco *.py *.md *.json *.png *.svg
+recursive-include tokyo *.py *.md *.json *.png *.svg
+global-exclude *.csv *.tsv *.parquet *.xlsx *.xls *.shp *.shx *.dbf *.pyc *.pyd *.dll
+prune gba/site
+prune san_francisco/site
+prune tokyo/site
+prune private
+prune data
+prune outputs
+prune tests

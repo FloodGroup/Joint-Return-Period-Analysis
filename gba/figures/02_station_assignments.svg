@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="912.96pt" height="489.5424pt" viewBox="0 0 912.96 489.5424" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-27T09:52:04.508373</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.1, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 489.5424 
+L 912.96 489.5424 
+L 912.96 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 11.88 482.3424 
+L 905.76 482.3424 
+L 905.76 38.592 
+L 11.88 38.592 
+L 11.88 482.3424 
+z
+" style="fill: none; stroke: #aebdc4; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="line2d_1">
+    <path d="M 11.88 107.2512 
+L 905.76 107.2512 
+" clip-path="url(#pb8d173f2e8)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_2">
+    <path d="M 11.88 149.0112 
+L 905.76 149.0112 
+" clip-path="url(#pb8d173f2e8)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_3">
+    <path d="M 11.88 177.0912 
+L 905.76 177.0912 
+" clip-path="url(#pb8d173f2e8)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_4">
+    <path d="M 11.88 205.1712 
+L 905.76 205.1712 
+" clip-path="url(#pb8d173f2e8)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_5">
+    <path d="M 11.88 233.2512 
+L 905.76 233.2512 
+" clip-path="url(#pb8d173f2e8)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_6">
+    <path d="M 11.88 261.3312 
+L 905.76 261.3312 
+" clip-path="url(#pb8d173f2e8)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_7">
+    <path d="M 11.88 289.4112 
+L 905.76 289.4112 
+" clip-path="url(#pb8d173f2e8)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_8">
+    <path d="M 11.88 331.1712 
+L 905.76 331.1712 
+" clip-path="url(#pb8d173f2e8)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_9">
+    <path d="M 11.88 359.2512 
+L 905.76 359.2512 
+" clip-path="url(#pb8d173f2e8)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_10">
+    <path d="M 11.88 387.3312 
+L 905.76 387.3312 
+" clip-path="url(#pb8d173f2e8)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_11">
+    <path d="M 11.88 415.4112 
+L 905.76 415.4112 
+" clip-path="url(#pb8d173f2e8)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_12">
+    <path d="M 11.88 443.4912 
+L 905.76 443.4912 
+" clip-path="url(#pb8d173f2e8)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_13">
+    <path d="M 11.88 485.2512 
+L 905.76 485.2512 
+" clip-path="url(#pb8d173f2e8)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #203844" x="20.8188" y="63.4752" transform="rotate(-0 20.8188 63.4752)">Analysis unit</text>
+   </g>
+   <g id="text_2">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #203844" x="262.1664" y="63.4752" transform="rotate(-0 262.1664 63.4752)">Rainfall sources (priority order)</text>
+   </g>
+   <g id="text_3">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #203844" x="726.984" y="63.4752" transform="rotate(-0 726.984 63.4752)">Coastal series</text>
+   </g>
+   <g id="assignment-01">
+    <text style="font-size: 8.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #203844" x="20.8188" y="90.669208" transform="rotate(-0 20.8188 90.669208)">01</text>
+   </g>
+   <g id="assignment-01">
+    <text style="font-size: 8.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #168c98" x="262.1664" y="90.669208" transform="rotate(-0 262.1664 90.669208)">G1205</text>
+   </g>
+   <g id="assignment-01">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #4c75a3" x="726.984" y="91.049091" transform="rotate(-0 726.984 91.049091)">Sanzao</text>
+   </g>
+   <g id="assignment-02">
+    <text style="font-size: 8.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #203844" x="20.8188" y="118.749208" transform="rotate(-0 20.8188 118.749208)">02</text>
+   </g>
+   <g id="assignment-02">
+    <text style="font-size: 8.5px; font-family: 'DejaVu Sans'; fill: #168c98" transform="translate(262.1664 119.600038)">G1210, G1217, G1256, G1230, G1206, G2037, 59487, G1212, G2036, G2010, G2038, G2004, G2102,</text>
+    <text style="font-size: 8.5px; font-family: 'DejaVu Sans'; fill: #168c98" transform="translate(262.1664 129.801698)">G2021, G2128</text>
+   </g>
+   <g id="assignment-02">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #4c75a3" x="726.984" y="119.129091" transform="rotate(-0 726.984 119.129091)">Sanzao</text>
+   </g>
+   <g id="assignment-03a">
+    <text style="font-size: 8.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #203844" x="20.8188" y="160.509208" transform="rotate(-0 20.8188 160.509208)">03a</text>
+   </g>
+   <g id="assignment-03a">
+    <text style="font-size: 8.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #168c98" x="262.1664" y="160.509208" transform="rotate(-0 262.1664 160.509208)">G1209</text>
+   </g>
+   <g id="assignment-03a">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #4c75a3" x="726.984" y="160.889794" transform="rotate(-0 726.984 160.889794)">Dajiu Zhou</text>
+   </g>
+   <g id="assignment-03b">
+    <text style="font-size: 8.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #203844" x="20.8188" y="188.589872" transform="rotate(-0 20.8188 188.589872)">03b</text>
+   </g>
+   <g id="assignment-03b">
+    <text style="font-size: 8.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #168c98" x="262.1664" y="188.589208" transform="rotate(-0 262.1664 188.589208)">G1211</text>
+   </g>
+   <g id="assignment-03b">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #4c75a3" x="726.984" y="188.969794" transform="rotate(-0 726.984 188.969794)">Nei Lingding</text>
+   </g>
+   <g id="assignment-04">
+    <text style="font-size: 8.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #203844" x="20.8188" y="216.669208" transform="rotate(-0 20.8188 216.669208)">04</text>
+   </g>
+   <g id="assignment-04">
+    <text style="font-size: 8.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #168c98" x="262.1664" y="216.669208" transform="rotate(-0 262.1664 216.669208)">G3202, G3205, G2045, G2006, G2022, G2008, G2052, G2017, G2005, G2011, G2026, G2009, 59485</text>
+   </g>
+   <g id="assignment-04">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #4c75a3" x="726.984" y="217.049794" transform="rotate(-0 726.984 217.049794)">Nansha</text>
+   </g>
+   <g id="assignment-05">
+    <text style="font-size: 8.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #203844" x="20.8188" y="244.749208" transform="rotate(-0 20.8188 244.749208)">05</text>
+   </g>
+   <g id="assignment-05">
+    <text style="font-size: 8.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #168c98" x="262.1664" y="244.749208" transform="rotate(-0 262.1664 244.749208)">G3239, G3204, G3213, G3212, G3111, G3137, G2238</text>
+   </g>
+   <g id="assignment-05">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #4c75a3" x="726.984" y="245.129794" transform="rotate(-0 726.984 245.129794)">Nansha</text>
+   </g>
+   <g id="assignment-06">
+    <text style="font-size: 8.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #203844" x="20.8188" y="272.829208" transform="rotate(-0 20.8188 272.829208)">06</text>
+   </g>
+   <g id="assignment-06">
+    <text style="font-size: 8.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #168c98" x="262.1664" y="272.829208" transform="rotate(-0 262.1664 272.829208)">G3136, G1032, G1018, G3448, G3238, G1039, G1099, G1001, G1087, G3156, G6816</text>
+   </g>
+   <g id="assignment-06">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #4c75a3" x="726.984" y="273.209794" transform="rotate(-0 726.984 273.209794)">Dasheng</text>
+   </g>
+   <g id="assignment-07">
+    <text style="font-size: 8.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #203844" x="20.8188" y="300.909208" transform="rotate(-0 20.8188 300.909208)">07</text>
+   </g>
+   <g id="assignment-07">
+    <text style="font-size: 8.5px; font-family: 'DejaVu Sans'; fill: #168c98" transform="translate(262.1664 301.760038)">G1947, G1935, G1964, G1915, G1929, G1956, G1989, G3201, G1971, G1945, G1907, 59289, G1072,</text>
+    <text style="font-size: 8.5px; font-family: 'DejaVu Sans'; fill: #168c98" transform="translate(262.1664 311.961698)">G3329, G1961, 59287</text>
+   </g>
+   <g id="assignment-07">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #4c75a3" x="726.984" y="301.289794" transform="rotate(-0 726.984 301.289794)">Sishengwei</text>
+   </g>
+   <g id="assignment-08">
+    <text style="font-size: 8.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #203844" x="20.8188" y="342.669208" transform="rotate(-0 20.8188 342.669208)">08</text>
+   </g>
+   <g id="assignment-08">
+    <text style="font-size: 8.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #168c98" x="262.1664" y="342.669208" transform="rotate(-0 262.1664 342.669208)">G3521, G3556, GEO_N28</text>
+   </g>
+   <g id="assignment-08">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #4c75a3" x="726.984" y="343.049794" transform="rotate(-0 726.984 343.049794)">Chiwan</text>
+   </g>
+   <g id="assignment-09">
+    <text style="font-size: 8.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #203844" x="20.8188" y="370.749208" transform="rotate(-0 20.8188 370.749208)">09</text>
+   </g>
+   <g id="assignment-09">
+    <text style="font-size: 8.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #168c98" x="262.1664" y="370.749208" transform="rotate(-0 262.1664 370.749208)">HKO_WLP, G3645, HKO_LFS, GHCNH_CHM00045035, GEO_N33, GEO_N12, GEO_N05, HKO_TKL</text>
+   </g>
+   <g id="assignment-09">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #4c75a3" x="726.984" y="371.129794" transform="rotate(-0 726.984 371.129794)">Tsim Bei Tsui</text>
+   </g>
+   <g id="assignment-10a">
+    <text style="font-size: 8.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #203844" x="20.8188" y="398.829208" transform="rotate(-0 20.8188 398.829208)">10a</text>
+   </g>
+   <g id="assignment-10a">
+    <text style="font-size: 8.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #168c98" x="262.1664" y="398.829208" transform="rotate(-0 262.1664 398.829208)">GEO_H18, GEO_H09, HKO_SE, GEO_H19, HKO_SKW, GEO_K08, GEO_K05, GEO_H07, HKO_HKO</text>
+   </g>
+   <g id="assignment-10a">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #4c75a3" x="726.984" y="399.209091" transform="rotate(-0 726.984 399.209091)">Quarry Bay</text>
+   </g>
+   <g id="assignment-10b">
+    <text style="font-size: 8.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #203844" x="20.8188" y="426.909872" transform="rotate(-0 20.8188 426.909872)">10b</text>
+   </g>
+   <g id="assignment-10b">
+    <text style="font-size: 8.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #168c98" x="262.1664" y="426.909208" transform="rotate(-0 262.1664 426.909208)">GEO_N19, GEO_N53, GEO_N22, GEO_N21, GEO_N17, HKO_HKA</text>
+   </g>
+   <g id="assignment-10b">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #4c75a3" x="726.984" y="427.289794" transform="rotate(-0 726.984 427.289794)">Shek Pik</text>
+   </g>
+   <g id="assignment-11">
+    <text style="font-size: 8.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #203844" x="20.8188" y="454.989208" transform="rotate(-0 20.8188 454.989208)">11</text>
+   </g>
+   <g id="assignment-11">
+    <text style="font-size: 8.5px; font-family: 'DejaVu Sans'; fill: #168c98" transform="translate(262.1664 455.840038)">GEO_N41, GEO_N45, GEO_N35, GEO_N09, GHCNH_CHM00045039, HKO_SHA, GEO_N02, GEO_N14,</text>
+    <text style="font-size: 8.5px; font-family: 'DejaVu Sans'; fill: #168c98" transform="translate(262.1664 466.041698)">GEO_N01, GEO_N13</text>
+   </g>
+   <g id="assignment-11">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #4c75a3" x="726.984" y="455.369794" transform="rotate(-0 726.984 455.369794)">Tai Po Kau</text>
+   </g>
+  </g>
+  <g id="text_4">
+   <text style="font-weight: 700; font-size: 16px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #203844" x="7.2" y="19.4275" transform="rotate(-0 7.2 19.4275)">Greater Bay Area | Station assignments</text>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pb8d173f2e8">
+   <rect x="11.88" y="67.6224" width="893.88" height="414.72"/>
+  </clipPath>
+ </defs>
+</svg>

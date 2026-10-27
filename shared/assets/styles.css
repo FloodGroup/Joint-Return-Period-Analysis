@@ -1,0 +1,12 @@
+:root{--md-primary-fg-color:#244957;--md-accent-fg-color:#168c98;--md-default-fg-color:#203844}
+body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.md-typeset h1{font-weight:650;letter-spacing:-.025em;color:#203844}
+.md-typeset h2{font-weight:600;letter-spacing:-.015em}
+.md-typeset table:not([class]){font-size:.72rem;border-color:#e5eaed}
+.md-typeset table:not([class]) th{background:#f2f6f7;font-weight:600;min-width:5rem}
+.md-typeset .arithmatex{overflow-x:auto;padding:.4rem 0}
+.md-typeset img{max-width:100%;height:auto}
+.md-header{box-shadow:none;border-bottom:1px solid #d5e0e5}
+.md-typeset strong{font-weight:650}
+
+.md-typeset a:has(>img){cursor:zoom-in}

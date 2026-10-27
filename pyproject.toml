@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bay-joint-return-period"
+version = "1.0.0"
+description = "Rainfall and coastal water-level frequency analysis for three bay regions"
+readme = "README.md"
+requires-python = ">=3.12"
+license = "MIT"
+authors = [{name = "FloodGroup"}]
+dependencies = [
+  "numpy==2.2.6", "pandas==2.3.3", "scipy==1.15.3",
+  "scikit-learn==1.7.2", "matplotlib==3.11.1", "pyvinecopulib==0.7.5",
+]
+classifiers = ["Programming Language :: Python :: 3", "Topic :: Scientific/Engineering :: Hydrology"]
+
+[project.optional-dependencies]
+maps = ["geopandas>=1,<2"]
+docs = ["mkdocs-material>=9.6,<10", "pymdown-extensions>=10,<13"]
+
+[project.scripts]
+jrpa = "jrpa.cli:main"
+
+[tool.setuptools]
+packages = [
+  "jrpa", "jrpa.common",
+  "jrpa.step01_prepare", "jrpa.step02_events", "jrpa.step03_annual",
+  "jrpa.step04_copula", "jrpa.step05_export",
+  "jrpa.gba", "jrpa.san_francisco", "jrpa.tokyo",
+]
+include-package-data = false
+
+[tool.setuptools.package-dir]
+jrpa = "shared/jrpa"
+"jrpa.gba" = "gba"
+"jrpa.san_francisco" = "san_francisco"
+"jrpa.tokyo" = "tokyo"
+
+[tool.setuptools.package-data]
+"jrpa.gba" = ["stations.json"]
+"jrpa.san_francisco" = ["stations.json"]
+"jrpa.tokyo" = ["stations.json"]
+
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+extend-exclude = ["build", "site"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]

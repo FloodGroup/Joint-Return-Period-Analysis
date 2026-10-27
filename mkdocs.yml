@@ -1,0 +1,29 @@
+site_name: Joint Return-Period Analysis
+site_description: Rainfall and coastal water-level design in three bay regions
+theme:
+  name: material
+  font: false
+  palette:
+    primary: blue grey
+    accent: teal
+  features:
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+markdown_extensions:
+  - admonition
+  - tables
+  - attr_list
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.arithmatex:
+      generic: true
+extra_css:
+  - assets/styles.css
+  - assets/vendor/katex/katex.min.css
+extra_javascript:
+  - assets/vendor/katex/katex.min.js
+  - assets/vendor/katex/auto-render.min.js
+  - assets/math.js
+plugins:
+  - search

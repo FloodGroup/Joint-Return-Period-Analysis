@@ -1,0 +1,460 @@
+{
+  "region": "tokyo",
+  "units": [
+    {
+      "unit": "M01",
+      "gauge": "Aburatsubo",
+      "tide_station_ids": [
+        "GESLA_JODC-GIAJ_GS01"
+      ],
+      "rainfall_stations": [
+        {
+          "station_id": "JMA_A46136",
+          "priority": 1,
+          "resolution_h": 1,
+          "distance_km": 34.92,
+          "longitude": 139.305,
+          "latitude": 35.345,
+          "name": "Hiratsuka",
+          "selected_start": "1975-12-31",
+          "selected_end": "2023-12-31"
+        },
+        {
+          "station_id": "JMA_A46091",
+          "priority": 2,
+          "resolution_h": 1,
+          "distance_km": 36.77,
+          "longitude": 139.38667,
+          "latitude": 35.43333,
+          "name": "Ebina",
+          "selected_start": "1976-10-23",
+          "selected_end": "2022-07-02"
+        }
+      ],
+      "geometry_id": "M01",
+      "gauge_name": "Aburatsubo",
+      "tide_locations": [
+        {
+          "station_id": "GESLA_JODC-GIAJ_GS01",
+          "latitude": 35.16,
+          "longitude": 139.6155
+        }
+      ]
+    },
+    {
+      "unit": "M02",
+      "gauge": "Aburatsubo",
+      "tide_station_ids": [
+        "GESLA_JODC-GIAJ_GS01"
+      ],
+      "rainfall_stations": [
+        {
+          "station_id": "JMA_A46x0391",
+          "priority": 1,
+          "resolution_h": 1,
+          "distance_km": 19.69,
+          "longitude": 139.48,
+          "latitude": 35.29833,
+          "name": "Enoshima",
+          "selected_start": "1975-12-31",
+          "selected_end": "1992-02-08"
+        },
+        {
+          "station_id": "JMA_A46141",
+          "priority": 2,
+          "resolution_h": 1,
+          "distance_km": 23.28,
+          "longitude": 139.45,
+          "latitude": 35.32,
+          "name": "Tsujido",
+          "selected_start": "1992-02-10",
+          "selected_end": "2023-12-31"
+        },
+        {
+          "station_id": "JMA_A46046",
+          "priority": 3,
+          "resolution_h": 1,
+          "distance_km": 50.82,
+          "longitude": 139.37,
+          "latitude": 35.57167,
+          "name": "Sagamihara-Chuo",
+          "selected_start": "1977-04-18",
+          "selected_end": "2022-12-08"
+        }
+      ],
+      "geometry_id": "M02",
+      "gauge_name": "Aburatsubo",
+      "tide_locations": [
+        {
+          "station_id": "GESLA_JODC-GIAJ_GS01",
+          "latitude": 35.16,
+          "longitude": 139.6155
+        }
+      ]
+    },
+    {
+      "unit": "M03",
+      "gauge": "Kurihama",
+      "tide_station_ids": [
+        "GESLA_JODC-PAHB_0161"
+      ],
+      "rainfall_stations": [
+        {
+          "station_id": "JMA_A46211",
+          "priority": 1,
+          "resolution_h": 1,
+          "distance_km": 9.93,
+          "longitude": 139.63,
+          "latitude": 35.17833,
+          "name": "Miura",
+          "selected_start": "2000-12-31",
+          "selected_end": "2022-12-31"
+        }
+      ],
+      "geometry_id": "M03",
+      "gauge_name": "Kurihama",
+      "tide_locations": [
+        {
+          "station_id": "GESLA_JODC-PAHB_0161",
+          "latitude": 35.2275,
+          "longitude": 139.7211
+        }
+      ]
+    },
+    {
+      "unit": "M04",
+      "gauge": "Yokohama-Shinko",
+      "tide_station_ids": [
+        "GESLA_JODC-JCG_HD29"
+      ],
+      "rainfall_stations": [
+        {
+          "station_id": "JMA_47670",
+          "priority": 1,
+          "resolution_h": 1,
+          "distance_km": 1.89,
+          "longitude": 139.65167,
+          "latitude": 35.43833,
+          "name": "Yokohama",
+          "selected_start": "1997-08-31",
+          "selected_end": "2025-12-31"
+        }
+      ],
+      "geometry_id": "M04",
+      "gauge_name": "Yokohama Shinko",
+      "tide_locations": [
+        {
+          "station_id": "GESLA_JODC-JCG_HD29",
+          "latitude": 35.4542,
+          "longitude": 139.6442
+        }
+      ]
+    },
+    {
+      "unit": "M05",
+      "gauge": "Yokohama-Shinko",
+      "tide_station_ids": [
+        "GESLA_JODC-JCG_HD29"
+      ],
+      "rainfall_stations": [
+        {
+          "station_id": "JMA_A46061",
+          "priority": 1,
+          "resolution_h": 1,
+          "distance_km": 10.82,
+          "longitude": 139.65,
+          "latitude": 35.55167,
+          "name": "Hiyoshi",
+          "selected_start": "1997-08-31",
+          "selected_end": "2025-12-31"
+        }
+      ],
+      "geometry_id": "M05",
+      "gauge_name": "Yokohama Shinko",
+      "tide_locations": [
+        {
+          "station_id": "GESLA_JODC-JCG_HD29",
+          "latitude": 35.4542,
+          "longitude": 139.6442
+        }
+      ]
+    },
+    {
+      "unit": "M06",
+      "gauge": "Kawasaki",
+      "tide_station_ids": [
+        "JODC_MA59"
+      ],
+      "rainfall_stations": [
+        {
+          "station_id": "JMA_A44166",
+          "priority": 1,
+          "resolution_h": 1,
+          "distance_km": 6.04,
+          "longitude": 139.78,
+          "latitude": 35.55333,
+          "name": "Haneda",
+          "selected_start": "1975-12-31",
+          "selected_end": "1996-12-31"
+        },
+        {
+          "station_id": "JMA_A44126",
+          "priority": 2,
+          "resolution_h": 1,
+          "distance_km": 19.34,
+          "longitude": 139.62,
+          "latitude": 35.62667,
+          "name": "Setagaya",
+          "selected_start": "1987-05-22",
+          "selected_end": "1993-11-16"
+        },
+        {
+          "station_id": "JMA_A44116",
+          "priority": 3,
+          "resolution_h": 1,
+          "distance_km": 32.75,
+          "longitude": 139.48333,
+          "latitude": 35.68333,
+          "name": "Fuchu",
+          "selected_start": "1978-02-18",
+          "selected_end": "1978-02-18"
+        }
+      ],
+      "geometry_id": "M06",
+      "gauge_name": "Kawasaki",
+      "tide_locations": [
+        {
+          "station_id": "JODC_MA59",
+          "latitude": 35.5,
+          "longitude": 139.7667
+        }
+      ]
+    },
+    {
+      "unit": "M07",
+      "gauge": "Tokyo-Harumi",
+      "tide_station_ids": [
+        "JMA_TK"
+      ],
+      "rainfall_stations": [
+        {
+          "station_id": "JMA_47662",
+          "priority": 1,
+          "resolution_h": 1,
+          "distance_km": 5.11,
+          "longitude": 139.75,
+          "latitude": 35.69167,
+          "name": "Tokyo",
+          "selected_start": "1950-08-03",
+          "selected_end": "2026-07-31"
+        },
+        {
+          "station_id": "JMA_A44136",
+          "priority": 3,
+          "resolution_h": 1,
+          "distance_km": 8.53,
+          "longitude": 139.86333,
+          "latitude": 35.63833,
+          "name": "Edogawa-Rinkai",
+          "selected_start": "1994-09-17",
+          "selected_end": "1998-01-08"
+        }
+      ],
+      "geometry_id": "M07",
+      "gauge_name": "Tokyo Harumi",
+      "tide_locations": [
+        {
+          "station_id": "JMA_TK",
+          "latitude": 35.6486,
+          "longitude": 139.77
+        }
+      ]
+    },
+    {
+      "unit": "M08",
+      "gauge": "Tokyo-Harumi",
+      "tide_station_ids": [
+        "JMA_TK"
+      ],
+      "rainfall_stations": [
+        {
+          "station_id": "JMA_A45106",
+          "priority": 1,
+          "resolution_h": 1,
+          "distance_km": 25.71,
+          "longitude": 140.04333,
+          "latitude": 35.71167,
+          "name": "Funabashi",
+          "selected_start": "1978-01-09",
+          "selected_end": "2026-07-31"
+        }
+      ],
+      "geometry_id": "M08",
+      "gauge_name": "Tokyo Harumi",
+      "tide_locations": [
+        {
+          "station_id": "JMA_TK",
+          "latitude": 35.6486,
+          "longitude": 139.77
+        }
+      ]
+    },
+    {
+      "unit": "M09",
+      "gauge": "Chiba",
+      "tide_station_ids": [
+        "JODC_HD06"
+      ],
+      "rainfall_stations": [
+        {
+          "station_id": "JMA_47682",
+          "priority": 1,
+          "resolution_h": 1,
+          "distance_km": 6.42,
+          "longitude": 140.10333,
+          "latitude": 35.60167,
+          "name": "Chiba",
+          "selected_start": "1966-03-31",
+          "selected_end": "2025-12-31"
+        }
+      ],
+      "geometry_id": "M09",
+      "gauge_name": "Chiba",
+      "tide_locations": [
+        {
+          "station_id": "JODC_HD06",
+          "latitude": 35.5681,
+          "longitude": 140.0456
+        }
+      ]
+    },
+    {
+      "unit": "M10",
+      "gauge": "Chiba",
+      "tide_station_ids": [
+        "JODC_HD06"
+      ],
+      "rainfall_stations": [
+        {
+          "station_id": "JMA_A45291",
+          "priority": 1,
+          "resolution_h": 1,
+          "distance_km": 21.18,
+          "longitude": 140.14833,
+          "latitude": 35.39667,
+          "name": "Ushiku",
+          "selected_start": "1978-01-11",
+          "selected_end": "2025-12-31"
+        }
+      ],
+      "geometry_id": "M10",
+      "gauge_name": "Chiba",
+      "tide_locations": [
+        {
+          "station_id": "JODC_HD06",
+          "latitude": 35.5681,
+          "longitude": 140.0456
+        }
+      ]
+    },
+    {
+      "unit": "M11",
+      "gauge": "Yokohama-Shinko",
+      "tide_station_ids": [
+        "GESLA_JODC-JCG_HD29"
+      ],
+      "rainfall_stations": [
+        {
+          "station_id": "JMA_A45282",
+          "priority": 1,
+          "resolution_h": 1,
+          "distance_km": 18.87,
+          "longitude": 139.94,
+          "latitude": 35.36167,
+          "name": "Kisarazu",
+          "selected_start": "1997-08-31",
+          "selected_end": "2025-12-31"
+        },
+        {
+          "station_id": "JMA_A45326",
+          "priority": 2,
+          "resolution_h": 1,
+          "distance_km": 33.57,
+          "longitude": 140.09833,
+          "latitude": 35.235,
+          "name": "Sakahata",
+          "selected_start": "2000-10-17",
+          "selected_end": "2022-11-16"
+        }
+      ],
+      "geometry_id": "M11",
+      "gauge_name": "Yokohama Shinko",
+      "tide_locations": [
+        {
+          "station_id": "GESLA_JODC-JCG_HD29",
+          "latitude": 35.4542,
+          "longitude": 139.6442
+        }
+      ]
+    },
+    {
+      "unit": "M12",
+      "gauge": "Kurihama",
+      "tide_station_ids": [
+        "GESLA_JODC-PAHB_0161"
+      ],
+      "rainfall_stations": [
+        {
+          "station_id": "JMA_A45346",
+          "priority": 1,
+          "resolution_h": 1,
+          "distance_km": 15.77,
+          "longitude": 139.83667,
+          "latitude": 35.12167,
+          "name": "Kyonan",
+          "selected_start": "2000-12-31",
+          "selected_end": "2022-12-31"
+        }
+      ],
+      "geometry_id": "M12",
+      "gauge_name": "Kurihama",
+      "tide_locations": [
+        {
+          "station_id": "GESLA_JODC-PAHB_0161",
+          "latitude": 35.2275,
+          "longitude": 139.7211
+        }
+      ]
+    },
+    {
+      "unit": "M13",
+      "gauge": "Mera",
+      "tide_station_ids": [
+        "JMA_MR"
+      ],
+      "rainfall_stations": [
+        {
+          "station_id": "JMA_47672",
+          "priority": 1,
+          "resolution_h": 1,
+          "distance_km": 8.36,
+          "longitude": 139.865,
+          "latitude": 34.98667,
+          "name": "Tateyama",
+          "selected_start": "1968-05-10",
+          "selected_end": "2026-07-31"
+        }
+      ],
+      "geometry_id": "M13",
+      "gauge_name": "Mera",
+      "tide_locations": [
+        {
+          "station_id": "JMA_MR",
+          "latitude": 34.9189,
+          "longitude": 139.825
+        }
+      ]
+    }
+  ],
+  "title": "Tokyo Bay"
+}
