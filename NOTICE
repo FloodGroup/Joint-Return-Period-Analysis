@@ -1,5 +1,0 @@
-# Third-party notices
-
-The documentation bundles **KaTeX 0.16.22** and its auto-render extension and fonts, under the MIT License. Source: https://github.com/KaTeX/KaTeX/tree/v0.16.22. The full license is retained in `shared/assets/vendor/katex/LICENSE`; SHA-256 asset hashes are in the adjacent `integrity.json`.
-
-Numerical and documentation libraries are installed as declared dependencies. Their distributions retain their respective licenses. No compiled statistical-library binaries or study observations are vendored.

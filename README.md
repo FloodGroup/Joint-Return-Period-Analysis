@@ -1,6 +1,6 @@
 # Joint Return-Period Analysis
 
-This repository analyzes rainfall and coastal water-level extremes in the Greater Bay Area, San Francisco Bay and Tokyo Bay. It performs separate univariate return-period analyses for rainfall and coastal water level, and a copula-based joint return-period analysis of the two variables. The design scenarios cover rainfall-dominated events, storm-surge-dominated events and compound rainfall–storm-surge events at 10-, 50-, 100- and 200-year return periods. Compound combinations are selected on Kendall return-period contours using the maximum joint-density criterion.
+This repository analyzes rainfall and coastal water-level extremes in the Greater Bay Area, San Francisco Bay and Tokyo Bay. It performs separate univariate return-period analyses for rainfall and coastal water level, and a copula-based joint return-period analysis of the two variables. The design scenarios cover rainfall-dominated events, storm-surge-dominated events and compound rainfall鈥搒torm-surge events at 10-, 50-, 100- and 200-year return periods. Compound combinations are selected on Kendall return-period contours using the maximum joint-density criterion.
 
 | Study area | Folder | Units | Observations | Water-level datum |
 |:--|:--|--:|:--|:--|
@@ -86,6 +86,12 @@ Open `GBA/site/index.html`, `SanF/site/index.html` or `Tokyo/site/index.html`. U
 
 ## Availability and citation
 
-The repository contains code, station metadata and study-area and coverage figures. Observation records, source GIS, fitted parameters and design-value tables remain private. Obtain observations from the providers listed in the input guide.
+The repository contains code, station metadata and study-area and coverage figures. Observation records, source GIS, fitted parameters and design-value tables remain private. Obtain observations from the providers listed in [Inputs and sources](shared/inputs.md).
 
-Software is licensed under [MIT](LICENSE); third-party notices are in [NOTICE](NOTICE). [CITATION.cff](CITATION.cff) supplies citation metadata. Report issues with the region, processing step, environment and a reproducible artificial example.
+Software is released under the MIT License ([LICENSE](LICENSE)). Local HTML documentation bundles KaTeX 0.16.22 (MIT) under `shared/assets/vendor/katex/`.
+
+Please cite this software as:
+
+> FloodGroup (2026). Joint Return-Period Analysis (version 1.0.0). Rainfall-triggered compound frequency analysis, full-record annual extremes, and event design for the Greater Bay Area, San Francisco Bay, and Tokyo Bay. https://github.com/FloodGroup/Joint-Return-Period-Analysis
+
+Report issues with the region, processing step, environment and a reproducible artificial example.

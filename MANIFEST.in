@@ -1,4 +1,4 @@
-include LICENSE NOTICE CITATION.cff mkdocs.yml build_docs.py
+include LICENSE mkdocs.yml build_docs.py
 recursive-include shared *.py *.md *.css *.js *.json *.woff2 *.woff *.ttf LICENSE
 recursive-include GBA *.py *.md *.json *.png *.svg
 recursive-include SanF *.py *.md *.json *.png *.svg
@@ -11,3 +11,5 @@ prune private
 prune data
 prune outputs
 prune tests
+
+
