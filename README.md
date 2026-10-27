@@ -92,6 +92,17 @@ Software is released under the MIT License ([LICENSE](LICENSE)). Local HTML docu
 
 Please cite this software as:
 
-> FloodGroup (2026). Joint Return-Period Analysis (version 1.0.0). Rainfall-triggered compound frequency analysis, full-record annual extremes, and event design for the Greater Bay Area, San Francisco Bay, and Tokyo Bay. https://github.com/FloodGroup/Joint-Return-Period-Analysis
+> Yang, R., Long, Z., Jiang, L., & Duan, H.-F. (2026). *Joint Return-Period Analysis* (Version 1.0.0) [Computer software]. The State Key Laboratory of Climate Resilience for Coastal Cities (SKL-CRCC), The Hong Kong Polytechnic University. https://github.com/FloodGroup/Joint-Return-Period-Analysis
+
+```bibtex
+@software{Yang_Joint_Return_Period_Analysis_2026,
+  author       = {Yang, Ruiyi and Long, Zhiyong and Jiang, Long and Duan, Huan-Feng},
+  title        = {Joint Return-Period Analysis},
+  version      = {1.0.0},
+  year         = {2026},
+  organization = {The State Key Laboratory of Climate Resilience for Coastal Cities (SKL-CRCC), The Hong Kong Polytechnic University},
+  url          = {https://github.com/FloodGroup/Joint-Return-Period-Analysis}
+}
+```
 
 Report issues with the region, processing step, environment and a reproducible artificial example.
