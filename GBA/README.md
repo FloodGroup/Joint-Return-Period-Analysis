@@ -8,34 +8,42 @@ From the repository root, install the package and run:
 
 ```sh
 python -m pip install -e "."
-python gba/run_analysis.py --manifest ../private/gba/manifest.json --output ../outputs/gba
+python GBA/run_analysis.py --manifest ../private/gba/manifest.json --output ../outputs/gba
 ```
 
 [run_analysis.py](run_analysis.py) executes steps 01–05: preparation, event selection, annual fitting, copula fitting and design export. [settings.py](settings.py) contains the regional parameters and station rules; [stations.json](stations.json) contains the station catalog. Use `--annual-only` for S1 and S2.
 
 Read [Methods](../shared/methods.md) for the equations and [Inputs and sources](../shared/inputs.md) for observation formats. The study-area figures below are already in `figures/`.
 
-Build the local documentation with `python build_docs.py --region gba` after installing `.[docs]`, then open `gba/site/index.html`.
+Build the local documentation with `python build_docs.py --region gba` after installing `.[docs]`, then open `GBA/site/index.html`.
 
-## Tide assignments
+## Analysis units
 
-| Units | Tide station |
-|:--|:--|
-| 01, 02 | SZ - Sanzao |
-| 03a | DJZ - Dajiu Zhou |
-| 03b | NLT - Nei Lingding |
-| 04, 05 | NS - Nansha |
-| 06 | DS - Dasheng |
-| 07 | SSW - Sishengwei |
-| 08 | CW - Chiwan |
-| 09 | TBT - Tsim Bei Tsui |
-| 10a | QUB - Quarry Bay |
-| 10b | SPW - Shek Pik |
-| 11 | TPK - Tai Po Kau |
+The geographic partition contains 11 coastal drainage polygons, grouped by major river outlets and receiving waters. Drainage paths follow the DEM and river network; small coastal drainage areas are joined to adjoining outlet groups. Tide assignments account for the receiving water body, usable records and a documented vertical reference.
+
+The statistical analysis has 13 units because polygons 3 and 10 each have two rainfall–tide assignments. Units 03a and 03b share polygon 3 and use DJZ and NLT, respectively; 10a and 10b share polygon 10 and use QUB and SPW. These paired units retain the same geographic extent while using their separately assigned observation records.
+
+See [Methods](../shared/methods.md#analysis-units) for the common partitioning principles.
+
+| Unit | Geographic polygon | Tide record |
+|:--|:--|:--|
+| 01 | 1 | Sanzao |
+| 02 | 2 | Sanzao |
+| 03a | 3 | Dajiu Zhou |
+| 03b | 3 | Nei Lingding |
+| 04 | 4 | Nansha |
+| 05 | 5 | Nansha |
+| 06 | 6 | Dasheng |
+| 07 | 7 | Sishengwei |
+| 08 | 8 | Chiwan |
+| 09 | 9 | Tsim Bei Tsui |
+| 10a | 10 | Quarry Bay |
+| 10b | 10 | Shek Pik |
+| 11 | 11 | Tai Po Kau |
 
 ## Regional settings
 
-- Priority-merged daily rainfall is paired with daily highest coastal water level. Positive-day R95 and three-day declustering define the rainfall-triggered event sample.
+- Priority-merged daily rainfall is paired with the daily maximum coastal water level. The positive-day R95 threshold and three-day declustering define the event sample.
 - Mainland S1 units 01-08, including 03a/03b, use index-rainfall regional frequency analysis with long-record stations within 60 km. L-moment ratios are record-length weighted; H1 screening removes farthest stations if needed.
 - Daily rainfall designs and compound rainfall coordinates use the empirical factor 1.13 to express estimated moving-24-hour quantities.
 - S2 uses full station records with annual/seasonal completeness and regional storm-day checks. Independently sourced supplemental peaks remain private observation inputs.
@@ -55,8 +63,6 @@ Select a figure to inspect it at full resolution.
 [![Observation coverage](figures/03_observation_coverage.png)](figures/03_observation_coverage.png)
 
 Coverage refers to the archived compound-input record. Colour intensity represents the observed fraction of a calendar month; white indicates missing observations. Rainfall rows show actual source use. Annual-frequency analysis uses independently screened full records.
-
-Units 03a/03b share a catchment polygon but use different coastal stations; 10a/10b have the same spatial relationship. Their event populations remain separate.
 
 ## Unit 01
 

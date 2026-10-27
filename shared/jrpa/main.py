@@ -2,9 +2,9 @@
 
 The program you run is a region's `run_analysis.py`:
 
-    python gba/run_analysis.py --manifest MANIFEST --output OUTPUT
-    python san_francisco/run_analysis.py --manifest MANIFEST --output OUTPUT
-    python tokyo/run_analysis.py --manifest MANIFEST --output OUTPUT
+    python GBA/run_analysis.py --manifest MANIFEST --output OUTPUT
+    python SanF/run_analysis.py --manifest MANIFEST --output OUTPUT
+    python Tokyo/run_analysis.py --manifest MANIFEST --output OUTPUT
 
 Each of those scripts calls the five folders below. This module is the same
 sequence in one place, used by `jrpa run` and `jrpa demo`.

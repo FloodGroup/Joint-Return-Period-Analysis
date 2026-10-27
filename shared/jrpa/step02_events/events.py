@@ -1,4 +1,4 @@
-"""Priority merging, rainfall-triggered events, and paired exposure."""
+"""Priority merging, rainfall event selection, and paired exposure."""
 
 import numpy as np
 import pandas as pd

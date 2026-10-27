@@ -106,7 +106,7 @@ An optional `annual_maxima` path on a unit or tide entry supplies reviewed annua
 
 ## Study-area figures
 
-The regional pages include analysis polygons, station positions, rainfall priorities and observation availability. Each region's `stations.json` contains station names and coordinates. The drawn figures are in that region's `figures/` folder. Source GIS and the drawing program are not part of this release.
+The regional pages show analysis polygons, station positions, rainfall priorities and observation availability. Each region's `stations.json` contains station names and coordinates; `figures/` contains the maps. Source GIS and the drawing program are not part of this release.
 
 Roles are `rain`, `tide` and `paired`. Fractions use the entire calendar month as denominator. Rainfall rows represent selected observations from contributing gauges. A `station_id` of `merged_rain` supplies the unit's combined rainfall row.
 

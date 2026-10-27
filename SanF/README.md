@@ -8,25 +8,38 @@ From the repository root, install the package and run:
 
 ```sh
 python -m pip install -e "."
-python san_francisco/run_analysis.py --manifest ../private/san_francisco/manifest.json --output ../outputs/san_francisco
+python SanF/run_analysis.py --manifest ../private/san_francisco/manifest.json --output ../outputs/san_francisco
 ```
 
 [run_analysis.py](run_analysis.py) executes steps 01–05: preparation, event selection, annual fitting, copula fitting and design export. [settings.py](settings.py) contains the regional parameters and station rules; [stations.json](stations.json) contains the station catalog. Use `--annual-only` for S1 and S2.
 
 Read [Methods](../shared/methods.md) for the equations and [Inputs and sources](../shared/inputs.md) for observation formats. The study-area figures below are already in `figures/`.
 
-Build the local documentation with `python build_docs.py --region san_francisco` after installing `.[docs]`, then open `san_francisco/site/index.html`.
+Build the local documentation with `python build_docs.py --region san_francisco` after installing `.[docs]`, then open `SanF/site/index.html`.
 
-## Tide assignments
+## Analysis units
 
-| Units | Tide source |
-|:--|:--|
-| M01 | NOAA 9415218, with GESLA CDWR MRZ gap supplementation |
-| M02, M11 | NOAA 9414863 |
-| M03 | NOAA 9414290 |
-| M04, M05, M08, M10 | NOAA 9414523, Redwood City |
-| M06, M07 | Alviso historical NOAA 9414575 and USGS 372750122012701 |
-| M09 | NOAA 9414750 |
+The 31 source subcatchments, SB01–SB31, follow drainage outlets to the bay or adjacent coastal waters. Watershed divides are constrained by the DEM, river network and HUC12 boundaries. The final partition groups these subcatchments into 11 coastal-drainage units, as listed below.
+
+During source-subcatchment delineation, drainage areas below 2 km² are joined to the neighbour with the longest shared boundary. Areas below 50 km² are preferentially joined to neighbouring small catchments below 120 km². The final 11 analysis groups retain the component IDs in the table.
+
+Each group has a specified rainfall-source sequence and a coastal water-level record. A tide record can serve several groups: M04, M05, M08 and M10 use Redwood City, for example, but retain separate rainfall records and compound-event models. Group membership therefore carries information beyond the tide-station assignment.
+
+See [Methods](../shared/methods.md#analysis-units) for the common partitioning principles.
+
+| Unit | Component subcatchments | Tide record |
+|:--|:--|:--|
+| M01 | SB07, SB08, SB09, SB10 | Mare Island / Martinez |
+| M02 | SB03, SB04, SB05, SB06 | Richmond |
+| M03 | SB01, SB02, SB31 | San Francisco |
+| M04 | SB30, SB29 | Redwood City |
+| M05 | SB28, SB27 | Redwood City |
+| M06 | SB26, SB25, SB24, SB23 | Alviso |
+| M07 | SB22, SB21, SB20 | Alviso |
+| M08 | SB18, SB19 | Redwood City |
+| M09 | SB13, SB14, SB15 | Alameda |
+| M10 | SB16, SB17 | Redwood City |
+| M11 | SB12, SB11 | Richmond |
 
 ## Regional settings
 

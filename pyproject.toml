@@ -34,9 +34,9 @@ include-package-data = false
 
 [tool.setuptools.package-dir]
 jrpa = "shared/jrpa"
-"jrpa.gba" = "gba"
-"jrpa.san_francisco" = "san_francisco"
-"jrpa.tokyo" = "tokyo"
+"jrpa.gba" = "GBA"
+"jrpa.san_francisco" = "SanF"
+"jrpa.tokyo" = "Tokyo"
 
 [tool.setuptools.package-data]
 "jrpa.gba" = ["stations.json"]

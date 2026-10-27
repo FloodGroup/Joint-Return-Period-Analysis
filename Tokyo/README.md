@@ -8,26 +8,40 @@ From the repository root, install the package and run:
 
 ```sh
 python -m pip install -e "."
-python tokyo/run_analysis.py --manifest ../private/tokyo/manifest.json --output ../outputs/tokyo
+python Tokyo/run_analysis.py --manifest ../private/tokyo/manifest.json --output ../outputs/tokyo
 ```
 
 [run_analysis.py](run_analysis.py) executes steps 01–05: preparation, event selection, annual fitting, copula fitting and design export. [settings.py](settings.py) contains the regional parameters and station rules; [stations.json](stations.json) contains the station catalog. Use `--annual-only` for S1 and S2.
 
 Read [Methods](../shared/methods.md) for the equations and [Inputs and sources](../shared/inputs.md) for observation formats. The study-area figures below are already in `figures/`.
 
-Build the local documentation with `python build_docs.py --region tokyo` after installing `.[docs]`, then open `tokyo/site/index.html`.
+Build the local documentation with `python build_docs.py --region tokyo` after installing `.[docs]`, then open `Tokyo/site/index.html`.
 
-## Tide assignments
+## Analysis units
 
-| Units | Tide station |
-|:--|:--|
-| M01, M02 | Aburatsubo |
-| M03, M12 | Kurihama |
-| M04, M05, M11 | Yokohama-Shinko |
-| M06 | Kawasaki |
-| M07, M08 | Tokyo-Harumi |
-| M09, M10 | Chiba |
-| M13 | Mera |
+The 24 source subcatchments, TB01–TB24, follow river systems and coastal outlets to Tokyo Bay and Sagami Bay. DEM drainage paths are constrained by W05 river lines and W07 basin boundaries, including low-relief watershed divides. Small coastal drainage areas are grouped by drainage destination and adjacency.
+
+During source-subcatchment delineation, drainage pieces below 2 km² are joined to a neighbouring area, and units below 50 km² are preferentially grouped with adjacent small units. Detached pieces below 20 km² are assigned to an adjoining unit. These rules establish the 24 source subcatchments before their aggregation into the final analysis groups.
+
+The final 13 units group these subcatchments by coastal drainage sector. Member outlets are related to the marine boundary segments, and the assigned tide records must support the required datum conversion and observation coverage. Units can share a tide record while retaining their own rainfall-source sequences and compound-event samples.
+
+See [Methods](../shared/methods.md#analysis-units) for the common partitioning principles.
+
+| Unit | Component subcatchments | Tide record |
+|:--|:--|:--|
+| M01 | TB01, TB02 | Aburatsubo |
+| M02 | TB03, TB04 | Aburatsubo |
+| M03 | TB05 | Kurihama |
+| M04 | TB06, TB07 | Yokohama Shinko |
+| M05 | TB08 | Yokohama Shinko |
+| M06 | TB09, TB10 | Kawasaki |
+| M07 | TB11, TB12, TB13 | Tokyo Harumi |
+| M08 | TB14 | Tokyo Harumi |
+| M09 | TB15, TB16 | Chiba |
+| M10 | TB17, TB18 | Chiba |
+| M11 | TB19, TB20, TB21 | Yokohama Shinko |
+| M12 | TB22, TB23 | Kurihama |
+| M13 | TB24 | Mera |
 
 ## Regional settings
 

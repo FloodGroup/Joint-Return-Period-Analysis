@@ -1,6 +1,26 @@
 # Methods
 
-Each region's `run_analysis.py` is the program to run. It calls the five folders under `shared/jrpa/` in the order below. `jrpa.main.run` calls the same five functions. Each region's `settings.py` defines its parameters and station rules; `stations.json` supplies its station catalog. Rainfall and coastal water level are denoted by $R$ and $H$.
+Each region's `run_analysis.py` calls the five steps under `shared/jrpa/` in the order below. `jrpa.main.run` calls the same functions. Regional parameters and station rules are in `settings.py`; `stations.json` contains the station catalog. Rainfall and coastal water level are denoted by $R$ and $H$.
+
+## Analysis units
+
+The analysis uses spatial units to associate rainfall with the coastal water level acting at the receiving outlet or coastal sector. A single bay contains several drainage systems and marine boundaries, served by different observation records. Defining units preserves these source assignments when estimating rainfall-dominated, storm-surge-dominated and compound design events.
+
+Each unit has three elements: a geographic drainage polygon or group of polygons, a priority-merged representative rainfall series, and an assigned coastal water-level series. The rainfall record is assembled from station observations; it is not an areal average over the polygon. Several units may share a tide record while retaining different rainfall records and joint-event samples.
+
+The geographic partitions come from the hydrologic–hydrodynamic model setup. Their construction follows drainage divides and coastal outlets, with river-network constraints in flat terrain. Small coastal catchments are grouped by drainage destination and land adjacency. Catchment groups are then associated with the receiving coastal sector and a usable tide record. Station priority, vertical-reference consistency and simultaneous observation coverage determine the sample within each fixed unit. Goodness-of-fit tests assess the statistical models after the units have been defined.
+
+| Region | Geographic basis | Final analysis units |
+|:--|:--|:--|
+| GBA | A 30 m GLO-30 DEM, GEOGloWS v2/TDX-Hydro river constraints and D8 drainage destinations define 11 outlet-based coastal polygons. Small coastal drainage areas are joined to adjoining polygons. | 13 rainfall–tide assignments on 11 polygons; polygons 3 and 10 each have two assignments. |
+| SanF | A 30 m USGS 3DEP DEM, NHDPlusV2 channels and WBD HUC12 watershed constraints define 31 outlet-based subcatchments. | 11 coastal-drainage groups, each with its own rainfall-source assignment and an assigned tide record. |
+| Tokyo | A 30 m DEM aggregated from GSI elevation data, MLIT W05 river lines and W07 basin boundaries define 24 coastal subcatchments. Outlet relationships to marine boundary sectors guide grouping and tide assignment. | 13 coastal-drainage groups with fixed rainfall and tide assignments. |
+
+The DEM workflows use Priority-Flood depression filling and D8 flow routing. In the GBA delta, interconnected channels make the resulting drainage divides approximate. The final component IDs and observation assignments are listed in the regional documentation.
+
+The number of statistical units therefore need not equal the number of distinct drainage polygons. In GBA, 03a and 03b share polygon 3 but use different tide and rainfall records; 10a and 10b similarly share polygon 10. Their separate models represent different observation pairings within the same geographic sector. A shared tide station has one S2 annual-frequency curve, whereas each unit has its own compound-event model.
+
+In `stations.json`, `unit` identifies the statistical assignment and `geometry_id` identifies its mapped polygon. Component subcatchment IDs in the regional tables document how the final polygons are assembled.
 
 ## 01. Prepare observations
 
@@ -102,13 +122,13 @@ The hourly workflow combines linear and tail-dense global scans with refinement 
 
 ### Model scenarios
 
-The scenario matrix has three hazard classes, four return periods, and seven climates: current, SSP1-2.6/SSP2-4.5/SSP3-7.0 at 2060 and 2100. These produce 84 cases. Six C83-based peak-phase cases complete the matrix.
+The scenario matrix includes rainfall-dominated (R), storm-surge-dominated (S) and compound rainfall–storm-surge (RS) events. Each class has four return periods and seven climate settings: current conditions and SSP1-2.6, SSP2-4.5 and SSP3-7.0 at 2060 and 2100. These produce 84 cases. Six C83-based peak-phase cases complete the matrix. Storm-surge-dominated scenarios use total coastal water level for the marine boundary.
 
-| Hazard | Rainfall boundary | Coastal boundary |
+| Scenario | Rainfall boundary | Coastal boundary |
 |:--|:--|:--|
-| R | S1 rainfall times the prescribed climate multiplier | Typical astronomical tide plus sea-level increment |
-| S | No rainfall | S2 peak in model datum plus sea-level increment |
-| RS | Kendall rainfall times the prescribed multiplier | Kendall peak in model datum plus sea-level increment |
+| R: rainfall-dominated | S1 rainfall times the prescribed climate multiplier | Typical astronomical tide plus sea-level increment |
+| S: storm-surge-dominated | No rainfall | S2 peak in model datum plus sea-level increment |
+| RS: compound rainfall–storm-surge | Kendall rainfall times the prescribed multiplier | Kendall peak in model datum plus sea-level increment |
 
 The regular rainfall/tide peak occurs at hour 13 for San Francisco and hour 12 for GBA and Tokyo. C85-C90 shift the tide peak by -9, -6, -3, +3, +6, and +9 hours relative to the rain peak. The whole coastal water-level process is shifted, preserving its shape.
 
@@ -145,7 +165,7 @@ The artificial demonstration uses reduced sampling counts and is labelled synthe
 
 ## Interpretation
 
-Kendall return periods apply to the selected rainfall-triggered population. S1 and S2 have different annual-maximum populations. A shared tide station has one S2 curve; different rainfall populations can yield different compound points at that station. Separate unit designs do not define a simultaneous bay-wide return period. Historical water levels are not detrended. Parameter-uncertainty intervals are not supplied.
+Kendall return periods apply to the event population selected using the rainfall threshold. S1 and S2 use different annual-maximum samples. A shared tide station has one S2 curve; different rainfall populations can yield different compound points at that station. Separate unit designs do not define a simultaneous bay-wide return period. Historical water levels are not detrended. Parameter-uncertainty intervals are not supplied.
 
 Passing the stated goodness-of-fit and record-length criteria does not establish tail accuracy. Long return periods require extrapolation. Datum uncertainty, short-record transfer, daily-to-24-hour conversion and regional heterogeneity should be considered when interpreting design levels.
 
@@ -159,4 +179,4 @@ Passing the stated goodness-of-fit and record-length criteria does not establish
 | 04 | `step04_copula/run.py` | `marginals`, `daily`, `dependence` |
 | 05 | `step05_export/run.py` | `kendall`, `reporting`; figure style is `common/plotting` |
 
-`common/` holds settings and checks used by more than one step. It is not an extra step. Study-area maps are already drawn; their drawing program is not part of this release.
+`common/` holds settings and checks used by more than one step. Study-area maps are supplied as figures; the drawing program is not part of this release.

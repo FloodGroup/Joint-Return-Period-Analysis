@@ -1,27 +1,35 @@
 # Joint Return-Period Analysis
 
-Rainfall and coastal water-level frequency analysis for three bay regions, with annual single-variable designs and rainfall-triggered compound designs at 10, 50, 100 and 200 years.
+This repository analyzes rainfall and coastal water-level extremes in the Greater Bay Area, San Francisco Bay and Tokyo Bay. It performs separate univariate return-period analyses for rainfall and coastal water level, and a copula-based joint return-period analysis of the two variables. The design scenarios cover rainfall-dominated events, storm-surge-dominated events and compound rainfall–storm-surge events at 10-, 50-, 100- and 200-year return periods. Compound combinations are selected on Kendall return-period contours using the maximum joint-density criterion.
 
 | Study area | Folder | Units | Observations | Water-level datum |
 |:--|:--|--:|:--|:--|
-| Greater Bay Area | [gba/](gba/README.md) | 13 | Daily | CN1985 |
-| San Francisco Bay | [san_francisco/](san_francisco/README.md) | 11 | Hourly; intact 6 h rainfall supplements | NAVD88 |
-| Tokyo Bay | [tokyo/](tokyo/README.md) | 13 | Hourly | Tokyo Peil |
+| Greater Bay Area | [GBA/](GBA/README.md) | 13 | Daily | CN1985 |
+| San Francisco Bay | [SanF/](SanF/README.md) | 11 | Hourly; intact 6 h rainfall supplements | NAVD88 |
+| Tokyo Bay | [Tokyo/](Tokyo/README.md) | 13 | Hourly | Tokyo Peil |
 
-Run the region you need. That region's `run_analysis.py` is the main program:
+## Analysis units
+
+An analysis unit links a coastal drainage area to a representative rainfall series and an assigned coastal water-level series. Drainage outlets and receiving waters vary around each bay, as do station locations and observation coverage. Units retain these spatial relationships when constructing the three design-event classes.
+
+The partitions follow drainage divides, river outlets and coastal boundary sectors. Several subcatchments can form one unit, while one geographic polygon can have separate analysis units for different rainfall and tide assignments. GBA has 13 analysis units on 11 geographic polygons; SanF has 11 groups of 31 subcatchments; Tokyo has 13 groups of 24 subcatchments. [Methods](shared/methods.md#analysis-units) explains the partitioning principles, and each regional README lists the component areas and tide assignments.
+
+## Repository layout
+
+Each region has a `run_analysis.py` entry point:
 
 ```text
-gba/run_analysis.py
-san_francisco/run_analysis.py
-tokyo/run_analysis.py
+GBA/run_analysis.py
+SanF/run_analysis.py
+Tokyo/run_analysis.py
 ```
 
-Each of those scripts calls the same five folders, in order. Open the script to see the five calls. `shared/jrpa/main.py` is that same sequence in one place.
+Each entry runs the five steps in `shared/jrpa/`. The command-line interface uses the same sequence in `shared/jrpa/main.py`.
 
 ```text
-gba/                     # Greater Bay Area
-san_francisco/           # San Francisco Bay
-tokyo/                   # Tokyo Bay
+GBA/                     # Greater Bay Area
+SanF/                    # San Francisco Bay
+Tokyo/                   # Tokyo Bay
     run_analysis.py      # Main program for this region
     settings.py          # Analysis parameters and station rules
     stations.json        # Station IDs, coordinates and source priorities
@@ -42,18 +50,16 @@ shared/
     assets/              # Documentation styles and equation renderer
 ```
 
-The same entry files are present in all three regional folders. The five steps are maintained once, under `shared/jrpa/`.
-
 ## Run an analysis
 
 Use Python 3.12 and supply a private observation manifest as described in [Inputs and sources](shared/inputs.md).
 
 ```sh
 python -m pip install -e "."
-python tokyo/run_analysis.py --manifest ../private/tokyo/manifest.json --output ../outputs/tokyo
+python Tokyo/run_analysis.py --manifest ../private/tokyo/manifest.json --output ../outputs/tokyo
 ```
 
-Choose the regional folder, review its `settings.py` and `stations.json`, then run its entry script. The five calls are explicit in each script:
+Review the region's `settings.py` and `stations.json` before running its entry script. The five steps are:
 
 | Step | Operation | Folder |
 |--:|:--|:--|
@@ -67,7 +73,7 @@ The output directory contains `design_values.csv`, diagnostics, source usage and
 
 ## Read the documentation
 
-Each regional README includes the drawn maps, station assignments and observation coverage. [Methods](shared/methods.md) gives the equations; [Inputs and sources](shared/inputs.md) describes the observation files and provider references.
+Each regional README contains maps, station assignments and observation coverage. [Methods](shared/methods.md) gives the equations; [Inputs and sources](shared/inputs.md) describes the observation files and their sources.
 
 To build local HTML pages with typeset equations:
 
@@ -76,7 +82,7 @@ python -m pip install -e ".[docs]"
 python build_docs.py
 ```
 
-Open `gba/site/index.html`, `san_francisco/site/index.html` or `tokyo/site/index.html`. Use `python build_docs.py --region tokyo` to build one region. The study-area figures are already in each region's `figures/` folder.
+Open `GBA/site/index.html`, `SanF/site/index.html` or `Tokyo/site/index.html`. Use `python build_docs.py --region tokyo` to build one region. The command-line region identifiers are `gba`, `san_francisco` and `tokyo`.
 
 ## Availability and citation
 

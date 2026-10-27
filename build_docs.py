@@ -12,10 +12,11 @@ REGIONS = {
     "san_francisco": "San Francisco Bay",
     "tokyo": "Tokyo Bay",
 }
+REGION_FOLDERS = {"gba": "GBA", "san_francisco": "SanF", "tokyo": "Tokyo"}
 
 
 def build_region(root, region):
-    folder = root / region
+    folder = root / REGION_FOLDERS[region]
     with tempfile.TemporaryDirectory(prefix="jrpa-docs-") as temporary:
         docs = Path(temporary) / "docs"
         docs.mkdir()

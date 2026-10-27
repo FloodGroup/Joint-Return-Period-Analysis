@@ -124,7 +124,7 @@ def render_report(output, settings, design_rows, models, sources):
         sections.append(f"""<section id="unit-{escape(meta["unit"])}"><div class="eyebrow">Analysis unit</div><h2>{escape(meta["unit"])} · {escape(meta["gauge"])}</h2>
 <p class="muted">{meta["event_count"]} events · {meta["effective_years"]:.2f} effective paired years · {escape(meta["copula_family"])} copula · Joint CvM p = {meta["CvM_p"]:.3f}</p>
 <figure><img src="units/{escape(meta["unit"])}/figures/source_coverage.svg" alt="Monthly coverage of contributing rainfall observations"><figcaption>Only rainfall sources with a real contribution are shown. Empty coverage is not interpreted as zero rainfall.</figcaption></figure>
-<figure><img src="units/{escape(meta["unit"])}/figures/model_diagnostics.svg" alt="Marginal distributions and Kendall design curves"><figcaption>Stars identify maximum physical joint-density design points. Curves describe the rainfall-triggered event population.</figcaption></figure>
+<figure><img src="units/{escape(meta["unit"])}/figures/model_diagnostics.svg" alt="Marginal distributions and Kendall design curves"><figcaption>Stars identify maximum physical joint-density design points. Curves describe events selected using the rainfall threshold.</figcaption></figure>
 <figure><img src="units/{escape(meta["unit"])}/figures/annual_frequency.svg" alt="Full-record rainfall and tide-station annual frequency curves"><figcaption>S1 and S2 use full, separately screened records. S2 is fitted once per tide station. Gray points are accepted annual observations; stars identify design levels.</figcaption></figure>
 <div class="scroll">{table}</div><p><small>Contributing rainfall stations: {source_text}</small></p></section>""")
     notice = (
@@ -133,7 +133,7 @@ def render_report(output, settings, design_rows, models, sources):
         else ""
     )
     nav = "".join(f'<a href="#unit-{escape(m["unit"])}">{escape(m["unit"])}</a>' for m in models)
-    body = f"""<header><div class="eyebrow">Joint return-period analysis</div><h1>{title}</h1><p class="muted">Rainfall-triggered compound events and full-record univariate design</p></header>{notice}
+    body = f"""<header><div class="eyebrow">Joint return-period analysis</div><h1>{title}</h1><p class="muted">Compound return periods and full-record univariate designs</p></header>{notice}
 <div class="grid"><div class="stat"><b>{len(models)}</b>compound models</div><div class="stat"><b>{sum(not m["diagnostic_only"] for m in models)}</b>models meeting formal gates</div><div class="stat"><b>{settings.datum}</b>analysis vertical reference</div></div>
 <section><h2>Design definitions</h2><p>S1 uses full-record annual rainfall maxima. S2 uses full-record annual coastal water-level maxima, fitted once per tide station. Compound designs use ordinary Kendall return periods and the maximum physical joint-density point.</p>
 <p><a href="design_values.csv">Design values</a> · <a href="rainfall_sources_used.csv">Contributing rainfall stations</a> · <a href="provenance.json">Input provenance</a> · <a href="settings.json">Numerical settings</a></p><nav>{nav}</nav></section>{"".join(sections)}

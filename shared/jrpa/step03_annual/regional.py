@@ -2,7 +2,12 @@
 
 import numpy as np
 from scipy.special import gammaln
-from jrpa.gba.settings import REGIONAL_RADIUS_KM, REGIONAL_H1_LIMIT, REGIONAL_REPLICATES, REGIONAL_SEED
+from jrpa.gba.settings import (
+    REGIONAL_RADIUS_KM,
+    REGIONAL_H1_LIMIT,
+    REGIONAL_REPLICATES,
+    REGIONAL_SEED,
+)
 
 
 def distance_km(a, b):

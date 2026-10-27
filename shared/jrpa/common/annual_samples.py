@@ -55,6 +55,7 @@ def hourly_rain_maxima(clock, blocks, timezone, coverage_gate=0.75, boundary_ded
         )
     return pd.DataFrame(rows)
 
+
 def hourly_tide_maxima(series, timezone, coverage_gate=0.75):
     local = series.index.tz_convert(timezone)
     year = local.year + (local.month >= 10)
@@ -80,6 +81,7 @@ def hourly_tide_maxima(series, timezone, coverage_gate=0.75):
         result["partial_included"] = (~result.complete) & result.maximum.ge(median)
         result["used"] = result.complete | result.partial_included
     return result
+
 
 def daily_maxima(series, variable):
     """Calendar years; GBA tide coverage retains the declared seasonal/partial rule."""
