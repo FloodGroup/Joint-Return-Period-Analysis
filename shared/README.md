@@ -55,9 +55,7 @@ GBA's lognormal mixture has no KS acceptance p value and cannot satisfy the form
 
 Calibrate a Kendall return-period contour using the selected-event rate and simulated copula probabilities [6]. On each contour, select the rainfall–water-level combination with the highest **joint density in physical units**, including both marginal densities. SanF and Tokyo use 1,048,576 calibration samples and an equally sized independent validation sample; GBA uses 262,144 calibration samples.
 
-Combine S1, S2 and Kendall designs with the supplied climate inputs to define rainfall-dominated, storm-surge-dominated and compound rainfall–storm-surge scenarios. The marine variable is total coastal water level. Export design tables, candidate fits, goodness-of-fit results, source contributions, figures and HTML reports. Statistical water levels and model-reference elevations are separate fields. Scenario export rejects diagnostic estimates unless explicitly enabled.
-
-Passing these checks does not establish extrapolation accuracy. The outputs are point estimates without parameter-uncertainty intervals; designs for separate units do not imply a simultaneous bay-wide return period.
+Combine S1, S2 and Kendall designs with the supplied climate inputs to define rainfall-dominated, storm-surge-dominated and compound rainfall–storm-surge scenarios. The marine variable is total coastal water level.
 
 ## References
 
