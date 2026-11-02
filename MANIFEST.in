@@ -1,5 +1,5 @@
 include LICENSE mkdocs.yml build_docs.py
-recursive-include shared *.py *.md *.css *.js *.json *.woff2 *.woff *.ttf LICENSE
+recursive-include shared *.py *.md
 recursive-include GBA *.py *.md *.json *.png *.svg
 recursive-include SanF *.py *.md *.json *.png *.svg
 recursive-include Tokyo *.py *.md *.json *.png *.svg

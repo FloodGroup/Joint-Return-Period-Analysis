@@ -51,7 +51,6 @@ shared/
         common/          # Settings, files, datums and quality checks
     methods.md           # Equations and processing steps
     inputs.md            # Observation formats and data sources
-    assets/              # Documentation styles and equation renderer
 ```
 
 ## Run an analysis
@@ -86,13 +85,15 @@ python -m pip install -e ".[docs]"
 python build_docs.py
 ```
 
+The build downloads KaTeX 0.16.22 from the npm registry and verifies its SHA-256 checksum. An internet connection is required during the build; the generated pages include the renderer and fonts for offline viewing.
+
 Open `GBA/site/index.html`, `SanF/site/index.html` or `Tokyo/site/index.html`. Use `python build_docs.py --region tokyo` to build one region. The command-line region identifiers are `gba`, `san_francisco` and `tokyo`.
 
 ## Availability and citation
 
 The repository contains code, station metadata and study-area and coverage figures. Observation records, source GIS, fitted parameters and design-value tables remain private. Obtain observations from the providers listed in [Inputs and sources](shared/inputs.md).
 
-Software is released under the MIT License ([LICENSE](LICENSE)). Local HTML documentation bundles KaTeX 0.16.22 (MIT) under `shared/assets/vendor/katex/`.
+Software is released under the MIT License ([LICENSE](LICENSE)). Generated HTML documentation includes KaTeX 0.16.22 and its MIT license.
 
 Please cite this software as:
 
