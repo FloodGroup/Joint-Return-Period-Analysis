@@ -2,11 +2,15 @@
 
 This repository analyzes rainfall and coastal water-level extremes in the Greater Bay Area, San Francisco Bay and Tokyo Bay. It performs separate univariate return-period analyses for rainfall and coastal water level, and a copula-based joint return-period analysis of the two variables. The design scenarios cover rainfall-dominated events, storm-surge-dominated events and compound rainfall–storm-surge events at 10-, 50-, 100- and 200-year return periods. Compound combinations are selected on Kendall return-period contours using the maximum joint-density criterion.
 
-| Study area | Folder | Units | Observations | Water-level datum |
+| Study area | Folder | Units | Observations | Analysis vertical datum |
 |:--|:--|--:|:--|:--|
-| Greater Bay Area | [GBA/](GBA/README.md) | 13 | Daily | CN1985 |
-| San Francisco Bay | [SanF/](SanF/README.md) | 11 | Hourly; intact 6 h rainfall supplements | NAVD88 |
-| Tokyo Bay | [Tokyo/](Tokyo/README.md) | 13 | Hourly | Tokyo Peil |
+| Greater Bay Area | [GBA/](GBA/README.md) | 13 | Daily | National Height Datum 1985 (CN1985) |
+| San Francisco Bay | [SanF/](SanF/README.md) | 11 | Hourly; intact 6 h rainfall supplements | North American Vertical Datum of 1988 (NAVD88) |
+| Tokyo Bay | [Tokyo/](Tokyo/README.md) | 13 | Hourly | Tokyo Peil (TP) |
+
+Water levels are expressed in metres relative to the regional datum listed above. Source records must be converted to that datum before fitting, using documented station offsets and their periods of validity. The three regions retain their respective vertical references.
+
+Statistical water-level estimates and model boundary elevations are reported separately as `H_m` and `H_model_m`. GBA applies source-specific offsets when converting to the model reference; SanF and Tokyo retain NAVD88 and TP, respectively. The conversion equations and the limitations of the GBA reference ties are given in [Model vertical reference](shared/methods.md#model-vertical-reference); input requirements are described in [Epoch-specific vertical conversion](shared/inputs.md#epoch-specific-vertical-conversion).
 
 ## Analysis units
 
