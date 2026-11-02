@@ -25,13 +25,13 @@ Merge rainfall observations in the declared station-priority order and record ea
 
 Effective paired years are calculated from simultaneous valid observations. The selected-event rate is the number of retained events divided by this exposure.
 
-## 03. Fit annual frequency curves
+## 03. Perform univariate return-period analysis
 
-Estimate rainfall (S1) and coastal water-level (S2) return levels from their separately screened annual maxima. S2 is fitted once per tide station and reused by units sharing that record. The target return periods are 10, 50, 100 and 200 years.
+Perform separate univariate return-period analyses for rainfall (S1) and coastal water level (S2), using annual maxima screened independently for each variable. S2 is fitted once per tide station and reused by units sharing that record. The target return periods are 10, 50, 100 and 200 years.
 
 The annual candidate pool contains **Gamma, Lognormal, Weibull, Exponential, Generalized Extreme Value (GEV), Generalized Pareto (GPD), Log-Pearson III, Log-logistic, Inverse Gaussian, Generalized Gamma, Pearson III and Burr XII**. Parameters are estimated by maximum likelihood; eligible candidates are ranked by the corrected Akaike information criterion (AICc) [1].
 
-A refitted Kolmogorov–Smirnov (KS) test uses 99 Monte Carlo replicates [2]. Select the first candidate in AICc order that has p ≥ 0.05 and passes the 10- and 200-year plausibility checks. A candidate passing only the plausibility checks is retained for diagnosis. Fitting requires at least eight annual maxima; fewer than 15 implies diagnostic status.
+A refitted Kolmogorov–Smirnov (KS) test uses 99 Monte Carlo replicates [2]. Select the first candidate in AICc order that has p ≥ 0.05 and passes the 10- and 200-year plausibility checks. A candidate passing only the plausibility checks is retained for diagnosis.
 
 For GBA mainland rainfall units, a regional L-moment procedure replaces the local distribution search: the local mean annual maximum scales a regional GEV growth curve [3]. Donors are restricted to 60 km, with iterative heterogeneity screening, and a factor of 1.13 converts daily to estimated moving-24-hour rainfall. Specified short tide records use donor curves adjusted by the median difference of concurrent annual maxima.
 
