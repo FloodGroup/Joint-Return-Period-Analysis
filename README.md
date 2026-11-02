@@ -1,6 +1,6 @@
 # Joint Return-Period Analysis
 
-This repository analyzes rainfall and coastal water-level extremes in the Greater Bay Area, San Francisco Bay and Tokyo Bay. It performs separate univariate return-period analyses for rainfall and coastal water level, and a copula-based joint return-period analysis of the two variables. The design scenarios cover rainfall-dominated events, storm-surge-dominated events and compound rainfall–storm-surge events at 10-, 50-, 100- and 200-year return periods. Compound combinations are selected on Kendall return-period contours using the maximum joint-density criterion.
+This repository provides methods and code for return-period analysis and the design of rainfall-dominated, storm-surge-dominated and compound rainfall–storm-surge events in the Greater Bay Area, San Francisco Bay and Tokyo Bay. It performs separate univariate return-period analyses for rainfall and coastal water level, and a copula-based joint return-period analysis of the two variables. Design events are specified at 10-, 50-, 100- and 200-year return periods. Compound combinations are selected on Kendall return-period contours using the maximum joint-density criterion.
 
 | Study area | Folder | Units | Observations | Analysis vertical datum |
 |:--|:--|--:|:--|:--|
