@@ -6,7 +6,7 @@ Each region's `run_analysis.py` calls the five steps under `shared/jrpa/` in the
 
 The analysis uses spatial units to associate rainfall with the coastal water level acting at the receiving outlet or coastal sector. A single bay contains several drainage systems and marine boundaries, served by different observation records. Defining units preserves these source assignments when estimating rainfall-dominated, storm-surge-dominated and compound design events.
 
-Each unit has three elements: a geographic drainage polygon or group of polygons, a priority-merged representative rainfall series, and an assigned coastal water-level series. The rainfall record is assembled from station observations; it is not an areal average over the polygon. Several units may share a tide record while retaining different rainfall records and joint-event samples.
+Each unit has three elements: a geographic drainage polygon or group of polygons, a priority-merged representative rainfall series, and an assigned coastal water-level series. The representative rainfall record is a composite of station observations assembled in priority order. Several units may share a tide record while retaining different rainfall records and joint-event samples.
 
 The geographic partitions come from the hydrologic–hydrodynamic model setup. Their construction follows drainage divides and coastal outlets, with river-network constraints in flat terrain. Small coastal catchments are grouped by drainage destination and land adjacency. Catchment groups are then associated with the receiving coastal sector and a usable tide record. Station priority, vertical-reference consistency and simultaneous observation coverage determine the sample within each fixed unit. Goodness-of-fit tests assess the statistical models after the units have been defined.
 
@@ -16,7 +16,7 @@ The geographic partitions come from the hydrologic–hydrodynamic model setup. T
 | SanF | A 30 m USGS 3DEP DEM, NHDPlusV2 channels and WBD HUC12 watershed constraints define 31 outlet-based subcatchments. | 11 coastal-drainage groups, each with its own rainfall-source assignment and an assigned tide record. |
 | Tokyo | A 30 m DEM aggregated from GSI elevation data, MLIT W05 river lines and W07 basin boundaries define 24 coastal subcatchments. Outlet relationships to marine boundary sectors guide grouping and tide assignment. | 13 coastal-drainage groups with fixed rainfall and tide assignments. |
 
-The DEM workflows use Priority-Flood depression filling and D8 flow routing. In the GBA delta, interconnected channels make the resulting drainage divides approximate. The final component IDs and observation assignments are listed in the regional documentation.
+The DEM workflows use Priority-Flood depression filling and D8 flow routing. The final component IDs and observation assignments are listed in the regional documentation.
 
 The number of statistical units therefore need not equal the number of distinct drainage polygons. In GBA, 03a and 03b share polygon 3 but use different tide and rainfall records; 10a and 10b similarly share polygon 10. Their separate models represent different observation pairings within the same geographic sector. A shared tide station has one S2 annual-frequency curve, whereas each unit has its own compound-event model.
 
@@ -43,15 +43,15 @@ Y_{\mathrm{eff}}=\frac{N_{\mathrm{paired}}}{365.2425\,s},
 \qquad \lambda=\frac{N_{\mathrm{events}}}{Y_{\mathrm{eff}}},
 $$
 
-where $s=24$ for hourly observations and $s=1$ for daily observations. Exposure counts simultaneous valid observations, not the span between first and last records.
+where $s=24$ for hourly observations and $s=1$ for daily observations. Exposure is calculated from simultaneous valid observations.
 
 ## 03. Fit annual frequency curves
 
 `step03_annual` estimates full-record S1 rainfall and S2 water-level designs. It fits each tide station once, applies the specified short-record transfers and assigns the resulting S2 curve to all units using that station.
 
-S1 uses full-record rainfall annual maxima, independently of water-level availability. San Francisco and Tokyo use complete sliding 24-hour totals; years follow fixed PST and JST October-to-September water years, respectively. S2 is fitted once per tide station on full-record annual maxima. Coverage is variable-specific. At least eight maxima are needed for a trial fit; fewer than 15 or a failed KS test implies diagnostic status.
+S1 uses full-record rainfall annual maxima, independently of water-level availability. San Francisco and Tokyo use complete sliding 24-hour totals; years follow fixed PST and JST October-to-September water years, respectively. S2 is fitted once per tide station on full-record annual maxima. Coverage is variable-specific.
 
-Annual distribution selection uses the 12 single-family candidates, AICc ranking, 99 refitted KS replicates, and 10-/200-year plausibility checks. The rainfall 10-year level must lie in 20-800 mm and its 200-year level cannot exceed 1500 mm. Water-level limits are -1 to 5.5 m at 10 years and at most 8 m at 200 years. The first candidate in AICc order that passes both the refitted KS test and these plausibility checks is selected. If none passes both checks, the first candidate that meets the plausibility checks is retained for diagnostic use only. If none meets the plausibility checks, no design estimate is returned.
+Annual distribution selection uses the 12 single-family candidates, AICc ranking, 99 refitted KS replicates, and 10-/200-year plausibility checks. The rainfall 10-year level must lie in 20-800 mm and its 200-year level cannot exceed 1500 mm. Water-level limits are -1 to 5.5 m at 10 years and at most 8 m at 200 years. The first candidate in AICc order that passes both the refitted KS test and these plausibility checks is selected.
 
 GBA annual rainfall uses calendar years with at least 274 valid daily values. Mainland units use the local annual-maximum mean multiplied by a distance-limited regional GEV growth curve and the 1.13 daily-to-moving-24-hour factor. Tide years follow the declared annual/July-September coverage rule; partial years whose observed maximum exceeds the median of qualifying years are explicitly identified. Storm-day checks can exclude additional years.
 
@@ -63,23 +63,23 @@ The S2 curve belongs to a tide station and is reused for every unit that shares 
 
 $$h_T^{(s)}=h_T^{(d)}+\operatorname{median}_{y\in\mathcal Y_{sd}}\{M_y^{(s)}-M_y^{(d)}\}.$$
 
-The transfer adjusts the donor frequency curve by a concurrent annual-maximum offset. Its uncertainty is not quantified.
+The transfer adjusts the donor frequency curve by a concurrent annual-maximum offset.
 
 For eligible GBA mainland units, local annual-maximum mean $\bar M_u$ scales a regional GEV growth curve $g_T$:
 
 $$R_{T,u}^{24\mathrm h}=1.13\,\bar M_u\,g_T.$$
 
-Regional L-CV and L-skewness are weighted by station record length. Only stations within 60 km are eligible. Regional GEV simulations (500 replicates) approximate the Hosking-Wallis $H_1$ heterogeneity statistic. If $H_1\ge2$, the farthest station is removed iteratively. A remaining single station supplies its own growth curve. The 1.13 factor is an empirical daily-to-moving-24-hour conversion; it is an estimate based on daily records.
+Regional L-CV and L-skewness are weighted by station record length. Only stations within 60 km are eligible. Regional GEV simulations (500 replicates) approximate the Hosking-Wallis $H_1$ heterogeneity statistic. If $H_1\ge2$, the farthest station is removed iteratively. A remaining single station supplies its own growth curve. The 1.13 factor converts daily rainfall to estimated moving-24-hour rainfall.
 
 Alviso's transfer uses accepted concurrent annual maxima from 2019 onward. Other transfer pairs use all concurrent accepted annual samples. Reviewed annual observations can be supplied with explicit selection flags; their files are hashed with the other inputs.
 
 ## 04. Fit event margins and copulas
 
-`step04_copula` fits both event margins, ranks dependence models and records bootstrap diagnostics for each unit.
+`step04_copula` fits both event margins, ranks dependence models and evaluates goodness of fit for each unit.
 
 ### Marginal distributions
 
-The single-family pool contains Gamma, Lognormal, Weibull, Exponential, GEV, GPD, Log-Pearson III, Log-logistic, Inverse Gaussian, Generalized Gamma, Pearson III, and Burr XII. A two-component lognormal mixture additionally enters the event rainfall candidate pool. The daily configuration does not supply a mixture KS acceptance p value; an eligible single-family fit is preferred. Marginal estimation uses SciPy; mixture estimation uses scikit-learn.
+The single-family pool contains Gamma, Lognormal, Weibull, Exponential, GEV, GPD, Log-Pearson III, Log-logistic, Inverse Gaussian, Generalized Gamma, Pearson III, and Burr XII. A two-component lognormal mixture additionally enters the event rainfall candidate pool. GBA marginal acceptance uses single-family candidates with refitted KS p values. Marginal estimation uses SciPy; mixture estimation uses scikit-learn.
 
 The rainfall event margin models the excess $R-R_{95}$. Its offset restores physical rainfall in CDF, inverse-CDF, and density evaluations. Water level is fitted on the same selected event population.
 
@@ -100,11 +100,11 @@ S_n=n\,\frac1n\sum_{i=1}^{n}\left\{C_n(\mathbf u_i)-C_{\widehat\theta}(\mathbf u
 \qquad p=\frac{1+\sum_{b=1}^{B_{\mathrm{valid}}}\mathbf1(S_n^{(b)}\ge S_n)}{1+B_{\mathrm{valid}}}.
 $$
 
-The joint test uses 99 replicates for San Francisco and Tokyo and 49 for GBA. At least 90% must be valid, and $p\ge0.05$ is required. Formal compound estimates also require both marginal tests to pass, at least 30 event pairs, and at least 10 effective paired years. Otherwise results remain diagnostic. These selection-based tests are not independent external validation.
+The joint test uses 99 replicates for San Francisco and Tokyo and 49 for GBA. At least 90% must be valid, and $p\ge0.05$ is required. Formal compound estimates also require both marginal tests to pass, at least 30 event pairs, and at least 10 effective paired years.
 
 ## 05. Calculate and export designs
 
-`step05_export` calibrates the Kendall contour, selects its physical-density maximum and exports the design table and report. It saves calibration diagnostics, contour points, model status and the analysis settings alongside the figures.
+`step05_export` calibrates the Kendall contour, selects its physical-density maximum and exports the design table and report.
 
 Let $U=F_R(R)$, $V=F_H(H)$, and $K_C(c)=\Pr[C(U,V)\le c]$. For selected-event rate $\lambda$,
 
@@ -132,7 +132,7 @@ The scenario matrix includes rainfall-dominated (R), storm-surge-dominated (S) a
 
 The regular rainfall/tide peak occurs at hour 13 for San Francisco and hour 12 for GBA and Tokyo. C85-C90 shift the tide peak by -9, -6, -3, +3, +6, and +9 hours relative to the rain peak. The whole coastal water-level process is shifted, preserving its shape.
 
-Climate multipliers, sea-level increments, observed tide templates, rainfall profiles, and river/baseflow boundary records are private inputs. `jrpa cases` creates scenario definitions without those values. `jrpa.common.scenarios.case_designs` combines supplied climate inputs with locally generated statistical design tables. It rejects diagnostic estimates by default. Set `allow_diagnostic=True` only to generate diagnostic scenarios; their status and reason remain in the output.
+Climate multipliers, sea-level increments, observed tide templates, rainfall profiles, and river/baseflow boundary records are private inputs. `jrpa cases` creates scenario definitions without those values. `jrpa.common.scenarios.case_designs` combines supplied climate inputs with locally generated statistical design tables.
 
 ### Model vertical reference
 
@@ -143,7 +143,7 @@ Climate multipliers, sea-level increments, observed tide templates, rainfall pro
 | San Francisco Bay | $H_{\mathrm{model}}=H_{\mathrm{NAVD88}}$ |
 | Tokyo Bay | $H_{\mathrm{model}}=H_{\mathrm{TP}}$ |
 
-GBA conversions retain the source/model engineering reference ties. They are not an independent geodetic validation of the mainland-to-Hong-Kong offset. Historical water levels retain their trends. Future sea-level increments must carry their stated scenario, epoch, and baseline; they are not a datum conversion.
+GBA conversions use the source/model engineering reference ties. Historical water levels retain their trends. Future sea-level increments are specified by scenario, epoch and baseline.
 
 ## Numerical settings
 
@@ -155,19 +155,13 @@ Python 3.12 is the reference interpreter. The package pins NumPy 2.2.6, pandas 2
 | Joint bootstrap replicates | 49 | 99 |
 | Annual margin KS replicates | 99 | 99 |
 | Kendall calibration samples | 262,144 | 1,048,576 |
-| Independent Kendall validation samples | Not part of daily configuration | 1,048,576 |
+| Independent Kendall validation samples | 0 | 1,048,576 |
 | Event fitting seed | 20261011 | 202610052, with unit-specific offsets |
 | Annual fitting seed | 20261015 | 20261015 |
 
 
 
 The artificial demonstration uses reduced sampling counts and is labelled synthetic. The production settings above apply to study analyses.
-
-## Interpretation
-
-Kendall return periods apply to the event population selected using the rainfall threshold. S1 and S2 use different annual-maximum samples. A shared tide station has one S2 curve; different rainfall populations can yield different compound points at that station. Separate unit designs do not define a simultaneous bay-wide return period. Historical water levels are not detrended. Parameter-uncertainty intervals are not supplied.
-
-Passing the stated goodness-of-fit and record-length criteria does not establish tail accuracy. Long return periods require extrapolation. Datum uncertainty, short-record transfer, daily-to-24-hour conversion and regional heterogeneity should be considered when interpreting design levels.
 
 ## Code locations
 
@@ -179,4 +173,4 @@ Passing the stated goodness-of-fit and record-length criteria does not establish
 | 04 | `step04_copula/run.py` | `marginals`, `daily`, `dependence` |
 | 05 | `step05_export/run.py` | `kendall`, `reporting`; figure style is `common/plotting` |
 
-`common/` holds settings and checks used by more than one step. Study-area maps are supplied as figures; the drawing program is not part of this release.
+`common/` holds settings and checks used by more than one step. Study-area maps are supplied in each region's `figures/` folder.

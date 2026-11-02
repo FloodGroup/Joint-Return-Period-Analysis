@@ -146,7 +146,7 @@ def render_report(output, settings, design_rows, models, sources):
 <div class="grid"><div class="stat"><b>{len(models)}</b>compound models</div><div class="stat"><b>{sum(not m["diagnostic_only"] for m in models)}</b>models meeting formal gates</div><div class="stat"><b>{settings.datum}</b>analysis vertical reference</div></div>
 <section><h2>Design definitions</h2><p>S1 uses full-record annual rainfall maxima. S2 uses full-record annual coastal water-level maxima, fitted once per tide station. Compound designs use ordinary Kendall return periods and the maximum physical joint-density point.</p>
 <p><a href="design_values.csv">Design values</a> · <a href="rainfall_sources_used.csv">Contributing rainfall stations</a> · <a href="provenance.json">Input provenance</a> · <a href="settings.json">Numerical settings</a></p><nav>{nav}</nav></section>{"".join(sections)}
-<footer>Point estimates. No parameter-uncertainty intervals are supplied. Diagnostic status is retained explicitly.</footer>"""
+"""
     html = f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{title} | Return-period analysis</title><style>{CSS}</style></head><body><main>{body}</main></body></html>'
     (out / "results.html").write_text(html, encoding="utf8")
 

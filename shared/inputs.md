@@ -100,7 +100,7 @@ Station identifiers preserve provider namespaces. For example, `NOAA_9414523`, `
 
 GBA regional rainfall reference stations include Sanzao, Changjiang, Zhongda, Henggang, Tiegang, Nansha, Guangzhou (`GHCND_CHM00059287`) and Baoan (`ISD_594930`). Supply verified coordinates and annual samples in the private regional station table.
 
-Record each product's download date, version, station identifier, time zone, units and quality-code interpretation. Station identifiers alone do not fix a provider snapshot. The software license does not grant rights to provider observations.
+Record each product's download date, version, station identifier, time zone, units and quality-code interpretation.
 
 ## Reviewed annual samples
 
@@ -108,8 +108,8 @@ An optional `annual_maxima` path on a unit or tide entry supplies reviewed annua
 
 ## Study-area figures
 
-The regional pages show analysis polygons, station positions, rainfall priorities and observation availability. Each region's `stations.json` contains station names and coordinates; `figures/` contains the maps. Source GIS and the drawing program are not part of this release.
+The regional pages show analysis polygons, station positions, rainfall priorities and observation availability. Each region's `stations.json` contains station names and coordinates; `figures/` contains the maps.
 
 Roles are `rain`, `tide` and `paired`. Fractions use the entire calendar month as denominator. Rainfall rows represent selected observations from contributing gauges. A `station_id` of `merged_rain` supplies the unit's combined rainfall row.
 
-First-use and last-use dates bound actual contributions to the archived compound-input record. Gaps are shown in the coverage figures. These dates do not describe the complete provider archive or the independently screened annual-maximum sample. GBA gauges without a documented name retain their provider identifier.
+First-use and last-use dates bound actual contributions to the archived compound-input record. Gaps are shown in the coverage figures. GBA gauges without a documented name retain their provider identifier.

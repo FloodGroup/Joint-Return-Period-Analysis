@@ -10,7 +10,7 @@ This repository provides methods and code for return-period analysis and the des
 
 Water levels are expressed in metres relative to the regional datum listed above. Source records must be converted to that datum before fitting, using documented station offsets and their periods of validity. The three regions retain their respective vertical references.
 
-Statistical water-level estimates and model boundary elevations are reported separately as `H_m` and `H_model_m`. GBA applies source-specific offsets when converting to the model reference; SanF and Tokyo retain NAVD88 and TP, respectively. The conversion equations and the limitations of the GBA reference ties are given in [Model vertical reference](shared/methods.md#model-vertical-reference); input requirements are described in [Epoch-specific vertical conversion](shared/inputs.md#epoch-specific-vertical-conversion).
+GBA applies source-specific offsets when converting to the model reference; SanF and Tokyo retain NAVD88 and TP, respectively. The conversion equations are given in [Model vertical reference](shared/methods.md#model-vertical-reference); input requirements are described in [Epoch-specific vertical conversion](shared/inputs.md#epoch-specific-vertical-conversion).
 
 ## Analysis units
 

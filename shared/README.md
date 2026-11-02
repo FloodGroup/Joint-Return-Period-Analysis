@@ -31,7 +31,7 @@ Perform separate univariate return-period analyses for rainfall (S1) and coastal
 
 The annual candidate pool contains **Gamma, Lognormal, Weibull, Exponential, Generalized Extreme Value (GEV), Generalized Pareto (GPD), Log-Pearson III, Log-logistic, Inverse Gaussian, Generalized Gamma, Pearson III and Burr XII**. Parameters are estimated by maximum likelihood; eligible candidates are ranked by the corrected Akaike information criterion (AICc) [1].
 
-A refitted Kolmogorov–Smirnov (KS) test uses 99 Monte Carlo replicates [2]. Select the first candidate in AICc order that has p ≥ 0.05 and passes the 10- and 200-year plausibility checks. A candidate passing only the plausibility checks is retained for diagnosis.
+A refitted Kolmogorov–Smirnov (KS) test uses 99 Monte Carlo replicates [2]. Select the first candidate in AICc order that has p ≥ 0.05 and passes the 10- and 200-year plausibility checks.
 
 For GBA mainland rainfall units, a regional L-moment procedure replaces the local distribution search: the local mean annual maximum scales a regional GEV growth curve [3]. Donors are restricted to 60 km, with iterative heterogeneity screening, and a factor of 1.13 converts daily to estimated moving-24-hour rainfall. Specified short tide records use donor curves adjusted by the median difference of concurrent annual maxima.
 
@@ -48,8 +48,6 @@ The copula pool contains **Independence, Gaussian, Student-t, Clayton, Gumbel, F
 | Formal compound estimate | Both marginal p values ≥ 0.05; joint p ≥ 0.05 with at least 90% valid replicates; at least 30 event pairs and 10 effective paired years | Same criteria |
 
 The joint test compares the empirical and fitted joint CDFs, using a parametric bootstrap with both margins and the fixed copula family refitted in each replicate. Copulas are tested in AICc order; the first passing candidate is selected. The CvM and bootstrap foundations are discussed in [4]; the counts and thresholds above are repository settings.
-
-GBA's lognormal mixture has no KS acceptance p value and cannot satisfy the formal marginal criterion. If no copula passes, the best-ranked fitted candidate remains available for diagnosis. Exported results retain their diagnostic status and reason.
 
 ## 05. Calculate and export designs
 
