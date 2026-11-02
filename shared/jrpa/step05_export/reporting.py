@@ -105,7 +105,15 @@ def render_report(output, settings, design_rows, models, sources):
         data = frame.loc[frame.unit.eq(meta["unit"])].copy()
         s2 = frame.loc[frame.scenario.eq("S2") & frame.gauge.eq(meta["gauge"])].copy()
         data = pd.concat([data, s2], ignore_index=True)
-        columns = ["scenario", "return_period_years", "R_mm", "H_m", "H_model_m", "diagnostic_only"]
+        columns = [
+            "scenario",
+            "return_period_years",
+            "R_mm",
+            "H_m",
+            "H_model_m",
+            "diagnostic_only",
+            "diagnostic_reason",
+        ]
         display = data[columns].rename(
             columns={
                 "scenario": "Scenario",
@@ -114,6 +122,7 @@ def render_report(output, settings, design_rows, models, sources):
                 "H_m": f"Water level (m, {settings.datum})",
                 "H_model_m": "Model water level (m)",
                 "diagnostic_only": "Diagnostic only",
+                "diagnostic_reason": "Diagnostic reason",
             }
         )
         table = display.to_html(

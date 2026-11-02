@@ -155,7 +155,7 @@ def fit_dependence(events, meta, settings, unit_number=0, water_override=False):
         )
         margin_rows.extend(rows)
     if water_override:
-        from . import annual_fit
+        from jrpa.step03_annual import annual_fit
 
         ranked = []
         for i, name in enumerate(annual_fit.POOL):
@@ -224,6 +224,15 @@ def fit_dependence(events, meta, settings, unit_number=0, water_override=False):
         len(x) >= settings.minimum_events
         and meta["effective_years"] >= settings.minimum_effective_years
     )
+    reasons = []
+    if settings.synthetic:
+        reasons.append("Synthetic observations")
+    if not margin_pass:
+        reasons.append("Event margin failed the KS test")
+    if not record_pass:
+        reasons.append("Insufficient event count or paired observation coverage")
+    if not test["GOF_pass"]:
+        reasons.append("Joint goodness-of-fit test or bootstrap validity requirement failed")
     fitted = {
         **meta,
         "margins": specs,
@@ -239,6 +248,7 @@ def fit_dependence(events, meta, settings, unit_number=0, water_override=False):
             settings.synthetic or not (margin_pass and record_pass and test["GOF_pass"])
         ),
         "synthetic": settings.synthetic,
+        "diagnostic_reason": "; ".join(reasons),
         "datum": settings.datum,
         "settings": settings.as_dict(),
     }

@@ -92,13 +92,13 @@ Software is released under the MIT License ([LICENSE](LICENSE)). Local HTML docu
 
 Please cite this software as:
 
-> Long, Z., Yang, R., Jiang, L., & Duan, H.-F. (2026). *Joint Return-Period Analysis* (Version 1.0.0) [Computer software]. The State Key Laboratory of Climate Resilience for Coastal Cities (SKL-CRCC), The Hong Kong Polytechnic University. https://github.com/FloodGroup/Joint-Return-Period-Analysis
+> Long, Z., Yang, R., Jiang, L., & Duan, H.-F. (2026). *Joint Return-Period Analysis* (Version 1.0.1) [Computer software]. The State Key Laboratory of Climate Resilience for Coastal Cities (SKL-CRCC), The Hong Kong Polytechnic University. https://github.com/FloodGroup/Joint-Return-Period-Analysis
 
 ```bibtex
 @software{Long_Joint_Return_Period_Analysis_2026,
   author       = {Long, Zhiyong and Yang, Ruiyi and Jiang, Long and Duan, Huan-Feng},
   title        = {Joint Return-Period Analysis},
-  version      = {1.0.0},
+  version      = {1.0.1},
   year         = {2026},
   organization = {The State Key Laboratory of Climate Resilience for Coastal Cities (SKL-CRCC), The Hong Kong Polytechnic University},
   url          = {https://github.com/FloodGroup/Joint-Return-Period-Analysis}

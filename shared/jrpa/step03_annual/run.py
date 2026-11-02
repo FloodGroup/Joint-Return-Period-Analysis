@@ -47,6 +47,7 @@ def step03_annual(analysis):
                     H_m=row["level"],
                     H_model_m=row["level"] + model_offset(settings.region, gauge),
                     diagnostic_only=row["diagnostic_only"],
+                    diagnostic_reason=row.get("diagnostic_reason", ""),
                     synthetic=settings.synthetic,
                 )
             )
@@ -86,6 +87,7 @@ def step03_annual(analysis):
                     H_m=np.nan,
                     H_model_m=np.nan,
                     diagnostic_only=row["diagnostic_only"],
+                    diagnostic_reason=row.get("diagnostic_reason", ""),
                     synthetic=settings.synthetic,
                 )
             )

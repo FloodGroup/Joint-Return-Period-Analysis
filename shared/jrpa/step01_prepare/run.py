@@ -50,7 +50,11 @@ def step01_prepare(manifest_path, output, settings=None):
         inputs.append(dict(role="tide", station_id=gauge, path=item["path"], sha256=sha256(path)))
         if item.get("epochs"):
             s, audit = apply_epochs(
-                s, item["epochs"], settings.datum, item.get("epoch_timezone", settings.timezone)
+                s,
+                item["epochs"],
+                settings.datum,
+                item.get("epoch_timezone", settings.timezone),
+                daily=settings.event_clock == "daily",
             )
             write_json(out / "quality" / (gauge + "_datum.json"), audit)
         elif item.get("datum") != settings.datum:

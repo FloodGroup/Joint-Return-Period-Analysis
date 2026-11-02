@@ -5,4 +5,4 @@ Run a region's `run_analysis.py`. The five steps are `step01_prepare`,
 `main.py` calls those five steps in order.
 """
 
-__version__ = "1.0.0"
+__version__ = "1.0.1"

@@ -51,7 +51,7 @@ where $s=24$ for hourly observations and $s=1$ for daily observations. Exposure 
 
 S1 uses full-record rainfall annual maxima, independently of water-level availability. San Francisco and Tokyo use complete sliding 24-hour totals; years follow fixed PST and JST October-to-September water years, respectively. S2 is fitted once per tide station on full-record annual maxima. Coverage is variable-specific. At least eight maxima are needed for a trial fit; fewer than 15 or a failed KS test implies diagnostic status.
 
-Annual distribution selection uses the 12 single-family candidates, AICc ranking, 99 refitted KS replicates, and 10-/200-year plausibility checks. The rainfall 10-year level must lie in 20-800 mm and its 200-year level cannot exceed 1500 mm. Water-level limits are -1 to 5.5 m at 10 years and at most 8 m at 200 years. If no candidate satisfies these criteria, the design value is unavailable.
+Annual distribution selection uses the 12 single-family candidates, AICc ranking, 99 refitted KS replicates, and 10-/200-year plausibility checks. The rainfall 10-year level must lie in 20-800 mm and its 200-year level cannot exceed 1500 mm. Water-level limits are -1 to 5.5 m at 10 years and at most 8 m at 200 years. The first candidate in AICc order that passes both the refitted KS test and these plausibility checks is selected. If none passes both checks, the first candidate that meets the plausibility checks is retained for diagnostic use only. If none meets the plausibility checks, no design estimate is returned.
 
 GBA annual rainfall uses calendar years with at least 274 valid daily values. Mainland units use the local annual-maximum mean multiplied by a distance-limited regional GEV growth curve and the 1.13 daily-to-moving-24-hour factor. Tide years follow the declared annual/July-September coverage rule; partial years whose observed maximum exceeds the median of qualifying years are explicitly identified. Storm-day checks can exclude additional years.
 
@@ -132,7 +132,7 @@ The scenario matrix includes rainfall-dominated (R), storm-surge-dominated (S) a
 
 The regular rainfall/tide peak occurs at hour 13 for San Francisco and hour 12 for GBA and Tokyo. C85-C90 shift the tide peak by -9, -6, -3, +3, +6, and +9 hours relative to the rain peak. The whole coastal water-level process is shifted, preserving its shape.
 
-Climate multipliers, sea-level increments, observed tide templates, rainfall profiles, and river/baseflow boundary records are private inputs. `jrpa cases` creates scenario definitions without those values. `jrpa.scenarios.case_designs` combines supplied climate inputs with locally generated statistical design tables.
+Climate multipliers, sea-level increments, observed tide templates, rainfall profiles, and river/baseflow boundary records are private inputs. `jrpa cases` creates scenario definitions without those values. `jrpa.common.scenarios.case_designs` combines supplied climate inputs with locally generated statistical design tables. It rejects diagnostic estimates by default. Set `allow_diagnostic=True` only to generate diagnostic scenarios; their status and reason remain in the output.
 
 ### Model vertical reference
 

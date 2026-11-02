@@ -119,6 +119,7 @@ def design_points(meta, settings, unit_number=0):
                 layer_residual=residual,
                 log_joint_density=lp,
                 diagnostic_only=meta["diagnostic_only"],
+                diagnostic_reason=meta.get("diagnostic_reason", ""),
                 synthetic=settings.synthetic,
             )
         )

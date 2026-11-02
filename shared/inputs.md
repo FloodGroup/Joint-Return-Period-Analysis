@@ -45,6 +45,8 @@ Instead of declaring an already normalized `datum`, a tide entry may provide `ep
 
 $$H_{\mathrm{target}}(t)=H_{\mathrm{source}}(t)+\Delta z_e,\quad t\in[t_{e,0},t_{e,1}).$$
 
+Hourly observations use timezone-aware timestamps. GBA daily observations retain local date labels; epoch boundaries must fall at local midnight in `epoch_timezone` (Asia/Hong_Kong by default). If an offset changes within a day, convert the original higher-frequency observations before calculating the daily maximum.
+
 Unknown offsets remain missing. Overlapping epochs or mismatched target datums cause an error. A normalized tide series must not receive the conversion a second time.
 
 ## Quality-control fields

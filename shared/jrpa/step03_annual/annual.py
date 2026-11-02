@@ -24,13 +24,20 @@ def fit_annual(maxima, variable, settings):
             [],
             candidates,
         )
-    diagnostic = bool(
-        settings.synthetic or len(sample) < settings.minimum_annual_accepted or not spec["KS_pass"]
-    )
+    reasons = []
+    if settings.synthetic:
+        reasons.append("Synthetic observations")
+    if len(sample) < settings.minimum_annual_accepted:
+        reasons.append(f"Fewer than {settings.minimum_annual_accepted} annual maxima")
+    if not spec["KS_pass"]:
+        reasons.append("Annual margin failed the KS test")
+    diagnostic = bool(reasons)
+    reason = "; ".join(reasons)
     meta = dict(
         n_years=len(sample),
         spec=spec,
         diagnostic_only=diagnostic,
+        diagnostic_reason=reason,
         used_years=maxima.loc[maxima.used, "year"].astype(int).tolist(),
     )
     rows = [
@@ -38,6 +45,7 @@ def fit_annual(maxima, variable, settings):
             return_period_years=t,
             level=float(Margin(spec).ppf(1 - 1 / t)),
             diagnostic_only=diagnostic,
+            diagnostic_reason=reason,
         )
         for t in settings.periods
     ]

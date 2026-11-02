@@ -1,5 +1,6 @@
 """Ninety design cases; numerical climate inputs are supplied privately."""
 
+import numpy as np
 import pandas as pd
 from .config import settings_for
 
@@ -47,8 +48,8 @@ def case_definitions(region):
     return cases
 
 
-def case_designs(region, designs, unit_gauges, climate_inputs):
-    """Apply rainfall multipliers and model-datum sea-level increments."""
+def case_designs(region, designs, unit_gauges, climate_inputs, *, allow_diagnostic=False):
+    """Apply climate inputs; diagnostic estimates require explicit opt-in."""
     rows = []
     d = pd.DataFrame(designs)
     for case in case_definitions(region):
@@ -64,6 +65,17 @@ def case_designs(region, designs, unit_gauges, climate_inputs):
             if len(selected) != 1:
                 raise ValueError(f"One design record required for {case['case']}/{unit}")
             point = selected.iloc[0]
+            flag = point.get("diagnostic_only")
+            if not isinstance(flag, (bool, np.bool_)):
+                raise ValueError("Each design record requires a Boolean diagnostic_only flag")
+            reason = point.get("diagnostic_reason", "")
+            reason = reason if isinstance(reason, str) else ""
+            if flag and not allow_diagnostic:
+                raise ValueError(
+                    f"Diagnostic design cannot define {case['case']}/{unit}: "
+                    f"{reason or 'see fit diagnostics'}. "
+                    "Use allow_diagnostic=True only for diagnostic scenarios."
+                )
             rainfall = (
                 0.0 if hazard == "S" else float(point.R_mm) * float(climate["rainfall_factor"])
             )
@@ -76,6 +88,7 @@ def case_designs(region, designs, unit_gauges, climate_inputs):
                     R_mm=rainfall,
                     H_peak_model_m=water,
                     diagnostic_only=bool(point.diagnostic_only),
+                    diagnostic_reason=reason,
                 )
             )
     return pd.DataFrame(rows)
