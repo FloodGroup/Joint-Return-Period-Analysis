@@ -60,7 +60,7 @@ See [Methods](../shared/methods.md#analysis-units) for the common partitioning p
 
 [M01](#unit-m01) · [M02](#unit-m02) · [M03](#unit-m03) · [M04](#unit-m04) · [M05](#unit-m05) · [M06](#unit-m06) · [M07](#unit-m07) · [M08](#unit-m08) · [M09](#unit-m09) · [M10](#unit-m10) · [M11](#unit-m11)
 
-First and last use refer to actual station contributions. Panel a maps the stations; panel b shows monthly rainfall-source contributions; panel c compares water-level coverage (solid line) with paired coverage (dashed line). Map numbers follow the rainfall table rows. White in panel b indicates no contribution.
+First and last use refer to actual station contributions. Panel a maps the stations; panel b shows monthly rainfall-source, water-level and paired observation coverage. Map numbers follow the rainfall table rows. Colour intensity represents the observed fraction of each month; white indicates no observations.
 
 <details markdown="1">
 <summary><strong>Unit M01</strong> · Mare Island / Martinez · 7 rainfall stations</summary>
@@ -81,7 +81,7 @@ ID: `NOAA_9415218`, `GESLA_CDWR_MRZ`.
 | 7 | ANGWIN PACIFIC UNION COLLEGE | `NCEI_USC00040212` | 1994-07-02 | 2004-03-25 |
 
 <p align="left">
-  <a href="figures/M01_overview.svg"><img src="figures/M01_overview.png" alt="Unit M01: station map, rainfall-source coverage, and water-level and paired coverage" width="900"></a>
+  <a href="figures/M01_overview.svg"><img src="figures/M01_overview.png" alt="Unit M01: station map and monthly rainfall-source, water-level and paired observation coverage" width="900"></a>
 </p>
 
 </details>
@@ -101,7 +101,7 @@ Tide station: Richmond · ID: `NOAA_9414863`.
 | 4 | LICHAU CREEK | `CDEC_LIC` | 1997-10-31 | 2020-08-20 |
 
 <p align="left">
-  <a href="figures/M02_overview.svg"><img src="figures/M02_overview.png" alt="Unit M02: station map, rainfall-source coverage, and water-level and paired coverage" width="900"></a>
+  <a href="figures/M02_overview.svg"><img src="figures/M02_overview.png" alt="Unit M02: station map and monthly rainfall-source, water-level and paired observation coverage" width="900"></a>
 </p>
 
 </details>
@@ -118,7 +118,7 @@ Tide station: San Francisco · ID: `NOAA_9414290`.
 | 1 | ARROYO CORTE MADERA DEL PRESIDIO | `CDEC_ACM` | 2000-01-10 | 2026-08-25 |
 
 <p align="left">
-  <a href="figures/M03_overview.svg"><img src="figures/M03_overview.png" alt="Unit M03: station map, rainfall-source coverage, and water-level and paired coverage" width="900"></a>
+  <a href="figures/M03_overview.svg"><img src="figures/M03_overview.png" alt="Unit M03: station map and monthly rainfall-source, water-level and paired observation coverage" width="900"></a>
 </p>
 
 </details>
@@ -137,7 +137,7 @@ Tide station: Redwood City · ID: `NOAA_9414523`.
 | 3 | SAN FRANCISCO INTL AP | `GHCNH_USW00023234` | 1975-01-04 | 2026-06-23 |
 
 <p align="left">
-  <a href="figures/M04_overview.svg"><img src="figures/M04_overview.png" alt="Unit M04: station map, rainfall-source coverage, and water-level and paired coverage" width="900"></a>
+  <a href="figures/M04_overview.svg"><img src="figures/M04_overview.png" alt="Unit M04: station map and monthly rainfall-source, water-level and paired observation coverage" width="900"></a>
 </p>
 
 </details>
@@ -155,7 +155,7 @@ Tide station: Redwood City · ID: `NOAA_9414523`.
 | 2 | CRYSTAL SPRINGS COTTAGE | `CDEC_CSC` | 1999-04-20 | 2026-07-01 |
 
 <p align="left">
-  <a href="figures/M05_overview.svg"><img src="figures/M05_overview.png" alt="Unit M05: station map, rainfall-source coverage, and water-level and paired coverage" width="900"></a>
+  <a href="figures/M05_overview.svg"><img src="figures/M05_overview.png" alt="Unit M05: station map and monthly rainfall-source, water-level and paired observation coverage" width="900"></a>
 </p>
 
 </details>
@@ -174,7 +174,7 @@ ID: `NOAA_9414575`, `USGS_372750122012701`.
 | 2 | PALO ALTO 3E | `CDEC_PAA` | 2000-01-06 | 2024-07-18 |
 
 <p align="left">
-  <a href="figures/M06_overview.svg"><img src="figures/M06_overview.png" alt="Unit M06: station map, rainfall-source coverage, and water-level and paired coverage" width="900"></a>
+  <a href="figures/M06_overview.svg"><img src="figures/M06_overview.png" alt="Unit M06: station map and monthly rainfall-source, water-level and paired observation coverage" width="900"></a>
 </p>
 
 </details>
@@ -197,7 +197,7 @@ ID: `NOAA_9414575`, `USGS_372750122012701`.
 | 6 | GILROY 8 NE | `NCEI_USC00043419` | 1983-11-03 | 2025-11-20 |
 
 <p align="left">
-  <a href="figures/M07_overview.svg"><img src="figures/M07_overview.png" alt="Unit M07: station map, rainfall-source coverage, and water-level and paired coverage" width="900"></a>
+  <a href="figures/M07_overview.svg"><img src="figures/M07_overview.png" alt="Unit M07: station map and monthly rainfall-source, water-level and paired observation coverage" width="900"></a>
 </p>
 
 </details>
@@ -220,7 +220,7 @@ Tide station: Redwood City · ID: `NOAA_9414523`.
 | 9 | SWEETWATER (CDF) | `CDEC_SWW` | 1991-09-01 | 2000-09-26 |
 
 <p align="left">
-  <a href="figures/M08_overview.svg"><img src="figures/M08_overview.png" alt="Unit M08: station map, rainfall-source coverage, and water-level and paired coverage" width="900"></a>
+  <a href="figures/M08_overview.svg"><img src="figures/M08_overview.png" alt="Unit M08: station map and monthly rainfall-source, water-level and paired observation coverage" width="900"></a>
 </p>
 
 </details>
@@ -237,7 +237,7 @@ Tide station: Alameda · ID: `NOAA_9414750`.
 | 1 | OAKLAND SOUTH | `CDEC_OSO` | 1992-11-01 | 2026-08-31 |
 
 <p align="left">
-  <a href="figures/M09_overview.svg"><img src="figures/M09_overview.png" alt="Unit M09: station map, rainfall-source coverage, and water-level and paired coverage" width="900"></a>
+  <a href="figures/M09_overview.svg"><img src="figures/M09_overview.png" alt="Unit M09: station map and monthly rainfall-source, water-level and paired observation coverage" width="900"></a>
 </p>
 
 </details>
@@ -255,7 +255,7 @@ Tide station: Redwood City · ID: `NOAA_9414523`.
 | 2 | OAKLAND INTL AP | `GHCNH_USW00023230` | 1974-10-28 | 2026-08-31 |
 
 <p align="left">
-  <a href="figures/M10_overview.svg"><img src="figures/M10_overview.png" alt="Unit M10: station map, rainfall-source coverage, and water-level and paired coverage" width="900"></a>
+  <a href="figures/M10_overview.svg"><img src="figures/M10_overview.png" alt="Unit M10: station map and monthly rainfall-source, water-level and paired observation coverage" width="900"></a>
 </p>
 
 </details>
@@ -274,7 +274,7 @@ Tide station: Richmond · ID: `NOAA_9414863`.
 | 3 | OAKLAND NORTH | `CDEC_ONO` | 1996-01-01 | 2025-12-29 |
 
 <p align="left">
-  <a href="figures/M11_overview.svg"><img src="figures/M11_overview.png" alt="Unit M11: station map, rainfall-source coverage, and water-level and paired coverage" width="900"></a>
+  <a href="figures/M11_overview.svg"><img src="figures/M11_overview.png" alt="Unit M11: station map and monthly rainfall-source, water-level and paired observation coverage" width="900"></a>
 </p>
 
 </details>

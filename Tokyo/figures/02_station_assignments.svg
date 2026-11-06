@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="518.740157pt" height="297.070866pt" viewBox="0 0 518.740157 297.070866" xmlns="http://www.w3.org/2000/svg" version="1.1">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="518.740157pt" height="330.23622pt" viewBox="0 0 518.740157 330.23622" xmlns="http://www.w3.org/2000/svg" version="1.1">
  <metadata>
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-11-06T17:10:32.441405</dc:date>
+    <dc:date>2026-11-06T17:41:19.170710</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -21,215 +21,215 @@
  </defs>
  <g id="figure_1">
   <g id="patch_1">
-   <path d="M 0 297.070866
-L 518.740157 297.070866
+   <path d="M 0 330.23622
+L 518.740157 330.23622
 L 518.740157 0
 L 0 0
 z
 " style="fill: #ffffff"/>
   </g>
   <g id="patch_2">
-   <path d="M 5.669291 294.23622
-L 513.070866 294.23622
+   <path d="M 5.669291 327.401575
+L 513.070866 327.401575
 L 513.070866 19.84252
 L 5.669291 19.84252
-L 5.669291 294.23622
+L 5.669291 327.401575
 z
-" style="fill: none; stroke: #555a5d; stroke-width: 0.45; stroke-linejoin: miter"/>
+" style="fill: none; stroke: #555a5d; stroke-width: 0.8; stroke-linejoin: miter"/>
   </g>
   <g id="line2d_1">
-   <path d="M 5.669291 63.212598
-L 513.070866 63.212598
-" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+   <path d="M 5.669291 65.76378
+L 513.070866 65.76378
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.5; stroke-linecap: square"/>
   </g>
   <g id="line2d_2">
-   <path d="M 5.669291 81.92126
-L 513.070866 81.92126
-" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+   <path d="M 5.669291 87.023622
+L 513.070866 87.023622
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.5; stroke-linecap: square"/>
   </g>
   <g id="line2d_3">
-   <path d="M 5.669291 100.629921
-L 513.070866 100.629921
-" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+   <path d="M 5.669291 108.283465
+L 513.070866 108.283465
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.5; stroke-linecap: square"/>
   </g>
   <g id="line2d_4">
-   <path d="M 5.669291 119.338583
-L 513.070866 119.338583
-" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+   <path d="M 5.669291 129.543307
+L 513.070866 129.543307
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.5; stroke-linecap: square"/>
   </g>
   <g id="line2d_5">
-   <path d="M 5.669291 138.047244
-L 513.070866 138.047244
-" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+   <path d="M 5.669291 150.80315
+L 513.070866 150.80315
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.5; stroke-linecap: square"/>
   </g>
   <g id="line2d_6">
-   <path d="M 5.669291 156.755906
-L 513.070866 156.755906
-" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+   <path d="M 5.669291 172.062992
+L 513.070866 172.062992
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.5; stroke-linecap: square"/>
   </g>
   <g id="line2d_7">
-   <path d="M 5.669291 175.464567
-L 513.070866 175.464567
-" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+   <path d="M 5.669291 193.322835
+L 513.070866 193.322835
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.5; stroke-linecap: square"/>
   </g>
   <g id="line2d_8">
-   <path d="M 5.669291 194.173228
-L 513.070866 194.173228
-" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+   <path d="M 5.669291 214.582677
+L 513.070866 214.582677
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.5; stroke-linecap: square"/>
   </g>
   <g id="line2d_9">
-   <path d="M 5.669291 212.88189
-L 513.070866 212.88189
-" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+   <path d="M 5.669291 235.84252
+L 513.070866 235.84252
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.5; stroke-linecap: square"/>
   </g>
   <g id="line2d_10">
-   <path d="M 5.669291 231.590551
-L 513.070866 231.590551
-" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+   <path d="M 5.669291 257.102362
+L 513.070866 257.102362
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.5; stroke-linecap: square"/>
   </g>
   <g id="line2d_11">
-   <path d="M 5.669291 250.299213
-L 513.070866 250.299213
-" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+   <path d="M 5.669291 278.362205
+L 513.070866 278.362205
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.5; stroke-linecap: square"/>
   </g>
   <g id="line2d_12">
-   <path d="M 5.669291 269.007874
-L 513.070866 269.007874
-" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+   <path d="M 5.669291 299.622047
+L 513.070866 299.622047
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.5; stroke-linecap: square"/>
   </g>
   <g id="line2d_13">
-   <path d="M 5.669291 287.716535
-L 513.070866 287.716535
-" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+   <path d="M 5.669291 320.88189
+L 513.070866 320.88189
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.5; stroke-linecap: square"/>
   </g>
   <g id="text_1">
-   <text style="font-size: 7px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="5.669291" y="10.765483" transform="rotate(-0 5.669291 10.765483)">Tokyo Bay | Station assignments</text>
+   <text style="font-weight: 700; font-size: 9.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="5.669291" y="12.585551" transform="rotate(-0 5.669291 12.585551)">Tokyo Bay | Station assignments</text>
   </g>
   <g id="text_2">
-   <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="30.608002" transform="rotate(-0 14.173228 30.608002)">Unit</text>
+   <text style="font-weight: 700; font-size: 9px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="32.064057" transform="rotate(-0 14.173228 32.064057)">Unit</text>
   </g>
   <g id="text_3">
-   <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="30.608002" transform="rotate(-0 68.031496 30.608002)">Rainfall sources (priority order)</text>
+   <text style="font-weight: 700; font-size: 9px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="32.064057" transform="rotate(-0 68.031496 32.064057)">Rainfall sources (priority order)</text>
   </g>
   <g id="text_4">
-   <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="30.608002" transform="rotate(-0 396.850394 30.608002)">Tide record</text>
+   <text style="font-weight: 700; font-size: 9px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="32.064057" transform="rotate(-0 396.850394 32.064057)">Tide record</text>
   </g>
   <g id="text_5">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="54.450368" transform="rotate(-0 14.173228 54.450368)">M01</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="56.37695" transform="rotate(-0 14.173228 56.37695)">M01</text>
   </g>
   <g id="text_6">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="53.84404" transform="rotate(-0 68.031496 53.84404)">JMA_A46136, JMA_A46091</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="55.584059" transform="rotate(-0 68.031496 55.584059)">JMA_A46136, JMA_A46091</text>
   </g>
   <g id="text_7">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="54.442243" transform="rotate(-0 396.850394 54.442243)">Aburatsubo</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="56.366325" transform="rotate(-0 396.850394 56.366325)">Aburatsubo</text>
   </g>
   <g id="text_8">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="73.159029" transform="rotate(-0 14.173228 73.159029)">M02</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="77.636793" transform="rotate(-0 14.173228 77.636793)">M02</text>
   </g>
   <g id="text_9">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="72.552701" transform="rotate(-0 68.031496 72.552701)">JMA_A46x0391, JMA_A46141, JMA_A46046</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="76.843902" transform="rotate(-0 68.031496 76.843902)">JMA_A46x0391, JMA_A46141, JMA_A46046</text>
   </g>
   <g id="text_10">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="73.150904" transform="rotate(-0 396.850394 73.150904)">Aburatsubo</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="77.626168" transform="rotate(-0 396.850394 77.626168)">Aburatsubo</text>
   </g>
   <g id="text_11">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="91.866167" transform="rotate(-0 14.173228 91.866167)">M03</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="98.894643" transform="rotate(-0 14.173228 98.894643)">M03</text>
   </g>
   <g id="text_12">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="91.261363" transform="rotate(-0 68.031496 91.261363)">JMA_A46211</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="98.103744" transform="rotate(-0 68.031496 98.103744)">JMA_A46211</text>
   </g>
   <g id="text_13">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="91.859566" transform="rotate(-0 396.850394 91.859566)">Kurihama</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="98.88601" transform="rotate(-0 396.850394 98.88601)">Kurihama</text>
   </g>
   <g id="text_14">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="110.576352" transform="rotate(-0 14.173228 110.576352)">M04</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="120.156478" transform="rotate(-0 14.173228 120.156478)">M04</text>
   </g>
   <g id="text_15">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="109.970024" transform="rotate(-0 68.031496 109.970024)">JMA_47670</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="119.363587" transform="rotate(-0 68.031496 119.363587)">JMA_47670</text>
   </g>
   <g id="text_16">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="110.606313" transform="rotate(-0 396.850394 110.606313)">Yokohama Shinko</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="120.195657" transform="rotate(-0 396.850394 120.195657)">Yokohama Shinko</text>
   </g>
   <g id="text_17">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="129.285014" transform="rotate(-0 14.173228 129.285014)">M05</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="141.41632" transform="rotate(-0 14.173228 141.41632)">M05</text>
   </g>
   <g id="text_18">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="128.678686" transform="rotate(-0 68.031496 128.678686)">JMA_A46061</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="140.623429" transform="rotate(-0 68.031496 140.623429)">JMA_A46061</text>
   </g>
   <g id="text_19">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="129.314975" transform="rotate(-0 396.850394 129.314975)">Yokohama Shinko</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="141.4555" transform="rotate(-0 396.850394 141.4555)">Yokohama Shinko</text>
   </g>
   <g id="text_20">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="147.993675" transform="rotate(-0 14.173228 147.993675)">M06</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="162.676163" transform="rotate(-0 14.173228 162.676163)">M06</text>
   </g>
   <g id="text_21">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="147.387347" transform="rotate(-0 68.031496 147.387347)">JMA_A44166, JMA_A44126, JMA_A44116</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="161.883272" transform="rotate(-0 68.031496 161.883272)">JMA_A44166, JMA_A44126, JMA_A44116</text>
   </g>
   <g id="text_22">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="147.98555" transform="rotate(-0 396.850394 147.98555)">Kawasaki</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="162.665538" transform="rotate(-0 396.850394 162.665538)">Kawasaki</text>
   </g>
   <g id="text_23">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="166.702336" transform="rotate(-0 14.173228 166.702336)">M07</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="183.936005" transform="rotate(-0 14.173228 183.936005)">M07</text>
   </g>
   <g id="text_24">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="166.096008" transform="rotate(-0 68.031496 166.096008)">JMA_47662, JMA_A44136</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="183.143115" transform="rotate(-0 68.031496 183.143115)">JMA_47662, JMA_A44136</text>
   </g>
   <g id="text_25">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="166.048274" transform="rotate(-0 396.850394 166.048274)">Tokyo Harumi</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="183.080693" transform="rotate(-0 396.850394 183.080693)">Tokyo Harumi</text>
   </g>
   <g id="text_26">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="185.410998" transform="rotate(-0 14.173228 185.410998)">M08</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="205.195848" transform="rotate(-0 14.173228 205.195848)">M08</text>
   </g>
   <g id="text_27">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="184.80467" transform="rotate(-0 68.031496 184.80467)">JMA_A45106</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="204.402957" transform="rotate(-0 68.031496 204.402957)">JMA_A45106</text>
   </g>
   <g id="text_28">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="184.756935" transform="rotate(-0 396.850394 184.756935)">Tokyo Harumi</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="204.340535" transform="rotate(-0 396.850394 204.340535)">Tokyo Harumi</text>
   </g>
   <g id="text_29">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="204.119659" transform="rotate(-0 14.173228 204.119659)">M09</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="226.45569" transform="rotate(-0 14.173228 226.45569)">M09</text>
   </g>
   <g id="text_30">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="203.513331" transform="rotate(-0 68.031496 203.513331)">JMA_47682</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="225.6628" transform="rotate(-0 68.031496 225.6628)">JMA_47682</text>
   </g>
   <g id="text_31">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="204.14962" transform="rotate(-0 396.850394 204.14962)">Chiba</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="226.49487" transform="rotate(-0 396.850394 226.49487)">Chiba</text>
   </g>
   <g id="text_32">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="222.828321" transform="rotate(-0 14.173228 222.828321)">M10</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="247.715533" transform="rotate(-0 14.173228 247.715533)">M10</text>
   </g>
   <g id="text_33">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="222.221993" transform="rotate(-0 68.031496 222.221993)">JMA_A45291</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="246.922642" transform="rotate(-0 68.031496 246.922642)">JMA_A45291</text>
   </g>
   <g id="text_34">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="222.858282" transform="rotate(-0 396.850394 222.858282)">Chiba</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="247.754712" transform="rotate(-0 396.850394 247.754712)">Chiba</text>
   </g>
   <g id="text_35">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="241.576592" transform="rotate(-0 14.173228 241.576592)">M11</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="269.027172" transform="rotate(-0 14.173228 269.027172)">M11</text>
   </g>
   <g id="text_36">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="240.930654" transform="rotate(-0 68.031496 240.930654)">JMA_A45282, JMA_A45326</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="268.182485" transform="rotate(-0 68.031496 268.182485)">JMA_A45282, JMA_A45326</text>
   </g>
   <g id="text_37">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="241.566943" transform="rotate(-0 396.850394 241.566943)">Yokohama Shinko</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="269.014555" transform="rotate(-0 396.850394 269.014555)">Yokohama Shinko</text>
   </g>
   <g id="text_38">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="260.285253" transform="rotate(-0 14.173228 260.285253)">M12</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="290.287015" transform="rotate(-0 14.173228 290.287015)">M12</text>
   </g>
   <g id="text_39">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="259.639315" transform="rotate(-0 68.031496 259.639315)">JMA_A45346</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="289.442327" transform="rotate(-0 68.031496 289.442327)">JMA_A45346</text>
   </g>
   <g id="text_40">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="260.237519" transform="rotate(-0 396.850394 260.237519)">Kurihama</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="290.224593" transform="rotate(-0 396.850394 290.224593)">Kurihama</text>
   </g>
   <g id="text_41">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="278.952782" transform="rotate(-0 14.173228 278.952782)">M13</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="311.493068" transform="rotate(-0 14.173228 311.493068)">M13</text>
   </g>
   <g id="text_42">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="278.347977" transform="rotate(-0 68.031496 278.347977)">JMA_47672</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="310.70217" transform="rotate(-0 68.031496 310.70217)">JMA_47672</text>
   </g>
   <g id="text_43">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="278.94618" transform="rotate(-0 396.850394 278.94618)">Mera</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="311.484435" transform="rotate(-0 396.850394 311.484435)">Mera</text>
   </g>
  </g>
 </svg>

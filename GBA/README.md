@@ -60,7 +60,7 @@ See [Methods](../shared/methods.md#analysis-units) for the common partitioning p
 
 [01](#unit-01) · [02](#unit-02) · [03a](#unit-03a) · [03b](#unit-03b) · [04](#unit-04) · [05](#unit-05) · [06](#unit-06) · [07](#unit-07) · [08](#unit-08) · [09](#unit-09) · [10a](#unit-10a) · [10b](#unit-10b) · [11](#unit-11)
 
-First and last use refer to actual station contributions. Panel a maps the stations; panel b shows monthly rainfall-source contributions; panel c compares water-level coverage (solid line) with paired coverage (dashed line). Map numbers follow the rainfall table rows. White in panel b indicates no contribution.
+First and last use refer to actual station contributions. Panel a maps the stations; panel b shows monthly rainfall-source, water-level and paired observation coverage. Map numbers follow the rainfall table rows. Colour intensity represents the observed fraction of each month; white indicates no observations.
 
 <details markdown="1">
 <summary><strong>Unit 01</strong> · Sanzao · 1 rainfall station</summary>
@@ -74,7 +74,7 @@ Tide station: Sanzao · ID: `SZ`.
 | 1 | G1205 | `G1205` | 2008-11-20 | 2022-04-30 |
 
 <p align="left">
-  <a href="figures/01_overview.svg"><img src="figures/01_overview.png" alt="Unit 01: station map, rainfall-source coverage, and water-level and paired coverage" width="900"></a>
+  <a href="figures/01_overview.svg"><img src="figures/01_overview.png" alt="Unit 01: station map and monthly rainfall-source, water-level and paired observation coverage" width="900"></a>
 </p>
 
 </details>
@@ -105,7 +105,7 @@ Tide station: Sanzao · ID: `SZ`.
 | 31 | G2128 | `G2128` | 2010-06-13 | 2010-06-29 |
 
 <p align="left">
-  <a href="figures/02_overview.svg"><img src="figures/02_overview.png" alt="Unit 02: station map, rainfall-source coverage, and water-level and paired coverage" width="900"></a>
+  <a href="figures/02_overview.svg"><img src="figures/02_overview.png" alt="Unit 02: station map and monthly rainfall-source, water-level and paired observation coverage" width="900"></a>
 </p>
 
 </details>
@@ -122,7 +122,7 @@ Tide station: Dajiu Zhou · ID: `DJZ`.
 | 1 | G1209 | `G1209` | 2010-06-01 | 2022-04-30 |
 
 <p align="left">
-  <a href="figures/03a_overview.svg"><img src="figures/03a_overview.png" alt="Unit 03a: station map, rainfall-source coverage, and water-level and paired coverage" width="900"></a>
+  <a href="figures/03a_overview.svg"><img src="figures/03a_overview.png" alt="Unit 03a: station map and monthly rainfall-source, water-level and paired observation coverage" width="900"></a>
 </p>
 
 </details>
@@ -139,7 +139,7 @@ Tide station: Nei Lingding · ID: `NLT`.
 | 1 | G1211 | `G1211` | 2010-01-01 | 2022-04-30 |
 
 <p align="left">
-  <a href="figures/03b_overview.svg"><img src="figures/03b_overview.png" alt="Unit 03b: station map, rainfall-source coverage, and water-level and paired coverage" width="900"></a>
+  <a href="figures/03b_overview.svg"><img src="figures/03b_overview.png" alt="Unit 03b: station map and monthly rainfall-source, water-level and paired observation coverage" width="900"></a>
 </p>
 
 </details>
@@ -168,7 +168,7 @@ Tide station: Nansha · ID: `NS`.
 | 19 | 59485 | `59485` | 2008-01-01 | 2016-04-01 |
 
 <p align="left">
-  <a href="figures/04_overview.svg"><img src="figures/04_overview.png" alt="Unit 04: station map, rainfall-source coverage, and water-level and paired coverage" width="900"></a>
+  <a href="figures/04_overview.svg"><img src="figures/04_overview.png" alt="Unit 04: station map and monthly rainfall-source, water-level and paired observation coverage" width="900"></a>
 </p>
 
 </details>
@@ -191,7 +191,7 @@ Tide station: Nansha · ID: `NS`.
 | 25 | G2238 | `G2238` | 2016-03-10 | 2016-03-10 |
 
 <p align="left">
-  <a href="figures/05_overview.svg"><img src="figures/05_overview.png" alt="Unit 05: station map, rainfall-source coverage, and water-level and paired coverage" width="900"></a>
+  <a href="figures/05_overview.svg"><img src="figures/05_overview.png" alt="Unit 05: station map and monthly rainfall-source, water-level and paired observation coverage" width="900"></a>
 </p>
 
 </details>
@@ -218,7 +218,7 @@ Tide station: Dasheng · ID: `DS`.
 | 29 | G6816 | `G6816` | 2009-12-28 | 2009-12-28 |
 
 <p align="left">
-  <a href="figures/06_overview.svg"><img src="figures/06_overview.png" alt="Unit 06: station map, rainfall-source coverage, and water-level and paired coverage" width="900"></a>
+  <a href="figures/06_overview.svg"><img src="figures/06_overview.png" alt="Unit 06: station map and monthly rainfall-source, water-level and paired observation coverage" width="900"></a>
 </p>
 
 </details>
@@ -250,7 +250,7 @@ Tide station: Sishengwei · ID: `SSW`.
 | 40 | 59287 | `59287` | 2014-04-01 | 2014-12-25 |
 
 <p align="left">
-  <a href="figures/07_overview.svg"><img src="figures/07_overview.png" alt="Unit 07: station map, rainfall-source coverage, and water-level and paired coverage" width="900"></a>
+  <a href="figures/07_overview.svg"><img src="figures/07_overview.png" alt="Unit 07: station map and monthly rainfall-source, water-level and paired observation coverage" width="900"></a>
 </p>
 
 </details>
@@ -269,7 +269,7 @@ Tide station: Chiwan · ID: `CW`.
 | 7 | GEO_N28 | `GEO_N28` | 2000-01-28 | 2022-12-30 |
 
 <p align="left">
-  <a href="figures/08_overview.svg"><img src="figures/08_overview.png" alt="Unit 08: station map, rainfall-source coverage, and water-level and paired coverage" width="900"></a>
+  <a href="figures/08_overview.svg"><img src="figures/08_overview.png" alt="Unit 08: station map and monthly rainfall-source, water-level and paired observation coverage" width="900"></a>
 </p>
 
 </details>
@@ -293,7 +293,7 @@ Tide station: Tsim Bei Tsui · ID: `TBT`.
 | 59 | HKO_TKL | `HKO_TKL` | 1988-07-27 | 1988-11-26 |
 
 <p align="left">
-  <a href="figures/09_overview.svg"><img src="figures/09_overview.png" alt="Unit 09: station map, rainfall-source coverage, and water-level and paired coverage" width="900"></a>
+  <a href="figures/09_overview.svg"><img src="figures/09_overview.png" alt="Unit 09: station map and monthly rainfall-source, water-level and paired observation coverage" width="900"></a>
 </p>
 
 </details>
@@ -318,7 +318,7 @@ Tide station: Quarry Bay · ID: `QUB`.
 | 13 | HKO_HKO | `HKO_HKO` | 1954-08-29 | 2004-12-13 |
 
 <p align="left">
-  <a href="figures/10a_overview.svg"><img src="figures/10a_overview.png" alt="Unit 10a: station map, rainfall-source coverage, and water-level and paired coverage" width="900"></a>
+  <a href="figures/10a_overview.svg"><img src="figures/10a_overview.png" alt="Unit 10a: station map and monthly rainfall-source, water-level and paired observation coverage" width="900"></a>
 </p>
 
 </details>
@@ -340,7 +340,7 @@ Tide station: Shek Pik · ID: `SPW`.
 | 7 | HKO_HKA | `HKO_HKA` | 1998-01-26 | 2026-07-31 |
 
 <p align="left">
-  <a href="figures/10b_overview.svg"><img src="figures/10b_overview.png" alt="Unit 10b: station map, rainfall-source coverage, and water-level and paired coverage" width="900"></a>
+  <a href="figures/10b_overview.svg"><img src="figures/10b_overview.png" alt="Unit 10b: station map and monthly rainfall-source, water-level and paired observation coverage" width="900"></a>
 </p>
 
 </details>
@@ -366,7 +366,7 @@ Tide station: Tai Po Kau · ID: `TPK`.
 | 30 | GEO_N13 | `GEO_N13` | 1984-05-16 | 1984-05-16 |
 
 <p align="left">
-  <a href="figures/11_overview.svg"><img src="figures/11_overview.png" alt="Unit 11: station map, rainfall-source coverage, and water-level and paired coverage" width="900"></a>
+  <a href="figures/11_overview.svg"><img src="figures/11_overview.png" alt="Unit 11: station map and monthly rainfall-source, water-level and paired observation coverage" width="900"></a>
 </p>
 
 </details>

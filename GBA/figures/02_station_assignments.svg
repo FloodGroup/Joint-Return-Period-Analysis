@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="518.740157pt" height="325.984252pt" viewBox="0 0 518.740157 325.984252" xmlns="http://www.w3.org/2000/svg" version="1.1">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="518.740157pt" height="415.559055pt" viewBox="0 0 518.740157 415.559055" xmlns="http://www.w3.org/2000/svg" version="1.1">
  <metadata>
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-11-06T17:10:14.567687</dc:date>
+    <dc:date>2026-11-06T17:41:00.475399</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -21,218 +21,222 @@
  </defs>
  <g id="figure_1">
   <g id="patch_1">
-   <path d="M 0 325.984252
-L 518.740157 325.984252
+   <path d="M 0 415.559055
+L 518.740157 415.559055
 L 518.740157 0
 L 0 0
 z
 " style="fill: #ffffff"/>
   </g>
   <g id="patch_2">
-   <path d="M 5.669291 323.149606
-L 513.070866 323.149606
+   <path d="M 5.669291 412.724409
+L 513.070866 412.724409
 L 513.070866 19.84252
 L 5.669291 19.84252
-L 5.669291 323.149606
+L 5.669291 412.724409
 z
-" style="fill: none; stroke: #555a5d; stroke-width: 0.45; stroke-linejoin: miter"/>
+" style="fill: none; stroke: #555a5d; stroke-width: 0.8; stroke-linejoin: miter"/>
   </g>
   <g id="line2d_1">
-   <path d="M 5.669291 63.212598
-L 513.070866 63.212598
-" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+   <path d="M 5.669291 65.76378
+L 513.070866 65.76378
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.5; stroke-linecap: square"/>
   </g>
   <g id="line2d_2">
-   <path d="M 5.669291 91.559055
-L 513.070866 91.559055
-" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+   <path d="M 5.669291 99.212598
+L 513.070866 99.212598
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.5; stroke-linecap: square"/>
   </g>
   <g id="line2d_3">
-   <path d="M 5.669291 110.267717
-L 513.070866 110.267717
-" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+   <path d="M 5.669291 120.472441
+L 513.070866 120.472441
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.5; stroke-linecap: square"/>
   </g>
   <g id="line2d_4">
-   <path d="M 5.669291 128.976378
-L 513.070866 128.976378
-" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+   <path d="M 5.669291 141.732283
+L 513.070866 141.732283
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.5; stroke-linecap: square"/>
   </g>
   <g id="line2d_5">
-   <path d="M 5.669291 147.685039
-L 513.070866 147.685039
-" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+   <path d="M 5.669291 175.181102
+L 513.070866 175.181102
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.5; stroke-linecap: square"/>
   </g>
   <g id="line2d_6">
-   <path d="M 5.669291 166.393701
-L 513.070866 166.393701
-" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+   <path d="M 5.669291 196.440945
+L 513.070866 196.440945
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.5; stroke-linecap: square"/>
   </g>
   <g id="line2d_7">
-   <path d="M 5.669291 185.102362
-L 513.070866 185.102362
-" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+   <path d="M 5.669291 229.889764
+L 513.070866 229.889764
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.5; stroke-linecap: square"/>
   </g>
   <g id="line2d_8">
-   <path d="M 5.669291 213.448819
-L 513.070866 213.448819
-" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+   <path d="M 5.669291 263.338583
+L 513.070866 263.338583
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.5; stroke-linecap: square"/>
   </g>
   <g id="line2d_9">
-   <path d="M 5.669291 232.15748
-L 513.070866 232.15748
-" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+   <path d="M 5.669291 284.598425
+L 513.070866 284.598425
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.5; stroke-linecap: square"/>
   </g>
   <g id="line2d_10">
-   <path d="M 5.669291 250.866142
-L 513.070866 250.866142
-" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+   <path d="M 5.669291 318.047244
+L 513.070866 318.047244
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.5; stroke-linecap: square"/>
   </g>
   <g id="line2d_11">
-   <path d="M 5.669291 269.574803
-L 513.070866 269.574803
-" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+   <path d="M 5.669291 351.496063
+L 513.070866 351.496063
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.5; stroke-linecap: square"/>
   </g>
   <g id="line2d_12">
-   <path d="M 5.669291 288.283465
-L 513.070866 288.283465
-" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+   <path d="M 5.669291 372.755906
+L 513.070866 372.755906
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.5; stroke-linecap: square"/>
   </g>
   <g id="line2d_13">
-   <path d="M 5.669291 316.629921
-L 513.070866 316.629921
-" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+   <path d="M 5.669291 406.204724
+L 513.070866 406.204724
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.5; stroke-linecap: square"/>
   </g>
   <g id="text_1">
-   <text style="font-size: 7px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="5.669291" y="10.765483" transform="rotate(-0 5.669291 10.765483)">Greater Bay Area | Station assignments</text>
+   <text style="font-weight: 700; font-size: 9.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="5.669291" y="12.585551" transform="rotate(-0 5.669291 12.585551)">Greater Bay Area | Station assignments</text>
   </g>
   <g id="text_2">
-   <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="30.608002" transform="rotate(-0 14.173228 30.608002)">Unit</text>
+   <text style="font-weight: 700; font-size: 9px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="32.064057" transform="rotate(-0 14.173228 32.064057)">Unit</text>
   </g>
   <g id="text_3">
-   <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="30.608002" transform="rotate(-0 68.031496 30.608002)">Rainfall sources (priority order)</text>
+   <text style="font-weight: 700; font-size: 9px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="32.064057" transform="rotate(-0 68.031496 32.064057)">Rainfall sources (priority order)</text>
   </g>
   <g id="text_4">
-   <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="30.608002" transform="rotate(-0 396.850394 30.608002)">Tide record</text>
+   <text style="font-weight: 700; font-size: 9px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="32.064057" transform="rotate(-0 396.850394 32.064057)">Tide record</text>
   </g>
   <g id="text_5">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="54.450368" transform="rotate(-0 14.173228 54.450368)">01</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="56.37695" transform="rotate(-0 14.173228 56.37695)">01</text>
   </g>
   <g id="text_6">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="54.480329" transform="rotate(-0 68.031496 54.480329)">G1205</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="56.41613" transform="rotate(-0 68.031496 56.41613)">G1205</text>
   </g>
   <g id="text_7">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="54.480329" transform="rotate(-0 396.850394 54.480329)">Sanzao</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="56.41613" transform="rotate(-0 396.850394 56.41613)">Sanzao</text>
   </g>
   <g id="text_8">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="73.159029" transform="rotate(-0 14.173228 73.159029)">02</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="77.636793" transform="rotate(-0 14.173228 77.636793)">02</text>
   </g>
   <g id="text_9">
-   <text style="font-size: 6.5px; font-family: 'Arial'; fill: #202326" transform="translate(68.031496 72.768522)">G1210, G1217, G1256, G1230, G1206, G2037, 59487, G1212, G2036, G2010, G2038, G2004, G2102,</text>
-   <text style="font-size: 6.5px; font-family: 'Arial'; fill: #202326" transform="translate(68.031496 80.698649)">G2021, G2128</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; fill: #202326" transform="translate(68.031496 77.126128)">G1210, G1217, G1256, G1230, G1206, G2037, 59487, G1212, G2036, G2010,</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; fill: #202326" transform="translate(68.031496 87.496294)">G2038, G2004, G2102, G2021, G2128</text>
   </g>
   <g id="text_10">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="73.18899" transform="rotate(-0 396.850394 73.18899)">Sanzao</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="77.675972" transform="rotate(-0 396.850394 77.675972)">Sanzao</text>
   </g>
   <g id="text_11">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="101.503963" transform="rotate(-0 14.173228 101.503963)">03a</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="111.083619" transform="rotate(-0 14.173228 111.083619)">03a</text>
   </g>
   <g id="text_12">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="101.535447" transform="rotate(-0 68.031496 101.535447)">G1209</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="111.124791" transform="rotate(-0 68.031496 111.124791)">G1209</text>
   </g>
   <g id="text_13">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="100.851424" transform="rotate(-0 396.850394 100.851424)">Dajiu Zhou</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="110.230299" transform="rotate(-0 396.850394 110.230299)">Dajiu Zhou</text>
   </g>
   <g id="text_14">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="120.212624" transform="rotate(-0 14.173228 120.212624)">03b</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="132.343462" transform="rotate(-0 14.173228 132.343462)">03b</text>
   </g>
   <g id="text_15">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="120.244108" transform="rotate(-0 68.031496 120.244108)">G1211</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="132.384634" transform="rotate(-0 68.031496 132.384634)">G1211</text>
   </g>
   <g id="text_16">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="119.560085" transform="rotate(-0 396.850394 119.560085)">Nei Lingding</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="131.490141" transform="rotate(-0 396.850394 131.490141)">Nei Lingding</text>
   </g>
   <g id="text_17">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="138.922809" transform="rotate(-0 14.173228 138.922809)">04</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="153.605296" transform="rotate(-0 14.173228 153.605296)">04</text>
   </g>
   <g id="text_18">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="138.532301" transform="rotate(-0 68.031496 138.532301)">G3202, G3205, G2045, G2006, G2022, G2008, G2052, G2017, G2005, G2011, G2026, G2009, 59485</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; fill: #202326" transform="translate(68.031496 153.094632)">G3202, G3205, G2045, G2006, G2022, G2008, G2052, G2017, G2005, G2011,</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; fill: #202326" transform="translate(68.031496 163.464798)">G2026, G2009, 59485</text>
   </g>
   <g id="text_19">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="138.914684" transform="rotate(-0 396.850394 138.914684)">Nansha</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="153.594671" transform="rotate(-0 396.850394 153.594671)">Nansha</text>
   </g>
   <g id="text_20">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="157.63147" transform="rotate(-0 14.173228 157.63147)">05</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="187.054115" transform="rotate(-0 14.173228 187.054115)">05</text>
   </g>
   <g id="text_21">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="157.240963" transform="rotate(-0 68.031496 157.240963)">G3239, G3204, G3213, G3212, G3111, G3137, G2238</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="186.543451" transform="rotate(-0 68.031496 186.543451)">G3239, G3204, G3213, G3212, G3111, G3137, G2238</text>
   </g>
   <g id="text_22">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="157.623345" transform="rotate(-0 396.850394 157.623345)">Nansha</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="187.04349" transform="rotate(-0 396.850394 187.04349)">Nansha</text>
   </g>
   <g id="text_23">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="176.340132" transform="rotate(-0 14.173228 176.340132)">06</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="208.313958" transform="rotate(-0 14.173228 208.313958)">06</text>
   </g>
   <g id="text_24">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="175.949624" transform="rotate(-0 68.031496 175.949624)">G3136, G1032, G1018, G3448, G3238, G1039, G1099, G1001, G1087, G3156, G6816</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; fill: #202326" transform="translate(68.031496 207.803294)">G3136, G1032, G1018, G3448, G3238, G1039, G1099, G1001, G1087, G3156,</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; fill: #202326" transform="translate(68.031496 218.723304)">G6816</text>
   </g>
   <g id="text_25">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="175.686069" transform="rotate(-0 396.850394 175.686069)">Dasheng</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="207.458645" transform="rotate(-0 396.850394 207.458645)">Dasheng</text>
   </g>
   <g id="text_26">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="195.048793" transform="rotate(-0 14.173228 195.048793)">07</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="241.762777" transform="rotate(-0 14.173228 241.762777)">07</text>
   </g>
   <g id="text_27">
-   <text style="font-size: 6.5px; font-family: 'Arial'; fill: #202326" transform="translate(68.031496 194.658285)">G1947, G1935, G1964, G1915, G1929, G1956, G1989, G3201, G1971, G1945, G1907, 59289, G1072,</text>
-   <text style="font-size: 6.5px; font-family: 'Arial'; fill: #202326" transform="translate(68.031496 202.588412)">G3329, G1961, 59287</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; fill: #202326" transform="translate(68.031496 241.252113)">G1947, G1935, G1964, G1915, G1929, G1956, G1989, G3201, G1971, G1945,</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; fill: #202326" transform="translate(68.031496 251.622279)">G1907, 59289, G1072, G3329, G1961, 59287</text>
   </g>
   <g id="text_28">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="194.43434" transform="rotate(-0 396.850394 194.43434)">Sishengwei</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="240.959261" transform="rotate(-0 396.850394 240.959261)">Sishengwei</text>
   </g>
   <g id="text_29">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="223.39525" transform="rotate(-0 14.173228 223.39525)">08</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="275.211596" transform="rotate(-0 14.173228 275.211596)">08</text>
   </g>
   <g id="text_30">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="222.820914" transform="rotate(-0 68.031496 222.820914)">G3521, G3556, GEO_N28</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="274.460541" transform="rotate(-0 68.031496 274.460541)">G3521, G3556, GEO_N28</text>
   </g>
   <g id="text_31">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="223.425211" transform="rotate(-0 396.850394 223.425211)">Chiwan</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="275.250775" transform="rotate(-0 396.850394 275.250775)">Chiwan</text>
   </g>
   <g id="text_32">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="242.103911" transform="rotate(-0 14.173228 242.103911)">09</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="296.471438" transform="rotate(-0 14.173228 296.471438)">09</text>
   </g>
   <g id="text_33">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="241.529575" transform="rotate(-0 68.031496 241.529575)">HKO_WLP, G3645, HKO_LFS, GHCNH_CHM00045035, GEO_N33, GEO_N12, GEO_N05, HKO_TKL</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; fill: #202326" transform="translate(68.031496 295.720384)">HKO_WLP, G3645, HKO_LFS, GHCNH_CHM00045035, GEO_N33, GEO_N12,</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; fill: #202326" transform="translate(68.031496 306.09055)">GEO_N05, HKO_TKL</text>
   </g>
   <g id="text_34">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="242.095786" transform="rotate(-0 396.850394 242.095786)">Tsim Bei Tsui</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="296.460813" transform="rotate(-0 396.850394 296.460813)">Tsim Bei Tsui</text>
   </g>
   <g id="text_35">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="260.812573" transform="rotate(-0 14.173228 260.812573)">10a</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="329.920257" transform="rotate(-0 14.173228 329.920257)">10a</text>
   </g>
   <g id="text_36">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="260.238237" transform="rotate(-0 68.031496 260.238237)">GEO_H18, GEO_H09, HKO_SE, GEO_H19, HKO_SKW, GEO_K08, GEO_K05, GEO_H07, HKO_HKO</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; fill: #202326" transform="translate(68.031496 329.169202)">GEO_H18, GEO_H09, HKO_SE, GEO_H19, HKO_SKW, GEO_K08, GEO_K05,</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; fill: #202326" transform="translate(68.031496 339.539368)">GEO_H07, HKO_HKO</text>
   </g>
   <g id="text_37">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="260.200151" transform="rotate(-0 396.850394 260.200151)">Quarry Bay</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="329.119398" transform="rotate(-0 396.850394 329.119398)">Quarry Bay</text>
   </g>
   <g id="text_38">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="279.521234" transform="rotate(-0 14.173228 279.521234)">10b</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="363.369076" transform="rotate(-0 14.173228 363.369076)">10b</text>
   </g>
   <g id="text_39">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="278.946898" transform="rotate(-0 68.031496 278.946898)">GEO_N19, GEO_N53, GEO_N22, GEO_N21, GEO_N17, HKO_HKA</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="362.618021" transform="rotate(-0 68.031496 362.618021)">GEO_N19, GEO_N53, GEO_N22, GEO_N21, GEO_N17, HKO_HKA</text>
   </g>
   <g id="text_40">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="279.551195" transform="rotate(-0 396.850394 279.551195)">Shek Pik</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="363.408256" transform="rotate(-0 396.850394 363.408256)">Shek Pik</text>
   </g>
   <g id="text_41">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="298.269505" transform="rotate(-0 14.173228 298.269505)">11</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="384.680715" transform="rotate(-0 14.173228 384.680715)">11</text>
   </g>
   <g id="text_42">
-   <text style="font-size: 6.5px; font-family: 'Arial'; fill: #202326" transform="translate(68.031496 297.65556)">GEO_N41, GEO_N45, GEO_N35, GEO_N09, GHCNH_CHM00045039, HKO_SHA, GEO_N02,</text>
-   <text style="font-size: 6.5px; font-family: 'Arial'; fill: #202326" transform="translate(68.031496 305.585687)">GEO_N14, GEO_N01, GEO_N13</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; fill: #202326" transform="translate(68.031496 383.877864)">GEO_N41, GEO_N45, GEO_N35, GEO_N09, GHCNH_CHM00045039,</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; fill: #202326" transform="translate(68.031496 394.24803)">HKO_SHA, GEO_N02, GEO_N14, GEO_N01, GEO_N13</text>
   </g>
   <g id="text_43">
-   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="298.221771" transform="rotate(-0 396.850394 298.221771)">Tai Po Kau</text>
+   <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="384.618294" transform="rotate(-0 396.850394 384.618294)">Tai Po Kau</text>
   </g>
  </g>
 </svg>
