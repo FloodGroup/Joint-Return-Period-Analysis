@@ -2,32 +2,19 @@
 
 Thirteen units represent the Tokyo Bay and Sagami Bay analysis sectors. Water levels enter inference in Tokyo Peil (T.P.). Event timing and October-to-September water years use Japan Standard Time.
 
-[Run](#run) · [Analysis units](#analysis-units) · [Regional settings](#regional-settings) · [Maps and coverage](#study-area-and-station-assignments) · [Station catalogue](#station-catalogue)
+| Analysis units | Observation interval | Vertical reference |
+|--:|:--|:--|
+| 13 | Hourly | TP |
 
-## Run
+[Study area](#study-area) · [Units](#analysis-units) · [Coverage](#observation-coverage) · [Stations](#station-catalogue) · [Run](#run)
 
-From the repository root, install the package and run:
+## Study area
 
-```sh
-python -m pip install -e "."
-python Tokyo/run_analysis.py --manifest ../private/tokyo/manifest.json --output ../outputs/tokyo
-```
+[![Study area](figures/01_study_area.png)](figures/01_study_area.png)
 
-[run_analysis.py](run_analysis.py) executes steps 01–05: preparation, event selection, annual fitting, copula fitting and design export. [settings.py](settings.py) contains the regional parameters and station rules; [stations.json](stations.json) contains the station catalog. Use `--annual-only` for S1 and S2.
-
-Read [Methods](../shared/methods.md) for the equations and [Inputs and sources](../shared/inputs.md) for observation formats. The study-area figures below are already in `figures/`.
-
-Build the local documentation with `python build_docs.py --region tokyo` after installing `.[docs]`, then open `Tokyo/site/index.html`.
+*Analysis units and observation stations.*
 
 ## Analysis units
-
-The 24 source subcatchments, TB01–TB24, follow river systems and coastal outlets to Tokyo Bay and Sagami Bay. DEM drainage paths are constrained by W05 river lines and W07 basin boundaries, including low-relief watershed divides. Small coastal drainage areas are grouped by drainage destination and adjacency.
-
-During source-subcatchment delineation, drainage pieces below 2 km² are joined to a neighbouring area, and units below 50 km² are preferentially grouped with adjacent small units. Detached pieces below 20 km² are assigned to an adjoining unit. These rules establish the 24 source subcatchments before their aggregation into the final analysis groups.
-
-The final 13 units group these subcatchments by coastal drainage sector. Member outlets are related to the marine boundary segments, and the assigned tide records must support the required datum conversion and observation coverage. Units can share a tide record while retaining their own rainfall-source sequences and compound-event samples.
-
-See [Methods](../shared/methods.md#analysis-units) for the common partitioning principles.
 
 | Unit | Component subcatchments | Tide record |
 |:--|:--|:--|
@@ -45,33 +32,29 @@ See [Methods](../shared/methods.md#analysis-units) for the common partitioning p
 | M12 | TB22, TB23 | Kurihama |
 | M13 | TB24 | Mera |
 
-## Regional settings
+<details markdown="1">
+<summary>Partitioning principles</summary>
 
-- JMA rainfall follows the declared station priority; valid zeros remain observed zeros, and missing values are not filled by interpolation.
-- Tide conversion uses documented station epochs with JST boundaries. Unknown datum offsets are excluded. Source quality-code meanings remain provider-specific.
-- Rainfall events use the shared hourly pairing, R95 threshold, and 72-hour declustering rules.
-- S1 uses full-record moving-24-hour rainfall maxima. Overlapping annual-maximum windows at water-year boundaries are de-duplicated; reviewed annual observation samples can be supplied with their selection flags.
-- S2 uses one full-record frequency curve per tide station. Kawasaki transfers the Tokyo-Harumi curve; Kurihama transfers the Aburatsubo curve, with concurrent annual-maximum median differences.
-- Water-year 2026 remains in the accepted rainfall record.
-- Regular rainfall and coastal peak times occur at hour 12.
+The 24 source subcatchments, TB01–TB24, follow river systems and coastal outlets to Tokyo Bay and Sagami Bay. DEM drainage paths are constrained by W05 river lines and W07 basin boundaries, including low-relief watershed divides. Small coastal drainage areas are grouped by drainage destination and adjacency.
 
-## Study area and station assignments
+During source-subcatchment delineation, drainage pieces below 2 km² are joined to a neighbouring area, and units below 50 km² are preferentially grouped with adjacent small units. Detached pieces below 20 km² are assigned to an adjoining unit. These rules establish the 24 source subcatchments before their aggregation into the final analysis groups.
 
-Select a figure to inspect it at full resolution.
+The final 13 units group these subcatchments by coastal drainage sector. Member outlets are related to the marine boundary segments, and the assigned tide records must support the required datum conversion and observation coverage. Units can share a tide record while retaining their own rainfall-source sequences and compound-event samples.
 
-### Study area
+See [Methods](../shared/methods.md#analysis-units) for the common partitioning principles.
 
-[![Study area](figures/01_study_area.png)](figures/01_study_area.png)
+</details>
 
-*Analysis units and observation stations.*
-
-### Station assignments
+<details markdown="1">
+<summary>Station assignment diagram</summary>
 
 [![Station assignments](figures/02_station_assignments.png)](figures/02_station_assignments.png)
 
 *Rainfall and coastal water-level assignments by unit.*
 
-### Observation coverage
+</details>
+
+## Observation coverage
 
 [![Observation coverage](figures/03_observation_coverage.png)](figures/03_observation_coverage.png)
 
@@ -84,6 +67,9 @@ Coverage refers to the archived compound-input record. Colour intensity represen
 [M01](#unit-m01) · [M02](#unit-m02) · [M03](#unit-m03) · [M04](#unit-m04) · [M05](#unit-m05) · [M06](#unit-m06) · [M07](#unit-m07) · [M08](#unit-m08) · [M09](#unit-m09) · [M10](#unit-m10) · [M11](#unit-m11) · [M12](#unit-m12) · [M13](#unit-m13)
 
 First and last use refer to actual station contributions; gaps appear in the coverage figures.
+
+<details markdown="1" open>
+<summary><strong>Unit M01</strong> · Aburatsubo · 2 rainfall stations</summary>
 
 ### Unit M01
 
@@ -106,6 +92,11 @@ ID: `GESLA_JODC-GIAJ_GS01`.
 [![M01 observation availability](figures/M01_coverage.png)](figures/M01_coverage.png)
 
 *Unit M01. Monthly availability of contributing rainfall, water-level and paired observations.*
+
+</details>
+
+<details markdown="1">
+<summary><strong>Unit M02</strong> · Aburatsubo · 3 rainfall stations</summary>
 
 ### Unit M02
 
@@ -130,6 +121,11 @@ ID: `GESLA_JODC-GIAJ_GS01`.
 
 *Unit M02. Monthly availability of contributing rainfall, water-level and paired observations.*
 
+</details>
+
+<details markdown="1">
+<summary><strong>Unit M03</strong> · Kurihama · 1 rainfall station</summary>
+
 ### Unit M03
 
 Tide station: Kurihama.<br>
@@ -150,6 +146,11 @@ ID: `GESLA_JODC-PAHB_0161`.
 [![M03 observation availability](figures/M03_coverage.png)](figures/M03_coverage.png)
 
 *Unit M03. Monthly availability of contributing rainfall, water-level and paired observations.*
+
+</details>
+
+<details markdown="1">
+<summary><strong>Unit M04</strong> · Yokohama Shinko · 1 rainfall station</summary>
 
 ### Unit M04
 
@@ -172,6 +173,11 @@ ID: `GESLA_JODC-JCG_HD29`.
 
 *Unit M04. Monthly availability of contributing rainfall, water-level and paired observations.*
 
+</details>
+
+<details markdown="1">
+<summary><strong>Unit M05</strong> · Yokohama Shinko · 1 rainfall station</summary>
+
 ### Unit M05
 
 Tide station: Yokohama Shinko.<br>
@@ -192,6 +198,11 @@ ID: `GESLA_JODC-JCG_HD29`.
 [![M05 observation availability](figures/M05_coverage.png)](figures/M05_coverage.png)
 
 *Unit M05. Monthly availability of contributing rainfall, water-level and paired observations.*
+
+</details>
+
+<details markdown="1">
+<summary><strong>Unit M06</strong> · Kawasaki · 3 rainfall stations</summary>
 
 ### Unit M06
 
@@ -216,6 +227,11 @@ ID: `JODC_MA59`.
 
 *Unit M06. Monthly availability of contributing rainfall, water-level and paired observations.*
 
+</details>
+
+<details markdown="1">
+<summary><strong>Unit M07</strong> · Tokyo Harumi · 2 rainfall stations</summary>
+
 ### Unit M07
 
 Tide station: Tokyo Harumi.<br>
@@ -238,6 +254,11 @@ ID: `JMA_TK`.
 
 *Unit M07. Monthly availability of contributing rainfall, water-level and paired observations.*
 
+</details>
+
+<details markdown="1">
+<summary><strong>Unit M08</strong> · Tokyo Harumi · 1 rainfall station</summary>
+
 ### Unit M08
 
 Tide station: Tokyo Harumi.<br>
@@ -258,6 +279,11 @@ ID: `JMA_TK`.
 [![M08 observation availability](figures/M08_coverage.png)](figures/M08_coverage.png)
 
 *Unit M08. Monthly availability of contributing rainfall, water-level and paired observations.*
+
+</details>
+
+<details markdown="1">
+<summary><strong>Unit M09</strong> · Chiba · 1 rainfall station</summary>
 
 ### Unit M09
 
@@ -280,6 +306,11 @@ ID: `JODC_HD06`.
 
 *Unit M09. Monthly availability of contributing rainfall, water-level and paired observations.*
 
+</details>
+
+<details markdown="1">
+<summary><strong>Unit M10</strong> · Chiba · 1 rainfall station</summary>
+
 ### Unit M10
 
 Tide station: Chiba.<br>
@@ -300,6 +331,11 @@ ID: `JODC_HD06`.
 [![M10 observation availability](figures/M10_coverage.png)](figures/M10_coverage.png)
 
 *Unit M10. Monthly availability of contributing rainfall, water-level and paired observations.*
+
+</details>
+
+<details markdown="1">
+<summary><strong>Unit M11</strong> · Yokohama Shinko · 2 rainfall stations</summary>
 
 ### Unit M11
 
@@ -323,6 +359,11 @@ ID: `GESLA_JODC-JCG_HD29`.
 
 *Unit M11. Monthly availability of contributing rainfall, water-level and paired observations.*
 
+</details>
+
+<details markdown="1">
+<summary><strong>Unit M12</strong> · Kurihama · 1 rainfall station</summary>
+
 ### Unit M12
 
 Tide station: Kurihama.<br>
@@ -344,6 +385,11 @@ ID: `GESLA_JODC-PAHB_0161`.
 
 *Unit M12. Monthly availability of contributing rainfall, water-level and paired observations.*
 
+</details>
+
+<details markdown="1">
+<summary><strong>Unit M13</strong> · Mera · 1 rainfall station</summary>
+
 ### Unit M13
 
 Tide station: Mera.<br>
@@ -364,3 +410,30 @@ ID: `JMA_MR`.
 [![M13 observation availability](figures/M13_coverage.png)](figures/M13_coverage.png)
 
 *Unit M13. Monthly availability of contributing rainfall, water-level and paired observations.*
+
+</details>
+
+## Regional settings
+
+- JMA rainfall follows the declared station priority; valid zeros remain observed zeros, and missing values are not filled by interpolation.
+- Tide conversion uses documented station epochs with JST boundaries. Unknown datum offsets are excluded. Source quality-code meanings remain provider-specific.
+- Rainfall events use the shared hourly pairing, R95 threshold, and 72-hour declustering rules.
+- S1 uses full-record moving-24-hour rainfall maxima. Overlapping annual-maximum windows at water-year boundaries are de-duplicated; reviewed annual observation samples can be supplied with their selection flags.
+- S2 uses one full-record frequency curve per tide station. Kawasaki transfers the Tokyo-Harumi curve; Kurihama transfers the Aburatsubo curve, with concurrent annual-maximum median differences.
+- Water-year 2026 remains in the accepted rainfall record.
+- Regular rainfall and coastal peak times occur at hour 12.
+
+## Run
+
+From the repository root, install the package and run:
+
+```sh
+python -m pip install -e "."
+python Tokyo/run_analysis.py --manifest ../private/tokyo/manifest.json --output ../outputs/tokyo
+```
+
+[run_analysis.py](run_analysis.py) executes steps 01–05: preparation, event selection, annual fitting, copula fitting and design export. [settings.py](settings.py) contains the regional parameters and station rules; [stations.json](stations.json) contains the station catalog. Use `--annual-only` for S1 and S2.
+
+Read [Methods](../shared/methods.md) for the equations and [Inputs and sources](../shared/inputs.md) for observation formats. The study-area figures below are already in `figures/`.
+
+Build the local documentation with `python build_docs.py --region tokyo` after installing `.[docs]`, then open `Tokyo/site/index.html`.

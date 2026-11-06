@@ -11,6 +11,7 @@ theme:
     - navigation.top
     - content.code.copy
 markdown_extensions:
+  - md_in_html
   - toc:
       toc_depth: 3
   - admonition

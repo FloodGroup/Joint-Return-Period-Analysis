@@ -2,32 +2,19 @@
 
 Eleven units represent the bay's coastal catchment groups. All water levels enter inference in NAVD88. The analysis clock is fixed Pacific Standard Time (UTC-8), with October-to-September water years.
 
-[Run](#run) · [Analysis units](#analysis-units) · [Regional settings](#regional-settings) · [Maps and coverage](#study-area-and-station-assignments) · [Station catalogue](#station-catalogue)
+| Analysis units | Observation interval | Vertical reference |
+|--:|:--|:--|
+| 11 | Hourly; intact 6 h rainfall supplements | NAVD88 |
 
-## Run
+[Study area](#study-area) · [Units](#analysis-units) · [Coverage](#observation-coverage) · [Stations](#station-catalogue) · [Run](#run)
 
-From the repository root, install the package and run:
+## Study area
 
-```sh
-python -m pip install -e "."
-python SanF/run_analysis.py --manifest ../private/san_francisco/manifest.json --output ../outputs/san_francisco
-```
+[![Study area](figures/01_study_area.png)](figures/01_study_area.png)
 
-[run_analysis.py](run_analysis.py) executes steps 01–05: preparation, event selection, annual fitting, copula fitting and design export. [settings.py](settings.py) contains the regional parameters and station rules; [stations.json](stations.json) contains the station catalog. Use `--annual-only` for S1 and S2.
-
-Read [Methods](../shared/methods.md) for the equations and [Inputs and sources](../shared/inputs.md) for observation formats. The study-area figures below are already in `figures/`.
-
-Build the local documentation with `python build_docs.py --region san_francisco` after installing `.[docs]`, then open `SanF/site/index.html`.
+*Analysis units and observation stations.*
 
 ## Analysis units
-
-The 31 source subcatchments, SB01–SB31, follow drainage outlets to the bay or adjacent coastal waters. Watershed divides are constrained by the DEM, river network and HUC12 boundaries. The final partition groups these subcatchments into 11 coastal-drainage units, as listed below.
-
-During source-subcatchment delineation, drainage areas below 2 km² are joined to the neighbour with the longest shared boundary. Areas below 50 km² are preferentially joined to neighbouring small catchments below 120 km². The final 11 analysis groups retain the component IDs in the table.
-
-Each group has a specified rainfall-source sequence and a coastal water-level record. A tide record can serve several groups: M04, M05, M08 and M10 use Redwood City, for example, but retain separate rainfall records and compound-event models. Group membership therefore carries information beyond the tide-station assignment.
-
-See [Methods](../shared/methods.md#analysis-units) for the common partitioning principles.
 
 | Unit | Component subcatchments | Tide record |
 |:--|:--|:--|
@@ -43,32 +30,29 @@ See [Methods](../shared/methods.md#analysis-units) for the common partitioning p
 | M10 | SB16, SB17 | Redwood City |
 | M11 | SB12, SB11 | Richmond |
 
-## Regional settings
+<details markdown="1">
+<summary>Partitioning principles</summary>
 
-- Hourly rainfall follows the declared source priority. Intact six-hour reports can fill wholly missing nonoverlapping blocks; they are not disaggregated.
-- Twelve-hour event separation, same-window rainfall/water pairing, rainfall R95, and 72-hour water-peak declustering define the compound population.
-- S1 uses complete moving-24-hour rainfall maxima from the full available source record. Reviewed isolated spikes are excluded for the declared stations.
-- S2 uses each tide station's complete record with documented quality exclusions and explicit partial-year selection.
-- Alviso's annual frequency curve transfers from Redwood City using accepted concurrent annual maxima from 2019 onward. The historical Alviso tie is an engineering reference.
-- Regular rainfall and coastal peak times occur at hour 13. Phase cases apply the same relative offsets as the other regions.
+The 31 source subcatchments, SB01–SB31, follow drainage outlets to the bay or adjacent coastal waters. Watershed divides are constrained by the DEM, river network and HUC12 boundaries. The final partition groups these subcatchments into 11 coastal-drainage units, as listed below.
 
-## Study area and station assignments
+During source-subcatchment delineation, drainage areas below 2 km² are joined to the neighbour with the longest shared boundary. Areas below 50 km² are preferentially joined to neighbouring small catchments below 120 km². The final 11 analysis groups retain the component IDs in the table.
 
-Select a figure to inspect it at full resolution.
+Each group has a specified rainfall-source sequence and a coastal water-level record. A tide record can serve several groups: M04, M05, M08 and M10 use Redwood City, for example, but retain separate rainfall records and compound-event models. Group membership therefore carries information beyond the tide-station assignment.
 
-### Study area
+See [Methods](../shared/methods.md#analysis-units) for the common partitioning principles.
 
-[![Study area](figures/01_study_area.png)](figures/01_study_area.png)
+</details>
 
-*Analysis units and observation stations.*
-
-### Station assignments
+<details markdown="1">
+<summary>Station assignment diagram</summary>
 
 [![Station assignments](figures/02_station_assignments.png)](figures/02_station_assignments.png)
 
 *Rainfall and coastal water-level assignments by unit.*
 
-### Observation coverage
+</details>
+
+## Observation coverage
 
 [![Observation coverage](figures/03_observation_coverage.png)](figures/03_observation_coverage.png)
 
@@ -81,6 +65,9 @@ Coverage refers to the archived compound-input record. Colour intensity represen
 [M01](#unit-m01) · [M02](#unit-m02) · [M03](#unit-m03) · [M04](#unit-m04) · [M05](#unit-m05) · [M06](#unit-m06) · [M07](#unit-m07) · [M08](#unit-m08) · [M09](#unit-m09) · [M10](#unit-m10) · [M11](#unit-m11)
 
 First and last use refer to actual station contributions; gaps appear in the coverage figures.
+
+<details markdown="1" open>
+<summary><strong>Unit M01</strong> · Mare Island / Martinez · 7 rainfall stations</summary>
 
 ### Unit M01
 
@@ -109,6 +96,11 @@ ID: `NOAA_9415218`, `GESLA_CDWR_MRZ`.
 
 *Unit M01. Monthly availability of contributing rainfall, water-level and paired observations.*
 
+</details>
+
+<details markdown="1">
+<summary><strong>Unit M02</strong> · Richmond · 4 rainfall stations</summary>
+
 ### Unit M02
 
 Tide station: Richmond.<br>
@@ -133,6 +125,11 @@ ID: `NOAA_9414863`.
 
 *Unit M02. Monthly availability of contributing rainfall, water-level and paired observations.*
 
+</details>
+
+<details markdown="1">
+<summary><strong>Unit M03</strong> · San Francisco · 1 rainfall station</summary>
+
 ### Unit M03
 
 Tide station: San Francisco.<br>
@@ -153,6 +150,11 @@ ID: `NOAA_9414290`.
 [![M03 observation availability](figures/M03_coverage.png)](figures/M03_coverage.png)
 
 *Unit M03. Monthly availability of contributing rainfall, water-level and paired observations.*
+
+</details>
+
+<details markdown="1">
+<summary><strong>Unit M04</strong> · Redwood City · 3 rainfall stations</summary>
 
 ### Unit M04
 
@@ -177,6 +179,11 @@ ID: `NOAA_9414523`.
 
 *Unit M04. Monthly availability of contributing rainfall, water-level and paired observations.*
 
+</details>
+
+<details markdown="1">
+<summary><strong>Unit M05</strong> · Redwood City · 2 rainfall stations</summary>
+
 ### Unit M05
 
 Tide station: Redwood City.<br>
@@ -199,6 +206,11 @@ ID: `NOAA_9414523`.
 
 *Unit M05. Monthly availability of contributing rainfall, water-level and paired observations.*
 
+</details>
+
+<details markdown="1">
+<summary><strong>Unit M06</strong> · Alviso · 2 rainfall stations</summary>
+
 ### Unit M06
 
 Tide station: Alviso.<br>
@@ -220,6 +232,11 @@ ID: `NOAA_9414575`, `USGS_372750122012701`.
 [![M06 observation availability](figures/M06_coverage.png)](figures/M06_coverage.png)
 
 *Unit M06. Monthly availability of contributing rainfall, water-level and paired observations.*
+
+</details>
+
+<details markdown="1">
+<summary><strong>Unit M07</strong> · Alviso · 6 rainfall stations</summary>
 
 ### Unit M07
 
@@ -246,6 +263,11 @@ ID: `NOAA_9414575`, `USGS_372750122012701`.
 [![M07 observation availability](figures/M07_coverage.png)](figures/M07_coverage.png)
 
 *Unit M07. Monthly availability of contributing rainfall, water-level and paired observations.*
+
+</details>
+
+<details markdown="1">
+<summary><strong>Unit M08</strong> · Redwood City · 7 rainfall stations</summary>
 
 ### Unit M08
 
@@ -274,6 +296,11 @@ ID: `NOAA_9414523`.
 
 *Unit M08. Monthly availability of contributing rainfall, water-level and paired observations.*
 
+</details>
+
+<details markdown="1">
+<summary><strong>Unit M09</strong> · Alameda · 1 rainfall station</summary>
+
 ### Unit M09
 
 Tide station: Alameda.<br>
@@ -294,6 +321,11 @@ ID: `NOAA_9414750`.
 [![M09 observation availability](figures/M09_coverage.png)](figures/M09_coverage.png)
 
 *Unit M09. Monthly availability of contributing rainfall, water-level and paired observations.*
+
+</details>
+
+<details markdown="1">
+<summary><strong>Unit M10</strong> · Redwood City · 2 rainfall stations</summary>
 
 ### Unit M10
 
@@ -317,6 +349,11 @@ ID: `NOAA_9414523`.
 
 *Unit M10. Monthly availability of contributing rainfall, water-level and paired observations.*
 
+</details>
+
+<details markdown="1">
+<summary><strong>Unit M11</strong> · Richmond · 3 rainfall stations</summary>
+
 ### Unit M11
 
 Tide station: Richmond.<br>
@@ -339,3 +376,29 @@ ID: `NOAA_9414863`.
 [![M11 observation availability](figures/M11_coverage.png)](figures/M11_coverage.png)
 
 *Unit M11. Monthly availability of contributing rainfall, water-level and paired observations.*
+
+</details>
+
+## Regional settings
+
+- Hourly rainfall follows the declared source priority. Intact six-hour reports can fill wholly missing nonoverlapping blocks; they are not disaggregated.
+- Twelve-hour event separation, same-window rainfall/water pairing, rainfall R95, and 72-hour water-peak declustering define the compound population.
+- S1 uses complete moving-24-hour rainfall maxima from the full available source record. Reviewed isolated spikes are excluded for the declared stations.
+- S2 uses each tide station's complete record with documented quality exclusions and explicit partial-year selection.
+- Alviso's annual frequency curve transfers from Redwood City using accepted concurrent annual maxima from 2019 onward. The historical Alviso tie is an engineering reference.
+- Regular rainfall and coastal peak times occur at hour 13. Phase cases apply the same relative offsets as the other regions.
+
+## Run
+
+From the repository root, install the package and run:
+
+```sh
+python -m pip install -e "."
+python SanF/run_analysis.py --manifest ../private/san_francisco/manifest.json --output ../outputs/san_francisco
+```
+
+[run_analysis.py](run_analysis.py) executes steps 01–05: preparation, event selection, annual fitting, copula fitting and design export. [settings.py](settings.py) contains the regional parameters and station rules; [stations.json](stations.json) contains the station catalog. Use `--annual-only` for S1 and S2.
+
+Read [Methods](../shared/methods.md) for the equations and [Inputs and sources](../shared/inputs.md) for observation formats. The study-area figures below are already in `figures/`.
+
+Build the local documentation with `python build_docs.py --region san_francisco` after installing `.[docs]`, then open `SanF/site/index.html`.

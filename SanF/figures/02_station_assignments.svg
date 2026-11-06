@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="912.96pt" height="499.4208pt" viewBox="0 0 912.96 499.4208" xmlns="http://www.w3.org/2000/svg" version="1.1">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="664.416pt" height="532.0224pt" viewBox="0 0 664.416 532.0224" xmlns="http://www.w3.org/2000/svg" version="1.1">
  <metadata>
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-11-06T16:06:18.246030</dc:date>
+    <dc:date>2026-11-06T16:24:16.493345</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -21,196 +21,197 @@
  </defs>
  <g id="figure_1">
   <g id="patch_1">
-   <path d="M 0 499.4208
-L 912.96 499.4208
-L 912.96 0
+   <path d="M 0 532.0224
+L 664.416 532.0224
+L 664.416 0
 L 0 0
 z
 " style="fill: #ffffff"/>
   </g>
   <g id="axes_1">
    <g id="patch_2">
-    <path d="M 11.88 492.2208
-L 905.76 492.2208
-L 905.76 37.6848
-L 11.88 37.6848
-L 11.88 492.2208
+    <path d="M 14.148 521.2224
+L 653.616 521.2224
+L 653.616 38.952
+L 14.148 38.952
+L 14.148 521.2224
 z
-" style="fill: none; stroke: #aebdc4; stroke-width: 0.8; stroke-linejoin: miter"/>
+" style="fill: none; stroke: #8e908b; stroke-width: 0.8; stroke-linejoin: miter"/>
    </g>
    <g id="line2d_1">
-    <path d="M 11.88 131.9328
-L 905.76 131.9328
-" clip-path="url(#p73c9c25e3a)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
+    <path d="M 14.148 136.7712
+L 653.616 136.7712
+" clip-path="url(#pc2b87dc0b1)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
    </g>
    <g id="line2d_2">
-    <path d="M 11.88 166.4928
-L 905.76 166.4928
-" clip-path="url(#p73c9c25e3a)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
+    <path d="M 14.148 172.0512
+L 653.616 172.0512
+" clip-path="url(#pc2b87dc0b1)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
    </g>
    <g id="line2d_3">
-    <path d="M 11.88 201.0528
-L 905.76 201.0528
-" clip-path="url(#p73c9c25e3a)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
+    <path d="M 14.148 207.3312
+L 653.616 207.3312
+" clip-path="url(#pc2b87dc0b1)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
    </g>
    <g id="line2d_4">
-    <path d="M 11.88 235.6128
-L 905.76 235.6128
-" clip-path="url(#p73c9c25e3a)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
+    <path d="M 14.148 242.6112
+L 653.616 242.6112
+" clip-path="url(#pc2b87dc0b1)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
    </g>
    <g id="line2d_5">
-    <path d="M 11.88 270.1728
-L 905.76 270.1728
-" clip-path="url(#p73c9c25e3a)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
+    <path d="M 14.148 277.8912
+L 653.616 277.8912
+" clip-path="url(#pc2b87dc0b1)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
    </g>
    <g id="line2d_6">
-    <path d="M 11.88 304.7328
-L 905.76 304.7328
-" clip-path="url(#p73c9c25e3a)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
+    <path d="M 14.148 313.1712
+L 653.616 313.1712
+" clip-path="url(#pc2b87dc0b1)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
    </g>
    <g id="line2d_7">
-    <path d="M 11.88 339.2928
-L 905.76 339.2928
-" clip-path="url(#p73c9c25e3a)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
+    <path d="M 14.148 366.4512
+L 653.616 366.4512
+" clip-path="url(#pc2b87dc0b1)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
    </g>
    <g id="line2d_8">
-    <path d="M 11.88 391.8528
-L 905.76 391.8528
-" clip-path="url(#p73c9c25e3a)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
+    <path d="M 14.148 419.7312
+L 653.616 419.7312
+" clip-path="url(#pc2b87dc0b1)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
    </g>
    <g id="line2d_9">
-    <path d="M 11.88 426.4128
-L 905.76 426.4128
-" clip-path="url(#p73c9c25e3a)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
+    <path d="M 14.148 455.0112
+L 653.616 455.0112
+" clip-path="url(#pc2b87dc0b1)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
    </g>
    <g id="line2d_10">
-    <path d="M 11.88 460.9728
-L 905.76 460.9728
-" clip-path="url(#p73c9c25e3a)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
+    <path d="M 14.148 490.2912
+L 653.616 490.2912
+" clip-path="url(#pc2b87dc0b1)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
    </g>
    <g id="line2d_11">
-    <path d="M 11.88 495.5328
-L 905.76 495.5328
-" clip-path="url(#p73c9c25e3a)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
+    <path d="M 14.148 525.5712
+L 653.616 525.5712
+" clip-path="url(#pc2b87dc0b1)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
    </g>
    <g id="text_1">
-    <text style="font-weight: 700; font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #203844" x="25.2882" y="63.1728" transform="rotate(-0 25.2882 63.1728)">Analysis unit</text>
+    <text style="font-weight: 700; font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="20.54268" y="65.9952" transform="rotate(-0 20.54268 65.9952)">Unit</text>
    </g>
    <g id="text_2">
-    <text style="font-weight: 700; font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #203844" x="128.0844" y="63.1728" transform="rotate(-0 128.0844 63.1728)">Rainfall sources (priority order)</text>
+    <text style="font-weight: 700; font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="110.0682" y="65.9952" transform="rotate(-0 110.0682 65.9952)">Rainfall sources (priority order)</text>
    </g>
    <g id="text_3">
-    <text style="font-weight: 700; font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #203844" x="726.984" y="63.1728" transform="rotate(-0 726.984 63.1728)">Coastal series</text>
+    <text style="font-weight: 700; font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="525.7224" y="65.9952" transform="rotate(-0 525.7224 65.9952)">Coastal series</text>
    </g>
    <g id="assignment-M01">
-    <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #203844" x="25.2882" y="93.529987" transform="rotate(-0 25.2882 93.529987)">M01</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="20.54268" y="96.888622" transform="rotate(-0 20.54268 96.888622)">M01</text>
    </g>
    <g id="assignment-M01">
-    <text style="font-size: 12px; font-family: 'DejaVu Sans'; fill: #168c98" transform="translate(128.0844 94.731159)">CDEC_CMG, CDEC_ROF, GHCNH_USW00093227, NCEI_USC00047646, CDEC_SH4, CDEC_ANG,</text>
-    <text style="font-size: 12px; font-family: 'DejaVu Sans'; fill: #168c98" transform="translate(128.0844 109.133503)">NCEI_USC00040212</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; fill: #252525" transform="translate(110.0682 97.989696)">CDEC_CMG, CDEC_ROF, GHCNH_USW00093227, NCEI_USC00047646,</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; fill: #252525" transform="translate(110.0682 111.191845)">CDEC_SH4, CDEC_ANG, NCEI_USC00040212</text>
    </g>
    <g id="assignment-M01">
-    <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #4c75a3" x="726.984" y="93.530925" transform="rotate(-0 726.984 93.530925)">Mare Island / Martinez</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="525.7224" y="96.889481" transform="rotate(-0 525.7224 96.889481)">Mare Island / Martinez</text>
    </g>
    <g id="assignment-M02">
-    <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #203844" x="25.2882" y="146.089987" transform="rotate(-0 25.2882 146.089987)">M02</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="20.54268" y="150.168622" transform="rotate(-0 20.54268 150.168622)">M02</text>
    </g>
    <g id="assignment-M02">
-    <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #168c98" x="128.0844" y="146.089987" transform="rotate(-0 128.0844 146.089987)">CDEC_PTB, NCEI_USC00046826, CDEC_CRD, CDEC_LIC</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="110.0682" y="150.168622" transform="rotate(-0 110.0682 150.168622)">CDEC_PTB, NCEI_USC00046826, CDEC_CRD, CDEC_LIC</text>
    </g>
    <g id="assignment-M02">
-    <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #4c75a3" x="726.984" y="146.090925" transform="rotate(-0 726.984 146.090925)">Richmond</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="525.7224" y="150.169481" transform="rotate(-0 525.7224 150.169481)">Richmond</text>
    </g>
    <g id="assignment-M03">
-    <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #203844" x="25.2882" y="180.649988" transform="rotate(-0 25.2882 180.649988)">M03</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="20.54268" y="185.448622" transform="rotate(-0 20.54268 185.448622)">M03</text>
    </g>
    <g id="assignment-M03">
-    <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #168c98" x="128.0844" y="180.649988" transform="rotate(-0 128.0844 180.649988)">CDEC_ACM</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="110.0682" y="185.448622" transform="rotate(-0 110.0682 185.448622)">CDEC_ACM</text>
    </g>
    <g id="assignment-M03">
-    <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #4c75a3" x="726.984" y="180.650925" transform="rotate(-0 726.984 180.650925)">San Francisco</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="525.7224" y="185.449481" transform="rotate(-0 525.7224 185.449481)">San Francisco</text>
    </g>
    <g id="assignment-M04">
-    <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #203844" x="25.2882" y="215.209988" transform="rotate(-0 25.2882 215.209988)">M04</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="20.54268" y="220.728622" transform="rotate(-0 20.54268 220.728622)">M04</text>
    </g>
    <g id="assignment-M04">
-    <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #168c98" x="128.0844" y="215.209988" transform="rotate(-0 128.0844 215.209988)">CDEC_PUL, CDEC_CSC, GHCNH_USW00023234</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="110.0682" y="220.728622" transform="rotate(-0 110.0682 220.728622)">CDEC_PUL, CDEC_CSC, GHCNH_USW00023234</text>
    </g>
    <g id="assignment-M04">
-    <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #4c75a3" x="726.984" y="215.210925" transform="rotate(-0 726.984 215.210925)">Redwood City</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="525.7224" y="220.729481" transform="rotate(-0 525.7224 220.729481)">Redwood City</text>
    </g>
    <g id="assignment-M05">
-    <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #203844" x="25.2882" y="249.769988" transform="rotate(-0 25.2882 249.769988)">M05</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="20.54268" y="256.008622" transform="rotate(-0 20.54268 256.008622)">M05</text>
    </g>
    <g id="assignment-M05">
-    <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #168c98" x="128.0844" y="249.769988" transform="rotate(-0 128.0844 249.769988)">CDEC_PUL, CDEC_CSC</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="110.0682" y="256.008622" transform="rotate(-0 110.0682 256.008622)">CDEC_PUL, CDEC_CSC</text>
    </g>
    <g id="assignment-M05">
-    <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #4c75a3" x="726.984" y="249.770925" transform="rotate(-0 726.984 249.770925)">Redwood City</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="525.7224" y="256.009481" transform="rotate(-0 525.7224 256.009481)">Redwood City</text>
    </g>
    <g id="assignment-M06">
-    <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #203844" x="25.2882" y="284.329988" transform="rotate(-0 25.2882 284.329988)">M06</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="20.54268" y="291.288622" transform="rotate(-0 20.54268 291.288622)">M06</text>
    </g>
    <g id="assignment-M06">
-    <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #168c98" x="128.0844" y="284.329988" transform="rotate(-0 128.0844 284.329988)">GHCNH_USW00023244, CDEC_PAA</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="110.0682" y="291.288622" transform="rotate(-0 110.0682 291.288622)">GHCNH_USW00023244, CDEC_PAA</text>
    </g>
    <g id="assignment-M06">
-    <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #4c75a3" x="726.984" y="284.330925" transform="rotate(-0 726.984 284.330925)">Alviso</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="525.7224" y="291.289481" transform="rotate(-0 525.7224 291.289481)">Alviso</text>
    </g>
    <g id="assignment-M07">
-    <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #203844" x="25.2882" y="318.889988" transform="rotate(-0 25.2882 318.889988)">M07</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="20.54268" y="326.568622" transform="rotate(-0 20.54268 326.568622)">M07</text>
    </g>
    <g id="assignment-M07">
-    <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #168c98" x="128.0844" y="318.889988" transform="rotate(-0 128.0844 318.889988)">CDEC_MSP, CDEC_SJE, GHCNH_USW00023293, CDEC_LSG, CDEC_UMN, NCEI_USC00043419</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; fill: #252525" transform="translate(110.0682 327.669696)">CDEC_MSP, CDEC_SJE, GHCNH_USW00023293, CDEC_LSG, CDEC_UMN,</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; fill: #252525" transform="translate(110.0682 340.871845)">NCEI_USC00043419</text>
    </g>
    <g id="assignment-M07">
-    <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #4c75a3" x="726.984" y="318.890925" transform="rotate(-0 726.984 318.890925)">Alviso</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="525.7224" y="326.569481" transform="rotate(-0 525.7224 326.569481)">Alviso</text>
    </g>
    <g id="assignment-M08">
-    <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #203844" x="25.2882" y="353.449988" transform="rotate(-0 25.2882 353.449988)">M08</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="20.54268" y="379.848622" transform="rotate(-0 20.54268 379.848622)">M08</text>
    </g>
    <g id="assignment-M08">
-    <text style="font-size: 12px; font-family: 'DejaVu Sans'; fill: #168c98" transform="translate(128.0844 354.651159)">GHCNH_USW00093228, CDEC_CAD, CDEC_DBF, CDEC_POV, GHCNH_USW00023285, CDEC_RSP,</text>
-    <text style="font-size: 12px; font-family: 'DejaVu Sans'; fill: #168c98" transform="translate(128.0844 369.053503)">CDEC_SWW</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; fill: #252525" transform="translate(110.0682 380.949696)">GHCNH_USW00093228, CDEC_CAD, CDEC_DBF, CDEC_POV,</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; fill: #252525" transform="translate(110.0682 394.151845)">GHCNH_USW00023285, CDEC_RSP, CDEC_SWW</text>
    </g>
    <g id="assignment-M08">
-    <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #4c75a3" x="726.984" y="353.450925" transform="rotate(-0 726.984 353.450925)">Redwood City</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="525.7224" y="379.849481" transform="rotate(-0 525.7224 379.849481)">Redwood City</text>
    </g>
    <g id="assignment-M09">
-    <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #203844" x="25.2882" y="406.009988" transform="rotate(-0 25.2882 406.009988)">M09</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="20.54268" y="433.128622" transform="rotate(-0 20.54268 433.128622)">M09</text>
    </g>
    <g id="assignment-M09">
-    <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #168c98" x="128.0844" y="406.009988" transform="rotate(-0 128.0844 406.009988)">CDEC_OSO</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="110.0682" y="433.128622" transform="rotate(-0 110.0682 433.128622)">CDEC_OSO</text>
    </g>
    <g id="assignment-M09">
-    <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #4c75a3" x="726.984" y="406.010925" transform="rotate(-0 726.984 406.010925)">Alameda</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="525.7224" y="433.129481" transform="rotate(-0 525.7224 433.129481)">Alameda</text>
    </g>
    <g id="assignment-M10">
-    <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #203844" x="25.2882" y="440.569988" transform="rotate(-0 25.2882 440.569988)">M10</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="20.54268" y="468.408622" transform="rotate(-0 20.54268 468.408622)">M10</text>
    </g>
    <g id="assignment-M10">
-    <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #168c98" x="128.0844" y="440.569988" transform="rotate(-0 128.0844 440.569988)">CDEC_SLE, GHCNH_USW00023230</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="110.0682" y="468.408622" transform="rotate(-0 110.0682 468.408622)">CDEC_SLE, GHCNH_USW00023230</text>
    </g>
    <g id="assignment-M10">
-    <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #4c75a3" x="726.984" y="440.570925" transform="rotate(-0 726.984 440.570925)">Redwood City</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="525.7224" y="468.409481" transform="rotate(-0 525.7224 468.409481)">Redwood City</text>
    </g>
    <g id="assignment-M11">
-    <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #203844" x="25.2882" y="475.129988" transform="rotate(-0 25.2882 475.129988)">M11</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="20.54268" y="503.688622" transform="rotate(-0 20.54268 503.688622)">M11</text>
    </g>
    <g id="assignment-M11">
-    <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #168c98" x="128.0844" y="475.129988" transform="rotate(-0 128.0844 475.129988)">CDEC_RHL, CDEC_TLD, CDEC_ONO</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="110.0682" y="503.688622" transform="rotate(-0 110.0682 503.688622)">CDEC_RHL, CDEC_TLD, CDEC_ONO</text>
    </g>
    <g id="assignment-M11">
-    <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #4c75a3" x="726.984" y="475.130925" transform="rotate(-0 726.984 475.130925)">Richmond</text>
+    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="525.7224" y="503.689481" transform="rotate(-0 525.7224 503.689481)">Richmond</text>
    </g>
   </g>
   <g id="text_4">
-   <text style="font-weight: 700; font-size: 16px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #203844" x="7.2" y="19.4275" transform="rotate(-0 7.2 19.4275)">San Francisco Bay | Station assignments</text>
+   <text style="font-weight: 700; font-size: 16px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="10.8" y="23.0275" transform="rotate(-0 10.8 23.0275)">San Francisco Bay | Station assignments</text>
   </g>
  </g>
  <defs>
-  <clipPath id="p73c9c25e3a">
-   <rect x="11.88" y="67.4208" width="893.88" height="424.8"/>
+  <clipPath id="pc2b87dc0b1">
+   <rect x="14.148" y="70.5024" width="639.468" height="450.72"/>
   </clipPath>
  </defs>
 </svg>

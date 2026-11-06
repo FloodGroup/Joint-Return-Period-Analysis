@@ -32,7 +32,29 @@ An analysis unit links a coastal drainage area to a representative rainfall seri
 
 The partitions follow drainage divides, river outlets and coastal boundary sectors. Several subcatchments can form one unit, while one geographic polygon can have separate analysis units for different rainfall and tide assignments. GBA has 13 analysis units on 11 geographic polygons; SanF has 11 groups of 31 subcatchments; Tokyo has 13 groups of 24 subcatchments. [Methods](shared/methods.md#analysis-units) explains the partitioning principles, and each regional README lists the component areas and tide assignments.
 
-## Repository layout
+## Run an analysis
+
+Use Python 3.12 and supply a private observation manifest as described in [Inputs and sources](shared/inputs.md).
+
+```sh
+python -m pip install -e "."
+python Tokyo/run_analysis.py --manifest ../private/tokyo/manifest.json --output ../outputs/tokyo
+```
+
+Review the region's `settings.py` and `stations.json` before running its entry script. The five steps are:
+
+| Step | Operation | Folder |
+|--:|:--|:--|
+| 01 | Prepare observations, quality rules and vertical references | [step01_prepare](shared/jrpa/step01_prepare/run.py) |
+| 02 | Merge rainfall sources and select independent event pairs | [step02_events](shared/jrpa/step02_events/run.py) |
+| 03 | Fit annual rainfall (S1) and water-level (S2) distributions | [step03_annual](shared/jrpa/step03_annual/run.py) |
+| 04 | Fit event margins and copula dependence | [step04_copula](shared/jrpa/step04_copula/run.py) |
+| 05 | Calculate Kendall design points and export tables and figures | [step05_export](shared/jrpa/step05_export/run.py) |
+
+The output directory contains `design_values.csv`, diagnostics, source usage and `results.html`. Add `--annual-only` for S1 and S2 alone. Run a small artificial example with `jrpa demo --region tokyo --output ../synthetic-tokyo`.
+
+<details markdown="1">
+<summary>Repository layout and code locations</summary>
 
 Each region has a `run_analysis.py` entry point that runs the five steps in `shared/jrpa/`. The command-line interface uses the same sequence in `shared/jrpa/main.py`.
 
@@ -59,26 +81,7 @@ shared/
     inputs.md            # Observation formats and data sources
 ```
 
-## Run an analysis
-
-Use Python 3.12 and supply a private observation manifest as described in [Inputs and sources](shared/inputs.md).
-
-```sh
-python -m pip install -e "."
-python Tokyo/run_analysis.py --manifest ../private/tokyo/manifest.json --output ../outputs/tokyo
-```
-
-Review the region's `settings.py` and `stations.json` before running its entry script. The five steps are:
-
-| Step | Operation | Folder |
-|--:|:--|:--|
-| 01 | Prepare observations, quality rules and vertical references | [step01_prepare](shared/jrpa/step01_prepare/run.py) |
-| 02 | Merge rainfall sources and select independent event pairs | [step02_events](shared/jrpa/step02_events/run.py) |
-| 03 | Fit annual rainfall (S1) and water-level (S2) distributions | [step03_annual](shared/jrpa/step03_annual/run.py) |
-| 04 | Fit event margins and copula dependence | [step04_copula](shared/jrpa/step04_copula/run.py) |
-| 05 | Calculate Kendall design points and export tables and figures | [step05_export](shared/jrpa/step05_export/run.py) |
-
-The output directory contains `design_values.csv`, diagnostics, source usage and `results.html`. Add `--annual-only` for S1 and S2 alone. Run a small artificial example with `jrpa demo --region tokyo --output ../synthetic-tokyo`.
+</details>
 
 ## Read the documentation
 
@@ -105,6 +108,9 @@ Please cite this software as:
 
 > Long, Z., Yang, R., Jiang, L., & Duan, H.-F. (2026). *Joint Return-Period Analysis* (Version 1.0.1) [Computer software]. The State Key Laboratory of Climate Resilience for Coastal Cities (SKL-CRCC), The Hong Kong Polytechnic University. https://github.com/FloodGroup/Joint-Return-Period-Analysis
 
+<details markdown="1">
+<summary>BibTeX citation</summary>
+
 ```bibtex
 @software{Long_Joint_Return_Period_Analysis_2026,
   author       = {Long, Zhiyong and Yang, Ruiyi and Jiang, Long and Duan, Huan-Feng},
@@ -115,5 +121,7 @@ Please cite this software as:
   url          = {https://github.com/FloodGroup/Joint-Return-Period-Analysis}
 }
 ```
+
+</details>
 
 Report issues with the region, processing step, environment and a reproducible artificial example.

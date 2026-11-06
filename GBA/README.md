@@ -2,30 +2,19 @@
 
 Thirteen analysis units represent the Pearl River Estuary and Hong Kong coastal sectors. Coastal water level is analyzed in CN1985; model entry uses the source-system-specific conversion documented in the methods.
 
-[Run](#run) · [Analysis units](#analysis-units) · [Regional settings](#regional-settings) · [Maps and coverage](#study-area-and-station-assignments) · [Station catalogue](#station-catalogue)
+| Analysis units | Observation interval | Vertical reference |
+|--:|:--|:--|
+| 13 | Daily | CN1985 |
 
-## Run
+[Study area](#study-area) · [Units](#analysis-units) · [Coverage](#observation-coverage) · [Stations](#station-catalogue) · [Run](#run)
 
-From the repository root, install the package and run:
+## Study area
 
-```sh
-python -m pip install -e "."
-python GBA/run_analysis.py --manifest ../private/gba/manifest.json --output ../outputs/gba
-```
+[![Study area](figures/01_study_area.png)](figures/01_study_area.png)
 
-[run_analysis.py](run_analysis.py) executes steps 01–05: preparation, event selection, annual fitting, copula fitting and design export. [settings.py](settings.py) contains the regional parameters and station rules; [stations.json](stations.json) contains the station catalog. Use `--annual-only` for S1 and S2.
-
-Read [Methods](../shared/methods.md) for the equations and [Inputs and sources](../shared/inputs.md) for observation formats. The study-area figures below are already in `figures/`.
-
-Build the local documentation with `python build_docs.py --region gba` after installing `.[docs]`, then open `GBA/site/index.html`.
+*Analysis units and observation stations.*
 
 ## Analysis units
-
-The geographic partition contains 11 coastal drainage polygons, grouped by major river outlets and receiving waters. Drainage paths follow the DEM and river network; small coastal drainage areas are joined to adjoining outlet groups. Tide assignments account for the receiving water body, usable records and a documented vertical reference.
-
-The statistical analysis has 13 units because polygons 3 and 10 each have two rainfall–tide assignments. Units 03a and 03b share polygon 3 and use DJZ and NLT, respectively; 10a and 10b share polygon 10 and use QUB and SPW. These paired units retain the same geographic extent while using their separately assigned observation records.
-
-See [Methods](../shared/methods.md#analysis-units) for the common partitioning principles.
 
 | Unit | Geographic polygon | Tide record |
 |:--|:--|:--|
@@ -43,33 +32,27 @@ See [Methods](../shared/methods.md#analysis-units) for the common partitioning p
 | 10b | 10 | Shek Pik |
 | 11 | 11 | Tai Po Kau |
 
-## Regional settings
+<details markdown="1">
+<summary>Partitioning principles</summary>
 
-- Priority-merged daily rainfall is paired with the daily maximum coastal water level. The positive-day R95 threshold and three-day declustering define the event sample.
-- Mainland S1 units 01-08, including 03a/03b, use index-rainfall regional frequency analysis with long-record stations within 60 km. L-moment ratios are record-length weighted; H1 screening removes farthest stations if needed.
-- Daily rainfall designs and compound rainfall coordinates use the empirical factor 1.13 to express estimated moving-24-hour quantities.
-- S2 uses full station records with annual/seasonal completeness and regional storm-day checks. Independently sourced supplemental peaks remain private observation inputs.
-- DJZ transfers the SZ curve; NLT transfers the CW curve, adding the median concurrent annual-maximum difference.
-- Units 01, 02, and 05 exclude the documented invalid storm-day event pairs. Unit 10a uses a nondegenerate water-level margin and Gaussian dependence.
-- Rainfall and tide peaks occur at hour 12 in regular event-design cases.
+The geographic partition contains 11 coastal drainage polygons, grouped by major river outlets and receiving waters. Drainage paths follow the DEM and river network; small coastal drainage areas are joined to adjoining outlet groups. Tide assignments account for the receiving water body, usable records and a documented vertical reference.
 
-## Study area and station assignments
+The statistical analysis has 13 units because polygons 3 and 10 each have two rainfall–tide assignments. Units 03a and 03b share polygon 3 and use DJZ and NLT, respectively; 10a and 10b share polygon 10 and use QUB and SPW. These paired units retain the same geographic extent while using their separately assigned observation records.
 
-Select a figure to inspect it at full resolution.
+See [Methods](../shared/methods.md#analysis-units) for the common partitioning principles.
 
-### Study area
+</details>
 
-[![Study area](figures/01_study_area.png)](figures/01_study_area.png)
-
-*Analysis units and observation stations.*
-
-### Station assignments
+<details markdown="1">
+<summary>Station assignment diagram</summary>
 
 [![Station assignments](figures/02_station_assignments.png)](figures/02_station_assignments.png)
 
 *Rainfall and coastal water-level assignments by unit.*
 
-### Observation coverage
+</details>
+
+## Observation coverage
 
 [![Observation coverage](figures/03_observation_coverage.png)](figures/03_observation_coverage.png)
 
@@ -82,6 +65,9 @@ Coverage refers to the archived compound-input record. Colour intensity represen
 [01](#unit-01) · [02](#unit-02) · [03a](#unit-03a) · [03b](#unit-03b) · [04](#unit-04) · [05](#unit-05) · [06](#unit-06) · [07](#unit-07) · [08](#unit-08) · [09](#unit-09) · [10a](#unit-10a) · [10b](#unit-10b) · [11](#unit-11)
 
 First and last use refer to actual station contributions; gaps appear in the coverage figures.
+
+<details markdown="1" open>
+<summary><strong>Unit 01</strong> · Sanzao · 1 rainfall station</summary>
 
 ### Unit 01
 
@@ -103,6 +89,11 @@ ID: `SZ`.
 [![01 observation availability](figures/01_coverage.png)](figures/01_coverage.png)
 
 *Unit 01. Monthly availability of contributing rainfall, water-level and paired observations.*
+
+</details>
+
+<details markdown="1">
+<summary><strong>Unit 02</strong> · Sanzao · 15 rainfall stations</summary>
 
 ### Unit 02
 
@@ -139,6 +130,11 @@ ID: `SZ`.
 
 *Unit 02. Monthly availability of contributing rainfall, water-level and paired observations.*
 
+</details>
+
+<details markdown="1">
+<summary><strong>Unit 03a</strong> · Dajiu Zhou · 1 rainfall station</summary>
+
 ### Unit 03a
 
 Tide station: Dajiu Zhou.<br>
@@ -160,6 +156,11 @@ ID: `DJZ`.
 
 *Unit 03a. Monthly availability of contributing rainfall, water-level and paired observations.*
 
+</details>
+
+<details markdown="1">
+<summary><strong>Unit 03b</strong> · Nei Lingding · 1 rainfall station</summary>
+
 ### Unit 03b
 
 Tide station: Nei Lingding.<br>
@@ -180,6 +181,11 @@ ID: `NLT`.
 [![03b observation availability](figures/03b_coverage.png)](figures/03b_coverage.png)
 
 *Unit 03b. Monthly availability of contributing rainfall, water-level and paired observations.*
+
+</details>
+
+<details markdown="1">
+<summary><strong>Unit 04</strong> · Nansha · 13 rainfall stations</summary>
 
 ### Unit 04
 
@@ -214,6 +220,11 @@ ID: `NS`.
 
 *Unit 04. Monthly availability of contributing rainfall, water-level and paired observations.*
 
+</details>
+
+<details markdown="1">
+<summary><strong>Unit 05</strong> · Nansha · 7 rainfall stations</summary>
+
 ### Unit 05
 
 Tide station: Nansha.<br>
@@ -240,6 +251,11 @@ ID: `NS`.
 [![05 observation availability](figures/05_coverage.png)](figures/05_coverage.png)
 
 *Unit 05. Monthly availability of contributing rainfall, water-level and paired observations.*
+
+</details>
+
+<details markdown="1">
+<summary><strong>Unit 06</strong> · Dasheng · 11 rainfall stations</summary>
 
 ### Unit 06
 
@@ -271,6 +287,11 @@ ID: `DS`.
 [![06 observation availability](figures/06_coverage.png)](figures/06_coverage.png)
 
 *Unit 06. Monthly availability of contributing rainfall, water-level and paired observations.*
+
+</details>
+
+<details markdown="1">
+<summary><strong>Unit 07</strong> · Sishengwei · 16 rainfall stations</summary>
 
 ### Unit 07
 
@@ -308,6 +329,11 @@ ID: `SSW`.
 
 *Unit 07. Monthly availability of contributing rainfall, water-level and paired observations.*
 
+</details>
+
+<details markdown="1">
+<summary><strong>Unit 08</strong> · Chiwan · 3 rainfall stations</summary>
+
 ### Unit 08
 
 Tide station: Chiwan.<br>
@@ -330,6 +356,11 @@ ID: `CW`.
 [![08 observation availability](figures/08_coverage.png)](figures/08_coverage.png)
 
 *Unit 08. Monthly availability of contributing rainfall, water-level and paired observations.*
+
+</details>
+
+<details markdown="1">
+<summary><strong>Unit 09</strong> · Tsim Bei Tsui · 8 rainfall stations</summary>
 
 ### Unit 09
 
@@ -358,6 +389,11 @@ ID: `TBT`.
 [![09 observation availability](figures/09_coverage.png)](figures/09_coverage.png)
 
 *Unit 09. Monthly availability of contributing rainfall, water-level and paired observations.*
+
+</details>
+
+<details markdown="1">
+<summary><strong>Unit 10a</strong> · Quarry Bay · 9 rainfall stations</summary>
 
 ### Unit 10a
 
@@ -388,6 +424,11 @@ ID: `QUB`.
 
 *Unit 10a. Monthly availability of contributing rainfall, water-level and paired observations.*
 
+</details>
+
+<details markdown="1">
+<summary><strong>Unit 10b</strong> · Shek Pik · 6 rainfall stations</summary>
+
 ### Unit 10b
 
 Tide station: Shek Pik.<br>
@@ -413,6 +454,11 @@ ID: `SPW`.
 [![10b observation availability](figures/10b_coverage.png)](figures/10b_coverage.png)
 
 *Unit 10b. Monthly availability of contributing rainfall, water-level and paired observations.*
+
+</details>
+
+<details markdown="1">
+<summary><strong>Unit 11</strong> · Tai Po Kau · 10 rainfall stations</summary>
 
 ### Unit 11
 
@@ -443,3 +489,30 @@ ID: `TPK`.
 [![11 observation availability](figures/11_coverage.png)](figures/11_coverage.png)
 
 *Unit 11. Monthly availability of contributing rainfall, water-level and paired observations.*
+
+</details>
+
+## Regional settings
+
+- Priority-merged daily rainfall is paired with the daily maximum coastal water level. The positive-day R95 threshold and three-day declustering define the event sample.
+- Mainland S1 units 01-08, including 03a/03b, use index-rainfall regional frequency analysis with long-record stations within 60 km. L-moment ratios are record-length weighted; H1 screening removes farthest stations if needed.
+- Daily rainfall designs and compound rainfall coordinates use the empirical factor 1.13 to express estimated moving-24-hour quantities.
+- S2 uses full station records with annual/seasonal completeness and regional storm-day checks. Independently sourced supplemental peaks remain private observation inputs.
+- DJZ transfers the SZ curve; NLT transfers the CW curve, adding the median concurrent annual-maximum difference.
+- Units 01, 02, and 05 exclude the documented invalid storm-day event pairs. Unit 10a uses a nondegenerate water-level margin and Gaussian dependence.
+- Rainfall and tide peaks occur at hour 12 in regular event-design cases.
+
+## Run
+
+From the repository root, install the package and run:
+
+```sh
+python -m pip install -e "."
+python GBA/run_analysis.py --manifest ../private/gba/manifest.json --output ../outputs/gba
+```
+
+[run_analysis.py](run_analysis.py) executes steps 01–05: preparation, event selection, annual fitting, copula fitting and design export. [settings.py](settings.py) contains the regional parameters and station rules; [stations.json](stations.json) contains the station catalog. Use `--annual-only` for S1 and S2.
+
+Read [Methods](../shared/methods.md) for the equations and [Inputs and sources](../shared/inputs.md) for observation formats. The study-area figures below are already in `figures/`.
+
+Build the local documentation with `python build_docs.py --region gba` after installing `.[docs]`, then open `GBA/site/index.html`.
