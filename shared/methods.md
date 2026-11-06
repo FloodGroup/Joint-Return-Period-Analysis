@@ -52,10 +52,10 @@ The rainfall threshold is the 95th percentile of rainfall-complete event totals 
 
 For GBA, the threshold is the 95th percentile of positive daily rainfall within the declared analysis clock. Same-day daily highest water levels are paired with rainfall exceedances. Adjacent exceedance dates separated by fewer than three days form clusters. The largest rainfall is retained; water level resolves rainfall ties. Explicitly invalid selected pairs are removed without replacing them with another storm in the cluster.
 
-$$
+```math
 Y_{\mathrm{eff}}=\frac{N_{\mathrm{paired}}}{365.2425\,s},
 \qquad \lambda=\frac{N_{\mathrm{events}}}{Y_{\mathrm{eff}}},
-$$
+```
 
 where $s=24$ for hourly observations and $s=1$ for daily observations. Exposure is calculated from simultaneous valid observations.
 
@@ -71,17 +71,23 @@ GBA annual rainfall uses calendar years with at least 274 valid daily values. Ma
 
 For annual-maximum distribution $F_{\mathrm{AM}}$,
 
-$$x_T=F_{\mathrm{AM}}^{-1}(1-T^{-1}),\qquad T\in\{10,50,100,200\}.$$
+```math
+x_T=F_{\mathrm{AM}}^{-1}(1-T^{-1}),\qquad T\in\{10,50,100,200\}.
+```
 
 The S2 curve belongs to a tide station and is reused for every unit that shares that station. A short station's design curve is transferred from its declared donor using the median difference of concurrent accepted annual maxima:
 
-$$h_T^{(s)}=h_T^{(d)}+\operatorname{median}_{y\in\mathcal Y_{sd}}\{M_y^{(s)}-M_y^{(d)}\}.$$
+```math
+h_T^{(s)}=h_T^{(d)}+\mathrm{median}_{y\in\mathcal Y_{sd}}\{M_y^{(s)}-M_y^{(d)}\}.
+```
 
 The transfer adjusts the donor frequency curve by a concurrent annual-maximum offset.
 
 For eligible GBA mainland units, local annual-maximum mean $\bar M_u$ scales a regional GEV growth curve $g_T$:
 
-$$R_{T,u}^{24\mathrm h}=1.13\,\bar M_u\,g_T.$$
+```math
+R_{T,u}^{24\mathrm h}=1.13\,\bar M_u\,g_T.
+```
 
 Regional L-CV and L-skewness are weighted by station record length. Only stations within 60 km are eligible. Regional GEV simulations (500 replicates) approximate the Hosking-Wallis $H_1$ heterogeneity statistic. If $H_1\ge2$, the farthest station is removed iteratively. A remaining single station supplies its own growth curve. The 1.13 factor converts daily rainfall to estimated moving-24-hour rainfall.
 
@@ -97,9 +103,9 @@ The single-family pool contains Gamma, Lognormal, Weibull, Exponential, GEV, GPD
 
 The rainfall event margin models the excess $R-R_{95}$. Its offset restores physical rainfall in CDF, inverse-CDF, and density evaluations. Water level is fitted on the same selected event population.
 
-$$
-\operatorname{AICc}=2k-2\ell+\frac{2k(k+1)}{n-k-1}.
-$$
+```math
+\mathrm{AICc}=2k-2\ell+\frac{2k(k+1)}{n-k-1}.
+```
 
 Eligibility checks reject nonfinite likelihoods, singular endpoint density modes, inadmissible shape parameters, and weakly identified shifts. Annual candidate parameters exceeding $10^4$ in absolute value are rejected as numerically degenerate. The GBA 10a water-level event margin uses this nondegenerate annual-family pool with event-sample likelihood and KS selection; its dependence family is Gaussian.
 
@@ -109,13 +115,13 @@ Hourly event margins use 49 refitted KS replicates for screening and 999 for fin
 
 Dependence candidates include Independence, Gaussian, Student, Clayton, Gumbel, Frank, Joe, BB1, BB6, BB7, BB8, and Tawn, with eligible rotations. There are 36 family-rotation combinations. Parameters are estimated by IFM with maximum likelihood in pyvinecopulib. Sequential joint-CDF CvM tests refit both margins and the fixed copula family in every replicate.
 
-$$
-\begin{aligned}
-S_n &= n\,\frac1n\sum_{i=1}^{n}\left\{C_n(\mathbf u_i)-C_{\widehat\theta}(\mathbf u_i)\right\}^2,
-\\
-p &= \frac{1+\sum_{b=1}^{B_{\mathrm{valid}}}\mathbf1(S_n^{(b)}\ge S_n)}{1+B_{\mathrm{valid}}}.
-\end{aligned}
-$$
+```math
+S_n = n\,\frac1n\sum_{i=1}^{n}\left\{C_n(\mathbf u_i)-C_{\widehat\theta}(\mathbf u_i)\right\}^2.
+```
+
+```math
+p = \frac{1+\sum_{b=1}^{B_{\mathrm{valid}}}\mathbf1(S_n^{(b)}\ge S_n)}{1+B_{\mathrm{valid}}}.
+```
 
 The joint test uses 99 replicates for San Francisco and Tokyo and 49 for GBA. At least 90% must be valid, and $p\ge0.05$ is required. Formal compound estimates also require both marginal tests to pass, at least 30 event pairs, and at least 10 effective paired years.
 
@@ -125,15 +131,17 @@ The joint test uses 99 replicates for San Francisco and Tokyo and 49 for GBA. At
 
 Let $U=F_R(R)$, $V=F_H(H)$, and $K_C(c)=\Pr[C(U,V)\le c]$. For selected-event rate $\lambda$,
 
-$$T_K(c)=\frac{1}{\lambda[1-K_C(c)]},\qquad c_T=K_C^{-1}\!\left(1-\frac{1}{\lambda T}\right).$$
+```math
+T_K(c)=\frac{1}{\lambda[1-K_C(c)]},\qquad c_T=K_C^{-1}\!\left(1-\frac{1}{\lambda T}\right).
+```
 
 The critical joint-CDF score is calibrated with randomized quasi-Monte Carlo simulation. San Francisco and Tokyo use 1,048,576 calibration samples and an independent equally sized validation sample; relative exceedance-probability error must remain below 5%. GBA uses 262,144 calibration samples with its fixed daily-event numerical settings.
 
 On $C(F_R(r),F_H(h))=c_T$, choose the maximum physical joint-density point:
 
-$$
+```math
 f_{R,H}(r,h)=c_{RH}(F_R(r),F_H(h))f_R(r)f_H(h).
-$$
+```
 
 The hourly workflow combines linear and tail-dense global scans with refinement at all local density peaks. The GBA daily workflow uses its 80-point quantile scan and bounded local refinement. Layer residuals, candidate optima, and calibration metadata are saved. AND and OR exceedance probabilities define different return periods.
 
@@ -155,8 +163,8 @@ Climate multipliers, sea-level increments, observed tide templates, rainfall pro
 
 | Region/source system | Model conversion |
 |:--|:--|
-| GBA mainland yearbook | $H_{\mathrm{model}}=H_{1985}-0.744\;\mathrm m$ |
-| GBA Hong Kong | $H_{1985}=H_{\mathrm{mCD}}-0.879\;\mathrm m$; $H_{\mathrm{model}}=H_{1985}-0.573\;\mathrm m$ |
+| GBA mainland yearbook | $H_{\mathrm{model}}=H_{1985}-0.744\quad\mathrm{m}$ |
+| GBA Hong Kong | $H_{1985}=H_{\mathrm{mCD}}-0.879\quad\mathrm{m}$; $H_{\mathrm{model}}=H_{1985}-0.573\quad\mathrm{m}$ |
 | San Francisco Bay | $H_{\mathrm{model}}=H_{\mathrm{NAVD88}}$ |
 | Tokyo Bay | $H_{\mathrm{model}}=H_{\mathrm{TP}}$ |
 

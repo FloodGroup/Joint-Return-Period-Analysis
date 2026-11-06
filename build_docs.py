@@ -142,7 +142,14 @@ def documentation_text(root, source, region):
             )
         return "](" + link + suffix + ")"
 
-    return re.sub(r"\]\(([^)]+)\)", resolve, source.read_text(encoding="utf8"))
+    text = re.sub(r"\]\(([^)]+)\)", resolve, source.read_text(encoding="utf8"))
+    # GitHub math fences protect TeX escapes; Arithmatex uses display delimiters.
+    return re.sub(
+        r"^```math\s*\n(.*?)\n```[ \t]*$",
+        lambda match: "$$\n" + match.group(1) + "\n$$",
+        text,
+        flags=re.MULTILINE | re.DOTALL,
+    )
 
 
 def build_region(root, region):
