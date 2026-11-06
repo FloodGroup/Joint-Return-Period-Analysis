@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="664.416pt" height="671.7312pt" viewBox="0 0 664.416 671.7312" xmlns="http://www.w3.org/2000/svg" version="1.1">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="518.740157pt" height="325.984252pt" viewBox="0 0 518.740157 325.984252" xmlns="http://www.w3.org/2000/svg" version="1.1">
  <metadata>
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-11-06T16:24:16.188229</dc:date>
+    <dc:date>2026-11-06T17:10:14.567687</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -21,229 +21,218 @@
  </defs>
  <g id="figure_1">
   <g id="patch_1">
-   <path d="M 0 671.7312
-L 664.416 671.7312
-L 664.416 0
+   <path d="M 0 325.984252
+L 518.740157 325.984252
+L 518.740157 0
 L 0 0
 z
 " style="fill: #ffffff"/>
   </g>
-  <g id="axes_1">
-   <g id="patch_2">
-    <path d="M 14.148 660.9312
-L 653.616 660.9312
-L 653.616 26.1216
-L 14.148 26.1216
-L 14.148 660.9312
+  <g id="patch_2">
+   <path d="M 5.669291 323.149606
+L 513.070866 323.149606
+L 513.070866 19.84252
+L 5.669291 19.84252
+L 5.669291 323.149606
 z
-" style="fill: none; stroke: #8e908b; stroke-width: 0.8; stroke-linejoin: miter"/>
-   </g>
-   <g id="line2d_1">
-    <path d="M 14.148 121.6224
-L 653.616 121.6224
-" clip-path="url(#p1b7845d478)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
-   </g>
-   <g id="line2d_2">
-    <path d="M 14.148 174.9024
-L 653.616 174.9024
-" clip-path="url(#p1b7845d478)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
-   </g>
-   <g id="line2d_3">
-    <path d="M 14.148 210.1824
-L 653.616 210.1824
-" clip-path="url(#p1b7845d478)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
-   </g>
-   <g id="line2d_4">
-    <path d="M 14.148 245.4624
-L 653.616 245.4624
-" clip-path="url(#p1b7845d478)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
-   </g>
-   <g id="line2d_5">
-    <path d="M 14.148 298.7424
-L 653.616 298.7424
-" clip-path="url(#p1b7845d478)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
-   </g>
-   <g id="line2d_6">
-    <path d="M 14.148 334.0224
-L 653.616 334.0224
-" clip-path="url(#p1b7845d478)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
-   </g>
-   <g id="line2d_7">
-    <path d="M 14.148 387.3024
-L 653.616 387.3024
-" clip-path="url(#p1b7845d478)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
-   </g>
-   <g id="line2d_8">
-    <path d="M 14.148 440.5824
-L 653.616 440.5824
-" clip-path="url(#p1b7845d478)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
-   </g>
-   <g id="line2d_9">
-    <path d="M 14.148 475.8624
-L 653.616 475.8624
-" clip-path="url(#p1b7845d478)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
-   </g>
-   <g id="line2d_10">
-    <path d="M 14.148 529.1424
-L 653.616 529.1424
-" clip-path="url(#p1b7845d478)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
-   </g>
-   <g id="line2d_11">
-    <path d="M 14.148 582.4224
-L 653.616 582.4224
-" clip-path="url(#p1b7845d478)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
-   </g>
-   <g id="line2d_12">
-    <path d="M 14.148 617.7024
-L 653.616 617.7024
-" clip-path="url(#p1b7845d478)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
-   </g>
-   <g id="line2d_13">
-    <path d="M 14.148 670.9824
-L 653.616 670.9824
-" clip-path="url(#p1b7845d478)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
-   </g>
-   <g id="text_1">
-    <text style="font-weight: 700; font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="20.54268" y="61.7184" transform="rotate(-0 20.54268 61.7184)">Unit</text>
-   </g>
-   <g id="text_2">
-    <text style="font-weight: 700; font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="110.0682" y="61.7184" transform="rotate(-0 110.0682 61.7184)">Rainfall sources (priority order)</text>
-   </g>
-   <g id="text_3">
-    <text style="font-weight: 700; font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="525.7224" y="61.7184" transform="rotate(-0 525.7224 61.7184)">Coastal series</text>
-   </g>
-   <g id="assignment-01">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="20.54268" y="99.739822" transform="rotate(-0 20.54268 99.739822)">01</text>
-   </g>
-   <g id="assignment-01">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="110.0682" y="99.739822" transform="rotate(-0 110.0682 99.739822)">G1205</text>
-   </g>
-   <g id="assignment-01">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="525.7224" y="99.739822" transform="rotate(-0 525.7224 99.739822)">Sanzao</text>
-   </g>
-   <g id="assignment-02">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="20.54268" y="135.019822" transform="rotate(-0 20.54268 135.019822)">02</text>
-   </g>
-   <g id="assignment-02">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; fill: #252525" transform="translate(110.0682 136.120896)">G1210, G1217, G1256, G1230, G1206, G2037, 59487, G1212, G2036,</text>
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; fill: #252525" transform="translate(110.0682 149.323045)">G2010, G2038, G2004, G2102, G2021, G2128</text>
-   </g>
-   <g id="assignment-02">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="525.7224" y="135.019822" transform="rotate(-0 525.7224 135.019822)">Sanzao</text>
-   </g>
-   <g id="assignment-03a">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="20.54268" y="188.299822" transform="rotate(-0 20.54268 188.299822)">03a</text>
-   </g>
-   <g id="assignment-03a">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="110.0682" y="188.299822" transform="rotate(-0 110.0682 188.299822)">G1209</text>
-   </g>
-   <g id="assignment-03a">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="525.7224" y="188.300681" transform="rotate(-0 525.7224 188.300681)">Dajiu Zhou</text>
-   </g>
-   <g id="assignment-03b">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="20.54268" y="223.580681" transform="rotate(-0 20.54268 223.580681)">03b</text>
-   </g>
-   <g id="assignment-03b">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="110.0682" y="223.579822" transform="rotate(-0 110.0682 223.579822)">G1211</text>
-   </g>
-   <g id="assignment-03b">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="525.7224" y="223.580681" transform="rotate(-0 525.7224 223.580681)">Nei Lingding</text>
-   </g>
-   <g id="assignment-04">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="20.54268" y="258.859822" transform="rotate(-0 20.54268 258.859822)">04</text>
-   </g>
-   <g id="assignment-04">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; fill: #252525" transform="translate(110.0682 259.960896)">G3202, G3205, G2045, G2006, G2022, G2008, G2052, G2017, G2005,</text>
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; fill: #252525" transform="translate(110.0682 273.163045)">G2011, G2026, G2009, 59485</text>
-   </g>
-   <g id="assignment-04">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="525.7224" y="258.860681" transform="rotate(-0 525.7224 258.860681)">Nansha</text>
-   </g>
-   <g id="assignment-05">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="20.54268" y="312.139822" transform="rotate(-0 20.54268 312.139822)">05</text>
-   </g>
-   <g id="assignment-05">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="110.0682" y="312.139822" transform="rotate(-0 110.0682 312.139822)">G3239, G3204, G3213, G3212, G3111, G3137, G2238</text>
-   </g>
-   <g id="assignment-05">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="525.7224" y="312.140681" transform="rotate(-0 525.7224 312.140681)">Nansha</text>
-   </g>
-   <g id="assignment-06">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="20.54268" y="347.419822" transform="rotate(-0 20.54268 347.419822)">06</text>
-   </g>
-   <g id="assignment-06">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; fill: #252525" transform="translate(110.0682 348.520896)">G3136, G1032, G1018, G3448, G3238, G1039, G1099, G1001, G1087,</text>
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; fill: #252525" transform="translate(110.0682 361.723045)">G3156, G6816</text>
-   </g>
-   <g id="assignment-06">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="525.7224" y="347.420681" transform="rotate(-0 525.7224 347.420681)">Dasheng</text>
-   </g>
-   <g id="assignment-07">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="20.54268" y="400.699822" transform="rotate(-0 20.54268 400.699822)">07</text>
-   </g>
-   <g id="assignment-07">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; fill: #252525" transform="translate(110.0682 401.800896)">G1947, G1935, G1964, G1915, G1929, G1956, G1989, G3201, G1971,</text>
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; fill: #252525" transform="translate(110.0682 415.003045)">G1945, G1907, 59289, G1072, G3329, G1961, 59287</text>
-   </g>
-   <g id="assignment-07">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="525.7224" y="400.700681" transform="rotate(-0 525.7224 400.700681)">Sishengwei</text>
-   </g>
-   <g id="assignment-08">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="20.54268" y="453.979822" transform="rotate(-0 20.54268 453.979822)">08</text>
-   </g>
-   <g id="assignment-08">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="110.0682" y="453.979822" transform="rotate(-0 110.0682 453.979822)">G3521, G3556, GEO_N28</text>
-   </g>
-   <g id="assignment-08">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="525.7224" y="453.980681" transform="rotate(-0 525.7224 453.980681)">Chiwan</text>
-   </g>
-   <g id="assignment-09">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="20.54268" y="489.259822" transform="rotate(-0 20.54268 489.259822)">09</text>
-   </g>
-   <g id="assignment-09">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; fill: #252525" transform="translate(110.0682 490.360896)">HKO_WLP, G3645, HKO_LFS, GHCNH_CHM00045035, GEO_N33, GEO_N12,</text>
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; fill: #252525" transform="translate(110.0682 503.563045)">GEO_N05, HKO_TKL</text>
-   </g>
-   <g id="assignment-09">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="525.7224" y="489.260681" transform="rotate(-0 525.7224 489.260681)">Tsim Bei Tsui</text>
-   </g>
-   <g id="assignment-10a">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="20.54268" y="542.539822" transform="rotate(-0 20.54268 542.539822)">10a</text>
-   </g>
-   <g id="assignment-10a">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; fill: #252525" transform="translate(110.0682 543.640896)">GEO_H18, GEO_H09, HKO_SE, GEO_H19, HKO_SKW, GEO_K08, GEO_K05,</text>
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; fill: #252525" transform="translate(110.0682 556.843045)">GEO_H07, HKO_HKO</text>
-   </g>
-   <g id="assignment-10a">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="525.7224" y="542.539822" transform="rotate(-0 525.7224 542.539822)">Quarry Bay</text>
-   </g>
-   <g id="assignment-10b">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="20.54268" y="595.820681" transform="rotate(-0 20.54268 595.820681)">10b</text>
-   </g>
-   <g id="assignment-10b">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="110.0682" y="595.819822" transform="rotate(-0 110.0682 595.819822)">GEO_N19, GEO_N53, GEO_N22, GEO_N21, GEO_N17, HKO_HKA</text>
-   </g>
-   <g id="assignment-10b">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="525.7224" y="595.820681" transform="rotate(-0 525.7224 595.820681)">Shek Pik</text>
-   </g>
-   <g id="assignment-11">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="20.54268" y="631.099822" transform="rotate(-0 20.54268 631.099822)">11</text>
-   </g>
-   <g id="assignment-11">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; fill: #252525" transform="translate(110.0682 632.200896)">GEO_N41, GEO_N45, GEO_N35, GEO_N09, GHCNH_CHM00045039,</text>
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; fill: #252525" transform="translate(110.0682 645.403045)">HKO_SHA, GEO_N02, GEO_N14, GEO_N01, GEO_N13</text>
-   </g>
-   <g id="assignment-11">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="525.7224" y="631.100681" transform="rotate(-0 525.7224 631.100681)">Tai Po Kau</text>
-   </g>
+" style="fill: none; stroke: #555a5d; stroke-width: 0.45; stroke-linejoin: miter"/>
+  </g>
+  <g id="line2d_1">
+   <path d="M 5.669291 63.212598
+L 513.070866 63.212598
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_2">
+   <path d="M 5.669291 91.559055
+L 513.070866 91.559055
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_3">
+   <path d="M 5.669291 110.267717
+L 513.070866 110.267717
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_4">
+   <path d="M 5.669291 128.976378
+L 513.070866 128.976378
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_5">
+   <path d="M 5.669291 147.685039
+L 513.070866 147.685039
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_6">
+   <path d="M 5.669291 166.393701
+L 513.070866 166.393701
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_7">
+   <path d="M 5.669291 185.102362
+L 513.070866 185.102362
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_8">
+   <path d="M 5.669291 213.448819
+L 513.070866 213.448819
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_9">
+   <path d="M 5.669291 232.15748
+L 513.070866 232.15748
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_10">
+   <path d="M 5.669291 250.866142
+L 513.070866 250.866142
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_11">
+   <path d="M 5.669291 269.574803
+L 513.070866 269.574803
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_12">
+   <path d="M 5.669291 288.283465
+L 513.070866 288.283465
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_13">
+   <path d="M 5.669291 316.629921
+L 513.070866 316.629921
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+  </g>
+  <g id="text_1">
+   <text style="font-size: 7px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="5.669291" y="10.765483" transform="rotate(-0 5.669291 10.765483)">Greater Bay Area | Station assignments</text>
+  </g>
+  <g id="text_2">
+   <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="30.608002" transform="rotate(-0 14.173228 30.608002)">Unit</text>
+  </g>
+  <g id="text_3">
+   <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="30.608002" transform="rotate(-0 68.031496 30.608002)">Rainfall sources (priority order)</text>
   </g>
   <g id="text_4">
-   <text style="font-weight: 700; font-size: 16px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="10.8" y="23.0275" transform="rotate(-0 10.8 23.0275)">Greater Bay Area | Station assignments</text>
+   <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="30.608002" transform="rotate(-0 396.850394 30.608002)">Tide record</text>
+  </g>
+  <g id="text_5">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="54.450368" transform="rotate(-0 14.173228 54.450368)">01</text>
+  </g>
+  <g id="text_6">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="54.480329" transform="rotate(-0 68.031496 54.480329)">G1205</text>
+  </g>
+  <g id="text_7">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="54.480329" transform="rotate(-0 396.850394 54.480329)">Sanzao</text>
+  </g>
+  <g id="text_8">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="73.159029" transform="rotate(-0 14.173228 73.159029)">02</text>
+  </g>
+  <g id="text_9">
+   <text style="font-size: 6.5px; font-family: 'Arial'; fill: #202326" transform="translate(68.031496 72.768522)">G1210, G1217, G1256, G1230, G1206, G2037, 59487, G1212, G2036, G2010, G2038, G2004, G2102,</text>
+   <text style="font-size: 6.5px; font-family: 'Arial'; fill: #202326" transform="translate(68.031496 80.698649)">G2021, G2128</text>
+  </g>
+  <g id="text_10">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="73.18899" transform="rotate(-0 396.850394 73.18899)">Sanzao</text>
+  </g>
+  <g id="text_11">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="101.503963" transform="rotate(-0 14.173228 101.503963)">03a</text>
+  </g>
+  <g id="text_12">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="101.535447" transform="rotate(-0 68.031496 101.535447)">G1209</text>
+  </g>
+  <g id="text_13">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="100.851424" transform="rotate(-0 396.850394 100.851424)">Dajiu Zhou</text>
+  </g>
+  <g id="text_14">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="120.212624" transform="rotate(-0 14.173228 120.212624)">03b</text>
+  </g>
+  <g id="text_15">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="120.244108" transform="rotate(-0 68.031496 120.244108)">G1211</text>
+  </g>
+  <g id="text_16">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="119.560085" transform="rotate(-0 396.850394 119.560085)">Nei Lingding</text>
+  </g>
+  <g id="text_17">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="138.922809" transform="rotate(-0 14.173228 138.922809)">04</text>
+  </g>
+  <g id="text_18">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="138.532301" transform="rotate(-0 68.031496 138.532301)">G3202, G3205, G2045, G2006, G2022, G2008, G2052, G2017, G2005, G2011, G2026, G2009, 59485</text>
+  </g>
+  <g id="text_19">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="138.914684" transform="rotate(-0 396.850394 138.914684)">Nansha</text>
+  </g>
+  <g id="text_20">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="157.63147" transform="rotate(-0 14.173228 157.63147)">05</text>
+  </g>
+  <g id="text_21">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="157.240963" transform="rotate(-0 68.031496 157.240963)">G3239, G3204, G3213, G3212, G3111, G3137, G2238</text>
+  </g>
+  <g id="text_22">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="157.623345" transform="rotate(-0 396.850394 157.623345)">Nansha</text>
+  </g>
+  <g id="text_23">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="176.340132" transform="rotate(-0 14.173228 176.340132)">06</text>
+  </g>
+  <g id="text_24">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="175.949624" transform="rotate(-0 68.031496 175.949624)">G3136, G1032, G1018, G3448, G3238, G1039, G1099, G1001, G1087, G3156, G6816</text>
+  </g>
+  <g id="text_25">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="175.686069" transform="rotate(-0 396.850394 175.686069)">Dasheng</text>
+  </g>
+  <g id="text_26">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="195.048793" transform="rotate(-0 14.173228 195.048793)">07</text>
+  </g>
+  <g id="text_27">
+   <text style="font-size: 6.5px; font-family: 'Arial'; fill: #202326" transform="translate(68.031496 194.658285)">G1947, G1935, G1964, G1915, G1929, G1956, G1989, G3201, G1971, G1945, G1907, 59289, G1072,</text>
+   <text style="font-size: 6.5px; font-family: 'Arial'; fill: #202326" transform="translate(68.031496 202.588412)">G3329, G1961, 59287</text>
+  </g>
+  <g id="text_28">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="194.43434" transform="rotate(-0 396.850394 194.43434)">Sishengwei</text>
+  </g>
+  <g id="text_29">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="223.39525" transform="rotate(-0 14.173228 223.39525)">08</text>
+  </g>
+  <g id="text_30">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="222.820914" transform="rotate(-0 68.031496 222.820914)">G3521, G3556, GEO_N28</text>
+  </g>
+  <g id="text_31">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="223.425211" transform="rotate(-0 396.850394 223.425211)">Chiwan</text>
+  </g>
+  <g id="text_32">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="242.103911" transform="rotate(-0 14.173228 242.103911)">09</text>
+  </g>
+  <g id="text_33">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="241.529575" transform="rotate(-0 68.031496 241.529575)">HKO_WLP, G3645, HKO_LFS, GHCNH_CHM00045035, GEO_N33, GEO_N12, GEO_N05, HKO_TKL</text>
+  </g>
+  <g id="text_34">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="242.095786" transform="rotate(-0 396.850394 242.095786)">Tsim Bei Tsui</text>
+  </g>
+  <g id="text_35">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="260.812573" transform="rotate(-0 14.173228 260.812573)">10a</text>
+  </g>
+  <g id="text_36">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="260.238237" transform="rotate(-0 68.031496 260.238237)">GEO_H18, GEO_H09, HKO_SE, GEO_H19, HKO_SKW, GEO_K08, GEO_K05, GEO_H07, HKO_HKO</text>
+  </g>
+  <g id="text_37">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="260.200151" transform="rotate(-0 396.850394 260.200151)">Quarry Bay</text>
+  </g>
+  <g id="text_38">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="279.521234" transform="rotate(-0 14.173228 279.521234)">10b</text>
+  </g>
+  <g id="text_39">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="278.946898" transform="rotate(-0 68.031496 278.946898)">GEO_N19, GEO_N53, GEO_N22, GEO_N21, GEO_N17, HKO_HKA</text>
+  </g>
+  <g id="text_40">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="279.551195" transform="rotate(-0 396.850394 279.551195)">Shek Pik</text>
+  </g>
+  <g id="text_41">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="298.269505" transform="rotate(-0 14.173228 298.269505)">11</text>
+  </g>
+  <g id="text_42">
+   <text style="font-size: 6.5px; font-family: 'Arial'; fill: #202326" transform="translate(68.031496 297.65556)">GEO_N41, GEO_N45, GEO_N35, GEO_N09, GHCNH_CHM00045039, HKO_SHA, GEO_N02,</text>
+   <text style="font-size: 6.5px; font-family: 'Arial'; fill: #202326" transform="translate(68.031496 305.585687)">GEO_N14, GEO_N01, GEO_N13</text>
+  </g>
+  <g id="text_43">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="298.221771" transform="rotate(-0 396.850394 298.221771)">Tai Po Kau</text>
   </g>
  </g>
- <defs>
-  <clipPath id="p1b7845d478">
-   <rect x="14.148" y="67.6512" width="639.468" height="593.28"/>
-  </clipPath>
- </defs>
 </svg>

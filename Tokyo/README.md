@@ -10,13 +10,15 @@ Thirteen units represent the Tokyo Bay and Sagami Bay analysis sectors. Water le
 
 ## Study area
 
+[PDF figure atlas](figures/atlas.pdf) · Click a figure to open its editable SVG.
+
 <p align="left">
-  <a href="figures/00_regional_overview.png"><img src="figures/00_regional_overview.png" alt="Analysis units, stations and monthly observation coverage" width="900"></a>
+  <a href="figures/00_regional_overview.svg"><img src="figures/00_regional_overview.png" alt="Analysis units and stations, with separate rainfall and water-level coverage panels" width="900"></a>
 </p>
 
 Coverage refers to the archived compound-input record. Colour intensity represents the observed fraction of a calendar month; white indicates missing observations. Rainfall rows show actual source use. Annual-frequency analysis uses independently screened full records.
 
-R denotes rainfall; H denotes coastal water level. Map colours identify tide assignments; hatching marks shared polygons. Map coordinates use EPSG:6691, shown in kilometres.
+Panels b and c show rainfall and water-level coverage, respectively. Combined map labels identify polygons shared by two analysis units. Map coordinates use EPSG:6691, shown in kilometres.
 
 ## Analysis units
 
@@ -52,7 +54,7 @@ See [Methods](../shared/methods.md#analysis-units) for the common partitioning p
 <details markdown="1">
 <summary>Station assignment diagram</summary>
 
-[View the station assignment diagram](figures/02_station_assignments.png).
+[View the station assignment diagram](figures/02_station_assignments.svg).
 
 </details>
 
@@ -60,7 +62,7 @@ See [Methods](../shared/methods.md#analysis-units) for the common partitioning p
 
 [M01](#unit-m01) · [M02](#unit-m02) · [M03](#unit-m03) · [M04](#unit-m04) · [M05](#unit-m05) · [M06](#unit-m06) · [M07](#unit-m07) · [M08](#unit-m08) · [M09](#unit-m09) · [M10](#unit-m10) · [M11](#unit-m11) · [M12](#unit-m12) · [M13](#unit-m13)
 
-First and last use refer to actual station contributions. Map numbers follow the rainfall table rows and match the coverage labels. White indicates missing observations.
+First and last use refer to actual station contributions. Panel a maps the stations; panel b shows monthly rainfall-source contributions; panel c compares water-level coverage (solid line) with paired coverage (dashed line). Map numbers follow the rainfall table rows. White in panel b indicates no contribution.
 
 <details markdown="1">
 <summary><strong>Unit M01</strong> · Aburatsubo · 2 rainfall stations</summary>
@@ -75,7 +77,7 @@ Tide station: Aburatsubo · ID: `GESLA_JODC-GIAJ_GS01`.
 | 2 | Ebina | `JMA_A46091` | 1976-10-23 | 2022-07-02 |
 
 <p align="left">
-  <a href="figures/M01_overview.png"><img src="figures/M01_overview.png" alt="Unit M01: station map and monthly observation coverage" width="900"></a>
+  <a href="figures/M01_overview.svg"><img src="figures/M01_overview.png" alt="Unit M01: station map, rainfall-source coverage, and water-level and paired coverage" width="900"></a>
 </p>
 
 </details>
@@ -94,7 +96,7 @@ Tide station: Aburatsubo · ID: `GESLA_JODC-GIAJ_GS01`.
 | 3 | Sagamihara-Chuo | `JMA_A46046` | 1977-04-18 | 2022-12-08 |
 
 <p align="left">
-  <a href="figures/M02_overview.png"><img src="figures/M02_overview.png" alt="Unit M02: station map and monthly observation coverage" width="900"></a>
+  <a href="figures/M02_overview.svg"><img src="figures/M02_overview.png" alt="Unit M02: station map, rainfall-source coverage, and water-level and paired coverage" width="900"></a>
 </p>
 
 </details>
@@ -111,7 +113,7 @@ Tide station: Kurihama · ID: `GESLA_JODC-PAHB_0161`.
 | 1 | Miura | `JMA_A46211` | 2000-12-31 | 2022-12-31 |
 
 <p align="left">
-  <a href="figures/M03_overview.png"><img src="figures/M03_overview.png" alt="Unit M03: station map and monthly observation coverage" width="900"></a>
+  <a href="figures/M03_overview.svg"><img src="figures/M03_overview.png" alt="Unit M03: station map, rainfall-source coverage, and water-level and paired coverage" width="900"></a>
 </p>
 
 </details>
@@ -128,7 +130,7 @@ Tide station: Yokohama Shinko · ID: `GESLA_JODC-JCG_HD29`.
 | 1 | Yokohama | `JMA_47670` | 1997-08-31 | 2025-12-31 |
 
 <p align="left">
-  <a href="figures/M04_overview.png"><img src="figures/M04_overview.png" alt="Unit M04: station map and monthly observation coverage" width="900"></a>
+  <a href="figures/M04_overview.svg"><img src="figures/M04_overview.png" alt="Unit M04: station map, rainfall-source coverage, and water-level and paired coverage" width="900"></a>
 </p>
 
 </details>
@@ -145,7 +147,7 @@ Tide station: Yokohama Shinko · ID: `GESLA_JODC-JCG_HD29`.
 | 1 | Hiyoshi | `JMA_A46061` | 1997-08-31 | 2025-12-31 |
 
 <p align="left">
-  <a href="figures/M05_overview.png"><img src="figures/M05_overview.png" alt="Unit M05: station map and monthly observation coverage" width="900"></a>
+  <a href="figures/M05_overview.svg"><img src="figures/M05_overview.png" alt="Unit M05: station map, rainfall-source coverage, and water-level and paired coverage" width="900"></a>
 </p>
 
 </details>
@@ -164,7 +166,7 @@ Tide station: Kawasaki · ID: `JODC_MA59`.
 | 3 | Fuchu | `JMA_A44116` | 1978-02-18 | 1978-02-18 |
 
 <p align="left">
-  <a href="figures/M06_overview.png"><img src="figures/M06_overview.png" alt="Unit M06: station map and monthly observation coverage" width="900"></a>
+  <a href="figures/M06_overview.svg"><img src="figures/M06_overview.png" alt="Unit M06: station map, rainfall-source coverage, and water-level and paired coverage" width="900"></a>
 </p>
 
 </details>
@@ -182,7 +184,7 @@ Tide station: Tokyo Harumi · ID: `JMA_TK`.
 | 3 | Edogawa-Rinkai | `JMA_A44136` | 1994-09-17 | 1998-01-08 |
 
 <p align="left">
-  <a href="figures/M07_overview.png"><img src="figures/M07_overview.png" alt="Unit M07: station map and monthly observation coverage" width="900"></a>
+  <a href="figures/M07_overview.svg"><img src="figures/M07_overview.png" alt="Unit M07: station map, rainfall-source coverage, and water-level and paired coverage" width="900"></a>
 </p>
 
 </details>
@@ -199,7 +201,7 @@ Tide station: Tokyo Harumi · ID: `JMA_TK`.
 | 1 | Funabashi | `JMA_A45106` | 1978-01-09 | 2026-07-31 |
 
 <p align="left">
-  <a href="figures/M08_overview.png"><img src="figures/M08_overview.png" alt="Unit M08: station map and monthly observation coverage" width="900"></a>
+  <a href="figures/M08_overview.svg"><img src="figures/M08_overview.png" alt="Unit M08: station map, rainfall-source coverage, and water-level and paired coverage" width="900"></a>
 </p>
 
 </details>
@@ -216,7 +218,7 @@ Tide station: Chiba · ID: `JODC_HD06`.
 | 1 | Chiba | `JMA_47682` | 1966-03-31 | 2025-12-31 |
 
 <p align="left">
-  <a href="figures/M09_overview.png"><img src="figures/M09_overview.png" alt="Unit M09: station map and monthly observation coverage" width="900"></a>
+  <a href="figures/M09_overview.svg"><img src="figures/M09_overview.png" alt="Unit M09: station map, rainfall-source coverage, and water-level and paired coverage" width="900"></a>
 </p>
 
 </details>
@@ -233,7 +235,7 @@ Tide station: Chiba · ID: `JODC_HD06`.
 | 1 | Ushiku | `JMA_A45291` | 1978-01-11 | 2025-12-31 |
 
 <p align="left">
-  <a href="figures/M10_overview.png"><img src="figures/M10_overview.png" alt="Unit M10: station map and monthly observation coverage" width="900"></a>
+  <a href="figures/M10_overview.svg"><img src="figures/M10_overview.png" alt="Unit M10: station map, rainfall-source coverage, and water-level and paired coverage" width="900"></a>
 </p>
 
 </details>
@@ -251,7 +253,7 @@ Tide station: Yokohama Shinko · ID: `GESLA_JODC-JCG_HD29`.
 | 2 | Sakahata | `JMA_A45326` | 2000-10-17 | 2022-11-16 |
 
 <p align="left">
-  <a href="figures/M11_overview.png"><img src="figures/M11_overview.png" alt="Unit M11: station map and monthly observation coverage" width="900"></a>
+  <a href="figures/M11_overview.svg"><img src="figures/M11_overview.png" alt="Unit M11: station map, rainfall-source coverage, and water-level and paired coverage" width="900"></a>
 </p>
 
 </details>
@@ -268,7 +270,7 @@ Tide station: Kurihama · ID: `GESLA_JODC-PAHB_0161`.
 | 1 | Kyonan | `JMA_A45346` | 2000-12-31 | 2022-12-31 |
 
 <p align="left">
-  <a href="figures/M12_overview.png"><img src="figures/M12_overview.png" alt="Unit M12: station map and monthly observation coverage" width="900"></a>
+  <a href="figures/M12_overview.svg"><img src="figures/M12_overview.png" alt="Unit M12: station map, rainfall-source coverage, and water-level and paired coverage" width="900"></a>
 </p>
 
 </details>
@@ -285,7 +287,7 @@ Tide station: Mera · ID: `JMA_MR`.
 | 1 | Tateyama | `JMA_47672` | 1968-05-10 | 2026-07-31 |
 
 <p align="left">
-  <a href="figures/M13_overview.png"><img src="figures/M13_overview.png" alt="Unit M13: station map and monthly observation coverage" width="900"></a>
+  <a href="figures/M13_overview.svg"><img src="figures/M13_overview.png" alt="Unit M13: station map, rainfall-source coverage, and water-level and paired coverage" width="900"></a>
 </p>
 
 </details>

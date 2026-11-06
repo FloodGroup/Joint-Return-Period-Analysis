@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="664.416pt" height="532.0224pt" viewBox="0 0 664.416 532.0224" xmlns="http://www.w3.org/2000/svg" version="1.1">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="518.740157pt" height="278.929134pt" viewBox="0 0 518.740157 278.929134" xmlns="http://www.w3.org/2000/svg" version="1.1">
  <metadata>
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-11-06T16:24:16.493345</dc:date>
+    <dc:date>2026-11-06T17:10:23.345394</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -21,197 +21,189 @@
  </defs>
  <g id="figure_1">
   <g id="patch_1">
-   <path d="M 0 532.0224
-L 664.416 532.0224
-L 664.416 0
+   <path d="M 0 278.929134
+L 518.740157 278.929134
+L 518.740157 0
 L 0 0
 z
 " style="fill: #ffffff"/>
   </g>
-  <g id="axes_1">
-   <g id="patch_2">
-    <path d="M 14.148 521.2224
-L 653.616 521.2224
-L 653.616 38.952
-L 14.148 38.952
-L 14.148 521.2224
+  <g id="patch_2">
+   <path d="M 5.669291 276.094488
+L 513.070866 276.094488
+L 513.070866 19.84252
+L 5.669291 19.84252
+L 5.669291 276.094488
 z
-" style="fill: none; stroke: #8e908b; stroke-width: 0.8; stroke-linejoin: miter"/>
-   </g>
-   <g id="line2d_1">
-    <path d="M 14.148 136.7712
-L 653.616 136.7712
-" clip-path="url(#pc2b87dc0b1)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
-   </g>
-   <g id="line2d_2">
-    <path d="M 14.148 172.0512
-L 653.616 172.0512
-" clip-path="url(#pc2b87dc0b1)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
-   </g>
-   <g id="line2d_3">
-    <path d="M 14.148 207.3312
-L 653.616 207.3312
-" clip-path="url(#pc2b87dc0b1)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
-   </g>
-   <g id="line2d_4">
-    <path d="M 14.148 242.6112
-L 653.616 242.6112
-" clip-path="url(#pc2b87dc0b1)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
-   </g>
-   <g id="line2d_5">
-    <path d="M 14.148 277.8912
-L 653.616 277.8912
-" clip-path="url(#pc2b87dc0b1)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
-   </g>
-   <g id="line2d_6">
-    <path d="M 14.148 313.1712
-L 653.616 313.1712
-" clip-path="url(#pc2b87dc0b1)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
-   </g>
-   <g id="line2d_7">
-    <path d="M 14.148 366.4512
-L 653.616 366.4512
-" clip-path="url(#pc2b87dc0b1)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
-   </g>
-   <g id="line2d_8">
-    <path d="M 14.148 419.7312
-L 653.616 419.7312
-" clip-path="url(#pc2b87dc0b1)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
-   </g>
-   <g id="line2d_9">
-    <path d="M 14.148 455.0112
-L 653.616 455.0112
-" clip-path="url(#pc2b87dc0b1)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
-   </g>
-   <g id="line2d_10">
-    <path d="M 14.148 490.2912
-L 653.616 490.2912
-" clip-path="url(#pc2b87dc0b1)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
-   </g>
-   <g id="line2d_11">
-    <path d="M 14.148 525.5712
-L 653.616 525.5712
-" clip-path="url(#pc2b87dc0b1)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
-   </g>
-   <g id="text_1">
-    <text style="font-weight: 700; font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="20.54268" y="65.9952" transform="rotate(-0 20.54268 65.9952)">Unit</text>
-   </g>
-   <g id="text_2">
-    <text style="font-weight: 700; font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="110.0682" y="65.9952" transform="rotate(-0 110.0682 65.9952)">Rainfall sources (priority order)</text>
-   </g>
-   <g id="text_3">
-    <text style="font-weight: 700; font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="525.7224" y="65.9952" transform="rotate(-0 525.7224 65.9952)">Coastal series</text>
-   </g>
-   <g id="assignment-M01">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="20.54268" y="96.888622" transform="rotate(-0 20.54268 96.888622)">M01</text>
-   </g>
-   <g id="assignment-M01">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; fill: #252525" transform="translate(110.0682 97.989696)">CDEC_CMG, CDEC_ROF, GHCNH_USW00093227, NCEI_USC00047646,</text>
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; fill: #252525" transform="translate(110.0682 111.191845)">CDEC_SH4, CDEC_ANG, NCEI_USC00040212</text>
-   </g>
-   <g id="assignment-M01">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="525.7224" y="96.889481" transform="rotate(-0 525.7224 96.889481)">Mare Island / Martinez</text>
-   </g>
-   <g id="assignment-M02">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="20.54268" y="150.168622" transform="rotate(-0 20.54268 150.168622)">M02</text>
-   </g>
-   <g id="assignment-M02">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="110.0682" y="150.168622" transform="rotate(-0 110.0682 150.168622)">CDEC_PTB, NCEI_USC00046826, CDEC_CRD, CDEC_LIC</text>
-   </g>
-   <g id="assignment-M02">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="525.7224" y="150.169481" transform="rotate(-0 525.7224 150.169481)">Richmond</text>
-   </g>
-   <g id="assignment-M03">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="20.54268" y="185.448622" transform="rotate(-0 20.54268 185.448622)">M03</text>
-   </g>
-   <g id="assignment-M03">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="110.0682" y="185.448622" transform="rotate(-0 110.0682 185.448622)">CDEC_ACM</text>
-   </g>
-   <g id="assignment-M03">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="525.7224" y="185.449481" transform="rotate(-0 525.7224 185.449481)">San Francisco</text>
-   </g>
-   <g id="assignment-M04">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="20.54268" y="220.728622" transform="rotate(-0 20.54268 220.728622)">M04</text>
-   </g>
-   <g id="assignment-M04">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="110.0682" y="220.728622" transform="rotate(-0 110.0682 220.728622)">CDEC_PUL, CDEC_CSC, GHCNH_USW00023234</text>
-   </g>
-   <g id="assignment-M04">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="525.7224" y="220.729481" transform="rotate(-0 525.7224 220.729481)">Redwood City</text>
-   </g>
-   <g id="assignment-M05">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="20.54268" y="256.008622" transform="rotate(-0 20.54268 256.008622)">M05</text>
-   </g>
-   <g id="assignment-M05">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="110.0682" y="256.008622" transform="rotate(-0 110.0682 256.008622)">CDEC_PUL, CDEC_CSC</text>
-   </g>
-   <g id="assignment-M05">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="525.7224" y="256.009481" transform="rotate(-0 525.7224 256.009481)">Redwood City</text>
-   </g>
-   <g id="assignment-M06">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="20.54268" y="291.288622" transform="rotate(-0 20.54268 291.288622)">M06</text>
-   </g>
-   <g id="assignment-M06">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="110.0682" y="291.288622" transform="rotate(-0 110.0682 291.288622)">GHCNH_USW00023244, CDEC_PAA</text>
-   </g>
-   <g id="assignment-M06">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="525.7224" y="291.289481" transform="rotate(-0 525.7224 291.289481)">Alviso</text>
-   </g>
-   <g id="assignment-M07">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="20.54268" y="326.568622" transform="rotate(-0 20.54268 326.568622)">M07</text>
-   </g>
-   <g id="assignment-M07">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; fill: #252525" transform="translate(110.0682 327.669696)">CDEC_MSP, CDEC_SJE, GHCNH_USW00023293, CDEC_LSG, CDEC_UMN,</text>
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; fill: #252525" transform="translate(110.0682 340.871845)">NCEI_USC00043419</text>
-   </g>
-   <g id="assignment-M07">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="525.7224" y="326.569481" transform="rotate(-0 525.7224 326.569481)">Alviso</text>
-   </g>
-   <g id="assignment-M08">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="20.54268" y="379.848622" transform="rotate(-0 20.54268 379.848622)">M08</text>
-   </g>
-   <g id="assignment-M08">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; fill: #252525" transform="translate(110.0682 380.949696)">GHCNH_USW00093228, CDEC_CAD, CDEC_DBF, CDEC_POV,</text>
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; fill: #252525" transform="translate(110.0682 394.151845)">GHCNH_USW00023285, CDEC_RSP, CDEC_SWW</text>
-   </g>
-   <g id="assignment-M08">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="525.7224" y="379.849481" transform="rotate(-0 525.7224 379.849481)">Redwood City</text>
-   </g>
-   <g id="assignment-M09">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="20.54268" y="433.128622" transform="rotate(-0 20.54268 433.128622)">M09</text>
-   </g>
-   <g id="assignment-M09">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="110.0682" y="433.128622" transform="rotate(-0 110.0682 433.128622)">CDEC_OSO</text>
-   </g>
-   <g id="assignment-M09">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="525.7224" y="433.129481" transform="rotate(-0 525.7224 433.129481)">Alameda</text>
-   </g>
-   <g id="assignment-M10">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="20.54268" y="468.408622" transform="rotate(-0 20.54268 468.408622)">M10</text>
-   </g>
-   <g id="assignment-M10">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="110.0682" y="468.408622" transform="rotate(-0 110.0682 468.408622)">CDEC_SLE, GHCNH_USW00023230</text>
-   </g>
-   <g id="assignment-M10">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="525.7224" y="468.409481" transform="rotate(-0 525.7224 468.409481)">Redwood City</text>
-   </g>
-   <g id="assignment-M11">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="20.54268" y="503.688622" transform="rotate(-0 20.54268 503.688622)">M11</text>
-   </g>
-   <g id="assignment-M11">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="110.0682" y="503.688622" transform="rotate(-0 110.0682 503.688622)">CDEC_RHL, CDEC_TLD, CDEC_ONO</text>
-   </g>
-   <g id="assignment-M11">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="525.7224" y="503.689481" transform="rotate(-0 525.7224 503.689481)">Richmond</text>
-   </g>
+" style="fill: none; stroke: #555a5d; stroke-width: 0.45; stroke-linejoin: miter"/>
+  </g>
+  <g id="line2d_1">
+   <path d="M 5.669291 72.850394
+L 513.070866 72.850394
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_2">
+   <path d="M 5.669291 91.559055
+L 513.070866 91.559055
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_3">
+   <path d="M 5.669291 110.267717
+L 513.070866 110.267717
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_4">
+   <path d="M 5.669291 128.976378
+L 513.070866 128.976378
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_5">
+   <path d="M 5.669291 147.685039
+L 513.070866 147.685039
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_6">
+   <path d="M 5.669291 166.393701
+L 513.070866 166.393701
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_7">
+   <path d="M 5.669291 185.102362
+L 513.070866 185.102362
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_8">
+   <path d="M 5.669291 213.448819
+L 513.070866 213.448819
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_9">
+   <path d="M 5.669291 232.15748
+L 513.070866 232.15748
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_10">
+   <path d="M 5.669291 250.866142
+L 513.070866 250.866142
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_11">
+   <path d="M 5.669291 269.574803
+L 513.070866 269.574803
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+  </g>
+  <g id="text_1">
+   <text style="font-size: 7px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="5.669291" y="10.765483" transform="rotate(-0 5.669291 10.765483)">San Francisco Bay | Station assignments</text>
+  </g>
+  <g id="text_2">
+   <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="30.608002" transform="rotate(-0 14.173228 30.608002)">Unit</text>
+  </g>
+  <g id="text_3">
+   <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="30.608002" transform="rotate(-0 68.031496 30.608002)">Rainfall sources (priority order)</text>
   </g>
   <g id="text_4">
-   <text style="font-weight: 700; font-size: 16px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="10.8" y="23.0275" transform="rotate(-0 10.8 23.0275)">San Francisco Bay | Station assignments</text>
+   <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="30.608002" transform="rotate(-0 396.850394 30.608002)">Tide record</text>
+  </g>
+  <g id="text_5">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="54.450368" transform="rotate(-0 14.173228 54.450368)">M01</text>
+  </g>
+  <g id="text_6">
+   <text style="font-size: 6.5px; font-family: 'Arial'; fill: #202326" transform="translate(68.031496 53.876032)">CDEC_CMG, CDEC_ROF, GHCNH_USW00093227, NCEI_USC00047646, CDEC_SH4, CDEC_ANG,</text>
+   <text style="font-size: 6.5px; font-family: 'Arial'; fill: #202326" transform="translate(68.031496 61.804128)">NCEI_USC00040212</text>
+  </g>
+  <g id="text_7">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="54.480329" transform="rotate(-0 396.850394 54.480329)">Mare Island / Martinez</text>
+  </g>
+  <g id="text_8">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="82.796825" transform="rotate(-0 14.173228 82.796825)">M02</text>
+  </g>
+  <g id="text_9">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="82.220457" transform="rotate(-0 68.031496 82.220457)">CDEC_PTB, NCEI_USC00046826, CDEC_CRD, CDEC_LIC</text>
+  </g>
+  <g id="text_10">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="82.7887" transform="rotate(-0 396.850394 82.7887)">Richmond</text>
+  </g>
+  <g id="text_11">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="101.503963" transform="rotate(-0 14.173228 101.503963)">M03</text>
+  </g>
+  <g id="text_12">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="100.929119" transform="rotate(-0 68.031496 100.929119)">CDEC_ACM</text>
+  </g>
+  <g id="text_13">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="101.535447" transform="rotate(-0 396.850394 101.535447)">San Francisco</text>
+  </g>
+  <g id="text_14">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="120.214148" transform="rotate(-0 14.173228 120.214148)">M04</text>
+  </g>
+  <g id="text_15">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="119.63778" transform="rotate(-0 68.031496 119.63778)">CDEC_PUL, CDEC_CSC, GHCNH_USW00023234</text>
+  </g>
+  <g id="text_16">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="119.599694" transform="rotate(-0 396.850394 119.599694)">Redwood City</text>
+  </g>
+  <g id="text_17">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="138.922809" transform="rotate(-0 14.173228 138.922809)">M05</text>
+  </g>
+  <g id="text_18">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="138.346442" transform="rotate(-0 68.031496 138.346442)">CDEC_PUL, CDEC_CSC</text>
+  </g>
+  <g id="text_19">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="138.308356" transform="rotate(-0 396.850394 138.308356)">Redwood City</text>
+  </g>
+  <g id="text_20">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="157.63147" transform="rotate(-0 14.173228 157.63147)">M06</text>
+  </g>
+  <g id="text_21">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="157.055103" transform="rotate(-0 68.031496 157.055103)">GHCNH_USW00023244, CDEC_PAA</text>
+  </g>
+  <g id="text_22">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="157.623345" transform="rotate(-0 396.850394 157.623345)">Alviso</text>
+  </g>
+  <g id="text_23">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="176.340132" transform="rotate(-0 14.173228 176.340132)">M07</text>
+  </g>
+  <g id="text_24">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="175.763765" transform="rotate(-0 68.031496 175.763765)">CDEC_MSP, CDEC_SJE, GHCNH_USW00023293, CDEC_LSG, CDEC_UMN, NCEI_USC00043419</text>
+  </g>
+  <g id="text_25">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="176.332007" transform="rotate(-0 396.850394 176.332007)">Alviso</text>
+  </g>
+  <g id="text_26">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="195.048793" transform="rotate(-0 14.173228 195.048793)">M08</text>
+  </g>
+  <g id="text_27">
+   <text style="font-size: 6.5px; font-family: 'Arial'; fill: #202326" transform="translate(68.031496 194.474457)">GHCNH_USW00093228, CDEC_CAD, CDEC_DBF, CDEC_POV, GHCNH_USW00023285, CDEC_RSP,</text>
+   <text style="font-size: 6.5px; font-family: 'Arial'; fill: #202326" transform="translate(68.031496 202.402553)">CDEC_SWW</text>
+  </g>
+  <g id="text_28">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="194.43434" transform="rotate(-0 396.850394 194.43434)">Redwood City</text>
+  </g>
+  <g id="text_29">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="223.39525" transform="rotate(-0 14.173228 223.39525)">M09</text>
+  </g>
+  <g id="text_30">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="222.820914" transform="rotate(-0 68.031496 222.820914)">CDEC_OSO</text>
+  </g>
+  <g id="text_31">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="223.387125" transform="rotate(-0 396.850394 223.387125)">Alameda</text>
+  </g>
+  <g id="text_32">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="242.103911" transform="rotate(-0 14.173228 242.103911)">M10</text>
+  </g>
+  <g id="text_33">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="241.527544" transform="rotate(-0 68.031496 241.527544)">CDEC_SLE, GHCNH_USW00023230</text>
+  </g>
+  <g id="text_34">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="241.489458" transform="rotate(-0 396.850394 241.489458)">Redwood City</text>
+  </g>
+  <g id="text_35">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="260.852182" transform="rotate(-0 14.173228 260.852182)">M11</text>
+  </g>
+  <g id="text_36">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="260.238237" transform="rotate(-0 68.031496 260.238237)">CDEC_RHL, CDEC_TLD, CDEC_ONO</text>
+  </g>
+  <g id="text_37">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="260.804448" transform="rotate(-0 396.850394 260.804448)">Richmond</text>
   </g>
  </g>
- <defs>
-  <clipPath id="pc2b87dc0b1">
-   <rect x="14.148" y="70.5024" width="639.468" height="450.72"/>
-  </clipPath>
- </defs>
 </svg>

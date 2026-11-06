@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="664.416pt" height="548.2512pt" viewBox="0 0 664.416 548.2512" xmlns="http://www.w3.org/2000/svg" version="1.1">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="518.740157pt" height="297.070866pt" viewBox="0 0 518.740157 297.070866" xmlns="http://www.w3.org/2000/svg" version="1.1">
  <metadata>
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-11-06T16:24:16.787005</dc:date>
+    <dc:date>2026-11-06T17:10:32.441405</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -21,222 +21,215 @@
  </defs>
  <g id="figure_1">
   <g id="patch_1">
-   <path d="M 0 548.2512
-L 664.416 548.2512
-L 664.416 0
+   <path d="M 0 297.070866
+L 518.740157 297.070866
+L 518.740157 0
 L 0 0
 z
 " style="fill: #ffffff"/>
   </g>
-  <g id="axes_1">
-   <g id="patch_2">
-    <path d="M 14.148 537.4512
-L 653.616 537.4512
-L 653.616 37.4616
-L 14.148 37.4616
-L 14.148 537.4512
+  <g id="patch_2">
+   <path d="M 5.669291 294.23622
+L 513.070866 294.23622
+L 513.070866 19.84252
+L 5.669291 19.84252
+L 5.669291 294.23622
 z
-" style="fill: none; stroke: #8e908b; stroke-width: 0.8; stroke-linejoin: miter"/>
-   </g>
-   <g id="line2d_1">
-    <path d="M 14.148 119.1024
-L 653.616 119.1024
-" clip-path="url(#p6f963179a4)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
-   </g>
-   <g id="line2d_2">
-    <path d="M 14.148 154.3824
-L 653.616 154.3824
-" clip-path="url(#p6f963179a4)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
-   </g>
-   <g id="line2d_3">
-    <path d="M 14.148 189.6624
-L 653.616 189.6624
-" clip-path="url(#p6f963179a4)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
-   </g>
-   <g id="line2d_4">
-    <path d="M 14.148 224.9424
-L 653.616 224.9424
-" clip-path="url(#p6f963179a4)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
-   </g>
-   <g id="line2d_5">
-    <path d="M 14.148 260.2224
-L 653.616 260.2224
-" clip-path="url(#p6f963179a4)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
-   </g>
-   <g id="line2d_6">
-    <path d="M 14.148 295.5024
-L 653.616 295.5024
-" clip-path="url(#p6f963179a4)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
-   </g>
-   <g id="line2d_7">
-    <path d="M 14.148 330.7824
-L 653.616 330.7824
-" clip-path="url(#p6f963179a4)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
-   </g>
-   <g id="line2d_8">
-    <path d="M 14.148 366.0624
-L 653.616 366.0624
-" clip-path="url(#p6f963179a4)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
-   </g>
-   <g id="line2d_9">
-    <path d="M 14.148 401.3424
-L 653.616 401.3424
-" clip-path="url(#p6f963179a4)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
-   </g>
-   <g id="line2d_10">
-    <path d="M 14.148 436.6224
-L 653.616 436.6224
-" clip-path="url(#p6f963179a4)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
-   </g>
-   <g id="line2d_11">
-    <path d="M 14.148 471.9024
-L 653.616 471.9024
-" clip-path="url(#p6f963179a4)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
-   </g>
-   <g id="line2d_12">
-    <path d="M 14.148 507.1824
-L 653.616 507.1824
-" clip-path="url(#p6f963179a4)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
-   </g>
-   <g id="line2d_13">
-    <path d="M 14.148 542.4624
-L 653.616 542.4624
-" clip-path="url(#p6f963179a4)" style="fill: none; stroke: #e5eaed; stroke-width: 0.6; stroke-linecap: square"/>
-   </g>
-   <g id="text_1">
-    <text style="font-weight: 700; font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="20.54268" y="65.4984" transform="rotate(-0 20.54268 65.4984)">Unit</text>
-   </g>
-   <g id="text_2">
-    <text style="font-weight: 700; font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="110.0682" y="65.4984" transform="rotate(-0 110.0682 65.4984)">Rainfall sources (priority order)</text>
-   </g>
-   <g id="text_3">
-    <text style="font-weight: 700; font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="525.7224" y="65.4984" transform="rotate(-0 525.7224 65.4984)">Coastal series</text>
-   </g>
-   <g id="assignment-M01">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="20.54268" y="97.219822" transform="rotate(-0 20.54268 97.219822)">M01</text>
-   </g>
-   <g id="assignment-M01">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="110.0682" y="97.219822" transform="rotate(-0 110.0682 97.219822)">JMA_A46136, JMA_A46091</text>
-   </g>
-   <g id="assignment-M01">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="525.7224" y="97.220681" transform="rotate(-0 525.7224 97.220681)">Aburatsubo</text>
-   </g>
-   <g id="assignment-M02">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="20.54268" y="132.499822" transform="rotate(-0 20.54268 132.499822)">M02</text>
-   </g>
-   <g id="assignment-M02">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="110.0682" y="132.499822" transform="rotate(-0 110.0682 132.499822)">JMA_A46x0391, JMA_A46141, JMA_A46046</text>
-   </g>
-   <g id="assignment-M02">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="525.7224" y="132.500681" transform="rotate(-0 525.7224 132.500681)">Aburatsubo</text>
-   </g>
-   <g id="assignment-M03">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="20.54268" y="167.779822" transform="rotate(-0 20.54268 167.779822)">M03</text>
-   </g>
-   <g id="assignment-M03">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="110.0682" y="167.779822" transform="rotate(-0 110.0682 167.779822)">JMA_A46211</text>
-   </g>
-   <g id="assignment-M03">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="525.7224" y="167.780681" transform="rotate(-0 525.7224 167.780681)">Kurihama</text>
-   </g>
-   <g id="assignment-M04">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="20.54268" y="203.059822" transform="rotate(-0 20.54268 203.059822)">M04</text>
-   </g>
-   <g id="assignment-M04">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="110.0682" y="203.059822" transform="rotate(-0 110.0682 203.059822)">JMA_47670</text>
-   </g>
-   <g id="assignment-M04">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="525.7224" y="203.060681" transform="rotate(-0 525.7224 203.060681)">Yokohama Shinko</text>
-   </g>
-   <g id="assignment-M05">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="20.54268" y="238.339822" transform="rotate(-0 20.54268 238.339822)">M05</text>
-   </g>
-   <g id="assignment-M05">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="110.0682" y="238.339822" transform="rotate(-0 110.0682 238.339822)">JMA_A46061</text>
-   </g>
-   <g id="assignment-M05">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="525.7224" y="238.340681" transform="rotate(-0 525.7224 238.340681)">Yokohama Shinko</text>
-   </g>
-   <g id="assignment-M06">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="20.54268" y="273.619822" transform="rotate(-0 20.54268 273.619822)">M06</text>
-   </g>
-   <g id="assignment-M06">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="110.0682" y="273.619822" transform="rotate(-0 110.0682 273.619822)">JMA_A44166, JMA_A44126, JMA_A44116</text>
-   </g>
-   <g id="assignment-M06">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="525.7224" y="273.620681" transform="rotate(-0 525.7224 273.620681)">Kawasaki</text>
-   </g>
-   <g id="assignment-M07">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="20.54268" y="308.899822" transform="rotate(-0 20.54268 308.899822)">M07</text>
-   </g>
-   <g id="assignment-M07">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="110.0682" y="308.899822" transform="rotate(-0 110.0682 308.899822)">JMA_47662, JMA_A44136</text>
-   </g>
-   <g id="assignment-M07">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="525.7224" y="308.900681" transform="rotate(-0 525.7224 308.900681)">Tokyo Harumi</text>
-   </g>
-   <g id="assignment-M08">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="20.54268" y="344.179822" transform="rotate(-0 20.54268 344.179822)">M08</text>
-   </g>
-   <g id="assignment-M08">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="110.0682" y="344.179822" transform="rotate(-0 110.0682 344.179822)">JMA_A45106</text>
-   </g>
-   <g id="assignment-M08">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="525.7224" y="344.180681" transform="rotate(-0 525.7224 344.180681)">Tokyo Harumi</text>
-   </g>
-   <g id="assignment-M09">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="20.54268" y="379.459822" transform="rotate(-0 20.54268 379.459822)">M09</text>
-   </g>
-   <g id="assignment-M09">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="110.0682" y="379.459822" transform="rotate(-0 110.0682 379.459822)">JMA_47682</text>
-   </g>
-   <g id="assignment-M09">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="525.7224" y="379.460681" transform="rotate(-0 525.7224 379.460681)">Chiba</text>
-   </g>
-   <g id="assignment-M10">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="20.54268" y="414.739822" transform="rotate(-0 20.54268 414.739822)">M10</text>
-   </g>
-   <g id="assignment-M10">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="110.0682" y="414.739822" transform="rotate(-0 110.0682 414.739822)">JMA_A45291</text>
-   </g>
-   <g id="assignment-M10">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="525.7224" y="414.740681" transform="rotate(-0 525.7224 414.740681)">Chiba</text>
-   </g>
-   <g id="assignment-M11">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="20.54268" y="450.019822" transform="rotate(-0 20.54268 450.019822)">M11</text>
-   </g>
-   <g id="assignment-M11">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="110.0682" y="450.019822" transform="rotate(-0 110.0682 450.019822)">JMA_A45282, JMA_A45326</text>
-   </g>
-   <g id="assignment-M11">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="525.7224" y="450.020681" transform="rotate(-0 525.7224 450.020681)">Yokohama Shinko</text>
-   </g>
-   <g id="assignment-M12">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="20.54268" y="485.299822" transform="rotate(-0 20.54268 485.299822)">M12</text>
-   </g>
-   <g id="assignment-M12">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="110.0682" y="485.299822" transform="rotate(-0 110.0682 485.299822)">JMA_A45346</text>
-   </g>
-   <g id="assignment-M12">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="525.7224" y="485.300681" transform="rotate(-0 525.7224 485.300681)">Kurihama</text>
-   </g>
-   <g id="assignment-M13">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="20.54268" y="520.579822" transform="rotate(-0 20.54268 520.579822)">M13</text>
-   </g>
-   <g id="assignment-M13">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="110.0682" y="520.579822" transform="rotate(-0 110.0682 520.579822)">JMA_47672</text>
-   </g>
-   <g id="assignment-M13">
-    <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="525.7224" y="520.579822" transform="rotate(-0 525.7224 520.579822)">Mera</text>
-   </g>
+" style="fill: none; stroke: #555a5d; stroke-width: 0.45; stroke-linejoin: miter"/>
+  </g>
+  <g id="line2d_1">
+   <path d="M 5.669291 63.212598
+L 513.070866 63.212598
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_2">
+   <path d="M 5.669291 81.92126
+L 513.070866 81.92126
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_3">
+   <path d="M 5.669291 100.629921
+L 513.070866 100.629921
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_4">
+   <path d="M 5.669291 119.338583
+L 513.070866 119.338583
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_5">
+   <path d="M 5.669291 138.047244
+L 513.070866 138.047244
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_6">
+   <path d="M 5.669291 156.755906
+L 513.070866 156.755906
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_7">
+   <path d="M 5.669291 175.464567
+L 513.070866 175.464567
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_8">
+   <path d="M 5.669291 194.173228
+L 513.070866 194.173228
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_9">
+   <path d="M 5.669291 212.88189
+L 513.070866 212.88189
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_10">
+   <path d="M 5.669291 231.590551
+L 513.070866 231.590551
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_11">
+   <path d="M 5.669291 250.299213
+L 513.070866 250.299213
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_12">
+   <path d="M 5.669291 269.007874
+L 513.070866 269.007874
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+  </g>
+  <g id="line2d_13">
+   <path d="M 5.669291 287.716535
+L 513.070866 287.716535
+" style="fill: none; stroke: #cfd3d5; stroke-width: 0.3; stroke-linecap: square"/>
+  </g>
+  <g id="text_1">
+   <text style="font-size: 7px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="5.669291" y="10.765483" transform="rotate(-0 5.669291 10.765483)">Tokyo Bay | Station assignments</text>
+  </g>
+  <g id="text_2">
+   <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="30.608002" transform="rotate(-0 14.173228 30.608002)">Unit</text>
+  </g>
+  <g id="text_3">
+   <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="30.608002" transform="rotate(-0 68.031496 30.608002)">Rainfall sources (priority order)</text>
   </g>
   <g id="text_4">
-   <text style="font-weight: 700; font-size: 16px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #252525" x="10.8" y="23.0275" transform="rotate(-0 10.8 23.0275)">Tokyo Bay | Station assignments</text>
+   <text style="font-weight: 700; font-size: 7px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="30.608002" transform="rotate(-0 396.850394 30.608002)">Tide record</text>
+  </g>
+  <g id="text_5">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="54.450368" transform="rotate(-0 14.173228 54.450368)">M01</text>
+  </g>
+  <g id="text_6">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="53.84404" transform="rotate(-0 68.031496 53.84404)">JMA_A46136, JMA_A46091</text>
+  </g>
+  <g id="text_7">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="54.442243" transform="rotate(-0 396.850394 54.442243)">Aburatsubo</text>
+  </g>
+  <g id="text_8">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="73.159029" transform="rotate(-0 14.173228 73.159029)">M02</text>
+  </g>
+  <g id="text_9">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="72.552701" transform="rotate(-0 68.031496 72.552701)">JMA_A46x0391, JMA_A46141, JMA_A46046</text>
+  </g>
+  <g id="text_10">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="73.150904" transform="rotate(-0 396.850394 73.150904)">Aburatsubo</text>
+  </g>
+  <g id="text_11">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="91.866167" transform="rotate(-0 14.173228 91.866167)">M03</text>
+  </g>
+  <g id="text_12">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="91.261363" transform="rotate(-0 68.031496 91.261363)">JMA_A46211</text>
+  </g>
+  <g id="text_13">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="91.859566" transform="rotate(-0 396.850394 91.859566)">Kurihama</text>
+  </g>
+  <g id="text_14">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="110.576352" transform="rotate(-0 14.173228 110.576352)">M04</text>
+  </g>
+  <g id="text_15">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="109.970024" transform="rotate(-0 68.031496 109.970024)">JMA_47670</text>
+  </g>
+  <g id="text_16">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="110.606313" transform="rotate(-0 396.850394 110.606313)">Yokohama Shinko</text>
+  </g>
+  <g id="text_17">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="129.285014" transform="rotate(-0 14.173228 129.285014)">M05</text>
+  </g>
+  <g id="text_18">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="128.678686" transform="rotate(-0 68.031496 128.678686)">JMA_A46061</text>
+  </g>
+  <g id="text_19">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="129.314975" transform="rotate(-0 396.850394 129.314975)">Yokohama Shinko</text>
+  </g>
+  <g id="text_20">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="147.993675" transform="rotate(-0 14.173228 147.993675)">M06</text>
+  </g>
+  <g id="text_21">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="147.387347" transform="rotate(-0 68.031496 147.387347)">JMA_A44166, JMA_A44126, JMA_A44116</text>
+  </g>
+  <g id="text_22">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="147.98555" transform="rotate(-0 396.850394 147.98555)">Kawasaki</text>
+  </g>
+  <g id="text_23">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="166.702336" transform="rotate(-0 14.173228 166.702336)">M07</text>
+  </g>
+  <g id="text_24">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="166.096008" transform="rotate(-0 68.031496 166.096008)">JMA_47662, JMA_A44136</text>
+  </g>
+  <g id="text_25">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="166.048274" transform="rotate(-0 396.850394 166.048274)">Tokyo Harumi</text>
+  </g>
+  <g id="text_26">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="185.410998" transform="rotate(-0 14.173228 185.410998)">M08</text>
+  </g>
+  <g id="text_27">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="184.80467" transform="rotate(-0 68.031496 184.80467)">JMA_A45106</text>
+  </g>
+  <g id="text_28">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="184.756935" transform="rotate(-0 396.850394 184.756935)">Tokyo Harumi</text>
+  </g>
+  <g id="text_29">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="204.119659" transform="rotate(-0 14.173228 204.119659)">M09</text>
+  </g>
+  <g id="text_30">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="203.513331" transform="rotate(-0 68.031496 203.513331)">JMA_47682</text>
+  </g>
+  <g id="text_31">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="204.14962" transform="rotate(-0 396.850394 204.14962)">Chiba</text>
+  </g>
+  <g id="text_32">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="222.828321" transform="rotate(-0 14.173228 222.828321)">M10</text>
+  </g>
+  <g id="text_33">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="222.221993" transform="rotate(-0 68.031496 222.221993)">JMA_A45291</text>
+  </g>
+  <g id="text_34">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="222.858282" transform="rotate(-0 396.850394 222.858282)">Chiba</text>
+  </g>
+  <g id="text_35">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="241.576592" transform="rotate(-0 14.173228 241.576592)">M11</text>
+  </g>
+  <g id="text_36">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="240.930654" transform="rotate(-0 68.031496 240.930654)">JMA_A45282, JMA_A45326</text>
+  </g>
+  <g id="text_37">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="241.566943" transform="rotate(-0 396.850394 241.566943)">Yokohama Shinko</text>
+  </g>
+  <g id="text_38">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="260.285253" transform="rotate(-0 14.173228 260.285253)">M12</text>
+  </g>
+  <g id="text_39">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="259.639315" transform="rotate(-0 68.031496 259.639315)">JMA_A45346</text>
+  </g>
+  <g id="text_40">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="260.237519" transform="rotate(-0 396.850394 260.237519)">Kurihama</text>
+  </g>
+  <g id="text_41">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="278.952782" transform="rotate(-0 14.173228 278.952782)">M13</text>
+  </g>
+  <g id="text_42">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="68.031496" y="278.347977" transform="rotate(-0 68.031496 278.347977)">JMA_47672</text>
+  </g>
+  <g id="text_43">
+   <text style="font-size: 6.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="278.94618" transform="rotate(-0 396.850394 278.94618)">Mera</text>
   </g>
  </g>
- <defs>
-  <clipPath id="p6f963179a4">
-   <rect x="14.148" y="70.1712" width="639.468" height="467.28"/>
-  </clipPath>
- </defs>
 </svg>
