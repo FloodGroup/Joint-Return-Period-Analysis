@@ -18,8 +18,8 @@ from .coverage import coverage_figure
 from .events import daily_events, hourly_events, merge_daily, merge_hourly
 
 
-def step02_events(analysis):
-    """02. Merge rainfall, build paired events, and prepare rainfall annual samples."""
+def step02_events(analysis, skip_compound=False):
+    """02. Prepare rainfall annual samples and, unless skipped, paired events."""
     analysis.require(2)
     settings, manifest, out = analysis.settings, analysis.manifest, analysis.out
     root = analysis.manifest_path.parent
@@ -58,17 +58,19 @@ def step02_events(analysis):
             )
             write_json(out / "units" / uid / (source["station_id"] + "_quality.json"), audit)
         folder = out / "units" / uid
+        pot, event_meta = None, {}
         if settings.event_clock == "daily":
             merged = merge_daily(loaded)
             coverage_figure(folder, merged.index, daily_sources=merged.station_id)
-            all_events, pot, event_meta = daily_events(
-                uid,
-                merged.rain_mm,
-                tide[gauge],
-                settings,
-                GBA_EVENT_EXCLUSIONS.get(uid, []) if not settings.synthetic else [],
-                analysis_span=unit.get("event_span"),
-            )
+            if not skip_compound:
+                all_events, pot, event_meta = daily_events(
+                    uid,
+                    merged.rain_mm,
+                    tide[gauge],
+                    settings,
+                    GBA_EVENT_EXCLUSIONS.get(uid, []) if not settings.synthetic else [],
+                    analysis_span=unit.get("event_span"),
+                )
             annual_merged = merge_daily(annual_loaded)
             rain_maxima = daily_maxima(annual_merged.rain_mm, "R")
             for sid, count in (
@@ -76,7 +78,8 @@ def step02_events(analysis):
             ):
                 sources.append(dict(unit=uid, station_id=sid, selected_observations=int(count)))
         else:
-            all_events, pot, blocks, event_meta = hourly_events(uid, loaded, tide[gauge], settings)
+            if not skip_compound:
+                all_events, pot, blocks, event_meta = hourly_events(uid, loaded, tide[gauge], settings)
             fullclock, fullblocks, _ = merge_hourly(annual_loaded)
             coverage_figure(folder, fullclock, blocks=fullblocks)
             rain_maxima = hourly_rain_maxima(
@@ -102,10 +105,11 @@ def step02_events(analysis):
                     sha256=sha256(path),
                 )
             )
-        event_meta.update(gauge=gauge, datum=settings.datum)
-        write_csv(folder / "all_events.csv", all_events.reset_index())
-        write_csv(folder / "pot_events.csv", pot)
-        write_json(folder / "event_settings.json", event_meta)
+        if not skip_compound:
+            event_meta.update(gauge=gauge, datum=settings.datum)
+            write_csv(folder / "all_events.csv", all_events.reset_index())
+            write_csv(folder / "pot_events.csv", pot)
+            write_json(folder / "event_settings.json", event_meta)
         write_csv(folder / "rain_annual_maxima.csv", rain_maxima)
         analysis.units.append(
             dict(unit=unit, folder=folder, pot=pot, event_meta=event_meta, rain_maxima=rain_maxima)

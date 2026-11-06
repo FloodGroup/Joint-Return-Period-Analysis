@@ -20,7 +20,7 @@ from jrpa.step05_export import step05_export
 def run(manifest_path, output, settings=None, skip_compound=False):
     """Run steps 01 to 05 in order. Each region uses this same sequence."""
     analysis = step01_prepare(manifest_path, output, settings)
-    step02_events(analysis)
+    step02_events(analysis, skip_compound=skip_compound)
     step03_annual(analysis)
     step04_copula(analysis, skip_compound=skip_compound)
     return step05_export(analysis)

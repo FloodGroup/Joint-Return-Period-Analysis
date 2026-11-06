@@ -187,7 +187,7 @@ def annual_figure(out, meta, settings):
             if variable == "H":
                 curve += transfer.get("delta_m", 0.0)
         elif variable == "R" and "L_CV" in model:
-            from .regional import growth_curve
+            from jrpa.step03_annual.regional import growth_curve
 
             growth, _ = growth_curve(model["L_CV"], model["L_skew"], periods)
             curve = np.array(list(growth.values())) * model["index_mm"] * factor
