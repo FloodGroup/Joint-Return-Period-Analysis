@@ -10,27 +10,55 @@ from jrpa.common.plotting import COLORS, PERIOD_COLORS, save, style
 from jrpa.step04_copula.marginals import Margin
 
 CSS = """
-:root{--ink:#203844;--muted:#71818a;--teal:#168c98;--line:#e5eaed}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);font:15px/1.65 system-ui,sans-serif;background:#f5f7f8}
-main{max-width:1200px;margin:40px auto;padding:0 28px}header{padding:32px 0;border-top:4px solid var(--teal)}
-h1{font-size:clamp(28px,4vw,44px);line-height:1.15;letter-spacing:-.025em;margin:12px 0}h2{font-size:23px;margin:0 0 14px}
-.eyebrow{font-size:11px;font-weight:700;letter-spacing:.15em;color:var(--teal);text-transform:uppercase}.muted,small{color:var(--muted)}
-section{background:white;border:1px solid var(--line);padding:26px;margin:20px 0;border-radius:7px}.notice{background:#fff5e9;border-left:3px solid #ba7143;padding:14px 18px}
-nav{display:flex;gap:10px;flex-wrap:wrap}a{color:#277383;text-decoration:none}a:hover{text-decoration:underline}
-nav a{padding:6px 12px;border:1px solid var(--line);background:white;border-radius:4px}figure{margin:22px 0}img{width:100%;height:auto}figcaption{font-size:12px;color:var(--muted)}
-table{border-collapse:collapse;width:100%;font-size:13px;font-variant-numeric:tabular-nums}th,td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:right}th:first-child,td:first-child{text-align:left}th{color:var(--muted);font-weight:600}thead{background:#f7f9fa}.scroll{overflow:auto}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}.stat{background:white;border:1px solid var(--line);padding:15px 20px;border-radius:5px}.stat b{display:block;font-size:25px}
-code{font-size:.9em;background:#edf3f5;padding:2px 4px;border-radius:3px}footer{padding:30px 0;color:var(--muted);font-size:12px}
+:root{--ink:#24343d;--muted:#566872;--accent:#087f86;--line:#dce4e8;--paper:#fff}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{margin:0;color:var(--ink);font:16px/1.65 "Segoe UI",Arial,sans-serif;background:#f4f6f7}
+main{max-width:1240px;margin:auto;padding:40px 32px 80px}
+header{padding:24px 0 28px;border-top:3px solid var(--accent)}
+h1{font-size:clamp(30px,4vw,44px);line-height:1.15;letter-spacing:-.025em;margin:10px 0 14px}
+h2{font-size:28px;line-height:1.25;margin:4px 0 12px}h3{font-size:20px;line-height:1.4;margin:32px 0 16px}
+p{margin:10px 0 16px}.eyebrow{font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--accent);text-transform:uppercase}
+.muted,small{color:var(--muted)}small{font-size:14px}a{color:#076c75;text-underline-offset:3px}
+a:hover{color:#034d54}a:focus-visible,summary:focus-visible,.scroll:focus-visible{outline:3px solid #cf8434;outline-offset:4px}
+.unit,.overview{background:var(--paper);border:1px solid var(--line);padding:32px;margin:28px 0;border-radius:8px}
+.unit-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:16px}
+.unit-head p{margin:0}.notice{background:#fff4e6;border-left:3px solid #ad6c25;padding:12px 18px}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;margin:8px 0 28px}
+.stat{border-top:1px solid var(--line);padding:14px 0}.stat b{display:block;font-size:24px;line-height:1.4}.stat span{font-size:14px;color:var(--muted)}
+nav{display:flex;gap:8px;flex-wrap:wrap;position:sticky;top:0;z-index:10;background:#f4f6f7f5;padding:12px 0;border-bottom:1px solid var(--line)}
+nav a{padding:6px 12px;background:white;border:1px solid #cbd8dd;border-radius:4px;text-decoration:none;font-size:14px}
+.downloads{display:flex;gap:10px 24px;flex-wrap:wrap;font-size:14px;margin-top:20px}
+.figure-grid,.annual-tables{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:start}
+.annual-tables>*{min-width:0}.annual-tables th,.annual-tables td{padding:12px}
+figure{margin:0;min-width:0}figure img{display:block;width:100%;height:auto}figure a{display:block}
+figcaption{font-size:14px;color:var(--muted);line-height:1.6;margin:10px 4px 0}
+.kendall{max-width:760px;margin:24px auto 0}.coverage{margin:20px 0}.coverage a{overflow-x:auto}.coverage img{min-width:640px}
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:5px;margin:12px 0 20px}
+table{border-collapse:collapse;width:100%;font-size:15px;line-height:1.5;font-variant-numeric:tabular-nums}
+caption{text-align:left;font-weight:600;font-size:16px;padding:14px 18px;background:#f0f5f6;caption-side:top}
+th,td{padding:12px 18px;border-bottom:1px solid var(--line);text-align:right;vertical-align:top}
+th{font-size:14px;font-weight:600;background:#f8fafb;color:#425762}th:first-child,td:first-child{text-align:left}
+thead th{vertical-align:bottom}tbody tr:last-child td{border-bottom:0}tbody tr:nth-child(even){background:#fafcfc}
+tbody tr:hover{background:#edf5f6}td{white-space:nowrap}.unit-symbol{display:block;font-weight:400;font-size:13px}
+.status{color:#8a541b}.details-table td:last-child{white-space:normal;min-width:240px;text-align:left}
+details{border-top:1px solid var(--line);margin-top:24px;padding-top:16px}summary{cursor:pointer;font-size:15px;font-weight:600}
+.fit-meta{display:flex;gap:10px 28px;flex-wrap:wrap;margin:12px 0 20px;color:var(--muted);font-size:14px}
+.fit-meta b{color:var(--ink)}.empty{padding:18px;background:#f8fafb;color:var(--muted)}
+@media(max-width:980px){.figure-grid,.annual-tables{grid-template-columns:1fr}}
+@media(max-width:760px){main{padding:20px 16px 40px}.unit,.overview{padding:20px 16px;margin:20px 0}.stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}h2{font-size:24px}h3{font-size:19px}nav{position:static}th,td{padding:10px 12px}.unit-head{gap:4px}table{min-width:400px}}
+@media print{body{background:white}main{max-width:none;padding:0}nav,.downloads{display:none}.unit,.overview{padding:20px 0;border:0;border-radius:0}.unit{break-before:page}.scroll{overflow:visible}figure,table{break-inside:avoid}.figure-grid{grid-template-columns:repeat(2,minmax(0,1fr))}a{color:inherit;text-decoration:none}}
 """
 
 
 def unit_figures(root, meta, synthetic=False):
     style()
+    plt.rcParams.update(
+        {"font.size": 12, "axes.labelsize": 12, "xtick.labelsize": 11, "ytick.labelsize": 11}
+    )
     root = Path(root)
     data = pd.read_csv(root / "pot_events.csv")
     curves = pd.read_csv(root / "kendall_curves.csv")
     points = pd.read_csv(root / "kendall_design.csv")
-    fig, axes = plt.subplots(1, 3, figsize=(12.5, 3.5), layout="constrained")
     for j, (variable, col, label) in enumerate(
         [
             ("R", "rain_mm", "Event rainfall (mm)"),
@@ -39,7 +67,7 @@ def unit_figures(root, meta, synthetic=False):
     ):
         x = np.sort(data[col].to_numpy(float))
         f = (np.arange(len(x)) + 0.5) / len(x)
-        ax = axes[j]
+        fig, ax = plt.subplots(figsize=(5.8, 4.4), layout="constrained")
         margin = Margin(meta["margins"][variable])
         ax.scatter(
             x,
@@ -56,10 +84,11 @@ def unit_figures(root, meta, synthetic=False):
             label="Fitted margin",
         )
         ax.set(xlabel=label, ylabel="Cumulative probability", ylim=(0, 1.025))
-        ax.set_title(f"{'ab'[j]}  Marginal distribution", loc="left")
+        ax.set_title("a  Rainfall margin" if j == 0 else "b  Water-level margin", loc="left")
         ax.grid(alpha=0.8)
-        ax.legend(fontsize=7, loc="lower right")
-    ax = axes[2]
+        ax.legend(fontsize=10, loc="lower right")
+        save(fig, root / f"figures/margin_{variable}")
+    fig, ax = plt.subplots(figsize=(7.2, 4.8), layout="constrained")
     factor = meta["settings"]["rainfall_factor_24h"]
     ax.scatter(
         data.rain_mm * factor, data.water_max_m, s=12, color=COLORS["sample"], alpha=0.75, zorder=1
@@ -80,32 +109,79 @@ def unit_figures(root, meta, synthetic=False):
     ax.set(xlabel="24 h rainfall (mm)", ylabel=f"Coastal water level (m, {meta['datum']})")
     ax.set_title("c  Kendall design", loc="left")
     ax.grid(alpha=0.8)
-    ax.legend(fontsize=7)
-    fig.suptitle(
-        f"{meta['unit']} | "
-        + ("Synthetic demonstration" if synthetic else "Rainfall-coastal water-level analysis"),
-        x=0.01,
-        ha="left",
-        fontsize=13,
+    ax.legend(fontsize=10)
+    save(fig, root / "figures/kendall_design")
+
+
+def report_figure(uid, name, label, caption="", css=""):
+    """Link each vector figure to its full-size version."""
+    src = f"units/{escape(uid)}/figures/{name}.svg"
+    return (
+        f'<figure class="{css}"><a href="{src}" target="_blank" rel="noopener" '
+        f'aria-label="Open {escape(label)} at full size">'
+        f'<img src="{src}" alt="{escape(label)}" loading="lazy"></a>'
+        f"<figcaption>{escape(caption)}</figcaption></figure>"
     )
-    save(fig, root / "figures/model_diagnostics")
 
 
-def render_report(output, settings, design_rows, models, sources):
+def design_table(data, scenario, datum):
+    """Show each design class with its relevant variables and units."""
+    part = data.loc[data.scenario.eq(scenario)].sort_values("return_period_years")
+    if part.empty:
+        return ""
+    labels = {
+        "S1": "S1 · Rainfall",
+        "S2": "S2 · Coastal water level",
+        "Kendall": "Compound · Kendall",
+    }
+    columns = [("return_period_years", "Return period", "yr", 0)]
+    if scenario != "S2":
+        columns.append(("R_mm", "24 h rainfall", "mm", 2))
+    if scenario != "S1":
+        columns.extend(
+            [
+                ("H_m", "Coastal water level", f"m, {datum}", 3),
+                ("H_model_m", "Model water level", "m", 3),
+            ]
+        )
+    diagnostic = part.get("diagnostic_only", pd.Series(False, index=part.index)).fillna(False)
+    show_status = diagnostic.any()
+    heads = "".join(
+        f'<th scope="col">{escape(label)}<span class="unit-symbol">{escape(unit)}</span></th>'
+        for _, label, unit, _ in columns
+    )
+    if show_status:
+        heads += '<th scope="col">Status</th>'
+    rows = []
+    for index, row in part.iterrows():
+        cells = "".join(
+            f"<td>{float(row[key]):,.{digits}f}</td>" if pd.notna(row.get(key)) else "<td>—</td>"
+            for key, _, _, digits in columns
+        )
+        if show_status:
+            cells += (
+                '<td class="status">Diagnostic</td>'
+                if diagnostic.loc[index]
+                else "<td>Accepted</td>"
+            )
+        rows.append(f"<tr>{cells}</tr>")
+    label = labels.get(scenario, scenario)
+    return (
+        f'<div class="scroll" tabindex="0" role="region" aria-label="{escape(label)} design values">'
+        f"<table><caption>{escape(label)}</caption><thead><tr>{heads}</tr></thead>"
+        f"<tbody>{''.join(rows)}</tbody></table></div>"
+    )
+
+
+def render_report(output, settings, design_rows, models, sources, units=None):
     out = Path(output)
     title = {"gba": "Greater Bay Area", "san_francisco": "San Francisco Bay", "tokyo": "Tokyo Bay"}[
         settings.region
     ]
-    frame = pd.DataFrame(design_rows)
-    sections = []
-    for meta in models:
-        folder = out / "units" / meta["unit"]
-        unit_figures(folder, meta, settings.synthetic)
-        annual_figure(out, meta, settings)
-        data = frame.loc[frame.unit.eq(meta["unit"])].copy()
-        s2 = frame.loc[frame.scenario.eq("S2") & frame.gauge.eq(meta["gauge"])].copy()
-        data = pd.concat([data, s2], ignore_index=True)
-        columns = [
+    frame = pd.DataFrame(design_rows).reindex(
+        columns=[
+            "unit",
+            "gauge",
             "scenario",
             "return_period_years",
             "R_mm",
@@ -114,61 +190,168 @@ def render_report(output, settings, design_rows, models, sources):
             "diagnostic_only",
             "diagnostic_reason",
         ]
-        display = data[columns].rename(
-            columns={
-                "scenario": "Scenario",
-                "return_period_years": "Return period (yr)",
-                "R_mm": "Rainfall (mm)",
-                "H_m": f"Water level (m, {settings.datum})",
-                "H_model_m": "Model water level (m)",
-                "diagnostic_only": "Diagnostic only",
-                "diagnostic_reason": "Diagnostic reason",
-            }
+    )
+    model_by_unit = {m["unit"]: m for m in models}
+    if units is None:
+        # Support regeneration from previously exported tables and model files.
+        units = (
+            frame.loc[frame.unit.notna(), ["unit", "gauge"]].drop_duplicates().to_dict("records")
         )
-        table = display.to_html(
-            index=False, border=0, float_format=lambda x: f"{x:.3f}", na_rep="n.a.", escape=True
+        known = {u["unit"] for u in units}
+        units.extend(
+            {"unit": m["unit"], "gauge": m["gauge"]} for m in models if m["unit"] not in known
         )
-        used = [r for r in sources if r["unit"] == meta["unit"] and r["selected_observations"] > 0]
+    sections = []
+    for unit in units:
+        uid, gauge = unit["unit"], unit["gauge"]
+        folder = out / "units" / uid
+        meta = model_by_unit.get(uid)
+        annual_figure(out, unit, settings)
+        data = frame.loc[
+            frame.unit.eq(uid) | (frame.scenario.eq("S2") & frame.gauge.eq(gauge))
+        ].copy()
+        annual_tables = "".join(
+            design_table(data, scenario, settings.datum) for scenario in ("S1", "S2")
+        )
+        tables = '<div class="annual-tables">' + annual_tables + "</div>" if annual_tables else ""
+        tables += design_table(data, "Kendall", settings.datum)
+        if not tables:
+            tables = '<p class="empty">No design values were produced for this unit.</p>'
+        annual = (
+            '<div class="figure-grid">'
+            + report_figure(
+                uid,
+                "annual_R",
+                "S1 rainfall frequency curve",
+                "S1 · Annual rainfall maxima and fitted return levels.",
+            )
+            + report_figure(
+                uid,
+                "annual_H",
+                "S2 coastal water-level frequency curve",
+                "S2 · Annual coastal water-level maxima and fitted return levels.",
+            )
+            + "</div>"
+        )
+        compound = ""
+        if meta is not None:
+            unit_figures(folder, meta, settings.synthetic)
+            compound = (
+                '<h3>Compound analysis</h3><div class="fit-meta">'
+                f"<span><b>{meta['event_count']}</b> events</span>"
+                f"<span><b>{meta['effective_years']:.2f}</b> paired years</span>"
+                f"<span><b>{escape(meta['copula_family'])}</b> copula</span>"
+                f"<span>Joint CvM <i>p</i> = <b>{meta['CvM_p']:.3f}</b></span></div>"
+                '<div class="figure-grid">'
+                + report_figure(uid, "margin_R", "Event rainfall distribution")
+                + report_figure(uid, "margin_H", "Event water-level distribution")
+                + "</div>"
+                + report_figure(
+                    uid,
+                    "kendall_design",
+                    "Kendall return-period contours",
+                    "Contours show Kendall return periods; stars mark maximum joint-density design combinations.",
+                    "kendall",
+                )
+            )
+        used = [r for r in sources if r["unit"] == uid and r["selected_observations"] > 0]
         source_text = ", ".join(escape(r["station_id"]) for r in used)
-        sections.append(f"""<section id="unit-{escape(meta["unit"])}"><div class="eyebrow">Analysis unit</div><h2>{escape(meta["unit"])} · {escape(meta["gauge"])}</h2>
-<p class="muted">{meta["event_count"]} events · {meta["effective_years"]:.2f} effective paired years · {escape(meta["copula_family"])} copula · Joint CvM p = {meta["CvM_p"]:.3f}</p>
-<figure><img src="units/{escape(meta["unit"])}/figures/source_coverage.svg" alt="Monthly coverage of contributing rainfall observations"><figcaption>Only rainfall sources with a real contribution are shown. Empty coverage is not interpreted as zero rainfall.</figcaption></figure>
-<figure><img src="units/{escape(meta["unit"])}/figures/model_diagnostics.svg" alt="Marginal distributions and Kendall design curves"><figcaption>Stars identify maximum physical joint-density design points. Curves describe events selected using the rainfall threshold.</figcaption></figure>
-<figure><img src="units/{escape(meta["unit"])}/figures/annual_frequency.svg" alt="Full-record rainfall and tide-station annual frequency curves"><figcaption>S1 and S2 use full, separately screened records. S2 is fitted once per tide station. Gray points are accepted annual observations; stars identify design levels.</figcaption></figure>
-<div class="scroll">{table}</div><p><small>Contributing rainfall stations: {source_text}</small></p></section>""")
+        coverage = ""
+        if (folder / "figures/source_coverage.svg").exists():
+            coverage = "<h3>Observation coverage</h3>" + report_figure(
+                uid,
+                "source_coverage",
+                "Coverage of contributing rainfall observations",
+                "Monthly fraction of observations supplied by each rainfall station.",
+                "coverage",
+            )
+        diagnostic = data.loc[
+            data.diagnostic_only.fillna(False).astype(bool), ["scenario", "diagnostic_reason"]
+        ].drop_duplicates()
+        details = ""
+        if not diagnostic.empty:
+            details = (
+                '<details><summary>Fit diagnostics</summary><div class="scroll details-table">'
+                + diagnostic.rename(
+                    columns={"scenario": "Design", "diagnostic_reason": "Reason"}
+                ).to_html(index=False, border=0, escape=True, na_rep="—")
+                + "</div></details>"
+            )
+        sections.append(
+            f'<section class="unit" id="unit-{escape(uid)}"><div class="unit-head"><div>'
+            f'<div class="eyebrow">Analysis unit</div><h2>Unit {escape(uid)}</h2></div>'
+            f'<p class="muted">Tide station <b>{escape(gauge)}</b></p></div>'
+            f"<h3>Design values</h3>{tables}<h3>Annual frequency analysis</h3>{annual}"
+            '<p class="muted"><small>Rainfall and water level use separately screened annual maxima. '
+            "Points show annual observations; stars show design values.</small></p>"
+            f"{compound}{coverage}<p><small>Contributing rainfall stations: {source_text or 'None'}</small></p>"
+            f"{details}</section>"
+        )
     notice = (
-        '<p class="notice"><strong>Synthetic demonstration.</strong> All observations are generated. These values are not study estimates.</p>'
+        '<p class="notice"><strong>Synthetic demonstration.</strong> Generated observations.</p>'
         if settings.synthetic
         else ""
     )
-    nav = "".join(f'<a href="#unit-{escape(m["unit"])}">{escape(m["unit"])}</a>' for m in models)
-    body = f"""<header><div class="eyebrow">Joint return-period analysis</div><h1>{title}</h1><p class="muted">Compound return periods and full-record univariate designs</p></header>{notice}
-<div class="grid"><div class="stat"><b>{len(models)}</b>compound models</div><div class="stat"><b>{sum(not m["diagnostic_only"] for m in models)}</b>models meeting formal gates</div><div class="stat"><b>{settings.datum}</b>analysis vertical reference</div></div>
-<section><h2>Design definitions</h2><p>S1 uses full-record annual rainfall maxima. S2 uses full-record annual coastal water-level maxima, fitted once per tide station. Compound designs use ordinary Kendall return periods and the maximum physical joint-density point.</p>
-<p><a href="design_values.csv">Design values</a> · <a href="rainfall_sources_used.csv">Contributing rainfall stations</a> · <a href="provenance.json">Input provenance</a> · <a href="settings.json">Numerical settings</a></p><nav>{nav}</nav></section>{"".join(sections)}
-"""
+    nav = "".join(
+        f'<a href="#unit-{escape(u["unit"])}">Unit {escape(u["unit"])}</a>' for u in units
+    )
+    periods = ", ".join(str(t) for t in settings.periods)
+    mode = (
+        "Univariate and compound return-period analysis"
+        if models
+        else "Univariate return-period analysis"
+    )
+    summary = [
+        (str(len(units)), "Analysis units"),
+        (str(len({u["gauge"] for u in units})), "Tide stations"),
+        (periods, "Return periods (yr)"),
+        (settings.datum, "Vertical reference"),
+    ]
+    stats = "".join(
+        f'<div class="stat"><b>{escape(value)}</b><span>{label}</span></div>'
+        for value, label in summary
+    )
+    definition = "S1 estimates rainfall return levels; S2 estimates coastal water-level return levels, each from annual maxima."
+    if models:
+        definition += " Compound combinations are selected on Kendall return-period contours using the maximum joint-density criterion."
+    body = (
+        f'<header><div class="eyebrow">Return-period analysis</div><h1>{title}</h1><p class="muted">{mode}</p></header>'
+        f'{notice}<div class="stats">{stats}</div><section class="overview"><h2>Design events</h2><p>{definition}</p>'
+        '<div class="downloads"><a href="design_values.csv">Design values · CSV</a>'
+        '<a href="rainfall_sources_used.csv">Rainfall stations · CSV</a>'
+        '<a href="settings.json">Analysis settings</a><a href="provenance.json">Data sources</a></div></section>'
+        f'<nav aria-label="Analysis units">{nav}</nav>{"".join(sections)}'
+    )
     html = f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{title} | Return-period analysis</title><style>{CSS}</style></head><body><main>{body}</main></body></html>'
     (out / "results.html").write_text(html, encoding="utf8")
 
 
 def annual_figure(out, meta, settings):
     style()
+    plt.rcParams.update(
+        {"font.size": 12, "axes.labelsize": 12, "xtick.labelsize": 11, "ytick.labelsize": 11}
+    )
     folder = out / "units" / meta["unit"]
     rain = json.loads((folder / "rain_annual_model.json").read_text(encoding="utf8"))
     tides = json.loads((out / "tide_models.json").read_text(encoding="utf8"))
     tide = tides[meta["gauge"]]
     transfer = tide.get("transfer", {})
     donor = tides.get(transfer.get("donor"), tide)
-    designs = pd.read_csv(out / "design_values.csv", dtype={"unit": str})
-    fig, axes = plt.subplots(1, 2, figsize=(11.5, 3.3), layout="constrained")
-    periods = np.geomspace(2, 200, 240)
+    try:
+        designs = pd.read_csv(out / "design_values.csv", dtype={"unit": str})
+    except pd.errors.EmptyDataError:
+        designs = pd.DataFrame()
+    designs = designs.reindex(
+        columns=["unit", "gauge", "scenario", "return_period_years", "R_mm", "H_m"]
+    )
+    periods = np.geomspace(2, max(200, max(settings.periods)), 240)
     for j, (variable, table, model) in enumerate(
         [
             ("R", folder / "rain_annual_maxima.csv", rain),
             ("H", out / "tides" / meta["gauge"] / "annual_maxima.csv", donor),
         ]
     ):
-        ax = axes[j]
+        fig, ax = plt.subplots(figsize=(5.8, 4.4), layout="constrained")
         annual = pd.read_csv(table)
         values = np.sort(annual.loc[annual.used, "maximum"].to_numpy(float))
         factor = settings.rainfall_factor_24h if variable == "R" else 1.0
@@ -226,5 +409,5 @@ def annual_figure(out, meta, settings):
         )
         ax.set_xticks([2, 10, 50, 100, 200], ["2", "10", "50", "100", "200"])
         ax.grid(alpha=0.8)
-        ax.legend(fontsize=7)
-    save(fig, folder / "figures/annual_frequency")
+        ax.legend(fontsize=10, loc="upper left")
+        save(fig, folder / f"figures/annual_{variable}")

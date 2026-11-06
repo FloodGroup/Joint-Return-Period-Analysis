@@ -44,7 +44,14 @@ def step05_export(analysis):
             synthetic=settings.synthetic,
         ),
     )
-    render_report(out, settings, design_rows, fitted, sources)
+    render_report(
+        out,
+        settings,
+        design_rows,
+        fitted,
+        sources,
+        units=[item["unit"] for item in analysis.units],
+    )
     return dict(
         region=settings.region,
         units=len(analysis.units),

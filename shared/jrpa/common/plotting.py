@@ -13,7 +13,7 @@ COLORS = {
     "rain": "#168c98",
     "water": "#4c75a3",
     "diagnostic": "#ba7143",
-    "sample": "#b9c4ca",
+    "sample": "#82949e",
 }
 PERIOD_COLORS = ("#168c98", "#4c75a3", "#8b68a1", "#ba7143")
 
@@ -22,8 +22,12 @@ def style():
     plt.rcParams.update(
         {
             "font.family": "DejaVu Sans",
-            "font.size": 10,
-            "axes.labelsize": 10,
+            "font.size": 11,
+            "axes.labelsize": 11,
+            "xtick.labelsize": 10,
+            "ytick.labelsize": 10,
+            "axes.labelpad": 8,
+            "axes.titlepad": 14,
             "axes.titlesize": 12,
             "axes.titleweight": "bold",
             "axes.labelcolor": COLORS["ink"],
