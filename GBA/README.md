@@ -10,9 +10,10 @@ Thirteen analysis units represent the Pearl River Estuary and Hong Kong coastal 
 
 ## Study area
 
-[![Study area](figures/01_study_area.png)](figures/01_study_area.png)
-
-*Analysis units and observation stations.*
+<p align="center">
+  <a href="figures/01_study_area.png"><img src="figures/01_study_area.png" alt="Study area" width="600"></a><br>
+  <sub>Analysis units and observation stations.</sub>
+</p>
 
 ## Analysis units
 
@@ -46,17 +47,19 @@ See [Methods](../shared/methods.md#analysis-units) for the common partitioning p
 <details markdown="1">
 <summary>Station assignment diagram</summary>
 
-[![Station assignments](figures/02_station_assignments.png)](figures/02_station_assignments.png)
-
-*Rainfall and coastal water-level assignments by unit.*
+<p align="center">
+  <a href="figures/02_station_assignments.png"><img src="figures/02_station_assignments.png" alt="Station assignments" width="680"></a><br>
+  <sub>Rainfall and coastal water-level assignments by unit.</sub>
+</p>
 
 </details>
 
 ## Observation coverage
 
-[![Observation coverage](figures/03_observation_coverage.png)](figures/03_observation_coverage.png)
-
-*Monthly coverage of the archived compound-input records.*
+<p align="center">
+  <a href="figures/03_observation_coverage.png"><img src="figures/03_observation_coverage.png" alt="Observation coverage" width="680"></a><br>
+  <sub>Monthly coverage of the archived compound-input records.</sub>
+</p>
 
 Coverage refers to the archived compound-input record. Colour intensity represents the observed fraction of a calendar month; white indicates missing observations. Rainfall rows show actual source use. Annual-frequency analysis uses independently screened full records.
 
@@ -66,7 +69,7 @@ Coverage refers to the archived compound-input record. Colour intensity represen
 
 First and last use refer to actual station contributions; gaps appear in the coverage figures.
 
-<details markdown="1" open>
+<details markdown="1">
 <summary><strong>Unit 01</strong> · Sanzao · 1 rainfall station</summary>
 
 ### Unit 01
@@ -82,13 +85,15 @@ ID: `SZ`.
 
 #### Station locations and coverage
 
-[![01 station locations](figures/01_stations.png)](figures/01_stations.png)
+<p align="center">
+  <a href="figures/01_stations.png"><img src="figures/01_stations.png" alt="01 station locations" width="560"></a><br>
+  <sub>Unit 01. Station locations and rainfall-source order.</sub>
+</p>
 
-*Unit 01. Station locations and rainfall-source order.*
-
-[![01 observation availability](figures/01_coverage.png)](figures/01_coverage.png)
-
-*Unit 01. Monthly availability of contributing rainfall, water-level and paired observations.*
+<p align="center">
+  <a href="figures/01_coverage.png"><img src="figures/01_coverage.png" alt="01 observation availability" width="680"></a><br>
+  <sub>Unit 01. Monthly availability of contributing rainfall, water-level and paired observations.</sub>
+</p>
 
 </details>
 
@@ -122,13 +127,15 @@ ID: `SZ`.
 
 #### Station locations and coverage
 
-[![02 station locations](figures/02_stations.png)](figures/02_stations.png)
+<p align="center">
+  <a href="figures/02_stations.png"><img src="figures/02_stations.png" alt="02 station locations" width="560"></a><br>
+  <sub>Unit 02. Station locations and rainfall-source order.</sub>
+</p>
 
-*Unit 02. Station locations and rainfall-source order.*
-
-[![02 observation availability](figures/02_coverage.png)](figures/02_coverage.png)
-
-*Unit 02. Monthly availability of contributing rainfall, water-level and paired observations.*
+<p align="center">
+  <a href="figures/02_coverage.png"><img src="figures/02_coverage.png" alt="02 observation availability" width="680"></a><br>
+  <sub>Unit 02. Monthly availability of contributing rainfall, water-level and paired observations.</sub>
+</p>
 
 </details>
 
@@ -148,13 +155,15 @@ ID: `DJZ`.
 
 #### Station locations and coverage
 
-[![03a station locations](figures/03a_stations.png)](figures/03a_stations.png)
+<p align="center">
+  <a href="figures/03a_stations.png"><img src="figures/03a_stations.png" alt="03a station locations" width="560"></a><br>
+  <sub>Unit 03a. Station locations and rainfall-source order.</sub>
+</p>
 
-*Unit 03a. Station locations and rainfall-source order.*
-
-[![03a observation availability](figures/03a_coverage.png)](figures/03a_coverage.png)
-
-*Unit 03a. Monthly availability of contributing rainfall, water-level and paired observations.*
+<p align="center">
+  <a href="figures/03a_coverage.png"><img src="figures/03a_coverage.png" alt="03a observation availability" width="680"></a><br>
+  <sub>Unit 03a. Monthly availability of contributing rainfall, water-level and paired observations.</sub>
+</p>
 
 </details>
 
@@ -174,13 +183,15 @@ ID: `NLT`.
 
 #### Station locations and coverage
 
-[![03b station locations](figures/03b_stations.png)](figures/03b_stations.png)
+<p align="center">
+  <a href="figures/03b_stations.png"><img src="figures/03b_stations.png" alt="03b station locations" width="560"></a><br>
+  <sub>Unit 03b. Station locations and rainfall-source order.</sub>
+</p>
 
-*Unit 03b. Station locations and rainfall-source order.*
-
-[![03b observation availability](figures/03b_coverage.png)](figures/03b_coverage.png)
-
-*Unit 03b. Monthly availability of contributing rainfall, water-level and paired observations.*
+<p align="center">
+  <a href="figures/03b_coverage.png"><img src="figures/03b_coverage.png" alt="03b observation availability" width="680"></a><br>
+  <sub>Unit 03b. Monthly availability of contributing rainfall, water-level and paired observations.</sub>
+</p>
 
 </details>
 
@@ -212,13 +223,15 @@ ID: `NS`.
 
 #### Station locations and coverage
 
-[![04 station locations](figures/04_stations.png)](figures/04_stations.png)
+<p align="center">
+  <a href="figures/04_stations.png"><img src="figures/04_stations.png" alt="04 station locations" width="560"></a><br>
+  <sub>Unit 04. Station locations and rainfall-source order.</sub>
+</p>
 
-*Unit 04. Station locations and rainfall-source order.*
-
-[![04 observation availability](figures/04_coverage.png)](figures/04_coverage.png)
-
-*Unit 04. Monthly availability of contributing rainfall, water-level and paired observations.*
+<p align="center">
+  <a href="figures/04_coverage.png"><img src="figures/04_coverage.png" alt="04 observation availability" width="680"></a><br>
+  <sub>Unit 04. Monthly availability of contributing rainfall, water-level and paired observations.</sub>
+</p>
 
 </details>
 
@@ -244,13 +257,15 @@ ID: `NS`.
 
 #### Station locations and coverage
 
-[![05 station locations](figures/05_stations.png)](figures/05_stations.png)
+<p align="center">
+  <a href="figures/05_stations.png"><img src="figures/05_stations.png" alt="05 station locations" width="560"></a><br>
+  <sub>Unit 05. Station locations and rainfall-source order.</sub>
+</p>
 
-*Unit 05. Station locations and rainfall-source order.*
-
-[![05 observation availability](figures/05_coverage.png)](figures/05_coverage.png)
-
-*Unit 05. Monthly availability of contributing rainfall, water-level and paired observations.*
+<p align="center">
+  <a href="figures/05_coverage.png"><img src="figures/05_coverage.png" alt="05 observation availability" width="680"></a><br>
+  <sub>Unit 05. Monthly availability of contributing rainfall, water-level and paired observations.</sub>
+</p>
 
 </details>
 
@@ -280,13 +295,15 @@ ID: `DS`.
 
 #### Station locations and coverage
 
-[![06 station locations](figures/06_stations.png)](figures/06_stations.png)
+<p align="center">
+  <a href="figures/06_stations.png"><img src="figures/06_stations.png" alt="06 station locations" width="560"></a><br>
+  <sub>Unit 06. Station locations and rainfall-source order.</sub>
+</p>
 
-*Unit 06. Station locations and rainfall-source order.*
-
-[![06 observation availability](figures/06_coverage.png)](figures/06_coverage.png)
-
-*Unit 06. Monthly availability of contributing rainfall, water-level and paired observations.*
+<p align="center">
+  <a href="figures/06_coverage.png"><img src="figures/06_coverage.png" alt="06 observation availability" width="680"></a><br>
+  <sub>Unit 06. Monthly availability of contributing rainfall, water-level and paired observations.</sub>
+</p>
 
 </details>
 
@@ -321,13 +338,15 @@ ID: `SSW`.
 
 #### Station locations and coverage
 
-[![07 station locations](figures/07_stations.png)](figures/07_stations.png)
+<p align="center">
+  <a href="figures/07_stations.png"><img src="figures/07_stations.png" alt="07 station locations" width="560"></a><br>
+  <sub>Unit 07. Station locations and rainfall-source order.</sub>
+</p>
 
-*Unit 07. Station locations and rainfall-source order.*
-
-[![07 observation availability](figures/07_coverage.png)](figures/07_coverage.png)
-
-*Unit 07. Monthly availability of contributing rainfall, water-level and paired observations.*
+<p align="center">
+  <a href="figures/07_coverage.png"><img src="figures/07_coverage.png" alt="07 observation availability" width="680"></a><br>
+  <sub>Unit 07. Monthly availability of contributing rainfall, water-level and paired observations.</sub>
+</p>
 
 </details>
 
@@ -349,13 +368,15 @@ ID: `CW`.
 
 #### Station locations and coverage
 
-[![08 station locations](figures/08_stations.png)](figures/08_stations.png)
+<p align="center">
+  <a href="figures/08_stations.png"><img src="figures/08_stations.png" alt="08 station locations" width="560"></a><br>
+  <sub>Unit 08. Station locations and rainfall-source order.</sub>
+</p>
 
-*Unit 08. Station locations and rainfall-source order.*
-
-[![08 observation availability](figures/08_coverage.png)](figures/08_coverage.png)
-
-*Unit 08. Monthly availability of contributing rainfall, water-level and paired observations.*
+<p align="center">
+  <a href="figures/08_coverage.png"><img src="figures/08_coverage.png" alt="08 observation availability" width="680"></a><br>
+  <sub>Unit 08. Monthly availability of contributing rainfall, water-level and paired observations.</sub>
+</p>
 
 </details>
 
@@ -382,13 +403,15 @@ ID: `TBT`.
 
 #### Station locations and coverage
 
-[![09 station locations](figures/09_stations.png)](figures/09_stations.png)
+<p align="center">
+  <a href="figures/09_stations.png"><img src="figures/09_stations.png" alt="09 station locations" width="560"></a><br>
+  <sub>Unit 09. Station locations and rainfall-source order.</sub>
+</p>
 
-*Unit 09. Station locations and rainfall-source order.*
-
-[![09 observation availability](figures/09_coverage.png)](figures/09_coverage.png)
-
-*Unit 09. Monthly availability of contributing rainfall, water-level and paired observations.*
+<p align="center">
+  <a href="figures/09_coverage.png"><img src="figures/09_coverage.png" alt="09 observation availability" width="680"></a><br>
+  <sub>Unit 09. Monthly availability of contributing rainfall, water-level and paired observations.</sub>
+</p>
 
 </details>
 
@@ -416,13 +439,15 @@ ID: `QUB`.
 
 #### Station locations and coverage
 
-[![10a station locations](figures/10a_stations.png)](figures/10a_stations.png)
+<p align="center">
+  <a href="figures/10a_stations.png"><img src="figures/10a_stations.png" alt="10a station locations" width="560"></a><br>
+  <sub>Unit 10a. Station locations and rainfall-source order.</sub>
+</p>
 
-*Unit 10a. Station locations and rainfall-source order.*
-
-[![10a observation availability](figures/10a_coverage.png)](figures/10a_coverage.png)
-
-*Unit 10a. Monthly availability of contributing rainfall, water-level and paired observations.*
+<p align="center">
+  <a href="figures/10a_coverage.png"><img src="figures/10a_coverage.png" alt="10a observation availability" width="680"></a><br>
+  <sub>Unit 10a. Monthly availability of contributing rainfall, water-level and paired observations.</sub>
+</p>
 
 </details>
 
@@ -447,13 +472,15 @@ ID: `SPW`.
 
 #### Station locations and coverage
 
-[![10b station locations](figures/10b_stations.png)](figures/10b_stations.png)
+<p align="center">
+  <a href="figures/10b_stations.png"><img src="figures/10b_stations.png" alt="10b station locations" width="560"></a><br>
+  <sub>Unit 10b. Station locations and rainfall-source order.</sub>
+</p>
 
-*Unit 10b. Station locations and rainfall-source order.*
-
-[![10b observation availability](figures/10b_coverage.png)](figures/10b_coverage.png)
-
-*Unit 10b. Monthly availability of contributing rainfall, water-level and paired observations.*
+<p align="center">
+  <a href="figures/10b_coverage.png"><img src="figures/10b_coverage.png" alt="10b observation availability" width="680"></a><br>
+  <sub>Unit 10b. Monthly availability of contributing rainfall, water-level and paired observations.</sub>
+</p>
 
 </details>
 
@@ -482,13 +509,15 @@ ID: `TPK`.
 
 #### Station locations and coverage
 
-[![11 station locations](figures/11_stations.png)](figures/11_stations.png)
+<p align="center">
+  <a href="figures/11_stations.png"><img src="figures/11_stations.png" alt="11 station locations" width="560"></a><br>
+  <sub>Unit 11. Station locations and rainfall-source order.</sub>
+</p>
 
-*Unit 11. Station locations and rainfall-source order.*
-
-[![11 observation availability](figures/11_coverage.png)](figures/11_coverage.png)
-
-*Unit 11. Monthly availability of contributing rainfall, water-level and paired observations.*
+<p align="center">
+  <a href="figures/11_coverage.png"><img src="figures/11_coverage.png" alt="11 observation availability" width="680"></a><br>
+  <sub>Unit 11. Monthly availability of contributing rainfall, water-level and paired observations.</sub>
+</p>
 
 </details>
 

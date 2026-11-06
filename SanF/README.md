@@ -10,9 +10,10 @@ Eleven units represent the bay's coastal catchment groups. All water levels ente
 
 ## Study area
 
-[![Study area](figures/01_study_area.png)](figures/01_study_area.png)
-
-*Analysis units and observation stations.*
+<p align="center">
+  <a href="figures/01_study_area.png"><img src="figures/01_study_area.png" alt="Study area" width="600"></a><br>
+  <sub>Analysis units and observation stations.</sub>
+</p>
 
 ## Analysis units
 
@@ -46,17 +47,19 @@ See [Methods](../shared/methods.md#analysis-units) for the common partitioning p
 <details markdown="1">
 <summary>Station assignment diagram</summary>
 
-[![Station assignments](figures/02_station_assignments.png)](figures/02_station_assignments.png)
-
-*Rainfall and coastal water-level assignments by unit.*
+<p align="center">
+  <a href="figures/02_station_assignments.png"><img src="figures/02_station_assignments.png" alt="Station assignments" width="680"></a><br>
+  <sub>Rainfall and coastal water-level assignments by unit.</sub>
+</p>
 
 </details>
 
 ## Observation coverage
 
-[![Observation coverage](figures/03_observation_coverage.png)](figures/03_observation_coverage.png)
-
-*Monthly coverage of the archived compound-input records.*
+<p align="center">
+  <a href="figures/03_observation_coverage.png"><img src="figures/03_observation_coverage.png" alt="Observation coverage" width="680"></a><br>
+  <sub>Monthly coverage of the archived compound-input records.</sub>
+</p>
 
 Coverage refers to the archived compound-input record. Colour intensity represents the observed fraction of a calendar month; white indicates missing observations. Rainfall rows show actual source use. Annual-frequency analysis uses independently screened full records.
 
@@ -66,7 +69,7 @@ Coverage refers to the archived compound-input record. Colour intensity represen
 
 First and last use refer to actual station contributions; gaps appear in the coverage figures.
 
-<details markdown="1" open>
+<details markdown="1">
 <summary><strong>Unit M01</strong> · Mare Island / Martinez · 7 rainfall stations</summary>
 
 ### Unit M01
@@ -88,13 +91,15 @@ ID: `NOAA_9415218`, `GESLA_CDWR_MRZ`.
 
 #### Station locations and coverage
 
-[![M01 station locations](figures/M01_stations.png)](figures/M01_stations.png)
+<p align="center">
+  <a href="figures/M01_stations.png"><img src="figures/M01_stations.png" alt="M01 station locations" width="560"></a><br>
+  <sub>Unit M01. Station locations and rainfall-source order.</sub>
+</p>
 
-*Unit M01. Station locations and rainfall-source order.*
-
-[![M01 observation availability](figures/M01_coverage.png)](figures/M01_coverage.png)
-
-*Unit M01. Monthly availability of contributing rainfall, water-level and paired observations.*
+<p align="center">
+  <a href="figures/M01_coverage.png"><img src="figures/M01_coverage.png" alt="M01 observation availability" width="680"></a><br>
+  <sub>Unit M01. Monthly availability of contributing rainfall, water-level and paired observations.</sub>
+</p>
 
 </details>
 
@@ -117,13 +122,15 @@ ID: `NOAA_9414863`.
 
 #### Station locations and coverage
 
-[![M02 station locations](figures/M02_stations.png)](figures/M02_stations.png)
+<p align="center">
+  <a href="figures/M02_stations.png"><img src="figures/M02_stations.png" alt="M02 station locations" width="560"></a><br>
+  <sub>Unit M02. Station locations and rainfall-source order.</sub>
+</p>
 
-*Unit M02. Station locations and rainfall-source order.*
-
-[![M02 observation availability](figures/M02_coverage.png)](figures/M02_coverage.png)
-
-*Unit M02. Monthly availability of contributing rainfall, water-level and paired observations.*
+<p align="center">
+  <a href="figures/M02_coverage.png"><img src="figures/M02_coverage.png" alt="M02 observation availability" width="680"></a><br>
+  <sub>Unit M02. Monthly availability of contributing rainfall, water-level and paired observations.</sub>
+</p>
 
 </details>
 
@@ -143,13 +150,15 @@ ID: `NOAA_9414290`.
 
 #### Station locations and coverage
 
-[![M03 station locations](figures/M03_stations.png)](figures/M03_stations.png)
+<p align="center">
+  <a href="figures/M03_stations.png"><img src="figures/M03_stations.png" alt="M03 station locations" width="560"></a><br>
+  <sub>Unit M03. Station locations and rainfall-source order.</sub>
+</p>
 
-*Unit M03. Station locations and rainfall-source order.*
-
-[![M03 observation availability](figures/M03_coverage.png)](figures/M03_coverage.png)
-
-*Unit M03. Monthly availability of contributing rainfall, water-level and paired observations.*
+<p align="center">
+  <a href="figures/M03_coverage.png"><img src="figures/M03_coverage.png" alt="M03 observation availability" width="680"></a><br>
+  <sub>Unit M03. Monthly availability of contributing rainfall, water-level and paired observations.</sub>
+</p>
 
 </details>
 
@@ -171,13 +180,15 @@ ID: `NOAA_9414523`.
 
 #### Station locations and coverage
 
-[![M04 station locations](figures/M04_stations.png)](figures/M04_stations.png)
+<p align="center">
+  <a href="figures/M04_stations.png"><img src="figures/M04_stations.png" alt="M04 station locations" width="560"></a><br>
+  <sub>Unit M04. Station locations and rainfall-source order.</sub>
+</p>
 
-*Unit M04. Station locations and rainfall-source order.*
-
-[![M04 observation availability](figures/M04_coverage.png)](figures/M04_coverage.png)
-
-*Unit M04. Monthly availability of contributing rainfall, water-level and paired observations.*
+<p align="center">
+  <a href="figures/M04_coverage.png"><img src="figures/M04_coverage.png" alt="M04 observation availability" width="680"></a><br>
+  <sub>Unit M04. Monthly availability of contributing rainfall, water-level and paired observations.</sub>
+</p>
 
 </details>
 
@@ -198,13 +209,15 @@ ID: `NOAA_9414523`.
 
 #### Station locations and coverage
 
-[![M05 station locations](figures/M05_stations.png)](figures/M05_stations.png)
+<p align="center">
+  <a href="figures/M05_stations.png"><img src="figures/M05_stations.png" alt="M05 station locations" width="560"></a><br>
+  <sub>Unit M05. Station locations and rainfall-source order.</sub>
+</p>
 
-*Unit M05. Station locations and rainfall-source order.*
-
-[![M05 observation availability](figures/M05_coverage.png)](figures/M05_coverage.png)
-
-*Unit M05. Monthly availability of contributing rainfall, water-level and paired observations.*
+<p align="center">
+  <a href="figures/M05_coverage.png"><img src="figures/M05_coverage.png" alt="M05 observation availability" width="680"></a><br>
+  <sub>Unit M05. Monthly availability of contributing rainfall, water-level and paired observations.</sub>
+</p>
 
 </details>
 
@@ -225,13 +238,15 @@ ID: `NOAA_9414575`, `USGS_372750122012701`.
 
 #### Station locations and coverage
 
-[![M06 station locations](figures/M06_stations.png)](figures/M06_stations.png)
+<p align="center">
+  <a href="figures/M06_stations.png"><img src="figures/M06_stations.png" alt="M06 station locations" width="560"></a><br>
+  <sub>Unit M06. Station locations and rainfall-source order.</sub>
+</p>
 
-*Unit M06. Station locations and rainfall-source order.*
-
-[![M06 observation availability](figures/M06_coverage.png)](figures/M06_coverage.png)
-
-*Unit M06. Monthly availability of contributing rainfall, water-level and paired observations.*
+<p align="center">
+  <a href="figures/M06_coverage.png"><img src="figures/M06_coverage.png" alt="M06 observation availability" width="680"></a><br>
+  <sub>Unit M06. Monthly availability of contributing rainfall, water-level and paired observations.</sub>
+</p>
 
 </details>
 
@@ -256,13 +271,15 @@ ID: `NOAA_9414575`, `USGS_372750122012701`.
 
 #### Station locations and coverage
 
-[![M07 station locations](figures/M07_stations.png)](figures/M07_stations.png)
+<p align="center">
+  <a href="figures/M07_stations.png"><img src="figures/M07_stations.png" alt="M07 station locations" width="560"></a><br>
+  <sub>Unit M07. Station locations and rainfall-source order.</sub>
+</p>
 
-*Unit M07. Station locations and rainfall-source order.*
-
-[![M07 observation availability](figures/M07_coverage.png)](figures/M07_coverage.png)
-
-*Unit M07. Monthly availability of contributing rainfall, water-level and paired observations.*
+<p align="center">
+  <a href="figures/M07_coverage.png"><img src="figures/M07_coverage.png" alt="M07 observation availability" width="680"></a><br>
+  <sub>Unit M07. Monthly availability of contributing rainfall, water-level and paired observations.</sub>
+</p>
 
 </details>
 
@@ -288,13 +305,15 @@ ID: `NOAA_9414523`.
 
 #### Station locations and coverage
 
-[![M08 station locations](figures/M08_stations.png)](figures/M08_stations.png)
+<p align="center">
+  <a href="figures/M08_stations.png"><img src="figures/M08_stations.png" alt="M08 station locations" width="560"></a><br>
+  <sub>Unit M08. Station locations and rainfall-source order.</sub>
+</p>
 
-*Unit M08. Station locations and rainfall-source order.*
-
-[![M08 observation availability](figures/M08_coverage.png)](figures/M08_coverage.png)
-
-*Unit M08. Monthly availability of contributing rainfall, water-level and paired observations.*
+<p align="center">
+  <a href="figures/M08_coverage.png"><img src="figures/M08_coverage.png" alt="M08 observation availability" width="680"></a><br>
+  <sub>Unit M08. Monthly availability of contributing rainfall, water-level and paired observations.</sub>
+</p>
 
 </details>
 
@@ -314,13 +333,15 @@ ID: `NOAA_9414750`.
 
 #### Station locations and coverage
 
-[![M09 station locations](figures/M09_stations.png)](figures/M09_stations.png)
+<p align="center">
+  <a href="figures/M09_stations.png"><img src="figures/M09_stations.png" alt="M09 station locations" width="560"></a><br>
+  <sub>Unit M09. Station locations and rainfall-source order.</sub>
+</p>
 
-*Unit M09. Station locations and rainfall-source order.*
-
-[![M09 observation availability](figures/M09_coverage.png)](figures/M09_coverage.png)
-
-*Unit M09. Monthly availability of contributing rainfall, water-level and paired observations.*
+<p align="center">
+  <a href="figures/M09_coverage.png"><img src="figures/M09_coverage.png" alt="M09 observation availability" width="680"></a><br>
+  <sub>Unit M09. Monthly availability of contributing rainfall, water-level and paired observations.</sub>
+</p>
 
 </details>
 
@@ -341,13 +362,15 @@ ID: `NOAA_9414523`.
 
 #### Station locations and coverage
 
-[![M10 station locations](figures/M10_stations.png)](figures/M10_stations.png)
+<p align="center">
+  <a href="figures/M10_stations.png"><img src="figures/M10_stations.png" alt="M10 station locations" width="560"></a><br>
+  <sub>Unit M10. Station locations and rainfall-source order.</sub>
+</p>
 
-*Unit M10. Station locations and rainfall-source order.*
-
-[![M10 observation availability](figures/M10_coverage.png)](figures/M10_coverage.png)
-
-*Unit M10. Monthly availability of contributing rainfall, water-level and paired observations.*
+<p align="center">
+  <a href="figures/M10_coverage.png"><img src="figures/M10_coverage.png" alt="M10 observation availability" width="680"></a><br>
+  <sub>Unit M10. Monthly availability of contributing rainfall, water-level and paired observations.</sub>
+</p>
 
 </details>
 
@@ -369,13 +392,15 @@ ID: `NOAA_9414863`.
 
 #### Station locations and coverage
 
-[![M11 station locations](figures/M11_stations.png)](figures/M11_stations.png)
+<p align="center">
+  <a href="figures/M11_stations.png"><img src="figures/M11_stations.png" alt="M11 station locations" width="560"></a><br>
+  <sub>Unit M11. Station locations and rainfall-source order.</sub>
+</p>
 
-*Unit M11. Station locations and rainfall-source order.*
-
-[![M11 observation availability](figures/M11_coverage.png)](figures/M11_coverage.png)
-
-*Unit M11. Monthly availability of contributing rainfall, water-level and paired observations.*
+<p align="center">
+  <a href="figures/M11_coverage.png"><img src="figures/M11_coverage.png" alt="M11 observation availability" width="680"></a><br>
+  <sub>Unit M11. Monthly availability of contributing rainfall, water-level and paired observations.</sub>
+</p>
 
 </details>
 
