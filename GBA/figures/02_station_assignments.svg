@@ -6,7 +6,7 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-11-06T17:41:00.475399</dc:date>
+    <dc:date>2026-11-06T17:53:31.935587</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -115,6 +115,14 @@ L 513.070866 406.204724
    <text style="font-weight: 700; font-size: 9px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="32.064057" transform="rotate(-0 396.850394 32.064057)">Tide record</text>
   </g>
   <g id="text_5">
+   <g id="patch_3">
+    <path d="M 13.153228 59.579142
+L 24.646822 59.579142
+L 24.646822 47.168976
+L 13.153228 47.168976
+z
+" style="fill: #94aecb"/>
+   </g>
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="56.37695" transform="rotate(-0 14.173228 56.37695)">01</text>
   </g>
   <g id="text_6">
@@ -124,6 +132,14 @@ L 513.070866 406.204724
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="56.41613" transform="rotate(-0 396.850394 56.41613)">Sanzao</text>
   </g>
   <g id="text_8">
+   <g id="patch_4">
+    <path d="M 13.153228 80.838985
+L 24.646822 80.838985
+L 24.646822 68.428819
+L 13.153228 68.428819
+z
+" style="fill: #efc792"/>
+   </g>
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="77.636793" transform="rotate(-0 14.173228 77.636793)">02</text>
   </g>
   <g id="text_9">
@@ -134,6 +150,14 @@ L 513.070866 406.204724
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="77.675972" transform="rotate(-0 396.850394 77.675972)">Sanzao</text>
   </g>
   <g id="text_11">
+   <g id="patch_5">
+    <path d="M 13.153228 114.287804
+L 29.373619 114.287804
+L 29.373619 101.877638
+L 13.153228 101.877638
+z
+" style="fill: #bbabd0"/>
+   </g>
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="111.083619" transform="rotate(-0 14.173228 111.083619)">03a</text>
   </g>
   <g id="text_12">
@@ -143,6 +167,14 @@ L 513.070866 406.204724
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="110.230299" transform="rotate(-0 396.850394 110.230299)">Dajiu Zhou</text>
   </g>
   <g id="text_14">
+   <g id="patch_6">
+    <path d="M 13.153228 135.547646
+L 29.373619 135.547646
+L 29.373619 123.13748
+L 13.153228 123.13748
+z
+" style="fill: #9dc4b9"/>
+   </g>
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="132.343462" transform="rotate(-0 14.173228 132.343462)">03b</text>
   </g>
   <g id="text_15">
@@ -152,6 +184,14 @@ L 513.070866 406.204724
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="131.490141" transform="rotate(-0 396.850394 131.490141)">Nei Lingding</text>
   </g>
   <g id="text_17">
+   <g id="patch_7">
+    <path d="M 13.153228 156.807489
+L 24.646822 156.807489
+L 24.646822 144.397323
+L 13.153228 144.397323
+z
+" style="fill: #e0b0af"/>
+   </g>
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="153.605296" transform="rotate(-0 14.173228 153.605296)">04</text>
   </g>
   <g id="text_18">
@@ -162,6 +202,14 @@ L 513.070866 406.204724
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="153.594671" transform="rotate(-0 396.850394 153.594671)">Nansha</text>
   </g>
   <g id="text_20">
+   <g id="patch_8">
+    <path d="M 13.153228 190.256308
+L 24.646822 190.256308
+L 24.646822 177.846142
+L 13.153228 177.846142
+z
+" style="fill: #c7c894"/>
+   </g>
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="187.054115" transform="rotate(-0 14.173228 187.054115)">05</text>
   </g>
   <g id="text_21">
@@ -171,6 +219,14 @@ L 513.070866 406.204724
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="187.04349" transform="rotate(-0 396.850394 187.04349)">Nansha</text>
   </g>
   <g id="text_23">
+   <g id="patch_9">
+    <path d="M 13.153228 211.51615
+L 24.646822 211.51615
+L 24.646822 199.105984
+L 13.153228 199.105984
+z
+" style="fill: #d1adc7"/>
+   </g>
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="208.313958" transform="rotate(-0 14.173228 208.313958)">06</text>
   </g>
   <g id="text_24">
@@ -181,6 +237,14 @@ L 513.070866 406.204724
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="207.458645" transform="rotate(-0 396.850394 207.458645)">Dasheng</text>
   </g>
   <g id="text_26">
+   <g id="patch_10">
+    <path d="M 13.153228 244.964969
+L 24.646822 244.964969
+L 24.646822 232.554803
+L 13.153228 232.554803
+z
+" style="fill: #a2c8d8"/>
+   </g>
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="241.762777" transform="rotate(-0 14.173228 241.762777)">07</text>
   </g>
   <g id="text_27">
@@ -191,6 +255,14 @@ L 513.070866 406.204724
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="240.959261" transform="rotate(-0 396.850394 240.959261)">Sishengwei</text>
   </g>
   <g id="text_29">
+   <g id="patch_11">
+    <path d="M 13.153228 278.413788
+L 24.646822 278.413788
+L 24.646822 266.003622
+L 13.153228 266.003622
+z
+" style="fill: #ceb69f"/>
+   </g>
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="275.211596" transform="rotate(-0 14.173228 275.211596)">08</text>
   </g>
   <g id="text_30">
@@ -200,6 +272,14 @@ L 513.070866 406.204724
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="275.250775" transform="rotate(-0 396.850394 275.250775)">Chiwan</text>
   </g>
   <g id="text_32">
+   <g id="patch_12">
+    <path d="M 13.153228 299.673631
+L 24.646822 299.673631
+L 24.646822 287.263465
+L 13.153228 287.263465
+z
+" style="fill: #b5cdad"/>
+   </g>
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="296.471438" transform="rotate(-0 14.173228 296.471438)">09</text>
   </g>
   <g id="text_33">
@@ -210,6 +290,14 @@ L 513.070866 406.204724
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="296.460813" transform="rotate(-0 396.850394 296.460813)">Tsim Bei Tsui</text>
   </g>
   <g id="text_35">
+   <g id="patch_13">
+    <path d="M 13.153228 333.122449
+L 29.373619 333.122449
+L 29.373619 320.712283
+L 13.153228 320.712283
+z
+" style="fill: #e3c1ce"/>
+   </g>
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="329.920257" transform="rotate(-0 14.173228 329.920257)">10a</text>
   </g>
   <g id="text_36">
@@ -220,6 +308,14 @@ L 513.070866 406.204724
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="329.119398" transform="rotate(-0 396.850394 329.119398)">Quarry Bay</text>
   </g>
   <g id="text_38">
+   <g id="patch_14">
+    <path d="M 13.153228 366.571268
+L 29.373619 366.571268
+L 29.373619 354.161102
+L 13.153228 354.161102
+z
+" style="fill: #bbc5d6"/>
+   </g>
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="363.369076" transform="rotate(-0 14.173228 363.369076)">10b</text>
   </g>
   <g id="text_39">
@@ -229,6 +325,14 @@ L 513.070866 406.204724
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="363.408256" transform="rotate(-0 396.850394 363.408256)">Shek Pik</text>
   </g>
   <g id="text_41">
+   <g id="patch_15">
+    <path d="M 13.153228 387.831111
+L 24.015963 387.831111
+L 24.015963 375.420945
+L 13.153228 375.420945
+z
+" style="fill: #d8cda5"/>
+   </g>
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="384.680715" transform="rotate(-0 14.173228 384.680715)">11</text>
   </g>
   <g id="text_42">

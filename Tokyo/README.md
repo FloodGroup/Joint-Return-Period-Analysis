@@ -18,7 +18,7 @@ Thirteen units represent the Tokyo Bay and Sagami Bay analysis sectors. Water le
 
 Coverage refers to the archived compound-input record. Colour intensity represents the observed fraction of a calendar month; white indicates missing observations. Rainfall rows show actual source use. Annual-frequency analysis uses independently screened full records.
 
-Panels b and c show rainfall and water-level coverage, respectively. Combined map labels identify polygons shared by two analysis units. Map coordinates use EPSG:6691, shown in kilometres.
+Panels b and c show rainfall and water-level coverage, respectively. Each unit has a consistent colour in the overview, unit map and assignment diagram. Combined labels and two-colour hatching identify polygons shared by two analysis units. Map coordinates use EPSG:6691, shown in kilometres.
 
 ## Analysis units
 

@@ -6,7 +6,7 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-11-06T17:41:19.170710</dc:date>
+    <dc:date>2026-11-06T17:53:50.158113</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -115,6 +115,14 @@ L 513.070866 320.88189
    <text style="font-weight: 700; font-size: 9px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="32.064057" transform="rotate(-0 396.850394 32.064057)">Tide record</text>
   </g>
   <g id="text_5">
+   <g id="patch_3">
+    <path d="M 13.153228 59.579142
+L 31.727056 59.579142
+L 31.727056 47.168976
+L 13.153228 47.168976
+z
+" style="fill: #94aecb"/>
+   </g>
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="56.37695" transform="rotate(-0 14.173228 56.37695)">M01</text>
   </g>
   <g id="text_6">
@@ -124,6 +132,14 @@ L 513.070866 320.88189
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="56.366325" transform="rotate(-0 396.850394 56.366325)">Aburatsubo</text>
   </g>
   <g id="text_8">
+   <g id="patch_4">
+    <path d="M 13.153228 80.838985
+L 31.727056 80.838985
+L 31.727056 68.428819
+L 13.153228 68.428819
+z
+" style="fill: #efc792"/>
+   </g>
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="77.636793" transform="rotate(-0 14.173228 77.636793)">M02</text>
   </g>
   <g id="text_9">
@@ -133,6 +149,14 @@ L 513.070866 320.88189
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="77.626168" transform="rotate(-0 396.850394 77.626168)">Aburatsubo</text>
   </g>
   <g id="text_11">
+   <g id="patch_5">
+    <path d="M 13.153228 102.098827
+L 31.727056 102.098827
+L 31.727056 89.688661
+L 13.153228 89.688661
+z
+" style="fill: #bbabd0"/>
+   </g>
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="98.894643" transform="rotate(-0 14.173228 98.894643)">M03</text>
   </g>
   <g id="text_12">
@@ -142,6 +166,14 @@ L 513.070866 320.88189
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="98.88601" transform="rotate(-0 396.850394 98.88601)">Kurihama</text>
   </g>
   <g id="text_14">
+   <g id="patch_6">
+    <path d="M 13.153228 123.35867
+L 31.727056 123.35867
+L 31.727056 110.948504
+L 13.153228 110.948504
+z
+" style="fill: #9dc4b9"/>
+   </g>
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="120.156478" transform="rotate(-0 14.173228 120.156478)">M04</text>
   </g>
   <g id="text_15">
@@ -151,6 +183,14 @@ L 513.070866 320.88189
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="120.195657" transform="rotate(-0 396.850394 120.195657)">Yokohama Shinko</text>
   </g>
   <g id="text_17">
+   <g id="patch_7">
+    <path d="M 13.153228 144.618512
+L 31.727056 144.618512
+L 31.727056 132.208346
+L 13.153228 132.208346
+z
+" style="fill: #e0b0af"/>
+   </g>
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="141.41632" transform="rotate(-0 14.173228 141.41632)">M05</text>
   </g>
   <g id="text_18">
@@ -160,6 +200,14 @@ L 513.070866 320.88189
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="141.4555" transform="rotate(-0 396.850394 141.4555)">Yokohama Shinko</text>
   </g>
   <g id="text_20">
+   <g id="patch_8">
+    <path d="M 13.153228 165.878355
+L 31.727056 165.878355
+L 31.727056 153.468189
+L 13.153228 153.468189
+z
+" style="fill: #c7c894"/>
+   </g>
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="162.676163" transform="rotate(-0 14.173228 162.676163)">M06</text>
   </g>
   <g id="text_21">
@@ -169,6 +217,14 @@ L 513.070866 320.88189
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="162.665538" transform="rotate(-0 396.850394 162.665538)">Kawasaki</text>
   </g>
   <g id="text_23">
+   <g id="patch_9">
+    <path d="M 13.153228 187.138198
+L 31.727056 187.138198
+L 31.727056 174.728031
+L 13.153228 174.728031
+z
+" style="fill: #d1adc7"/>
+   </g>
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="183.936005" transform="rotate(-0 14.173228 183.936005)">M07</text>
   </g>
   <g id="text_24">
@@ -178,6 +234,14 @@ L 513.070866 320.88189
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="183.080693" transform="rotate(-0 396.850394 183.080693)">Tokyo Harumi</text>
   </g>
   <g id="text_26">
+   <g id="patch_10">
+    <path d="M 13.153228 208.39804
+L 31.727056 208.39804
+L 31.727056 195.987874
+L 13.153228 195.987874
+z
+" style="fill: #a2c8d8"/>
+   </g>
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="205.195848" transform="rotate(-0 14.173228 205.195848)">M08</text>
   </g>
   <g id="text_27">
@@ -187,6 +251,14 @@ L 513.070866 320.88189
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="204.340535" transform="rotate(-0 396.850394 204.340535)">Tokyo Harumi</text>
   </g>
   <g id="text_29">
+   <g id="patch_11">
+    <path d="M 13.153228 229.657883
+L 31.727056 229.657883
+L 31.727056 217.247717
+L 13.153228 217.247717
+z
+" style="fill: #ceb69f"/>
+   </g>
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="226.45569" transform="rotate(-0 14.173228 226.45569)">M09</text>
   </g>
   <g id="text_30">
@@ -196,6 +268,14 @@ L 513.070866 320.88189
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="226.49487" transform="rotate(-0 396.850394 226.49487)">Chiba</text>
   </g>
   <g id="text_32">
+   <g id="patch_12">
+    <path d="M 13.153228 250.917725
+L 31.727056 250.917725
+L 31.727056 238.507559
+L 13.153228 238.507559
+z
+" style="fill: #b5cdad"/>
+   </g>
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="247.715533" transform="rotate(-0 14.173228 247.715533)">M10</text>
   </g>
   <g id="text_33">
@@ -205,6 +285,14 @@ L 513.070866 320.88189
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="247.754712" transform="rotate(-0 396.850394 247.754712)">Chiba</text>
   </g>
   <g id="text_35">
+   <g id="patch_13">
+    <path d="M 13.153228 272.177568
+L 31.096197 272.177568
+L 31.096197 259.767402
+L 13.153228 259.767402
+z
+" style="fill: #e3c1ce"/>
+   </g>
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="269.027172" transform="rotate(-0 14.173228 269.027172)">M11</text>
   </g>
   <g id="text_36">
@@ -214,6 +302,14 @@ L 513.070866 320.88189
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="269.014555" transform="rotate(-0 396.850394 269.014555)">Yokohama Shinko</text>
   </g>
   <g id="text_38">
+   <g id="patch_14">
+    <path d="M 13.153228 293.43741
+L 31.727056 293.43741
+L 31.727056 281.027244
+L 13.153228 281.027244
+z
+" style="fill: #bbc5d6"/>
+   </g>
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="290.287015" transform="rotate(-0 14.173228 290.287015)">M12</text>
   </g>
   <g id="text_39">
@@ -223,6 +319,14 @@ L 513.070866 320.88189
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="290.224593" transform="rotate(-0 396.850394 290.224593)">Kurihama</text>
   </g>
   <g id="text_41">
+   <g id="patch_15">
+    <path d="M 13.153228 314.697253
+L 31.727056 314.697253
+L 31.727056 302.287087
+L 13.153228 302.287087
+z
+" style="fill: #d8cda5"/>
+   </g>
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="311.493068" transform="rotate(-0 14.173228 311.493068)">M13</text>
   </g>
   <g id="text_42">

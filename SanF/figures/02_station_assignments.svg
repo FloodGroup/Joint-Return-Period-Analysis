@@ -6,7 +6,7 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-11-06T17:41:09.613688</dc:date>
+    <dc:date>2026-11-06T17:53:40.959054</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -105,6 +105,14 @@ L 513.070866 314.929134
    <text style="font-weight: 700; font-size: 9px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="32.064057" transform="rotate(-0 396.850394 32.064057)">Tide record</text>
   </g>
   <g id="text_5">
+   <g id="patch_3">
+    <path d="M 13.153228 59.579142
+L 31.727056 59.579142
+L 31.727056 47.168976
+L 13.153228 47.168976
+z
+" style="fill: #94aecb"/>
+   </g>
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="56.37695" transform="rotate(-0 14.173228 56.37695)">M01</text>
   </g>
   <g id="text_6">
@@ -115,6 +123,14 @@ L 513.070866 314.929134
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="56.41613" transform="rotate(-0 396.850394 56.41613)">Mare Island / Martinez</text>
   </g>
   <g id="text_8">
+   <g id="patch_4">
+    <path d="M 13.153228 93.027961
+L 31.727056 93.027961
+L 31.727056 80.617795
+L 13.153228 80.617795
+z
+" style="fill: #efc792"/>
+   </g>
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="89.825769" transform="rotate(-0 14.173228 89.825769)">M02</text>
   </g>
   <g id="text_9">
@@ -124,6 +140,14 @@ L 513.070866 314.929134
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="89.815144" transform="rotate(-0 396.850394 89.815144)">Richmond</text>
   </g>
   <g id="text_11">
+   <g id="patch_5">
+    <path d="M 13.153228 114.287804
+L 31.727056 114.287804
+L 31.727056 101.877638
+L 13.153228 101.877638
+z
+" style="fill: #bbabd0"/>
+   </g>
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="111.083619" transform="rotate(-0 14.173228 111.083619)">M03</text>
   </g>
   <g id="text_12">
@@ -133,6 +157,14 @@ L 513.070866 314.929134
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="111.124791" transform="rotate(-0 396.850394 111.124791)">San Francisco</text>
   </g>
   <g id="text_14">
+   <g id="patch_6">
+    <path d="M 13.153228 135.547646
+L 31.727056 135.547646
+L 31.727056 123.13748
+L 13.153228 123.13748
+z
+" style="fill: #9dc4b9"/>
+   </g>
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="132.345454" transform="rotate(-0 14.173228 132.345454)">M04</text>
   </g>
   <g id="text_15">
@@ -142,6 +174,14 @@ L 513.070866 314.929134
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="131.541938" transform="rotate(-0 396.850394 131.541938)">Redwood City</text>
   </g>
   <g id="text_17">
+   <g id="patch_7">
+    <path d="M 13.153228 156.807489
+L 31.727056 156.807489
+L 31.727056 144.397323
+L 13.153228 144.397323
+z
+" style="fill: #e0b0af"/>
+   </g>
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="153.605296" transform="rotate(-0 14.173228 153.605296)">M05</text>
   </g>
   <g id="text_18">
@@ -151,6 +191,14 @@ L 513.070866 314.929134
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="152.801781" transform="rotate(-0 396.850394 152.801781)">Redwood City</text>
   </g>
   <g id="text_20">
+   <g id="patch_8">
+    <path d="M 13.153228 178.067331
+L 31.727056 178.067331
+L 31.727056 165.657165
+L 13.153228 165.657165
+z
+" style="fill: #c7c894"/>
+   </g>
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="174.865139" transform="rotate(-0 14.173228 174.865139)">M06</text>
   </g>
   <g id="text_21">
@@ -160,6 +208,14 @@ L 513.070866 314.929134
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="174.854514" transform="rotate(-0 396.850394 174.854514)">Alviso</text>
   </g>
   <g id="text_23">
+   <g id="patch_9">
+    <path d="M 13.153228 199.327174
+L 31.727056 199.327174
+L 31.727056 186.917008
+L 13.153228 186.917008
+z
+" style="fill: #d1adc7"/>
+   </g>
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="196.124982" transform="rotate(-0 14.173228 196.124982)">M07</text>
   </g>
   <g id="text_24">
@@ -170,6 +226,14 @@ L 513.070866 314.929134
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="196.114357" transform="rotate(-0 396.850394 196.114357)">Alviso</text>
   </g>
   <g id="text_26">
+   <g id="patch_10">
+    <path d="M 13.153228 232.775993
+L 31.727056 232.775993
+L 31.727056 220.365827
+L 13.153228 220.365827
+z
+" style="fill: #a2c8d8"/>
+   </g>
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="229.5738" transform="rotate(-0 14.173228 229.5738)">M08</text>
   </g>
   <g id="text_27">
@@ -180,6 +244,14 @@ L 513.070866 314.929134
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="228.770285" transform="rotate(-0 396.850394 228.770285)">Redwood City</text>
   </g>
   <g id="text_29">
+   <g id="patch_11">
+    <path d="M 13.153228 266.224812
+L 31.727056 266.224812
+L 31.727056 253.814646
+L 13.153228 253.814646
+z
+" style="fill: #ceb69f"/>
+   </g>
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="263.022619" transform="rotate(-0 14.173228 263.022619)">M09</text>
   </g>
   <g id="text_30">
@@ -189,6 +261,14 @@ L 513.070866 314.929134
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="263.011994" transform="rotate(-0 396.850394 263.011994)">Alameda</text>
   </g>
   <g id="text_32">
+   <g id="patch_12">
+    <path d="M 13.153228 287.484654
+L 31.727056 287.484654
+L 31.727056 275.074488
+L 13.153228 275.074488
+z
+" style="fill: #b5cdad"/>
+   </g>
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="284.282462" transform="rotate(-0 14.173228 284.282462)">M10</text>
   </g>
   <g id="text_33">
@@ -198,6 +278,14 @@ L 513.070866 314.929134
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="396.850394" y="283.478946" transform="rotate(-0 396.850394 283.478946)">Redwood City</text>
   </g>
   <g id="text_35">
+   <g id="patch_13">
+    <path d="M 13.153228 308.744497
+L 31.096197 308.744497
+L 31.096197 296.334331
+L 13.153228 296.334331
+z
+" style="fill: #e3c1ce"/>
+   </g>
    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: start; fill: #202326" x="14.173228" y="305.594101" transform="rotate(-0 14.173228 305.594101)">M11</text>
   </g>
   <g id="text_36">
