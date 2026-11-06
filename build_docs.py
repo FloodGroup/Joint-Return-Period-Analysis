@@ -27,26 +27,26 @@ STYLES = """
 :root{--md-primary-fg-color:#244957;--md-accent-fg-color:#087f86;--md-default-fg-color:#24343d;--md-default-fg-color--light:#52636d}
 body{font-family:"Segoe UI",Arial,sans-serif}
 .md-grid{max-width:80rem}.md-sidebar{width:10.8rem}.md-sidebar.md-sidebar--secondary{display:none!important}
-.md-typeset{font-size:.85rem;line-height:1.75}
+.md-typeset{font-size:.85rem;line-height:1.55}
 .md-typeset h1{font-size:1.9rem;line-height:1.2;font-weight:650;letter-spacing:-.025em;color:#203844;margin:0 0 1.2rem}
-.md-typeset h2{font-size:1.3rem;font-weight:650;line-height:1.35;letter-spacing:-.015em;margin:2.4rem 0 1rem;padding-top:.7rem;border-top:1px solid #dae3e7;scroll-margin-top:4rem}
-.md-typeset h3{font-size:1.05rem;font-weight:650;line-height:1.45;margin:1.8rem 0 .8rem;scroll-margin-top:4rem}
-.md-typeset h3[id^="unit-"]{font-size:1.3rem;border-top:2px solid #9fb9c1;padding-top:1.3rem;margin-top:3rem}
+.md-typeset h2{font-size:1.3rem;font-weight:650;line-height:1.35;letter-spacing:-.015em;margin:1.5rem 0 .65rem;padding-top:.4rem;border-top:1px solid #dae3e7;scroll-margin-top:4rem}
+.md-typeset h3{font-size:1.05rem;font-weight:650;line-height:1.4;margin:1rem 0 .5rem;scroll-margin-top:4rem}
+.md-typeset h3[id^="unit-"]{font-size:1.1rem;padding-top:.25rem;margin-top:.7rem}
 .md-typeset h4{font-size:.85rem;font-weight:600;color:#425b66;margin:1.3rem 0 .6rem}
-.md-typeset p{margin:.7rem 0 1rem}.md-typeset li{margin-bottom:.45rem}
+.md-typeset p{margin:.45rem 0 .65rem}.md-typeset li{margin-bottom:.25rem}
 .md-typeset .md-typeset__table{display:block;min-width:0}
 .md-typeset table:not([class]){display:table;width:100%;font-size:.77rem;line-height:1.6;border:1px solid #dbe4e8;border-radius:4px;font-variant-numeric:tabular-nums}
-.md-typeset table:not([class]) th{background:#f0f5f6;font-weight:650;min-width:0;padding:.7rem .8rem;border-bottom:1px solid #cbd9df;vertical-align:bottom}
-.md-typeset table:not([class]) td{padding:.6rem .8rem;vertical-align:top;border-top:1px solid #e4eaed}
+.md-typeset table:not([class]) th{background:#f0f5f6;font-weight:650;min-width:0;padding:.45rem .65rem;border-bottom:1px solid #cbd9df;vertical-align:bottom}
+.md-typeset table:not([class]) td{padding:.35rem .65rem;vertical-align:top;border-top:1px solid #e4eaed}
 .md-typeset table:not([class]) tbody tr:nth-child(even){background:#fafcfc}
 .md-typeset table:not([class]) td code{white-space:nowrap;font-size:.72rem}
-.md-typeset .md-typeset__scrollwrap{margin:1rem 0 1.5rem}
-.md-typeset .arithmatex{overflow-x:auto;padding:.8rem .5rem;margin:1.2rem 0;font-size:1em}
-.md-typeset .katex-display{margin:.4em 0}.md-typeset code{font-size:.8em}
+.md-typeset .md-typeset__scrollwrap{margin:.5rem 0 .8rem}
+.md-typeset div.arithmatex{overflow-x:auto;padding:0;margin:.6rem 0;font-size:1em}
+.md-typeset .katex-display{margin:.3em 0;text-align:left}.md-typeset .katex-display>.katex{text-align:left}.md-typeset code{font-size:.8em}
 .md-typeset pre{margin:1rem 0 1.5rem;border:1px solid #dbe4e8;border-radius:4px}
 .md-typeset pre>code{font-size:.75rem;line-height:1.7;padding:1rem}
-.md-typeset img{display:block;max-width:100%;height:auto;margin:0 auto}
-.md-typeset p:has(>a>img){margin:1.1rem 0 .4rem;padding:.4rem;background:white;border:1px solid #e2e9ec;border-radius:4px}
+.md-typeset img{display:block;max-width:100%;height:auto;margin:0}
+.md-typeset p:has(>a>img){margin:.55rem 0;padding:0;background:white}
 .md-typeset p:has(>a>img)+p:has(>em:only-child){font-size:.75rem;line-height:1.6;color:#52636d;margin:.4rem 0 1.6rem}
 .md-typeset p:has(>a>img)+p>em{font-style:normal}
 .md-header{box-shadow:none;border-bottom:1px solid #d5e0e5}

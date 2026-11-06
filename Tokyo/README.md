@@ -6,14 +6,17 @@ Thirteen units represent the Tokyo Bay and Sagami Bay analysis sectors. Water le
 |--:|:--|:--|
 | 13 | Hourly | TP |
 
-[Study area](#study-area) · [Units](#analysis-units) · [Coverage](#observation-coverage) · [Stations](#station-catalogue) · [Run](#run)
+[Study area and coverage](#study-area) · [Units](#analysis-units) · [Stations](#station-catalogue) · [Run](#run)
 
 ## Study area
 
-<p align="center">
-  <a href="figures/01_study_area.png"><img src="figures/01_study_area.png" alt="Study area" width="600"></a><br>
-  <sub>Analysis units and observation stations.</sub>
+<p align="left">
+  <a href="figures/00_regional_overview.png"><img src="figures/00_regional_overview.png" alt="Analysis units, stations and monthly observation coverage" width="900"></a>
 </p>
+
+Coverage refers to the archived compound-input record. Colour intensity represents the observed fraction of a calendar month; white indicates missing observations. Rainfall rows show actual source use. Annual-frequency analysis uses independently screened full records.
+
+R denotes rainfall; H denotes coastal water level. Map colours identify tide assignments; hatching marks shared polygons. Map coordinates use EPSG:6691, shown in kilometres.
 
 ## Analysis units
 
@@ -49,53 +52,30 @@ See [Methods](../shared/methods.md#analysis-units) for the common partitioning p
 <details markdown="1">
 <summary>Station assignment diagram</summary>
 
-<p align="center">
-  <a href="figures/02_station_assignments.png"><img src="figures/02_station_assignments.png" alt="Station assignments" width="680"></a><br>
-  <sub>Rainfall and coastal water-level assignments by unit.</sub>
-</p>
+[View the station assignment diagram](figures/02_station_assignments.png).
 
 </details>
-
-## Observation coverage
-
-<p align="center">
-  <a href="figures/03_observation_coverage.png"><img src="figures/03_observation_coverage.png" alt="Observation coverage" width="680"></a><br>
-  <sub>Monthly coverage of the archived compound-input records.</sub>
-</p>
-
-Coverage refers to the archived compound-input record. Colour intensity represents the observed fraction of a calendar month; white indicates missing observations. Rainfall rows show actual source use. Annual-frequency analysis uses independently screened full records.
 
 ## Station catalogue
 
 [M01](#unit-m01) · [M02](#unit-m02) · [M03](#unit-m03) · [M04](#unit-m04) · [M05](#unit-m05) · [M06](#unit-m06) · [M07](#unit-m07) · [M08](#unit-m08) · [M09](#unit-m09) · [M10](#unit-m10) · [M11](#unit-m11) · [M12](#unit-m12) · [M13](#unit-m13)
 
-First and last use refer to actual station contributions; gaps appear in the coverage figures.
+First and last use refer to actual station contributions. Map numbers follow the rainfall table rows and match the coverage labels. White indicates missing observations.
 
 <details markdown="1">
 <summary><strong>Unit M01</strong> · Aburatsubo · 2 rainfall stations</summary>
 
 ### Unit M01
 
-Tide station: Aburatsubo.<br>
-ID: `GESLA_JODC-GIAJ_GS01`.
-
-#### Rainfall sources
+Tide station: Aburatsubo · ID: `GESLA_JODC-GIAJ_GS01`.
 
 | Priority | Rainfall station | ID | First use | Last use |
 |--:|:--|:--|:--|:--|
 | 1 | Hiratsuka | `JMA_A46136` | 1975-12-31 | 2023-12-31 |
 | 2 | Ebina | `JMA_A46091` | 1976-10-23 | 2022-07-02 |
 
-#### Station locations and coverage
-
-<p align="center">
-  <a href="figures/M01_stations.png"><img src="figures/M01_stations.png" alt="M01 station locations" width="560"></a><br>
-  <sub>Unit M01. Station locations and rainfall-source order.</sub>
-</p>
-
-<p align="center">
-  <a href="figures/M01_coverage.png"><img src="figures/M01_coverage.png" alt="M01 observation availability" width="680"></a><br>
-  <sub>Unit M01. Monthly availability of contributing rainfall, water-level and paired observations.</sub>
+<p align="left">
+  <a href="figures/M01_overview.png"><img src="figures/M01_overview.png" alt="Unit M01: station map and monthly observation coverage" width="900"></a>
 </p>
 
 </details>
@@ -105,10 +85,7 @@ ID: `GESLA_JODC-GIAJ_GS01`.
 
 ### Unit M02
 
-Tide station: Aburatsubo.<br>
-ID: `GESLA_JODC-GIAJ_GS01`.
-
-#### Rainfall sources
+Tide station: Aburatsubo · ID: `GESLA_JODC-GIAJ_GS01`.
 
 | Priority | Rainfall station | ID | First use | Last use |
 |--:|:--|:--|:--|:--|
@@ -116,16 +93,8 @@ ID: `GESLA_JODC-GIAJ_GS01`.
 | 2 | Tsujido | `JMA_A46141` | 1992-02-10 | 2023-12-31 |
 | 3 | Sagamihara-Chuo | `JMA_A46046` | 1977-04-18 | 2022-12-08 |
 
-#### Station locations and coverage
-
-<p align="center">
-  <a href="figures/M02_stations.png"><img src="figures/M02_stations.png" alt="M02 station locations" width="560"></a><br>
-  <sub>Unit M02. Station locations and rainfall-source order.</sub>
-</p>
-
-<p align="center">
-  <a href="figures/M02_coverage.png"><img src="figures/M02_coverage.png" alt="M02 observation availability" width="680"></a><br>
-  <sub>Unit M02. Monthly availability of contributing rainfall, water-level and paired observations.</sub>
+<p align="left">
+  <a href="figures/M02_overview.png"><img src="figures/M02_overview.png" alt="Unit M02: station map and monthly observation coverage" width="900"></a>
 </p>
 
 </details>
@@ -135,25 +104,14 @@ ID: `GESLA_JODC-GIAJ_GS01`.
 
 ### Unit M03
 
-Tide station: Kurihama.<br>
-ID: `GESLA_JODC-PAHB_0161`.
-
-#### Rainfall sources
+Tide station: Kurihama · ID: `GESLA_JODC-PAHB_0161`.
 
 | Priority | Rainfall station | ID | First use | Last use |
 |--:|:--|:--|:--|:--|
 | 1 | Miura | `JMA_A46211` | 2000-12-31 | 2022-12-31 |
 
-#### Station locations and coverage
-
-<p align="center">
-  <a href="figures/M03_stations.png"><img src="figures/M03_stations.png" alt="M03 station locations" width="560"></a><br>
-  <sub>Unit M03. Station locations and rainfall-source order.</sub>
-</p>
-
-<p align="center">
-  <a href="figures/M03_coverage.png"><img src="figures/M03_coverage.png" alt="M03 observation availability" width="680"></a><br>
-  <sub>Unit M03. Monthly availability of contributing rainfall, water-level and paired observations.</sub>
+<p align="left">
+  <a href="figures/M03_overview.png"><img src="figures/M03_overview.png" alt="Unit M03: station map and monthly observation coverage" width="900"></a>
 </p>
 
 </details>
@@ -163,25 +121,14 @@ ID: `GESLA_JODC-PAHB_0161`.
 
 ### Unit M04
 
-Tide station: Yokohama Shinko.<br>
-ID: `GESLA_JODC-JCG_HD29`.
-
-#### Rainfall sources
+Tide station: Yokohama Shinko · ID: `GESLA_JODC-JCG_HD29`.
 
 | Priority | Rainfall station | ID | First use | Last use |
 |--:|:--|:--|:--|:--|
 | 1 | Yokohama | `JMA_47670` | 1997-08-31 | 2025-12-31 |
 
-#### Station locations and coverage
-
-<p align="center">
-  <a href="figures/M04_stations.png"><img src="figures/M04_stations.png" alt="M04 station locations" width="560"></a><br>
-  <sub>Unit M04. Station locations and rainfall-source order.</sub>
-</p>
-
-<p align="center">
-  <a href="figures/M04_coverage.png"><img src="figures/M04_coverage.png" alt="M04 observation availability" width="680"></a><br>
-  <sub>Unit M04. Monthly availability of contributing rainfall, water-level and paired observations.</sub>
+<p align="left">
+  <a href="figures/M04_overview.png"><img src="figures/M04_overview.png" alt="Unit M04: station map and monthly observation coverage" width="900"></a>
 </p>
 
 </details>
@@ -191,25 +138,14 @@ ID: `GESLA_JODC-JCG_HD29`.
 
 ### Unit M05
 
-Tide station: Yokohama Shinko.<br>
-ID: `GESLA_JODC-JCG_HD29`.
-
-#### Rainfall sources
+Tide station: Yokohama Shinko · ID: `GESLA_JODC-JCG_HD29`.
 
 | Priority | Rainfall station | ID | First use | Last use |
 |--:|:--|:--|:--|:--|
 | 1 | Hiyoshi | `JMA_A46061` | 1997-08-31 | 2025-12-31 |
 
-#### Station locations and coverage
-
-<p align="center">
-  <a href="figures/M05_stations.png"><img src="figures/M05_stations.png" alt="M05 station locations" width="560"></a><br>
-  <sub>Unit M05. Station locations and rainfall-source order.</sub>
-</p>
-
-<p align="center">
-  <a href="figures/M05_coverage.png"><img src="figures/M05_coverage.png" alt="M05 observation availability" width="680"></a><br>
-  <sub>Unit M05. Monthly availability of contributing rainfall, water-level and paired observations.</sub>
+<p align="left">
+  <a href="figures/M05_overview.png"><img src="figures/M05_overview.png" alt="Unit M05: station map and monthly observation coverage" width="900"></a>
 </p>
 
 </details>
@@ -219,10 +155,7 @@ ID: `GESLA_JODC-JCG_HD29`.
 
 ### Unit M06
 
-Tide station: Kawasaki.<br>
-ID: `JODC_MA59`.
-
-#### Rainfall sources
+Tide station: Kawasaki · ID: `JODC_MA59`.
 
 | Priority | Rainfall station | ID | First use | Last use |
 |--:|:--|:--|:--|:--|
@@ -230,16 +163,8 @@ ID: `JODC_MA59`.
 | 2 | Setagaya | `JMA_A44126` | 1987-05-22 | 1993-11-16 |
 | 3 | Fuchu | `JMA_A44116` | 1978-02-18 | 1978-02-18 |
 
-#### Station locations and coverage
-
-<p align="center">
-  <a href="figures/M06_stations.png"><img src="figures/M06_stations.png" alt="M06 station locations" width="560"></a><br>
-  <sub>Unit M06. Station locations and rainfall-source order.</sub>
-</p>
-
-<p align="center">
-  <a href="figures/M06_coverage.png"><img src="figures/M06_coverage.png" alt="M06 observation availability" width="680"></a><br>
-  <sub>Unit M06. Monthly availability of contributing rainfall, water-level and paired observations.</sub>
+<p align="left">
+  <a href="figures/M06_overview.png"><img src="figures/M06_overview.png" alt="Unit M06: station map and monthly observation coverage" width="900"></a>
 </p>
 
 </details>
@@ -249,26 +174,15 @@ ID: `JODC_MA59`.
 
 ### Unit M07
 
-Tide station: Tokyo Harumi.<br>
-ID: `JMA_TK`.
-
-#### Rainfall sources
+Tide station: Tokyo Harumi · ID: `JMA_TK`.
 
 | Priority | Rainfall station | ID | First use | Last use |
 |--:|:--|:--|:--|:--|
 | 1 | Tokyo | `JMA_47662` | 1950-08-03 | 2026-07-31 |
 | 3 | Edogawa-Rinkai | `JMA_A44136` | 1994-09-17 | 1998-01-08 |
 
-#### Station locations and coverage
-
-<p align="center">
-  <a href="figures/M07_stations.png"><img src="figures/M07_stations.png" alt="M07 station locations" width="560"></a><br>
-  <sub>Unit M07. Station locations and rainfall-source order.</sub>
-</p>
-
-<p align="center">
-  <a href="figures/M07_coverage.png"><img src="figures/M07_coverage.png" alt="M07 observation availability" width="680"></a><br>
-  <sub>Unit M07. Monthly availability of contributing rainfall, water-level and paired observations.</sub>
+<p align="left">
+  <a href="figures/M07_overview.png"><img src="figures/M07_overview.png" alt="Unit M07: station map and monthly observation coverage" width="900"></a>
 </p>
 
 </details>
@@ -278,25 +192,14 @@ ID: `JMA_TK`.
 
 ### Unit M08
 
-Tide station: Tokyo Harumi.<br>
-ID: `JMA_TK`.
-
-#### Rainfall sources
+Tide station: Tokyo Harumi · ID: `JMA_TK`.
 
 | Priority | Rainfall station | ID | First use | Last use |
 |--:|:--|:--|:--|:--|
 | 1 | Funabashi | `JMA_A45106` | 1978-01-09 | 2026-07-31 |
 
-#### Station locations and coverage
-
-<p align="center">
-  <a href="figures/M08_stations.png"><img src="figures/M08_stations.png" alt="M08 station locations" width="560"></a><br>
-  <sub>Unit M08. Station locations and rainfall-source order.</sub>
-</p>
-
-<p align="center">
-  <a href="figures/M08_coverage.png"><img src="figures/M08_coverage.png" alt="M08 observation availability" width="680"></a><br>
-  <sub>Unit M08. Monthly availability of contributing rainfall, water-level and paired observations.</sub>
+<p align="left">
+  <a href="figures/M08_overview.png"><img src="figures/M08_overview.png" alt="Unit M08: station map and monthly observation coverage" width="900"></a>
 </p>
 
 </details>
@@ -306,25 +209,14 @@ ID: `JMA_TK`.
 
 ### Unit M09
 
-Tide station: Chiba.<br>
-ID: `JODC_HD06`.
-
-#### Rainfall sources
+Tide station: Chiba · ID: `JODC_HD06`.
 
 | Priority | Rainfall station | ID | First use | Last use |
 |--:|:--|:--|:--|:--|
 | 1 | Chiba | `JMA_47682` | 1966-03-31 | 2025-12-31 |
 
-#### Station locations and coverage
-
-<p align="center">
-  <a href="figures/M09_stations.png"><img src="figures/M09_stations.png" alt="M09 station locations" width="560"></a><br>
-  <sub>Unit M09. Station locations and rainfall-source order.</sub>
-</p>
-
-<p align="center">
-  <a href="figures/M09_coverage.png"><img src="figures/M09_coverage.png" alt="M09 observation availability" width="680"></a><br>
-  <sub>Unit M09. Monthly availability of contributing rainfall, water-level and paired observations.</sub>
+<p align="left">
+  <a href="figures/M09_overview.png"><img src="figures/M09_overview.png" alt="Unit M09: station map and monthly observation coverage" width="900"></a>
 </p>
 
 </details>
@@ -334,25 +226,14 @@ ID: `JODC_HD06`.
 
 ### Unit M10
 
-Tide station: Chiba.<br>
-ID: `JODC_HD06`.
-
-#### Rainfall sources
+Tide station: Chiba · ID: `JODC_HD06`.
 
 | Priority | Rainfall station | ID | First use | Last use |
 |--:|:--|:--|:--|:--|
 | 1 | Ushiku | `JMA_A45291` | 1978-01-11 | 2025-12-31 |
 
-#### Station locations and coverage
-
-<p align="center">
-  <a href="figures/M10_stations.png"><img src="figures/M10_stations.png" alt="M10 station locations" width="560"></a><br>
-  <sub>Unit M10. Station locations and rainfall-source order.</sub>
-</p>
-
-<p align="center">
-  <a href="figures/M10_coverage.png"><img src="figures/M10_coverage.png" alt="M10 observation availability" width="680"></a><br>
-  <sub>Unit M10. Monthly availability of contributing rainfall, water-level and paired observations.</sub>
+<p align="left">
+  <a href="figures/M10_overview.png"><img src="figures/M10_overview.png" alt="Unit M10: station map and monthly observation coverage" width="900"></a>
 </p>
 
 </details>
@@ -362,26 +243,15 @@ ID: `JODC_HD06`.
 
 ### Unit M11
 
-Tide station: Yokohama Shinko.<br>
-ID: `GESLA_JODC-JCG_HD29`.
-
-#### Rainfall sources
+Tide station: Yokohama Shinko · ID: `GESLA_JODC-JCG_HD29`.
 
 | Priority | Rainfall station | ID | First use | Last use |
 |--:|:--|:--|:--|:--|
 | 1 | Kisarazu | `JMA_A45282` | 1997-08-31 | 2025-12-31 |
 | 2 | Sakahata | `JMA_A45326` | 2000-10-17 | 2022-11-16 |
 
-#### Station locations and coverage
-
-<p align="center">
-  <a href="figures/M11_stations.png"><img src="figures/M11_stations.png" alt="M11 station locations" width="560"></a><br>
-  <sub>Unit M11. Station locations and rainfall-source order.</sub>
-</p>
-
-<p align="center">
-  <a href="figures/M11_coverage.png"><img src="figures/M11_coverage.png" alt="M11 observation availability" width="680"></a><br>
-  <sub>Unit M11. Monthly availability of contributing rainfall, water-level and paired observations.</sub>
+<p align="left">
+  <a href="figures/M11_overview.png"><img src="figures/M11_overview.png" alt="Unit M11: station map and monthly observation coverage" width="900"></a>
 </p>
 
 </details>
@@ -391,25 +261,14 @@ ID: `GESLA_JODC-JCG_HD29`.
 
 ### Unit M12
 
-Tide station: Kurihama.<br>
-ID: `GESLA_JODC-PAHB_0161`.
-
-#### Rainfall sources
+Tide station: Kurihama · ID: `GESLA_JODC-PAHB_0161`.
 
 | Priority | Rainfall station | ID | First use | Last use |
 |--:|:--|:--|:--|:--|
 | 1 | Kyonan | `JMA_A45346` | 2000-12-31 | 2022-12-31 |
 
-#### Station locations and coverage
-
-<p align="center">
-  <a href="figures/M12_stations.png"><img src="figures/M12_stations.png" alt="M12 station locations" width="560"></a><br>
-  <sub>Unit M12. Station locations and rainfall-source order.</sub>
-</p>
-
-<p align="center">
-  <a href="figures/M12_coverage.png"><img src="figures/M12_coverage.png" alt="M12 observation availability" width="680"></a><br>
-  <sub>Unit M12. Monthly availability of contributing rainfall, water-level and paired observations.</sub>
+<p align="left">
+  <a href="figures/M12_overview.png"><img src="figures/M12_overview.png" alt="Unit M12: station map and monthly observation coverage" width="900"></a>
 </p>
 
 </details>
@@ -419,25 +278,14 @@ ID: `GESLA_JODC-PAHB_0161`.
 
 ### Unit M13
 
-Tide station: Mera.<br>
-ID: `JMA_MR`.
-
-#### Rainfall sources
+Tide station: Mera · ID: `JMA_MR`.
 
 | Priority | Rainfall station | ID | First use | Last use |
 |--:|:--|:--|:--|:--|
 | 1 | Tateyama | `JMA_47672` | 1968-05-10 | 2026-07-31 |
 
-#### Station locations and coverage
-
-<p align="center">
-  <a href="figures/M13_stations.png"><img src="figures/M13_stations.png" alt="M13 station locations" width="560"></a><br>
-  <sub>Unit M13. Station locations and rainfall-source order.</sub>
-</p>
-
-<p align="center">
-  <a href="figures/M13_coverage.png"><img src="figures/M13_coverage.png" alt="M13 observation availability" width="680"></a><br>
-  <sub>Unit M13. Monthly availability of contributing rainfall, water-level and paired observations.</sub>
+<p align="left">
+  <a href="figures/M13_overview.png"><img src="figures/M13_overview.png" alt="Unit M13: station map and monthly observation coverage" width="900"></a>
 </p>
 
 </details>

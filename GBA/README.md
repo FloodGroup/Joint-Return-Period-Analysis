@@ -6,14 +6,17 @@ Thirteen analysis units represent the Pearl River Estuary and Hong Kong coastal 
 |--:|:--|:--|
 | 13 | Daily | CN1985 |
 
-[Study area](#study-area) · [Units](#analysis-units) · [Coverage](#observation-coverage) · [Stations](#station-catalogue) · [Run](#run)
+[Study area and coverage](#study-area) · [Units](#analysis-units) · [Stations](#station-catalogue) · [Run](#run)
 
 ## Study area
 
-<p align="center">
-  <a href="figures/01_study_area.png"><img src="figures/01_study_area.png" alt="Study area" width="600"></a><br>
-  <sub>Analysis units and observation stations.</sub>
+<p align="left">
+  <a href="figures/00_regional_overview.png"><img src="figures/00_regional_overview.png" alt="Analysis units, stations and monthly observation coverage" width="900"></a>
 </p>
+
+Coverage refers to the archived compound-input record. Colour intensity represents the observed fraction of a calendar month; white indicates missing observations. Rainfall rows show actual source use. Annual-frequency analysis uses independently screened full records.
+
+R denotes rainfall; H denotes coastal water level. Map colours identify tide assignments; hatching marks shared polygons. Map coordinates use EPSG:32649, shown in kilometres.
 
 ## Analysis units
 
@@ -47,52 +50,29 @@ See [Methods](../shared/methods.md#analysis-units) for the common partitioning p
 <details markdown="1">
 <summary>Station assignment diagram</summary>
 
-<p align="center">
-  <a href="figures/02_station_assignments.png"><img src="figures/02_station_assignments.png" alt="Station assignments" width="680"></a><br>
-  <sub>Rainfall and coastal water-level assignments by unit.</sub>
-</p>
+[View the station assignment diagram](figures/02_station_assignments.png).
 
 </details>
-
-## Observation coverage
-
-<p align="center">
-  <a href="figures/03_observation_coverage.png"><img src="figures/03_observation_coverage.png" alt="Observation coverage" width="680"></a><br>
-  <sub>Monthly coverage of the archived compound-input records.</sub>
-</p>
-
-Coverage refers to the archived compound-input record. Colour intensity represents the observed fraction of a calendar month; white indicates missing observations. Rainfall rows show actual source use. Annual-frequency analysis uses independently screened full records.
 
 ## Station catalogue
 
 [01](#unit-01) · [02](#unit-02) · [03a](#unit-03a) · [03b](#unit-03b) · [04](#unit-04) · [05](#unit-05) · [06](#unit-06) · [07](#unit-07) · [08](#unit-08) · [09](#unit-09) · [10a](#unit-10a) · [10b](#unit-10b) · [11](#unit-11)
 
-First and last use refer to actual station contributions; gaps appear in the coverage figures.
+First and last use refer to actual station contributions. Map numbers follow the rainfall table rows and match the coverage labels. White indicates missing observations.
 
 <details markdown="1">
 <summary><strong>Unit 01</strong> · Sanzao · 1 rainfall station</summary>
 
 ### Unit 01
 
-Tide station: Sanzao.<br>
-ID: `SZ`.
-
-#### Rainfall sources
+Tide station: Sanzao · ID: `SZ`.
 
 | Priority | Rainfall station | ID | First use | Last use |
 |--:|:--|:--|:--|:--|
 | 1 | G1205 | `G1205` | 2008-11-20 | 2022-04-30 |
 
-#### Station locations and coverage
-
-<p align="center">
-  <a href="figures/01_stations.png"><img src="figures/01_stations.png" alt="01 station locations" width="560"></a><br>
-  <sub>Unit 01. Station locations and rainfall-source order.</sub>
-</p>
-
-<p align="center">
-  <a href="figures/01_coverage.png"><img src="figures/01_coverage.png" alt="01 observation availability" width="680"></a><br>
-  <sub>Unit 01. Monthly availability of contributing rainfall, water-level and paired observations.</sub>
+<p align="left">
+  <a href="figures/01_overview.png"><img src="figures/01_overview.png" alt="Unit 01: station map and monthly observation coverage" width="900"></a>
 </p>
 
 </details>
@@ -102,10 +82,7 @@ ID: `SZ`.
 
 ### Unit 02
 
-Tide station: Sanzao.<br>
-ID: `SZ`.
-
-#### Rainfall sources
+Tide station: Sanzao · ID: `SZ`.
 
 | Priority | Rainfall station | ID | First use | Last use |
 |--:|:--|:--|:--|:--|
@@ -125,16 +102,8 @@ ID: `SZ`.
 | 27 | G2021 | `G2021` | 2010-06-19 | 2010-06-19 |
 | 31 | G2128 | `G2128` | 2010-06-13 | 2010-06-29 |
 
-#### Station locations and coverage
-
-<p align="center">
-  <a href="figures/02_stations.png"><img src="figures/02_stations.png" alt="02 station locations" width="560"></a><br>
-  <sub>Unit 02. Station locations and rainfall-source order.</sub>
-</p>
-
-<p align="center">
-  <a href="figures/02_coverage.png"><img src="figures/02_coverage.png" alt="02 observation availability" width="680"></a><br>
-  <sub>Unit 02. Monthly availability of contributing rainfall, water-level and paired observations.</sub>
+<p align="left">
+  <a href="figures/02_overview.png"><img src="figures/02_overview.png" alt="Unit 02: station map and monthly observation coverage" width="900"></a>
 </p>
 
 </details>
@@ -144,25 +113,14 @@ ID: `SZ`.
 
 ### Unit 03a
 
-Tide station: Dajiu Zhou.<br>
-ID: `DJZ`.
-
-#### Rainfall sources
+Tide station: Dajiu Zhou · ID: `DJZ`.
 
 | Priority | Rainfall station | ID | First use | Last use |
 |--:|:--|:--|:--|:--|
 | 1 | G1209 | `G1209` | 2010-06-01 | 2022-04-30 |
 
-#### Station locations and coverage
-
-<p align="center">
-  <a href="figures/03a_stations.png"><img src="figures/03a_stations.png" alt="03a station locations" width="560"></a><br>
-  <sub>Unit 03a. Station locations and rainfall-source order.</sub>
-</p>
-
-<p align="center">
-  <a href="figures/03a_coverage.png"><img src="figures/03a_coverage.png" alt="03a observation availability" width="680"></a><br>
-  <sub>Unit 03a. Monthly availability of contributing rainfall, water-level and paired observations.</sub>
+<p align="left">
+  <a href="figures/03a_overview.png"><img src="figures/03a_overview.png" alt="Unit 03a: station map and monthly observation coverage" width="900"></a>
 </p>
 
 </details>
@@ -172,25 +130,14 @@ ID: `DJZ`.
 
 ### Unit 03b
 
-Tide station: Nei Lingding.<br>
-ID: `NLT`.
-
-#### Rainfall sources
+Tide station: Nei Lingding · ID: `NLT`.
 
 | Priority | Rainfall station | ID | First use | Last use |
 |--:|:--|:--|:--|:--|
 | 1 | G1211 | `G1211` | 2010-01-01 | 2022-04-30 |
 
-#### Station locations and coverage
-
-<p align="center">
-  <a href="figures/03b_stations.png"><img src="figures/03b_stations.png" alt="03b station locations" width="560"></a><br>
-  <sub>Unit 03b. Station locations and rainfall-source order.</sub>
-</p>
-
-<p align="center">
-  <a href="figures/03b_coverage.png"><img src="figures/03b_coverage.png" alt="03b observation availability" width="680"></a><br>
-  <sub>Unit 03b. Monthly availability of contributing rainfall, water-level and paired observations.</sub>
+<p align="left">
+  <a href="figures/03b_overview.png"><img src="figures/03b_overview.png" alt="Unit 03b: station map and monthly observation coverage" width="900"></a>
 </p>
 
 </details>
@@ -200,10 +147,7 @@ ID: `NLT`.
 
 ### Unit 04
 
-Tide station: Nansha.<br>
-ID: `NS`.
-
-#### Rainfall sources
+Tide station: Nansha · ID: `NS`.
 
 | Priority | Rainfall station | ID | First use | Last use |
 |--:|:--|:--|:--|:--|
@@ -221,16 +165,8 @@ ID: `NS`.
 | 18 | G2009 | `G2009` | 2010-01-26 | 2010-01-26 |
 | 19 | 59485 | `59485` | 2008-01-01 | 2016-04-01 |
 
-#### Station locations and coverage
-
-<p align="center">
-  <a href="figures/04_stations.png"><img src="figures/04_stations.png" alt="04 station locations" width="560"></a><br>
-  <sub>Unit 04. Station locations and rainfall-source order.</sub>
-</p>
-
-<p align="center">
-  <a href="figures/04_coverage.png"><img src="figures/04_coverage.png" alt="04 observation availability" width="680"></a><br>
-  <sub>Unit 04. Monthly availability of contributing rainfall, water-level and paired observations.</sub>
+<p align="left">
+  <a href="figures/04_overview.png"><img src="figures/04_overview.png" alt="Unit 04: station map and monthly observation coverage" width="900"></a>
 </p>
 
 </details>
@@ -240,10 +176,7 @@ ID: `NS`.
 
 ### Unit 05
 
-Tide station: Nansha.<br>
-ID: `NS`.
-
-#### Rainfall sources
+Tide station: Nansha · ID: `NS`.
 
 | Priority | Rainfall station | ID | First use | Last use |
 |--:|:--|:--|:--|:--|
@@ -255,16 +188,8 @@ ID: `NS`.
 | 12 | G3137 | `G3137` | 2009-11-24 | 2010-04-03 |
 | 25 | G2238 | `G2238` | 2016-03-10 | 2016-03-10 |
 
-#### Station locations and coverage
-
-<p align="center">
-  <a href="figures/05_stations.png"><img src="figures/05_stations.png" alt="05 station locations" width="560"></a><br>
-  <sub>Unit 05. Station locations and rainfall-source order.</sub>
-</p>
-
-<p align="center">
-  <a href="figures/05_coverage.png"><img src="figures/05_coverage.png" alt="05 observation availability" width="680"></a><br>
-  <sub>Unit 05. Monthly availability of contributing rainfall, water-level and paired observations.</sub>
+<p align="left">
+  <a href="figures/05_overview.png"><img src="figures/05_overview.png" alt="Unit 05: station map and monthly observation coverage" width="900"></a>
 </p>
 
 </details>
@@ -274,10 +199,7 @@ ID: `NS`.
 
 ### Unit 06
 
-Tide station: Dasheng.<br>
-ID: `DS`.
-
-#### Rainfall sources
+Tide station: Dasheng · ID: `DS`.
 
 | Priority | Rainfall station | ID | First use | Last use |
 |--:|:--|:--|:--|:--|
@@ -293,16 +215,8 @@ ID: `DS`.
 | 28 | G3156 | `G3156` | 2016-03-10 | 2016-03-10 |
 | 29 | G6816 | `G6816` | 2009-12-28 | 2009-12-28 |
 
-#### Station locations and coverage
-
-<p align="center">
-  <a href="figures/06_stations.png"><img src="figures/06_stations.png" alt="06 station locations" width="560"></a><br>
-  <sub>Unit 06. Station locations and rainfall-source order.</sub>
-</p>
-
-<p align="center">
-  <a href="figures/06_coverage.png"><img src="figures/06_coverage.png" alt="06 observation availability" width="680"></a><br>
-  <sub>Unit 06. Monthly availability of contributing rainfall, water-level and paired observations.</sub>
+<p align="left">
+  <a href="figures/06_overview.png"><img src="figures/06_overview.png" alt="Unit 06: station map and monthly observation coverage" width="900"></a>
 </p>
 
 </details>
@@ -312,10 +226,7 @@ ID: `DS`.
 
 ### Unit 07
 
-Tide station: Sishengwei.<br>
-ID: `SSW`.
-
-#### Rainfall sources
+Tide station: Sishengwei · ID: `SSW`.
 
 | Priority | Rainfall station | ID | First use | Last use |
 |--:|:--|:--|:--|:--|
@@ -336,16 +247,8 @@ ID: `SSW`.
 | 31 | G1961 | `G1961` | 2009-12-18 | 2009-12-18 |
 | 40 | 59287 | `59287` | 2014-04-01 | 2014-12-25 |
 
-#### Station locations and coverage
-
-<p align="center">
-  <a href="figures/07_stations.png"><img src="figures/07_stations.png" alt="07 station locations" width="560"></a><br>
-  <sub>Unit 07. Station locations and rainfall-source order.</sub>
-</p>
-
-<p align="center">
-  <a href="figures/07_coverage.png"><img src="figures/07_coverage.png" alt="07 observation availability" width="680"></a><br>
-  <sub>Unit 07. Monthly availability of contributing rainfall, water-level and paired observations.</sub>
+<p align="left">
+  <a href="figures/07_overview.png"><img src="figures/07_overview.png" alt="Unit 07: station map and monthly observation coverage" width="900"></a>
 </p>
 
 </details>
@@ -355,10 +258,7 @@ ID: `SSW`.
 
 ### Unit 08
 
-Tide station: Chiwan.<br>
-ID: `CW`.
-
-#### Rainfall sources
+Tide station: Chiwan · ID: `CW`.
 
 | Priority | Rainfall station | ID | First use | Last use |
 |--:|:--|:--|:--|:--|
@@ -366,16 +266,8 @@ ID: `CW`.
 | 3 | G3556 | `G3556` | 2009-02-16 | 2010-06-30 |
 | 7 | GEO_N28 | `GEO_N28` | 2000-01-28 | 2022-12-30 |
 
-#### Station locations and coverage
-
-<p align="center">
-  <a href="figures/08_stations.png"><img src="figures/08_stations.png" alt="08 station locations" width="560"></a><br>
-  <sub>Unit 08. Station locations and rainfall-source order.</sub>
-</p>
-
-<p align="center">
-  <a href="figures/08_coverage.png"><img src="figures/08_coverage.png" alt="08 observation availability" width="680"></a><br>
-  <sub>Unit 08. Monthly availability of contributing rainfall, water-level and paired observations.</sub>
+<p align="left">
+  <a href="figures/08_overview.png"><img src="figures/08_overview.png" alt="Unit 08: station map and monthly observation coverage" width="900"></a>
 </p>
 
 </details>
@@ -385,10 +277,7 @@ ID: `CW`.
 
 ### Unit 09
 
-Tide station: Tsim Bei Tsui.<br>
-ID: `TBT`.
-
-#### Rainfall sources
+Tide station: Tsim Bei Tsui · ID: `TBT`.
 
 | Priority | Rainfall station | ID | First use | Last use |
 |--:|:--|:--|:--|:--|
@@ -401,16 +290,8 @@ ID: `TBT`.
 | 49 | GEO_N05 | `GEO_N05` | 1989-01-12 | 1996-05-01 |
 | 59 | HKO_TKL | `HKO_TKL` | 1988-07-27 | 1988-11-26 |
 
-#### Station locations and coverage
-
-<p align="center">
-  <a href="figures/09_stations.png"><img src="figures/09_stations.png" alt="09 station locations" width="560"></a><br>
-  <sub>Unit 09. Station locations and rainfall-source order.</sub>
-</p>
-
-<p align="center">
-  <a href="figures/09_coverage.png"><img src="figures/09_coverage.png" alt="09 observation availability" width="680"></a><br>
-  <sub>Unit 09. Monthly availability of contributing rainfall, water-level and paired observations.</sub>
+<p align="left">
+  <a href="figures/09_overview.png"><img src="figures/09_overview.png" alt="Unit 09: station map and monthly observation coverage" width="900"></a>
 </p>
 
 </details>
@@ -420,10 +301,7 @@ ID: `TBT`.
 
 ### Unit 10a
 
-Tide station: Quarry Bay.<br>
-ID: `QUB`.
-
-#### Rainfall sources
+Tide station: Quarry Bay · ID: `QUB`.
 
 | Priority | Rainfall station | ID | First use | Last use |
 |--:|:--|:--|:--|:--|
@@ -437,16 +315,8 @@ ID: `QUB`.
 | 8 | GEO_H07 | `GEO_H07` | 1988-02-13 | 1988-09-25 |
 | 13 | HKO_HKO | `HKO_HKO` | 1954-08-29 | 2004-12-13 |
 
-#### Station locations and coverage
-
-<p align="center">
-  <a href="figures/10a_stations.png"><img src="figures/10a_stations.png" alt="10a station locations" width="560"></a><br>
-  <sub>Unit 10a. Station locations and rainfall-source order.</sub>
-</p>
-
-<p align="center">
-  <a href="figures/10a_coverage.png"><img src="figures/10a_coverage.png" alt="10a observation availability" width="680"></a><br>
-  <sub>Unit 10a. Monthly availability of contributing rainfall, water-level and paired observations.</sub>
+<p align="left">
+  <a href="figures/10a_overview.png"><img src="figures/10a_overview.png" alt="Unit 10a: station map and monthly observation coverage" width="900"></a>
 </p>
 
 </details>
@@ -456,10 +326,7 @@ ID: `QUB`.
 
 ### Unit 10b
 
-Tide station: Shek Pik.<br>
-ID: `SPW`.
-
-#### Rainfall sources
+Tide station: Shek Pik · ID: `SPW`.
 
 | Priority | Rainfall station | ID | First use | Last use |
 |--:|:--|:--|:--|:--|
@@ -470,16 +337,8 @@ ID: `SPW`.
 | 5 | GEO_N17 | `GEO_N17` | 1998-01-01 | 2005-10-18 |
 | 7 | HKO_HKA | `HKO_HKA` | 1998-01-26 | 2026-07-31 |
 
-#### Station locations and coverage
-
-<p align="center">
-  <a href="figures/10b_stations.png"><img src="figures/10b_stations.png" alt="10b station locations" width="560"></a><br>
-  <sub>Unit 10b. Station locations and rainfall-source order.</sub>
-</p>
-
-<p align="center">
-  <a href="figures/10b_coverage.png"><img src="figures/10b_coverage.png" alt="10b observation availability" width="680"></a><br>
-  <sub>Unit 10b. Monthly availability of contributing rainfall, water-level and paired observations.</sub>
+<p align="left">
+  <a href="figures/10b_overview.png"><img src="figures/10b_overview.png" alt="Unit 10b: station map and monthly observation coverage" width="900"></a>
 </p>
 
 </details>
@@ -489,10 +348,7 @@ ID: `SPW`.
 
 ### Unit 11
 
-Tide station: Tai Po Kau.<br>
-ID: `TPK`.
-
-#### Rainfall sources
+Tide station: Tai Po Kau · ID: `TPK`.
 
 | Priority | Rainfall station | ID | First use | Last use |
 |--:|:--|:--|:--|:--|
@@ -507,16 +363,8 @@ ID: `TPK`.
 | 15 | GEO_N01 | `GEO_N01` | 1988-09-25 | 1988-09-25 |
 | 30 | GEO_N13 | `GEO_N13` | 1984-05-16 | 1984-05-16 |
 
-#### Station locations and coverage
-
-<p align="center">
-  <a href="figures/11_stations.png"><img src="figures/11_stations.png" alt="11 station locations" width="560"></a><br>
-  <sub>Unit 11. Station locations and rainfall-source order.</sub>
-</p>
-
-<p align="center">
-  <a href="figures/11_coverage.png"><img src="figures/11_coverage.png" alt="11 observation availability" width="680"></a><br>
-  <sub>Unit 11. Monthly availability of contributing rainfall, water-level and paired observations.</sub>
+<p align="left">
+  <a href="figures/11_overview.png"><img src="figures/11_overview.png" alt="Unit 11: station map and monthly observation coverage" width="900"></a>
 </p>
 
 </details>
