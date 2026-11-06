@@ -2,6 +2,8 @@
 
 Eleven units represent the bay's coastal catchment groups. All water levels enter inference in NAVD88. The analysis clock is fixed Pacific Standard Time (UTC-8), with October-to-September water years.
 
+[Run](#run) · [Analysis units](#analysis-units) · [Regional settings](#regional-settings) · [Maps and coverage](#study-area-and-station-assignments) · [Station catalogue](#station-catalogue)
+
 ## Run
 
 From the repository root, install the package and run:
@@ -50,24 +52,42 @@ See [Methods](../shared/methods.md#analysis-units) for the common partitioning p
 - Alviso's annual frequency curve transfers from Redwood City using accepted concurrent annual maxima from 2019 onward. The historical Alviso tie is an engineering reference.
 - Regular rainfall and coastal peak times occur at hour 13. Phase cases apply the same relative offsets as the other regions.
 
-
 ## Study area and station assignments
 
 Select a figure to inspect it at full resolution.
 
+### Study area
+
 [![Study area](figures/01_study_area.png)](figures/01_study_area.png)
+
+*Analysis units and observation stations.*
+
+### Station assignments
 
 [![Station assignments](figures/02_station_assignments.png)](figures/02_station_assignments.png)
 
+*Rainfall and coastal water-level assignments by unit.*
+
+### Observation coverage
+
 [![Observation coverage](figures/03_observation_coverage.png)](figures/03_observation_coverage.png)
+
+*Monthly coverage of the archived compound-input records.*
 
 Coverage refers to the archived compound-input record. Colour intensity represents the observed fraction of a calendar month; white indicates missing observations. Rainfall rows show actual source use. Annual-frequency analysis uses independently screened full records.
 
-## Unit M01
+## Station catalogue
 
-Coastal series: Mare Island / Martinez. Sources: `NOAA_9415218`, `GESLA_CDWR_MRZ`.
+[M01](#unit-m01) · [M02](#unit-m02) · [M03](#unit-m03) · [M04](#unit-m04) · [M05](#unit-m05) · [M06](#unit-m06) · [M07](#unit-m07) · [M08](#unit-m08) · [M09](#unit-m09) · [M10](#unit-m10) · [M11](#unit-m11)
 
-[![M01 station locations](figures/M01_stations.png)](figures/M01_stations.png)
+First and last use refer to actual station contributions; gaps appear in the coverage figures.
+
+### Unit M01
+
+Tide station: Mare Island / Martinez.<br>
+ID: `NOAA_9415218`, `GESLA_CDWR_MRZ`.
+
+#### Rainfall sources
 
 | Priority | Rainfall station | ID | First use | Last use |
 |--:|:--|:--|:--|:--|
@@ -79,13 +99,22 @@ Coastal series: Mare Island / Martinez. Sources: `NOAA_9415218`, `GESLA_CDWR_MRZ
 | 6 | ANGWIN | `CDEC_ANG` | 1995-02-01 | 2004-03-27 |
 | 7 | ANGWIN PACIFIC UNION COLLEGE | `NCEI_USC00040212` | 1994-07-02 | 2004-03-25 |
 
+#### Station locations and coverage
+
+[![M01 station locations](figures/M01_stations.png)](figures/M01_stations.png)
+
+*Unit M01. Station locations and rainfall-source order.*
+
 [![M01 observation availability](figures/M01_coverage.png)](figures/M01_coverage.png)
 
-## Unit M02
+*Unit M01. Monthly availability of contributing rainfall, water-level and paired observations.*
 
-Coastal series: Richmond. Sources: `NOAA_9414863`.
+### Unit M02
 
-[![M02 station locations](figures/M02_stations.png)](figures/M02_stations.png)
+Tide station: Richmond.<br>
+ID: `NOAA_9414863`.
+
+#### Rainfall sources
 
 | Priority | Rainfall station | ID | First use | Last use |
 |--:|:--|:--|:--|:--|
@@ -94,25 +123,43 @@ Coastal series: Richmond. Sources: `NOAA_9414863`.
 | 3 | PETALUMA RIVER NR CORONA ROAD | `CDEC_CRD` | 1998-02-28 | 2020-08-04 |
 | 4 | LICHAU CREEK | `CDEC_LIC` | 1997-10-31 | 2020-08-20 |
 
+#### Station locations and coverage
+
+[![M02 station locations](figures/M02_stations.png)](figures/M02_stations.png)
+
+*Unit M02. Station locations and rainfall-source order.*
+
 [![M02 observation availability](figures/M02_coverage.png)](figures/M02_coverage.png)
 
-## Unit M03
+*Unit M02. Monthly availability of contributing rainfall, water-level and paired observations.*
 
-Coastal series: San Francisco. Sources: `NOAA_9414290`.
+### Unit M03
 
-[![M03 station locations](figures/M03_stations.png)](figures/M03_stations.png)
+Tide station: San Francisco.<br>
+ID: `NOAA_9414290`.
+
+#### Rainfall sources
 
 | Priority | Rainfall station | ID | First use | Last use |
 |--:|:--|:--|:--|:--|
 | 1 | ARROYO CORTE MADERA DEL PRESIDIO | `CDEC_ACM` | 2000-01-10 | 2026-08-25 |
 
+#### Station locations and coverage
+
+[![M03 station locations](figures/M03_stations.png)](figures/M03_stations.png)
+
+*Unit M03. Station locations and rainfall-source order.*
+
 [![M03 observation availability](figures/M03_coverage.png)](figures/M03_coverage.png)
 
-## Unit M04
+*Unit M03. Monthly availability of contributing rainfall, water-level and paired observations.*
 
-Coastal series: Redwood City. Sources: `NOAA_9414523`.
+### Unit M04
 
-[![M04 station locations](figures/M04_stations.png)](figures/M04_stations.png)
+Tide station: Redwood City.<br>
+ID: `NOAA_9414523`.
+
+#### Rainfall sources
 
 | Priority | Rainfall station | ID | First use | Last use |
 |--:|:--|:--|:--|:--|
@@ -120,39 +167,66 @@ Coastal series: Redwood City. Sources: `NOAA_9414523`.
 | 2 | CRYSTAL SPRINGS COTTAGE | `CDEC_CSC` | 1999-04-20 | 2026-07-01 |
 | 3 | SAN FRANCISCO INTL AP | `GHCNH_USW00023234` | 1975-01-04 | 2026-06-23 |
 
+#### Station locations and coverage
+
+[![M04 station locations](figures/M04_stations.png)](figures/M04_stations.png)
+
+*Unit M04. Station locations and rainfall-source order.*
+
 [![M04 observation availability](figures/M04_coverage.png)](figures/M04_coverage.png)
 
-## Unit M05
+*Unit M04. Monthly availability of contributing rainfall, water-level and paired observations.*
 
-Coastal series: Redwood City. Sources: `NOAA_9414523`.
+### Unit M05
 
-[![M05 station locations](figures/M05_stations.png)](figures/M05_stations.png)
+Tide station: Redwood City.<br>
+ID: `NOAA_9414523`.
+
+#### Rainfall sources
 
 | Priority | Rainfall station | ID | First use | Last use |
 |--:|:--|:--|:--|:--|
 | 1 | PULGAS | `CDEC_PUL` | 2014-06-19 | 2026-08-31 |
 | 2 | CRYSTAL SPRINGS COTTAGE | `CDEC_CSC` | 1999-04-20 | 2026-07-01 |
 
+#### Station locations and coverage
+
+[![M05 station locations](figures/M05_stations.png)](figures/M05_stations.png)
+
+*Unit M05. Station locations and rainfall-source order.*
+
 [![M05 observation availability](figures/M05_coverage.png)](figures/M05_coverage.png)
 
-## Unit M06
+*Unit M05. Monthly availability of contributing rainfall, water-level and paired observations.*
 
-Coastal series: Alviso. Sources: `NOAA_9414575`, `USGS_372750122012701`.
+### Unit M06
 
-[![M06 station locations](figures/M06_stations.png)](figures/M06_stations.png)
+Tide station: Alviso.<br>
+ID: `NOAA_9414575`, `USGS_372750122012701`.
+
+#### Rainfall sources
 
 | Priority | Rainfall station | ID | First use | Last use |
 |--:|:--|:--|:--|:--|
 | 1 | MOFFETT FED AIRFIELD | `GHCNH_USW00023244` | 2004-09-19 | 2026-09-04 |
 | 2 | PALO ALTO 3E | `CDEC_PAA` | 2000-01-06 | 2024-07-18 |
 
+#### Station locations and coverage
+
+[![M06 station locations](figures/M06_stations.png)](figures/M06_stations.png)
+
+*Unit M06. Station locations and rainfall-source order.*
+
 [![M06 observation availability](figures/M06_coverage.png)](figures/M06_coverage.png)
 
-## Unit M07
+*Unit M06. Monthly availability of contributing rainfall, water-level and paired observations.*
 
-Coastal series: Alviso. Sources: `NOAA_9414575`, `USGS_372750122012701`.
+### Unit M07
 
-[![M07 station locations](figures/M07_stations.png)](figures/M07_stations.png)
+Tide station: Alviso.<br>
+ID: `NOAA_9414575`, `USGS_372750122012701`.
+
+#### Rainfall sources
 
 | Priority | Rainfall station | ID | First use | Last use |
 |--:|:--|:--|:--|:--|
@@ -163,13 +237,22 @@ Coastal series: Alviso. Sources: `NOAA_9414575`, `USGS_372750122012701`.
 | 5 | MT. UMUNHUM #2 | `CDEC_UMN` | 2000-05-04 | 2013-02-20 |
 | 6 | GILROY 8 NE | `NCEI_USC00043419` | 1983-11-03 | 2025-11-20 |
 
+#### Station locations and coverage
+
+[![M07 station locations](figures/M07_stations.png)](figures/M07_stations.png)
+
+*Unit M07. Station locations and rainfall-source order.*
+
 [![M07 observation availability](figures/M07_coverage.png)](figures/M07_coverage.png)
 
-## Unit M08
+*Unit M07. Monthly availability of contributing rainfall, water-level and paired observations.*
 
-Coastal series: Redwood City. Sources: `NOAA_9414523`.
+### Unit M08
 
-[![M08 station locations](figures/M08_stations.png)](figures/M08_stations.png)
+Tide station: Redwood City.<br>
+ID: `NOAA_9414523`.
+
+#### Rainfall sources
 
 | Priority | Rainfall station | ID | First use | Last use |
 |--:|:--|:--|:--|:--|
@@ -181,38 +264,65 @@ Coastal series: Redwood City. Sources: `NOAA_9414523`.
 | 6 | ROSE PEAK | `CDEC_RSP` | 1997-04-28 | 2004-09-20 |
 | 9 | SWEETWATER (CDF) | `CDEC_SWW` | 1991-09-01 | 2000-09-26 |
 
+#### Station locations and coverage
+
+[![M08 station locations](figures/M08_stations.png)](figures/M08_stations.png)
+
+*Unit M08. Station locations and rainfall-source order.*
+
 [![M08 observation availability](figures/M08_coverage.png)](figures/M08_coverage.png)
 
-## Unit M09
+*Unit M08. Monthly availability of contributing rainfall, water-level and paired observations.*
 
-Coastal series: Alameda. Sources: `NOAA_9414750`.
+### Unit M09
 
-[![M09 station locations](figures/M09_stations.png)](figures/M09_stations.png)
+Tide station: Alameda.<br>
+ID: `NOAA_9414750`.
+
+#### Rainfall sources
 
 | Priority | Rainfall station | ID | First use | Last use |
 |--:|:--|:--|:--|:--|
 | 1 | OAKLAND SOUTH | `CDEC_OSO` | 1992-11-01 | 2026-08-31 |
 
+#### Station locations and coverage
+
+[![M09 station locations](figures/M09_stations.png)](figures/M09_stations.png)
+
+*Unit M09. Station locations and rainfall-source order.*
+
 [![M09 observation availability](figures/M09_coverage.png)](figures/M09_coverage.png)
 
-## Unit M10
+*Unit M09. Monthly availability of contributing rainfall, water-level and paired observations.*
 
-Coastal series: Redwood City. Sources: `NOAA_9414523`.
+### Unit M10
 
-[![M10 station locations](figures/M10_stations.png)](figures/M10_stations.png)
+Tide station: Redwood City.<br>
+ID: `NOAA_9414523`.
+
+#### Rainfall sources
 
 | Priority | Rainfall station | ID | First use | Last use |
 |--:|:--|:--|:--|:--|
 | 1 | SAN LEANDRO BAY | `CDEC_SLE` | 1996-11-07 | 2023-04-30 |
 | 2 | OAKLAND INTL AP | `GHCNH_USW00023230` | 1974-10-28 | 2026-08-31 |
 
+#### Station locations and coverage
+
+[![M10 station locations](figures/M10_stations.png)](figures/M10_stations.png)
+
+*Unit M10. Station locations and rainfall-source order.*
+
 [![M10 observation availability](figures/M10_coverage.png)](figures/M10_coverage.png)
 
-## Unit M11
+*Unit M10. Monthly availability of contributing rainfall, water-level and paired observations.*
 
-Coastal series: Richmond. Sources: `NOAA_9414863`.
+### Unit M11
 
-[![M11 station locations](figures/M11_stations.png)](figures/M11_stations.png)
+Tide station: Richmond.<br>
+ID: `NOAA_9414863`.
+
+#### Rainfall sources
 
 | Priority | Rainfall station | ID | First use | Last use |
 |--:|:--|:--|:--|:--|
@@ -220,4 +330,12 @@ Coastal series: Richmond. Sources: `NOAA_9414863`.
 | 2 | TILDEN PARK | `CDEC_TLD` | 2004-04-08 | 2026-07-01 |
 | 3 | OAKLAND NORTH | `CDEC_ONO` | 1996-01-01 | 2025-12-29 |
 
+#### Station locations and coverage
+
+[![M11 station locations](figures/M11_stations.png)](figures/M11_stations.png)
+
+*Unit M11. Station locations and rainfall-source order.*
+
 [![M11 observation availability](figures/M11_coverage.png)](figures/M11_coverage.png)
+
+*Unit M11. Monthly availability of contributing rainfall, water-level and paired observations.*

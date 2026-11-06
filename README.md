@@ -1,12 +1,26 @@
 # Joint Return-Period Analysis
 
-This repository provides methods and code for return-period analysis and the design of rainfall-dominated, storm-surge-dominated and compound rainfall–storm-surge events in the Greater Bay Area, San Francisco Bay and Tokyo Bay. It performs separate univariate return-period analyses for rainfall and coastal water level, and a copula-based joint return-period analysis of the two variables. Design events are specified at 10-, 50-, 100- and 200-year return periods. Compound combinations are selected on Kendall return-period contours using the maximum joint-density criterion.
+This repository provides methods and code for return-period analysis and the design of rainfall-dominated, storm-surge-dominated and compound rainfall–storm-surge events in the Greater Bay Area, San Francisco Bay and Tokyo Bay.
 
-| Study area | Folder | Units | Observations | Analysis vertical datum |
-|:--|:--|--:|:--|:--|
-| Greater Bay Area | [GBA/](GBA/README.md) | 13 | Daily | National Height Datum 1985 (CN1985) |
-| San Francisco Bay | [SanF/](SanF/README.md) | 11 | Hourly; intact 6 h rainfall supplements | North American Vertical Datum of 1988 (NAVD88) |
-| Tokyo Bay | [Tokyo/](Tokyo/README.md) | 13 | Hourly | Tokyo Peil (TP) |
+It performs separate univariate return-period analyses for rainfall and coastal water level, and a copula-based joint return-period analysis of the two variables.
+
+Design events are specified at 10-, 50-, 100- and 200-year return periods. Compound combinations are selected on Kendall return-period contours using the maximum joint-density criterion.
+
+| Study area | Folder | Units | Observations |
+|:--|:--|--:|:--|
+| Greater Bay Area | [GBA/](GBA/README.md) | 13 | Daily |
+| San Francisco Bay | [SanF/](SanF/README.md) | 11 | Hourly; intact 6 h rainfall supplements |
+| Tokyo Bay | [Tokyo/](Tokyo/README.md) | 13 | Hourly |
+
+[Run an analysis](#run-an-analysis) · [Vertical references](#vertical-references) · [Analysis units](#analysis-units) · [Documentation](#read-the-documentation) · [Citation](#availability-and-citation)
+
+## Vertical references
+
+| Study area | Analysis datum |
+|:--|:--|
+| Greater Bay Area | National Height Datum 1985 (CN1985) |
+| San Francisco Bay | North American Vertical Datum of 1988 (NAVD88) |
+| Tokyo Bay | Tokyo Peil (TP) |
 
 Water levels are expressed in metres relative to the regional datum listed above. Source records must be converted to that datum before fitting, using documented station offsets and their periods of validity. The three regions retain their respective vertical references.
 
@@ -20,15 +34,7 @@ The partitions follow drainage divides, river outlets and coastal boundary secto
 
 ## Repository layout
 
-Each region has a `run_analysis.py` entry point:
-
-```text
-GBA/run_analysis.py
-SanF/run_analysis.py
-Tokyo/run_analysis.py
-```
-
-Each entry runs the five steps in `shared/jrpa/`. The command-line interface uses the same sequence in `shared/jrpa/main.py`.
+Each region has a `run_analysis.py` entry point that runs the five steps in `shared/jrpa/`. The command-line interface uses the same sequence in `shared/jrpa/main.py`.
 
 ```text
 GBA/                     # Greater Bay Area
@@ -76,7 +82,7 @@ The output directory contains `design_values.csv`, diagnostics, source usage and
 
 ## Read the documentation
 
-Each regional README contains maps, station assignments and observation coverage. [Methods](shared/methods.md) gives the equations; [Inputs and sources](shared/inputs.md) describes the observation files and their sources.
+Each regional README contains maps, station assignments and observation coverage. [Analysis workflow](shared/README.md) describes the five processing steps; [Methods](shared/methods.md) gives the equations; [Inputs and sources](shared/inputs.md) describes the observation files and their sources.
 
 To build local HTML pages with typeset equations:
 

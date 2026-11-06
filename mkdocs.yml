@@ -11,6 +11,8 @@ theme:
     - navigation.top
     - content.code.copy
 markdown_extensions:
+  - toc:
+      toc_depth: 3
   - admonition
   - tables
   - attr_list

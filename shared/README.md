@@ -18,10 +18,17 @@ Read the observation manifest, validate timestamps and units, apply documented q
 
 Merge rainfall observations in the declared station-priority order and record each station's actual contribution. Prepare rainfall annual maxima separately from the paired event sample.
 
-| Region | Rainfall–water-level pairing | Event selection |
-|:--|:--|:--|
-| SanF and Tokyo | Separate rainfall events by at least 12 dry hours. Use the complete total for events shorter than 24 hours; otherwise use the maximum complete 24-hour window. Pair with the highest water level in that window, requiring at least 75% water-level coverage. | Select strict exceedances of the 95th percentile of rainfall-complete event totals, calculated before water-coverage rejection. Cluster events with adjacent water peaks less than 72 hours apart and retain the largest rainfall. |
-| GBA | Pair daily rainfall with the same day's highest water level. | Select strict exceedances of the 95th percentile of positive daily rainfall on the declared analysis clock. Cluster adjacent exceedance dates less than three days apart and retain the largest rainfall, using water level to resolve ties. |
+### SanF and Tokyo
+
+Separate rainfall events by at least 12 dry hours. Use the complete total for events shorter than 24 hours; otherwise use the maximum complete 24-hour window. Pair with the highest water level in that window, requiring at least 75% water-level coverage.
+
+Select strict exceedances of the 95th percentile of rainfall-complete event totals, calculated before water-coverage rejection. Cluster events with adjacent water peaks less than 72 hours apart and retain the largest rainfall.
+
+### GBA
+
+Pair daily rainfall with the same day's highest water level.
+
+Select strict exceedances of the 95th percentile of positive daily rainfall on the declared analysis clock. Cluster adjacent exceedance dates less than three days apart and retain the largest rainfall, using water level to resolve ties.
 
 Effective paired years are calculated from simultaneous valid observations. The selected-event rate is the number of retained events divided by this exposure.
 
@@ -29,7 +36,7 @@ Effective paired years are calculated from simultaneous valid observations. The 
 
 Perform separate univariate return-period analyses for rainfall (S1) and coastal water level (S2), using annual maxima screened independently for each variable. S2 is fitted once per tide station and reused by units sharing that record. The target return periods are 10, 50, 100 and 200 years.
 
-The annual candidate pool contains **Gamma, Lognormal, Weibull, Exponential, Generalized Extreme Value (GEV), Generalized Pareto (GPD), Log-Pearson III, Log-logistic, Inverse Gaussian, Generalized Gamma, Pearson III and Burr XII**. Parameters are estimated by maximum likelihood; eligible candidates are ranked by the corrected Akaike information criterion (AICc) [1].
+The annual candidate pool contains Gamma, Lognormal, Weibull, Exponential, Generalized Extreme Value (GEV), Generalized Pareto (GPD), Log-Pearson III, Log-logistic, Inverse Gaussian, Generalized Gamma, Pearson III and Burr XII. Parameters are estimated by maximum likelihood; eligible candidates are ranked by the corrected Akaike information criterion (AICc) [1].
 
 A refitted Kolmogorov–Smirnov (KS) test uses 99 Monte Carlo replicates [2]. Select the first candidate in AICc order that has p ≥ 0.05 and passes the 10- and 200-year plausibility checks.
 
@@ -37,9 +44,9 @@ For GBA mainland rainfall units, a regional L-moment procedure replaces the loca
 
 ## 04. Fit event margins and copulas
 
-Fit rainfall excess above its selection threshold and water level on the paired event sample. The event margins use the same 12 distribution families as Step 03; rainfall additionally admits a **two-component lognormal mixture**. Mixtures are fitted by expectation–maximization. Numerical and density-shape eligibility checks precede AICc ranking.
+Fit rainfall excess above its selection threshold and water level on the paired event sample. The event margins use the same 12 distribution families as Step 03; rainfall additionally admits a two-component lognormal mixture. Mixtures are fitted by expectation–maximization. Numerical and density-shape eligibility checks precede AICc ranking.
 
-The copula pool contains **Independence, Gaussian, Student-t, Clayton, Gumbel, Frank, Joe, BB1, BB6, BB7, BB8 and Tawn**. Clayton, Gumbel, Joe, BB1, BB6, BB7, BB8 and Tawn also use 90°, 180° and 270° rotations, giving 36 combinations. Estimate margins first, then copula parameters by maximum likelihood on the transformed observations using pyvinecopulib [5]. GBA 10a uses the annual-family eligibility rules for its event water-level margin and a Gaussian copula.
+The copula pool contains Independence, Gaussian, Student-t, Clayton, Gumbel, Frank, Joe, BB1, BB6, BB7, BB8 and Tawn. Clayton, Gumbel, Joe, BB1, BB6, BB7, BB8 and Tawn also use 90°, 180° and 270° rotations, giving 36 combinations. Estimate margins first, then copula parameters by maximum likelihood on the transformed observations using pyvinecopulib [5]. GBA 10a uses the annual-family eligibility rules for its event water-level margin and a Gaussian copula.
 
 | Check | GBA | SanF and Tokyo |
 |:--|:--|:--|
@@ -51,7 +58,7 @@ The joint test compares the empirical and fitted joint CDFs, using a parametric 
 
 ## 05. Calculate and export designs
 
-Calibrate a Kendall return-period contour using the selected-event rate and simulated copula probabilities [6]. On each contour, select the rainfall–water-level combination with the highest **joint density in physical units**, including both marginal densities. SanF and Tokyo use 1,048,576 calibration samples and an equally sized independent validation sample; GBA uses 262,144 calibration samples.
+Calibrate a Kendall return-period contour using the selected-event rate and simulated copula probabilities [6]. On each contour, select the rainfall–water-level combination with the highest joint density in physical units, including both marginal densities. SanF and Tokyo use 1,048,576 calibration samples and an equally sized independent validation sample; GBA uses 262,144 calibration samples.
 
 Combine S1, S2 and Kendall designs with the supplied climate inputs to define rainfall-dominated, storm-surge-dominated and compound rainfall–storm-surge scenarios. The marine variable is total coastal water level.
 

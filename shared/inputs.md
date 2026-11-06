@@ -2,6 +2,8 @@
 
 Place observations and a `manifest.json` in a private directory outside the repository. Relative paths in the manifest resolve only inside that directory. Units are millimetres for rainfall and metres for water level.
 
+[Tables](#canonical-observation-tables) · [Manifest](#manifest-example) · [Datum conversion](#epoch-specific-vertical-conversion) · [Quality control](#quality-control-fields) · [Providers](#observation-providers) · [Annual samples](#reviewed-annual-samples)
+
 ## Canonical observation tables
 
 | Series | Required columns | Clock and value definition |
@@ -85,18 +87,29 @@ Provider-native exports must be converted to the canonical columns before analys
 
 ## Observation providers
 
-| Region | Variable | Provider and record family |
-|:--|:--|:--|
-| Greater Bay Area | Mainland coastal water level | Pearl River Basin Hydrological Yearbook, daily highest coastal water level |
-| Greater Bay Area | Mainland rainfall | [China Meteorological Administration](https://data.cma.cn/), hydrological-yearbook stations, and [NOAA NCEI](https://www.ncei.noaa.gov/) long-record station products |
-| Greater Bay Area | Hong Kong rain and tide | [Hong Kong Observatory](https://www.hko.gov.hk/en/cis/climat.htm), daily rainfall and daily highest high water |
-| San Francisco Bay | Coastal water level | [NOAA CO-OPS](https://tidesandcurrents.noaa.gov/), [GESLA](https://gesla787883612.wordpress.com/), and [USGS Water Data](https://waterdata.usgs.gov/) |
-| San Francisco Bay | Rainfall | [California Data Exchange Center](https://cdec.water.ca.gov/) and [NOAA NCEI](https://www.ncei.noaa.gov/) station observations |
-| Tokyo Bay | Coastal water level | [Japan Oceanographic Data Center](https://www.jodc.go.jp/), [JMA](https://www.data.jma.go.jp/kaiyou/db/tide/sea_lev_var/), and GESLA station archives |
-| Tokyo Bay | Rainfall | [JMA historical weather observations](https://www.data.jma.go.jp/stats/etrn/index.php), including AMeDAS station identifiers |
+### Greater Bay Area
+
+| Variable | Provider and record family |
+|:--|:--|
+| Mainland coastal water level | Pearl River Basin Hydrological Yearbook, daily highest coastal water level |
+| Mainland rainfall | [China Meteorological Administration](https://data.cma.cn/), hydrological-yearbook stations, and [NOAA NCEI](https://www.ncei.noaa.gov/) long-record station products |
+| Hong Kong rain and tide | [Hong Kong Observatory](https://www.hko.gov.hk/en/cis/climat.htm), daily rainfall and daily highest high water |
+
+### San Francisco Bay
+
+| Variable | Provider and record family |
+|:--|:--|
+| Coastal water level | [NOAA CO-OPS](https://tidesandcurrents.noaa.gov/), [GESLA](https://gesla787883612.wordpress.com/), and [USGS Water Data](https://waterdata.usgs.gov/) |
+| Rainfall | [California Data Exchange Center](https://cdec.water.ca.gov/) and [NOAA NCEI](https://www.ncei.noaa.gov/) station observations |
+
+### Tokyo Bay
+
+| Variable | Provider and record family |
+|:--|:--|
+| Coastal water level | [Japan Oceanographic Data Center](https://www.jodc.go.jp/), [JMA](https://www.data.jma.go.jp/kaiyou/db/tide/sea_lev_var/), and GESLA station archives |
+| Rainfall | [JMA historical weather observations](https://www.data.jma.go.jp/stats/etrn/index.php), including AMeDAS station identifiers |
 
 Station identifiers preserve provider namespaces. For example, `NOAA_9414523`, `USGS_372750122012701`, `CDEC_CMG`, `JMA_A46136`, and `GESLA_JODC-GIAJ_GS01` identify sources without redistributing their observations. Provider aliases such as GBA `SZ`, `DJZ`, and `NLT` are defined in the regional documentation.
-
 
 GBA regional rainfall reference stations include Sanzao, Changjiang, Zhongda, Henggang, Tiegang, Nansha, Guangzhou (`GHCND_CHM00059287`) and Baoan (`ISD_594930`). Supply verified coordinates and annual samples in the private regional station table.
 

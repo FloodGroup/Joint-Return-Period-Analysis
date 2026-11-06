@@ -2,6 +2,8 @@
 
 Each region's `run_analysis.py` calls the five steps under `shared/jrpa/` in the order below. `jrpa.main.run` calls the same functions. Regional parameters and station rules are in `settings.py`; `stations.json` contains the station catalog. Rainfall and coastal water level are denoted by $R$ and $H$.
 
+[Units](#analysis-units) · [Preparation](#01-prepare-observations) · [Events](#02-construct-event-samples) · [Annual analysis](#03-fit-annual-frequency-curves) · [Copulas](#04-fit-event-margins-and-copulas) · [Designs](#05-calculate-and-export-designs) · [Settings](#numerical-settings)
+
 ## Analysis units
 
 The analysis uses spatial units to associate rainfall with the coastal water level acting at the receiving outlet or coastal sector. A single bay contains several drainage systems and marine boundaries, served by different observation records. Defining units preserves these source assignments when estimating rainfall-dominated, storm-surge-dominated and compound design events.
@@ -10,11 +12,23 @@ Each unit has three elements: a geographic drainage polygon or group of polygons
 
 The geographic partitions come from the hydrologic–hydrodynamic model setup. Their construction follows drainage divides and coastal outlets, with river-network constraints in flat terrain. Small coastal catchments are grouped by drainage destination and land adjacency. Catchment groups are then associated with the receiving coastal sector and a usable tide record. Station priority, vertical-reference consistency and simultaneous observation coverage determine the sample within each fixed unit. Goodness-of-fit tests assess the statistical models after the units have been defined.
 
-| Region | Geographic basis | Final analysis units |
-|:--|:--|:--|
-| GBA | A 30 m GLO-30 DEM, GEOGloWS v2/TDX-Hydro river constraints and D8 drainage destinations define 11 outlet-based coastal polygons. Small coastal drainage areas are joined to adjoining polygons. | 13 rainfall–tide assignments on 11 polygons; polygons 3 and 10 each have two assignments. |
-| SanF | A 30 m USGS 3DEP DEM, NHDPlusV2 channels and WBD HUC12 watershed constraints define 31 outlet-based subcatchments. | 11 coastal-drainage groups, each with its own rainfall-source assignment and an assigned tide record. |
-| Tokyo | A 30 m DEM aggregated from GSI elevation data, MLIT W05 river lines and W07 basin boundaries define 24 coastal subcatchments. Outlet relationships to marine boundary sectors guide grouping and tide assignment. | 13 coastal-drainage groups with fixed rainfall and tide assignments. |
+### GBA
+
+A 30 m GLO-30 DEM, GEOGloWS v2/TDX-Hydro river constraints and D8 drainage destinations define 11 outlet-based coastal polygons. Small coastal drainage areas are joined to adjoining polygons.
+
+Final analysis units: 13 rainfall–tide assignments on 11 polygons; polygons 3 and 10 each have two assignments.
+
+### SanF
+
+A 30 m USGS 3DEP DEM, NHDPlusV2 channels and WBD HUC12 watershed constraints define 31 outlet-based subcatchments.
+
+Final analysis units: 11 coastal-drainage groups, each with its own rainfall-source assignment and an assigned tide record.
+
+### Tokyo
+
+A 30 m DEM aggregated from GSI elevation data, MLIT W05 river lines and W07 basin boundaries define 24 coastal subcatchments. Outlet relationships to marine boundary sectors guide grouping and tide assignment.
+
+Final analysis units: 13 coastal-drainage groups with fixed rainfall and tide assignments.
 
 The DEM workflows use Priority-Flood depression filling and D8 flow routing. The final component IDs and observation assignments are listed in the regional documentation.
 
@@ -96,8 +110,11 @@ Hourly event margins use 49 refitted KS replicates for screening and 999 for fin
 Dependence candidates include Independence, Gaussian, Student, Clayton, Gumbel, Frank, Joe, BB1, BB6, BB7, BB8, and Tawn, with eligible rotations. There are 36 family-rotation combinations. Parameters are estimated by IFM with maximum likelihood in pyvinecopulib. Sequential joint-CDF CvM tests refit both margins and the fixed copula family in every replicate.
 
 $$
-S_n=n\,\frac1n\sum_{i=1}^{n}\left\{C_n(\mathbf u_i)-C_{\widehat\theta}(\mathbf u_i)\right\}^2,
-\qquad p=\frac{1+\sum_{b=1}^{B_{\mathrm{valid}}}\mathbf1(S_n^{(b)}\ge S_n)}{1+B_{\mathrm{valid}}}.
+\begin{aligned}
+S_n &= n\,\frac1n\sum_{i=1}^{n}\left\{C_n(\mathbf u_i)-C_{\widehat\theta}(\mathbf u_i)\right\}^2,
+\\
+p &= \frac{1+\sum_{b=1}^{B_{\mathrm{valid}}}\mathbf1(S_n^{(b)}\ge S_n)}{1+B_{\mathrm{valid}}}.
+\end{aligned}
 $$
 
 The joint test uses 99 replicates for San Francisco and Tokyo and 49 for GBA. At least 90% must be valid, and $p\ge0.05$ is required. Formal compound estimates also require both marginal tests to pass, at least 30 event pairs, and at least 10 effective paired years.
@@ -158,8 +175,6 @@ Python 3.12 is the reference interpreter. The package pins NumPy 2.2.6, pandas 2
 | Independent Kendall validation samples | 0 | 1,048,576 |
 | Event fitting seed | 20261011 | 202610052, with unit-specific offsets |
 | Annual fitting seed | 20261015 | 20261015 |
-
-
 
 The artificial demonstration uses reduced sampling counts and is labelled synthetic. The production settings above apply to study analyses.
 
