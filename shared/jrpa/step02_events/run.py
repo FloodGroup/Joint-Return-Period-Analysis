@@ -69,7 +69,8 @@ def step02_events(analysis):
                 GBA_EVENT_EXCLUSIONS.get(uid, []) if not settings.synthetic else [],
                 analysis_span=unit.get("event_span"),
             )
-            rain_maxima = daily_maxima(merged.rain_mm, "R")
+            annual_merged = merge_daily(annual_loaded)
+            rain_maxima = daily_maxima(annual_merged.rain_mm, "R")
             for sid, count in (
                 merged.loc[merged.rain_mm.notna(), "station_id"].value_counts().items()
             ):
