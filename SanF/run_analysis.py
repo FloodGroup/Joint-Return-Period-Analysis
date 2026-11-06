@@ -22,9 +22,9 @@ def main():
 
     # 01. Read observations; apply quality rules and vertical references.
     analysis = step01_prepare(args.manifest, args.output, settings)
-    # 02. Select rainfall sources and construct independent event pairs.
+    # 02. Select rainfall sources and construct declustered event pairs.
     step02_events(analysis, skip_compound=args.annual_only)
-    # 03. Estimate S1 rainfall and S2 water-level frequency curves.
+    # 03. Estimate univariate design rainfall (S1) and coastal water levels (S2).
     step03_annual(analysis)
     # 04. Fit event margins and copula dependence.
     step04_copula(analysis, skip_compound=args.annual_only)

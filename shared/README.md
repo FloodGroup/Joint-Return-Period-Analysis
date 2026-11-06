@@ -6,7 +6,7 @@ Run the entry script for [GBA](../GBA/run_analysis.py), [SanF](../SanF/run_analy
 |--:|:--|:--|
 | 01 | Prepare observations and vertical references | [step01_prepare/run.py](jrpa/step01_prepare/run.py) |
 | 02 | Merge rainfall and construct event samples | [step02_events/run.py](jrpa/step02_events/run.py) |
-| 03 | Perform separate univariate rainfall and water-level analyses | [step03_annual/run.py](jrpa/step03_annual/run.py) |
+| 03 | Estimate 24-hour design rainfall (S1) and design coastal water levels (S2) from separate annual-maximum analyses | [step03_annual/run.py](jrpa/step03_annual/run.py) |
 | 04 | Fit event margins and copula dependence | [step04_copula/run.py](jrpa/step04_copula/run.py) |
 | 05 | Calculate design combinations and scenario tables | [step05_export/run.py](jrpa/step05_export/run.py) |
 
@@ -18,15 +18,15 @@ Method: [Observation sources and screening](methods.md#01-prepare-observations).
 
 ## 02. Construct event samples
 
-Merge rainfall in source-priority order, retaining observed zeros and recording each station's actual contribution. Prepare annual rainfall maxima from their separately screened records. For joint analysis, pair rainfall above its 95th-percentile threshold with the highest water level in the same storm window (SanF and Tokyo) or calendar day (GBA). Decluster the sample and calculate the event rate from effective paired exposure.
+Merge rainfall in source-priority order, retaining observed zeros and recording each station's actual contribution. Prepare annual maxima of rainfall from separately screened records. For joint analysis, pair rainfall above its 95th-percentile threshold with the highest water level in the same storm window (SanF and Tokyo) or calendar day (GBA). Decluster the sample and calculate the event rate from effective paired exposure.
 
 Method: [Event windows, thresholds and exposure](methods.md#02-construct-event-samples).
 
 ## 03. Perform univariate return-period analysis
 
-Estimate S1 rainfall and S2 coastal water level at 10, 50, 100 and 200 years from independently screened annual maxima. At-site models use 12 candidate families, AICc ranking and a refitted KS test. Mainland GBA rainfall uses regional L-moments and a GEV growth curve. Specified short tide records use donor curves shifted by concurrent annual-maximum differences. Each S2 curve is fitted once per gauge.
+Perform separate univariate return-period analyses to estimate 24-hour design rainfall (S1) and design coastal water levels (S2) at 10, 50, 100 and 200 years. Rainfall and water-level annual maxima are screened independently. At-site models use 12 candidate families, AICc ranking and a refitted KS test. Mainland GBA rainfall uses regional L-moments and a GEV growth curve. Specified short tide records use donor curves shifted by concurrent annual-maximum differences. A single water-level frequency curve, fitted at site or transferred from a donor, provides S2 values for each gauge.
 
-Method: [Annual frequency curves and regional analysis](methods.md#03-fit-annual-frequency-curves).
+Method: [Univariate return-period analysis and regional estimation](methods.md#03-estimate-univariate-design-values).
 
 ## 04. Fit event margins and copulas
 

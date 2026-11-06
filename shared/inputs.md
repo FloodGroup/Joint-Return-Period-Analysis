@@ -59,9 +59,9 @@ For San Francisco, the annual quality controls include the documented Alviso ter
 
 ## GBA-specific inputs
 
-Mainland S1 units additionally require a `rain_location` pair `[latitude, longitude]` and a `regional_rainfall` list. Each regional station entry contains `station_id`, `path`, and `location`. The code computes annual maxima and uses only long-record stations within 60 km of the representative location, subject to the declared heterogeneity screening.
+Mainland GBA units using regional estimation of univariate design rainfall (S1) additionally require a `rain_location` pair `[latitude, longitude]` and a `regional_rainfall` list. Each regional station entry contains `station_id`, `path`, and `location`. The code computes annual maxima and selects from the supplied regional stations within 60 km of the representative location, subject to the declared heterogeneity screening.
 
-Set each GBA unit's `event_span` to its declared `[start_date, end_date]` analysis clock. Missing tide dates remain on that clock: positive rainfall still contributes to the R95 threshold population, while paired exposure counts only dates with both variables observed. The full rainfall record remains available separately for S1.
+Set each GBA unit's `event_span` to its declared `[start_date, end_date]` analysis clock. Missing tide dates remain on that clock: positive rainfall still contributes to the R95 threshold population, while paired exposure counts only dates with both variables observed. The full available rainfall record is screened separately to obtain the annual maxima used for S1 design rainfall.
 
 The tide manifest includes Hong Kong reference gauges for storm-day checks and both short stations' transfer donors. `supplemental_peaks` points to a private JSON table of independently sourced peak observations. Each row contains `station_id`, `year`, `water_m`, and an evidence `source`. Keep this observation table outside the repository.
 

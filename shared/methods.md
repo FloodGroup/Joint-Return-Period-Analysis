@@ -1,10 +1,10 @@
 # Methods
 
-The analysis defines rainfall-dominated, storm-surge-dominated and compound rainfall–storm-surge design events for the Greater Bay Area (GBA), San Francisco Bay (SanF) and Tokyo Bay (Tokyo). Separate annual-maximum analyses provide the univariate design rainfall (S1) and coastal water level (S2). A bivariate copula describes storm rainfall and the highest water level in the same event window; its Kendall return-period contours provide compound design combinations. All three analyses use target return periods of 10, 50, 100 and 200 years.
+The analysis defines rainfall-dominated, storm-surge-dominated and compound rainfall–storm-surge design events for the Greater Bay Area (GBA), San Francisco Bay (SanF) and Tokyo Bay (Tokyo). Separate annual-maximum analyses estimate univariate 24-hour design rainfall (S1) and design coastal water levels (S2). A bivariate copula describes storm rainfall and the highest water level in the same event window; its Kendall return-period contours provide compound design combinations. All three analyses use target return periods of 10, 50, 100 and 200 years.
 
 Rainfall $R$ is a depth in millimetres, and coastal water level $H$ is an elevation in metres. The marine variable includes astronomical tide and meteorological surge. The methods follow the frequency-analysis description in *Reclaimed land more prone to compound flooding in three Pacific bay areas* and its Supplementary Note 4; scenario definitions follow Supplementary Notes 4–6.
 
-[Units](#analysis-units) · [01 Observations](#01-prepare-observations) · [02 Events](#02-construct-event-samples) · [03 Univariate analysis](#03-fit-annual-frequency-curves) · [04 Copula analysis](#04-fit-event-margins-and-copulas) · [05 Designs](#05-calculate-and-export-designs) · [References](#references)
+[Units](#analysis-units) · [01 Observations](#01-prepare-observations) · [02 Events](#02-construct-event-samples) · [03 Univariate analysis](#03-estimate-univariate-design-values) · [04 Copula analysis](#04-fit-event-margins-and-copulas) · [05 Designs](#05-calculate-and-export-designs) · [References](#references)
 
 ## Analysis units
 
@@ -32,13 +32,13 @@ GBA units 03a/03b and 10a/10b share geographic polygons but use different observ
 
 Rainfall sources are merged in the declared distance-priority order. A valid observation is retained, including zero rainfall; a missing value is filled from the next available source without rescaling. In the hourly workflow, observed hourly values take priority over six-hour reports. A six-hour total is accepted only as an intact block when none of its hours already contains an accepted observation. This avoids counting overlapping accumulations twice.
 
-Quality exclusions are applied before sample construction. Annual rainfall exclusions are applied to the annual-analysis merge independently of the event-analysis merge. Each accepted accumulation retains its source station, allowing the station tables and coverage figures to describe the data actually used. File formats, source links and manifest fields are documented in [Inputs and sources](inputs.md).
+Quality exclusions are applied before sample construction. Exclusions specific to rainfall annual maxima are applied to the annual-analysis merge independently of the event-analysis merge. Each accepted accumulation retains its source station, allowing the station tables and coverage figures to describe the data actually used. File formats, source links and manifest fields are documented in [Inputs and sources](inputs.md).
 
 ### Vertical reference and record screening
 
 Water levels are converted to CN1985 in GBA, NAVD88 in SanF and Tokyo Peil (TP) in Tokyo before statistical fitting. Each datum conversion has an offset, a validity interval and an evidence source. Epochs with an unknown offset remain missing. The GBA model-level conversion is applied after fitting, as described under [Model vertical reference](#model-vertical-reference).
 
-Documented sensor errors and missing or distorted storm peaks are screened explicitly. Historical water-level trends are retained. Annual rainfall and water-level records are screened separately, so their univariate analyses can use different observation periods. Simultaneous coverage is required for the compound-event sample.
+Documented sensor errors and missing or distorted storm peaks are screened explicitly. Historical water-level trends are retained. Rainfall and water-level annual-maximum samples are screened separately, so their univariate analyses can use different observation periods. Simultaneous coverage is required for the compound-event sample.
 
 ## 02. Construct event samples
 
@@ -69,11 +69,11 @@ Y_{\mathrm{eff}}=\frac{N_{\mathrm{paired}}}{365.2425\,s},
 
 where $s=24$ for hourly data and $s=1$ for daily data. Thus $Y_{\mathrm{eff}}$ is effective paired exposure in years and $\lambda$ is the mean number of retained events per year. Missing intervals reduce exposure even when they fall between the first and last observation dates.
 
-## 03. Fit annual frequency curves
+## 03. Estimate univariate design values
 
-### Annual samples and univariate return periods
+### Annual-maximum samples and univariate return periods
 
-S1 and S2 are separate univariate return-period analyses. S1 uses the annual maximum rainfall of each unit's full composite record. S2 uses the annual maximum water level of each gauge's full record. Neither sample is restricted to the years available for joint analysis.
+S1 and S2 label the design values from separate univariate return-period analyses. S1 is the 24-hour rainfall depth associated with a specified return period; S2 is the corresponding design coastal water-level elevation. Rainfall samples contain the annual maxima of moving 24-hour totals in SanF and Tokyo, and of fixed daily totals in GBA. Water-level samples contain the annual maximum observed elevation at each gauge. Each variable uses its full available record subject to its own quality and coverage criteria.
 
 | Record | Annual grouping and acceptance |
 |:--|:--|
@@ -244,7 +244,7 @@ T_{\mathrm{AND}}(r,h)=
 \frac{1}{\lambda[1-C(u,v)]},
 ```
 
-where $u=F_R(r)$ and $v=F_H(h)$. These describe different exceedance sets from the Kendall construction. The RS designs use $T_K$; their individual rainfall and water-level components receive their annual-maximum recurrence intervals from the separate S1 and S2 distributions. Thus an RS100 design is a point on the 100-year Kendall contour, rather than a pairing of the two univariate 100-year levels.
+where $u=F_R(r)$ and $v=F_H(h)$. These describe different exceedance sets from the Kendall construction. The RS designs use $T_K$; their individual rainfall and water-level components receive their annual-maximum recurrence intervals from the separate annual-maximum frequency curves used to estimate S1 and S2. Thus an RS100 design is a point on the 100-year Kendall contour, rather than a pairing of the two univariate 100-year levels.
 
 ### Model scenarios
 
@@ -252,8 +252,8 @@ The scenario matrix contains three event classes, four return periods and seven 
 
 | Scenario | Rainfall boundary | Coastal boundary |
 |:--|:--|:--|
-| R: rainfall-dominated | S1 rainfall multiplied by the climate factor | Typical astronomical tide plus sea-level increment |
-| S: storm-surge-dominated | No rainfall | S2 peak in model datum plus sea-level increment |
+| R: rainfall-dominated | S1 design rainfall multiplied by the climate factor | Typical astronomical tide plus sea-level increment |
+| S: storm-surge-dominated | No rainfall | S2 design water level in model datum plus sea-level increment |
 | RS: compound rainfall–storm-surge | Kendall rainfall multiplied by the climate factor | Kendall water-level peak in model datum plus sea-level increment |
 
 The nominal event window is 24 hours. The regular rainfall and storm-tide peaks coincide at hour 13 in SanF and hour 12 in GBA and Tokyo. C85–C90 shift the coastal process by −9, −6, −3, +3, +6 and +9 hours relative to the rainfall peak, preserving its shape. Where several units share a gauge, the paper's hydrodynamic boundary setup uses the largest of their RS design water levels.

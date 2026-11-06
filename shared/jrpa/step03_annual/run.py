@@ -1,4 +1,4 @@
-"""03. Fit annual rainfall (S1) and water-level (S2) distributions."""
+"""03. Estimate univariate design rainfall (S1) and coastal water levels (S2)."""
 
 import numpy as np
 
@@ -11,7 +11,7 @@ from .regional import regional_design
 
 
 def step03_annual(analysis):
-    """03. Fit annual S1 rainfall and S2 water-level frequency curves."""
+    """03. Estimate S1 and S2 from separately screened annual-maximum samples."""
     analysis.require(3)
     settings, out = analysis.settings, analysis.out
     water_maxima, tide, donors = analysis.water_maxima, analysis.tide, analysis.donors

@@ -130,8 +130,8 @@ def design_table(data, scenario, datum):
     if part.empty:
         return ""
     labels = {
-        "S1": "S1 · Rainfall",
-        "S2": "S2 · Coastal water level",
+        "S1": "S1 · Univariate design rainfall",
+        "S2": "S2 · Univariate design coastal water level",
         "Kendall": "Compound · Kendall",
     }
     columns = [("return_period_years", "Return period", "yr", 0)]
@@ -223,13 +223,13 @@ def render_report(output, settings, design_rows, models, sources, units=None):
                 uid,
                 "annual_R",
                 "S1 rainfall frequency curve",
-                "S1 · Annual rainfall maxima and fitted return levels.",
+                "S1 · Annual maxima of rainfall and estimated 24-hour design rainfall.",
             )
             + report_figure(
                 uid,
                 "annual_H",
                 "S2 coastal water-level frequency curve",
-                "S2 · Annual coastal water-level maxima and fitted return levels.",
+                "S2 · Annual maxima of coastal water level and estimated design water levels.",
             )
             + "</div>"
         )
@@ -311,7 +311,7 @@ def render_report(output, settings, design_rows, models, sources, units=None):
         f'<div class="stat"><b>{escape(value)}</b><span>{label}</span></div>'
         for value, label in summary
     )
-    definition = "S1 estimates rainfall return levels; S2 estimates coastal water-level return levels, each from annual maxima."
+    definition = "S1 denotes univariate 24-hour design rainfall; S2 denotes univariate design coastal water level. Both are estimated from separately screened annual-maximum samples."
     if models:
         definition += " Compound combinations are selected on Kendall return-period contours using the maximum joint-density criterion."
     body = (
@@ -379,7 +379,7 @@ def annual_figure(out, meta, settings):
                 periods,
                 curve,
                 color=COLORS["rain" if variable == "R" else "water"],
-                label="Annual-frequency curve",
+                label="Univariate return-level curve",
             )
         selected = designs.loc[designs.scenario.eq("S1" if variable == "R" else "S2")]
         selected = (
@@ -405,7 +405,7 @@ def annual_figure(out, meta, settings):
             else f"Coastal water level (m, {settings.datum})",
         )
         ax.set_title(
-            "a  S1 rainfall" if variable == "R" else "b  S2 coastal water level", loc="left"
+            "a  Rainfall return levels (S1)" if variable == "R" else "b  Water-level return levels (S2)", loc="left"
         )
         ax.set_xticks([2, 10, 50, 100, 200], ["2", "10", "50", "100", "200"])
         ax.grid(alpha=0.8)

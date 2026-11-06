@@ -283,8 +283,8 @@ Tide station: Richmond · ID: `NOAA_9414863`.
 
 - Hourly rainfall follows the declared source priority. Intact six-hour reports can fill wholly missing nonoverlapping blocks; they are not disaggregated.
 - Twelve-hour event separation, same-window rainfall/water pairing, rainfall R95, and 72-hour water-peak declustering define the compound population.
-- S1 uses complete moving-24-hour rainfall maxima from the full available source record. Reviewed isolated spikes are excluded for the declared stations.
-- S2 uses each tide station's complete record with documented quality exclusions and explicit partial-year selection.
+- Univariate design rainfall (S1) is estimated from annual maxima of complete moving 24-hour totals over the full available rainfall record. Reviewed isolated spikes are excluded for the declared stations.
+- Design coastal water levels (S2) are estimated from each gauge's annual-maximum frequency curve. Annual maxima are screened over the full available record, with documented quality exclusions and explicit partial-year selection.
 - Alviso's annual frequency curve transfers from Redwood City using accepted concurrent annual maxima from 2019 onward. The historical Alviso tie is an engineering reference.
 - Regular rainfall and coastal peak times occur at hour 13. Phase cases apply the same relative offsets as the other regions.
 
@@ -297,7 +297,7 @@ python -m pip install -e "."
 python SanF/run_analysis.py --manifest ../private/san_francisco/manifest.json --output ../outputs/san_francisco
 ```
 
-[run_analysis.py](run_analysis.py) executes steps 01–05: preparation, event selection, annual fitting, copula fitting and design export. [settings.py](settings.py) contains the regional parameters and station rules; [stations.json](stations.json) contains the station catalog. Use `--annual-only` for S1 and S2.
+[run_analysis.py](run_analysis.py) executes steps 01–05: preparation, event sampling, univariate return-period analysis, copula fitting and design export. [settings.py](settings.py) contains the regional parameters and station rules; [stations.json](stations.json) contains the station catalog. Use `--annual-only` to estimate univariate 24-hour design rainfall (S1) and design coastal water levels (S2).
 
 Read [Methods](../shared/methods.md) for the equations and [Inputs and sources](../shared/inputs.md) for observation formats. The study-area figures below are already in `figures/`.
 

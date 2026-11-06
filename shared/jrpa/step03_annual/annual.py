@@ -1,4 +1,4 @@
-"""Fit annual frequency curves and transfer a short tide record."""
+"""Estimate univariate return levels from annual maxima and transfer water-level frequency curves."""
 
 from .annual_fit import Margin, annual_margin
 

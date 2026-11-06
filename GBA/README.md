@@ -374,9 +374,9 @@ Tide station: Tai Po Kau · ID: `TPK`.
 ## Regional settings
 
 - Priority-merged daily rainfall is paired with the daily maximum coastal water level. The positive-day R95 threshold and three-day declustering define the event sample.
-- Mainland S1 units 01-08, including 03a/03b, use index-rainfall regional frequency analysis with long-record stations within 60 km. L-moment ratios are record-length weighted; H1 screening removes farthest stations if needed.
+- Univariate design rainfall (S1) for mainland units 01-08, including 03a/03b, is estimated by index-rainfall regional frequency analysis with long-record stations within 60 km. L-moment ratios are record-length weighted; H1 screening removes farthest stations if needed.
 - Daily rainfall designs and compound rainfall coordinates use the empirical factor 1.13 to express estimated moving-24-hour quantities.
-- S2 uses full station records with annual/seasonal completeness and regional storm-day checks. Independently sourced supplemental peaks remain private observation inputs.
+- Design coastal water levels (S2) are estimated from annual maxima screened over each gauge's full available record, using annual/seasonal coverage and regional storm-day checks. Independently sourced supplemental peaks remain private observation inputs.
 - DJZ transfers the SZ curve; NLT transfers the CW curve, adding the median concurrent annual-maximum difference.
 - Units 01, 02, and 05 exclude the documented invalid storm-day event pairs. Unit 10a uses a nondegenerate water-level margin and Gaussian dependence.
 - Rainfall and tide peaks occur at hour 12 in regular event-design cases.
@@ -390,7 +390,7 @@ python -m pip install -e "."
 python GBA/run_analysis.py --manifest ../private/gba/manifest.json --output ../outputs/gba
 ```
 
-[run_analysis.py](run_analysis.py) executes steps 01–05: preparation, event selection, annual fitting, copula fitting and design export. [settings.py](settings.py) contains the regional parameters and station rules; [stations.json](stations.json) contains the station catalog. Use `--annual-only` for S1 and S2.
+[run_analysis.py](run_analysis.py) executes steps 01–05: preparation, event sampling, univariate return-period analysis, copula fitting and design export. [settings.py](settings.py) contains the regional parameters and station rules; [stations.json](stations.json) contains the station catalog. Use `--annual-only` to estimate univariate 24-hour design rainfall (S1) and design coastal water levels (S2).
 
 Read [Methods](../shared/methods.md) for the equations and [Inputs and sources](../shared/inputs.md) for observation formats. The study-area figures below are already in `figures/`.
 

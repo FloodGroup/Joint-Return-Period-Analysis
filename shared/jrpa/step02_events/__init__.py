@@ -1,4 +1,4 @@
-"""02. Merge rainfall sources and select independent event pairs."""
+"""02. Merge rainfall sources and select and decluster event pairs."""
 
 
 def __getattr__(name):

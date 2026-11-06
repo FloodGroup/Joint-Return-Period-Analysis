@@ -1,4 +1,4 @@
-"""03. Fit annual rainfall (S1) and water-level (S2) distributions."""
+"""03. Estimate univariate design rainfall (S1) and coastal water levels (S2)."""
 
 
 def __getattr__(name):

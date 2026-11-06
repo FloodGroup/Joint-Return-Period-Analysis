@@ -2,7 +2,7 @@
 
 This repository provides methods and code for return-period analysis and the design of rainfall-dominated, storm-surge-dominated and compound rainfall–storm-surge events in the Greater Bay Area, San Francisco Bay and Tokyo Bay.
 
-It performs separate univariate return-period analyses for rainfall and coastal water level, and a copula-based joint return-period analysis of the two variables.
+It performs separate univariate return-period analyses using annual maxima of rainfall and coastal water level, and a copula-based joint return-period analysis using paired storm rainfall and coincident peak coastal water level. S1 denotes univariate 24-hour design rainfall; S2 denotes univariate design coastal water level.
 
 Design events are specified at 10-, 50-, 100- and 200-year return periods. Compound combinations are selected on Kendall return-period contours using the maximum joint-density criterion.
 
@@ -46,12 +46,12 @@ Review the region's `settings.py` and `stations.json` before running its entry s
 | Step | Operation | Folder |
 |--:|:--|:--|
 | 01 | Prepare observations, quality rules and vertical references | [step01_prepare](shared/jrpa/step01_prepare/run.py) |
-| 02 | Merge rainfall sources and select independent event pairs | [step02_events](shared/jrpa/step02_events/run.py) |
-| 03 | Fit annual rainfall (S1) and water-level (S2) distributions | [step03_annual](shared/jrpa/step03_annual/run.py) |
+| 02 | Merge rainfall sources and select and decluster event pairs | [step02_events](shared/jrpa/step02_events/run.py) |
+| 03 | Estimate 24-hour design rainfall (S1) and design coastal water levels (S2) from separate annual-maximum analyses | [step03_annual](shared/jrpa/step03_annual/run.py) |
 | 04 | Fit event margins and copula dependence | [step04_copula](shared/jrpa/step04_copula/run.py) |
 | 05 | Calculate Kendall design points and export tables and figures | [step05_export](shared/jrpa/step05_export/run.py) |
 
-The output directory contains `design_values.csv`, diagnostics, source usage and `results.html`. Add `--annual-only` for S1 and S2 alone. Run a small artificial example with `jrpa demo --region tokyo --output ../synthetic-tokyo`.
+The output directory contains `design_values.csv`, diagnostics, source usage and `results.html`. Add `--annual-only` to estimate univariate design rainfall (S1) and coastal water levels (S2) without fitting the compound-event model. Run a small artificial example with `jrpa demo --region tokyo --output ../synthetic-tokyo`.
 
 <details markdown="1">
 <summary>Repository layout and code locations</summary>
@@ -72,8 +72,8 @@ shared/
     jrpa/
         main.py          # The five steps, in order
         step01_prepare/  # Observations, quality rules, vertical references
-        step02_events/   # Rainfall merge and independent event pairs
-        step03_annual/   # Annual rainfall S1 and water-level S2
+        step02_events/   # Rainfall merge and declustered event pairs
+        step03_annual/   # Univariate design rainfall (S1) and water level (S2)
         step04_copula/   # Event margins and copula dependence
         step05_export/   # Kendall design points, tables and report
         common/          # Settings, files, datums and quality checks
@@ -85,7 +85,7 @@ shared/
 
 ## Read the documentation
 
-Each regional README contains maps, station assignments and observation coverage. [Analysis workflow](shared/README.md) describes the five processing steps; [Methods](shared/methods.md) gives the equations; [Inputs and sources](shared/inputs.md) describes the observation files and their sources.
+Each regional README contains maps, station assignments and observation coverage. [Analysis workflow](shared/README.md) describes the five processing steps; [Methods](shared/methods.md) gives the statistical methods, equations and references; [Inputs and sources](shared/inputs.md) describes the observation files and their sources.
 
 To build local HTML pages with typeset equations:
 

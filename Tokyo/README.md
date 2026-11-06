@@ -297,8 +297,8 @@ Tide station: Mera · ID: `JMA_MR`.
 - JMA rainfall follows the declared station priority; valid zeros remain observed zeros, and missing values are not filled by interpolation.
 - Tide conversion uses documented station epochs with JST boundaries. Unknown datum offsets are excluded. Source quality-code meanings remain provider-specific.
 - Rainfall events use the shared hourly pairing, R95 threshold, and 72-hour declustering rules.
-- S1 uses full-record moving-24-hour rainfall maxima. Overlapping annual-maximum windows at water-year boundaries are de-duplicated; reviewed annual observation samples can be supplied with their selection flags.
-- S2 uses one full-record frequency curve per tide station. Kawasaki transfers the Tokyo-Harumi curve; Kurihama transfers the Aburatsubo curve, with concurrent annual-maximum median differences.
+- Univariate design rainfall (S1) is estimated from annual maxima of complete moving 24-hour totals over the full available rainfall record. Overlapping annual-maximum windows at water-year boundaries are de-duplicated; reviewed annual observation samples can be supplied with their selection flags.
+- Design coastal water levels (S2) are estimated from one annual-maximum frequency curve per tide gauge, using its full available record. Kawasaki transfers the Tokyo-Harumi curve; Kurihama transfers the Aburatsubo curve, with concurrent annual-maximum median differences.
 - Water-year 2026 remains in the accepted rainfall record.
 - Regular rainfall and coastal peak times occur at hour 12.
 
@@ -311,7 +311,7 @@ python -m pip install -e "."
 python Tokyo/run_analysis.py --manifest ../private/tokyo/manifest.json --output ../outputs/tokyo
 ```
 
-[run_analysis.py](run_analysis.py) executes steps 01–05: preparation, event selection, annual fitting, copula fitting and design export. [settings.py](settings.py) contains the regional parameters and station rules; [stations.json](stations.json) contains the station catalog. Use `--annual-only` for S1 and S2.
+[run_analysis.py](run_analysis.py) executes steps 01–05: preparation, event sampling, univariate return-period analysis, copula fitting and design export. [settings.py](settings.py) contains the regional parameters and station rules; [stations.json](stations.json) contains the station catalog. Use `--annual-only` to estimate univariate 24-hour design rainfall (S1) and design coastal water levels (S2).
 
 Read [Methods](../shared/methods.md) for the equations and [Inputs and sources](../shared/inputs.md) for observation formats. The study-area figures below are already in `figures/`.
 
